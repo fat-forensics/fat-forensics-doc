@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.metrics`.false_negative_rate
+============================================================
+
+.. currentmodule:: fatf.utils.metrics.metrics
+
+.. autofunction:: false_negative_rate
+
+.. include:: fatf.utils.metrics.metrics.false_negative_rate.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

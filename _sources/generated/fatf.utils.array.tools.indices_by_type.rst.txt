@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.indices_by_type
+====================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: indices_by_type
+
+.. include:: fatf.utils.array.tools.indices_by_type.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

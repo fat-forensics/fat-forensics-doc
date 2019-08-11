@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.density.DensityCheck &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.utils.data.density.DensityCheck.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.models.models.KNN" href="fatf.utils.models.models.KNN.html" />
+    <link rel="prev" title="fatf.utils.data.augmentation.Mixup" href="fatf.utils.data.augmentation.Mixup.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>.DensityCheck</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-utils-data-density-densitycheck">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.density.DensityCheck</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.augmentation.Mixup.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.Mixup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.models.models.KNN.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code>.KNN</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.density.DensityCheck.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.augmentation.Mixup.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.augmentation.Mixup
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.models.models.KNN.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.mo...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.models.models.KNN
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>.DensityCheck</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-utils-data-density-densitycheck">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.density.DensityCheck</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-density-densitycheck">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.density" title="fatf.utils.data.density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code></a>.DensityCheck<a class="headerlink" href="#fatf-utils-data-density-densitycheck" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.density.DensityCheck">
+<em class="property">class </em><code class="descclassname">fatf.utils.data.density.</code><code class="descname">DensityCheck</code><span class="sig-paren">(</span><em>data_set: numpy.ndarray, categorical_indices: Optional[List[Union[str, int]]] = None, neighbours: int = 7, distance_function: Optional[Callable[[Union[numpy.ndarray, numpy.void], Union[numpy.ndarray, numpy.void]], float]] = None, normalise_scores: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/density.py#L140"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks and scores density in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> and for new data points.</p>
+<p>A density score for a particular data point is calculated by looking at the
+distance of the n-th neighbour defined by the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter.
+If this distance is relatively large (in comparison to all the other
+data point-to-data point distances in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>) it means that this
+particular point lies in a low density region. The scores can be normalised
+to [0, 1] range by setting the <code class="docutils literal notranslate"><span class="pre">normalise_scores</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(the default value). Since the minimum and the maximum value of the scores
+in the data set are used when (normalised) scoring a new data point the
+score may go out of the [0, 1] range. To avoid this from happening please
+look into the <code class="docutils literal notranslate"><span class="pre">clip</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">score_data_point</span></code> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_set</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array (either classic or structured) of a base
+type (strings and/or numbers).</p>
+</dd>
+<dt><strong>categorical_indices</strong><span class="classifier">List[column indices], optional (default=None)</span></dt><dd><p>A list of column indices that should be treat as categorical features.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> the categorical column indices will be inferred by checking
+the type of the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> for a classic numpy array and the type of
+every column for a structured numpy array.</p>
+</dd>
+<dt><strong>neighbours</strong><span class="classifier">integer, optional (default=7)</span></dt><dd><p>The number of closest neighbours to be considered when calculating the
+density score.</p>
+</dd>
+<dt><strong>distance_function</strong><span class="classifier">Callable[[data row, data row], number], optional (default=None)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">None</span></code> the sum of Euclidean distance for numerical features and
+binary distance (0 when the values are the same and 1 otherwise) for
+categorical features will be used as a distance function.
+Alternatively, the user may provide a Python function that will be used
+to calculate a distance between two data points. This function takes as
+an input two 1-dimensional numpy arrays (for classic numpy arrays) or
+numpy voids (fro structured numpy arrays) of equal length and outputs a
+number representing a distance between them. <strong>The distance function is
+assumed to return the same distance regardless of the order in which
+the input parameters are given.</strong></p>
+</dd>
+<dt><strong>normalise_scores</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>A boolean parameter indicating whether to normalise the density scores
+(<code class="docutils literal notranslate"><span class="pre">True</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">False</span></code>). The scores are normalised by subtracting
+the minimum value and dividing by the new (after subtracting the
+minimum) maximum value.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>data_set</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A data set used to compute the density scores.</p>
+</dd>
+<dt><strong>neighbours</strong><span class="classifier">integer</span></dt><dd><p>The number of neighbours used to calculate the density scores.</p>
+</dd>
+<dt><strong>normalise_scores</strong><span class="classifier">boolean</span></dt><dd><p>Indicates whether the scores should be normalised to a [0, 1] range.</p>
+</dd>
+<dt><strong>distance_matrix</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>An 2-dimensional, square and diagonally symmetric array with distances
+between every pair of rows in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>.</p>
+</dd>
+<dt><strong>scores</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 1-dimensional array with a density score for every row in the
+<code class="docutils literal notranslate"><span class="pre">data_set</span></code>.</p>
+</dd>
+<dt><strong>scores_min</strong><span class="classifier">number</span></dt><dd><p>The minimum density score (extracted before the normalisation if one is
+performed).</p>
+</dd>
+<dt><strong>scores_max</strong><span class="classifier">number</span></dt><dd><p>The maximum density score (extracted before the normalisation if one is
+performed).</p>
+</dd>
+<dt><strong>_samples_number</strong><span class="classifier">integer</span></dt><dd><p>The number of data points (rows) in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>.</p>
+</dd>
+<dt><strong>_numerical_indices</strong><span class="classifier">List[column indices]</span></dt><dd><p>An array holding indices of numerical columns in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>
+array.</p>
+</dd>
+<dt><strong>_categorical_indices</strong><span class="classifier">List[column indices]</span></dt><dd><p>An array holding indices of categorical columns in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>
+array.</p>
+</dd>
+<dt><strong>_is_structured</strong><span class="classifier">boolean</span></dt><dd><p>Indicates whether the input <code class="docutils literal notranslate"><span class="pre">data_set</span></code> is a structured array
+(<code class="docutils literal notranslate"><span class="pre">True</span></code>) or a classic numpy array (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
+<dt><strong>_distance_function</strong><span class="classifier">Callable[[data row, data row], number]</span></dt><dd><p>A Python function used to calculate distances between data points.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>AttributeError</strong></dt><dd><p>The distance function does not require exactly 2 non-optional
+parameters.</p>
+</dd>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not 2-dimensional.</p>
+</dd>
+<dt><strong>IndexError</strong></dt><dd><p>Some of the provided categorical column indices are invalid for the
+<code class="docutils literal notranslate"><span class="pre">data_set</span></code> array.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not of a base type (strings and/or numbers).
+The <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter is not an integer. The
+<code class="docutils literal notranslate"><span class="pre">distance_function</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor Python callable (a
+function). The <code class="docutils literal notranslate"><span class="pre">normalise_scores</span></code> parameter is not a boolean. The
+<code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is not a Python list.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter is smaller than 1 or larger than the
+number of instances (rows) in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+indicated to be categorical features by the user (via the
+<code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
+added to the list of categorical features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="fatf.utils.data.density.DensityCheck.filter_data_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data_set</span></code></a>(alpha)</p></td>
+<td><p>Returns the data points that are in alpha-dense areas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="fatf.utils.data.density.DensityCheck.score_data_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_data_point</span></code></a>(data_point, numpy.void], clip)</p></td>
+<td><p>Calculates a density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.density.DensityCheck.filter_data_set">
+<code class="descname">filter_data_set</code><span class="sig-paren">(</span><em>alpha: float = 0.8</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/density.py#L431"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the data points that are in alpha-dense areas.</p>
+<p>A data points in an alpha-dense region have a density score larger or
+equal to <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. For normalised scores <code class="docutils literal notranslate"><span class="pre">alpha</span></code> should be between 0
+and 1, whereas for unnormalised scores it must be equal to or larger
+than 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>alpha</strong><span class="classifier">number, optional (default=0.8)</span></dt><dd><p>The score above which instances should be kept.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>filtered_data_set</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Data points with density score larger than <code class="docutils literal notranslate"><span class="pre">alpha</span></code> (extracted
+from the <code class="docutils literal notranslate"><span class="pre">data_set</span></code>).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is not a number.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The alpha parameter is not between 0 and 1 for the normalised
+scores or is not larger or equal to 0 for unnormalised scores.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>Chosen <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is too large and none of the data points
+were selected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.density.DensityCheck.score_data_point">
+<code class="descname">score_data_point</code><span class="sig-paren">(</span><em>data_point: Union[numpy.ndarray, numpy.void], clip: bool = True</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/density.py#L545"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates a density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_point</strong><span class="classifier">Union[numpy.array, numpy.void]</span></dt><dd><p>A data row. For numpy arrays this will be a numpy ndarray. For
+structured numpy arrays this will be numpy void.</p>
+</dd>
+<dt><strong>clip</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> and the scores are normalised (this class was
+initialised with the <code class="docutils literal notranslate"><span class="pre">normalise_scores</span></code> parameter set to
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, which is the default option) the score of the provided
+data point will be clipped to fit the [0, 1] range. If the scores
+are not normalised this parameter is ignored.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">number</span></dt><dd><p>A density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The data point is not 1-dimensional numpy array (either numpy
+ndarray for classic numpy arrays or numpy void for structured numpy
+arrays). The data point does not have the same number of columns
+(features) as the data set used to initialise this class.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The data point is not of a base type (strings and/or numbers). The
+dtype of the data point is too different from the dtype of the
+data set used to initialise this class. The <code class="docutils literal notranslate"><span class="pre">clip</span></code> parameter is
+not a boolean.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>The minimum and maximum score values for this class are the same,
+therefore the score normalisation cannot be performed. In this case
+the score will be 0 if it is below the min/max, 1 if it is above
+the min/max and otherwise it stays the same.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="examples-using-fatf-utils-data-density-densitycheck">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.density.DensityCheck</span></code><a class="headerlink" href="#examples-using-fatf-utils-data-density-densitycheck" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a data density estimation to &quot;measure&quot; to what extent a pre..."><div class="figure align-center" id="id1">
+<img alt="../_images/sphx_glr_xmpl_accountability_predictions_density_thumb.png" src="../_images/sphx_glr_xmpl_accountability_predictions_density_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">Measuring Robustness of a Prediction – Data Density</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="clear:both"></div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.density.DensityCheck.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

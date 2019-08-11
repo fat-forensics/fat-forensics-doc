@@ -1,0 +1,11 @@
+:mod:`fatf.fairness.predictions.measures`.counterfactual_fairness_check
+==============================================================================
+
+.. currentmodule:: fatf.fairness.predictions.measures
+
+.. autofunction:: counterfactual_fairness_check
+
+.. include:: fatf.fairness.predictions.measures.counterfactual_fairness_check.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

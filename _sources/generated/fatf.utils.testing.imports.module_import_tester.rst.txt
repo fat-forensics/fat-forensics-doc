@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.imports`.module_import_tester
+=============================================================
+
+.. currentmodule:: fatf.utils.testing.imports
+
+.. autofunction:: module_import_tester
+
+.. include:: fatf.utils.testing.imports.module_import_tester.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

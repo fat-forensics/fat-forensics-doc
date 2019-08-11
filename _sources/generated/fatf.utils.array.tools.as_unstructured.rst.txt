@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.as_unstructured
+====================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: as_unstructured
+
+.. include:: fatf.utils.array.tools.as_unstructured.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

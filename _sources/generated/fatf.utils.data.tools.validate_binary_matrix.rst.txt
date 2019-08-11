@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.tools`.validate_binary_matrix
+==========================================================
+
+.. currentmodule:: fatf.utils.data.tools
+
+.. autofunction:: validate_binary_matrix
+
+.. include:: fatf.utils.data.tools.validate_binary_matrix.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

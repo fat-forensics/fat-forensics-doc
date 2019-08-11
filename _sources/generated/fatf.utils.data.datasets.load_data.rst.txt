@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.datasets`.load_data
+================================================
+
+.. currentmodule:: fatf.utils.data.datasets
+
+.. autofunction:: load_data
+
+.. include:: fatf.utils.data.datasets.load_data.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

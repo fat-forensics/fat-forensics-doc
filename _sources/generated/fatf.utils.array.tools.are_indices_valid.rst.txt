@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.are_indices_valid
+======================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: are_indices_valid
+
+.. include:: fatf.utils.array.tools.are_indices_valid.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

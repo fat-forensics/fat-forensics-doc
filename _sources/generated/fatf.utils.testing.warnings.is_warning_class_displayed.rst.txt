@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.warnings`.is_warning_class_displayed
+====================================================================
+
+.. currentmodule:: fatf.utils.testing.warnings
+
+.. autofunction:: is_warning_class_displayed
+
+.. include:: fatf.utils.testing.warnings.is_warning_class_displayed.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

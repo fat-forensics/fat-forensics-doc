@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Using Partial Dependence Explainer &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/sphinx_gallery_auto/transparency/xmpl_transparency_pd.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using Data Description Explainer" href="xmpl_transparency_data_desc.html" />
+    <link rel="prev" title="Using LIME Explainer" href="xmpl_transparency_lime.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xmpl_transparency_lime.html"
+                        title="previous chapter">Using LIME Explainer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xmpl_transparency_data_desc.html"
+                        title="next chapter">Using Data Description Explainer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/sphinx_gallery_auto/transparency/xmpl_transparency_pd.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+              <span class="hiddenrellink left-button">
+                Examples
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_transparency_lime.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Using LIME Explainer
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Using LIME Explainer
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_transparency_data_desc.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Using Data De...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Using Data Description Explainer
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Using Partial Dependence Explainer</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
+</div>
+<div class="sphx-glr-example-title section" id="using-partial-dependence-explainer">
+<span id="sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py"></span><h1>Using Partial Dependence Explainer<a class="headerlink" href="#using-partial-dependence-explainer" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how to use the Partial Dependence (PD) explainer and
+its plotting function. This example only shows how to get the PD array straight
+from the data. The calculation of PD required to compute the Individual
+Conditional Expectation (ICE) as part of the process. By using the
+<a class="reference internal" href="../../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="fatf.transparency.models.feature_influence.partial_dependence"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence</span></code></a> function
+the ICE array is computed, however it is never returned back to the user. If
+you want to inspect both ICE and PD then please have a look at the
+<a class="reference internal" href="#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py"><span class="std std-ref">Using Partial Dependence Explainer</span></a>
+example and the two following functions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../generated/fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="fatf.transparency.models.feature_influence.individual_conditional_expectation"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.individual_conditional_expectation</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="../../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="fatf.transparency.models.feature_influence.partial_dependence_ice"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence_ice</span></code></a>.</p></li>
+</ul>
+<img alt="../../_images/sphx_glr_xmpl_transparency_pd_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_xmpl_transparency_pd_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Explaining feature (index: 1): sepal width (cm).
+Explaining class (index: 2): virginica.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Kacper Sokol &lt;k.sokol@bristol.ac.uk&gt;</span>
+<span class="c1"># License: new BSD</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+
+<span class="kn">import</span> <span class="nn">fatf.transparency.models.feature_influence</span> <span class="k">as</span> <span class="nn">fatf_fi</span>
+
+<span class="kn">import</span> <span class="nn">fatf.vis.feature_influence</span> <span class="k">as</span> <span class="nn">fatf_vis_fi</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
+<span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="n">iris_class_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="c1"># Train a model</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span> <span class="n">iris_y</span><span class="p">)</span>
+
+<span class="c1"># Select a feature to be explained</span>
+<span class="n">selected_feature_index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">selected_feature_name</span> <span class="o">=</span> <span class="n">iris_feature_names</span><span class="p">[</span><span class="n">selected_feature_index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Explaining feature (index: </span><span class="si">{}</span><span class="s1">): </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selected_feature_index</span><span class="p">,</span>
+                                                   <span class="n">selected_feature_name</span><span class="p">))</span>
+
+<span class="c1"># Select class for which the explanation will be produced</span>
+<span class="n">explanation_class</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">explanation_class_name</span> <span class="o">=</span> <span class="n">iris_class_names</span><span class="p">[</span><span class="n">explanation_class</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Explaining class (index: </span><span class="si">{}</span><span class="s1">): </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">explanation_class</span><span class="p">,</span>
+                                                 <span class="n">explanation_class_name</span><span class="p">))</span>
+
+<span class="c1"># Define the number of samples to be generated (granularity of the explanation)</span>
+<span class="n">linspace_samples</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># Calculate Partial Dependence</span>
+<span class="n">pd_array</span><span class="p">,</span> <span class="n">pd_linspace</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence</span></a><span class="p">(</span>
+    <span class="n">iris_X</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">steps_number</span><span class="o">=</span><span class="n">linspace_samples</span><span class="p">)</span>
+
+<span class="c1"># Plot Partial Dependence on its own</span>
+<span class="n">pd_plot_clean</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a><span class="p">(</span>
+    <span class="n">pd_array</span><span class="p">,</span>
+    <span class="n">pd_linspace</span><span class="p">,</span>
+    <span class="n">explanation_class</span><span class="p">,</span>
+    <span class="n">class_name</span><span class="o">=</span><span class="n">explanation_class_name</span><span class="p">,</span>
+    <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.759 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_pd.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f6055458a4cd4c41d847d1e0d4278973/xmpl_transparency_pd.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_pd.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f0dce287755deef6eb6f14bf9eaa804c/xmpl_transparency_pd.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_pd.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/sphinx_gallery_auto/transparency/xmpl_transparency_pd.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

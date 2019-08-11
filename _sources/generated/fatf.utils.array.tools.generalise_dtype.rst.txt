@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.generalise_dtype
+=====================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: generalise_dtype
+
+.. include:: fatf.utils.array.tools.generalise_dtype.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

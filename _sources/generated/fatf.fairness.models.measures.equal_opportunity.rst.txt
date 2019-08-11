@@ -1,0 +1,11 @@
+:mod:`fatf.fairness.models.measures`.equal_opportunity
+=============================================================
+
+.. currentmodule:: fatf.fairness.models.measures
+
+.. autofunction:: equal_opportunity
+
+.. include:: fatf.fairness.models.measures.equal_opportunity.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

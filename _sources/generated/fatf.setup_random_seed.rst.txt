@@ -1,0 +1,11 @@
+:mod:`fatf`.setup_random_seed
+====================================
+
+.. currentmodule:: fatf
+
+.. autofunction:: setup_random_seed
+
+.. include:: fatf.setup_random_seed.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

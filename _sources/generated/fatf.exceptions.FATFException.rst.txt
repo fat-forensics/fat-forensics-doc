@@ -1,0 +1,11 @@
+:mod:`fatf.exceptions`.FATFException
+===========================================
+
+.. currentmodule:: fatf.exceptions
+
+.. autoexception:: FATFException
+    :no-members:
+    :no-undoc-members:
+    :no-inherited-members:
+    :no-private-members:
+    :no-special-members:

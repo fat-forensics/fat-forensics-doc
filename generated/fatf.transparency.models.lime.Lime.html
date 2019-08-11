@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.transparency.models.lime.Lime &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.transparency.models.lime.Lime.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html" />
+    <link rel="prev" title="fatf.transparency.models.feature_influence.partial_dependence" href="fatf.transparency.models.feature_influence.partial_dependence.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code>.Lime</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-transparency-models-lime-lime">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.models.lime.Lime</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.transparency.models.feature_influence.partial_dependence.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code>.partial_dependence</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>.CounterfactualExplainer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.transparency.models.lime.Lime.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.transparency.models.feature_influence.partial_dependence.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.transpar...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.transparency.models.feature_influence.partial_dependence
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.transpar...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.transparency.predictions.counterfactuals.CounterfactualExplainer
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code>.Lime</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-transparency-models-lime-lime">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.models.lime.Lime</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-transparency-models-lime-lime">
+<h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a>.Lime<a class="headerlink" href="#fatf-transparency-models-lime-lime" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.transparency.models.lime.Lime">
+<em class="property">class </em><code class="descclassname">fatf.transparency.models.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/transparency/models/lime.py#L21"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.lime.Lime" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sub-class of the Lime class designated for explaining a whole model.</p>
+<p>This class initialises a <a class="reference internal" href="fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class and
+overwrites the <code class="docutils literal notranslate"><span class="pre">sample_around_instance</span></code>/<code class="docutils literal notranslate"><span class="pre">local_explanation</span></code> to be
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, therefore creates a surrogate explainer of the whole model.</p>
+<p>For reference please see the description of the
+<a class="reference internal" href="fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.models.lime.Lime.explain_instance" title="fatf.transparency.models.lime.Lime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(instance, **kwargs)</p></td>
+<td><p>Explains an instance with the LIME tabular explainer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.transparency.models.lime.Lime.explain_instance">
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/transparency/lime.py#L298"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explains an instance with the LIME tabular explainer.</p>
+<p>This method wraps around <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> <a class="reference external" href="https://lime-ml.readthedocs.io/en/latest/lime.html#lime.lime_tabular.LimeTabularExplainer.explain_instance">method</a> in the LIME
+tabular explainer object.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Contrarily to the LIME tabular explainer this wrapper produces
+explanations for all of the classes for a classification task by
+default.</p>
+</div>
+<p>If any of the named parameters for this function were specified when
+initialising this object they will be used unless they are also defined
+when calling this method, in which case the latter take the precedence.</p>
+<p>If all: a class-wide model, a class-wide prediction function and a
+local prediction function (via named parameter to this function) are
+specified, they are used in the following order:</p>
+<ul class="simple">
+<li><p>local prediction function,</p></li>
+<li><p>global prediction function, and finally</p></li>
+<li><p>the model.</p></li>
+</ul>
+<p>Based on whether the task at hand is classification or regression
+either <code class="docutils literal notranslate"><span class="pre">predict</span></code> (regression) or <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> (classification)
+method of the model is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>instance</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 1-dimensional data point (numpy array) to be explained.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">lime.lime_tabular.LimeTabularExplainer.explain_instance</span></dt><dd><p>LIME tabular explainer’s <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> optional parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>explanation</strong><span class="classifier">Dictionary[string, Tuple[string, float]] or List[Tuple[string, float]]</span></dt><dd><p>For classification a dictionary where the keys correspond to class
+names and the values are tuples (string and float), which represent
+an explanation in terms of one of the features and the importance
+of this explanation. For regression a list of tuples (string and
+float) with the same meaning.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>AttributeError</strong></dt><dd><p>One of the named parameters is invalid for the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code>
+method of the LIME tabular explainer.</p>
+</dd>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">instance</span></code> is not a 1-dimensional numpy array.</p>
+</dd>
+<dt><strong>RuntimeError</strong></dt><dd><p>A predictive function is not available (neither as a <code class="docutils literal notranslate"><span class="pre">model</span></code>
+attribute of this class, nor as a <code class="docutils literal notranslate"><span class="pre">predict_fn</span></code> parameter).</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">instance</span></code> is not purely numerical.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="examples-using-fatf-transparency-models-lime-lime">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.models.lime.Lime</span></code><a class="headerlink" href="#examples-using-fatf-transparency-models-lime-lime" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer in its generic form to explain a..."><div class="figure align-center" id="id1">
+<img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="clear:both"></div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.transparency.models.lime.Lime.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

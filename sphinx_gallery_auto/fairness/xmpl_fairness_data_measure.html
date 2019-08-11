@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Measuring Fairness of a Data Set &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using LIME Explainer" href="../transparency/xmpl_transparency_lime.html" />
+    <link rel="prev" title="Measuring Fairness of a Prediction – Counterfactual Fairness" href="xmpl_fairness_predictions_measure.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Measuring Fairness of a Data Set</a><ul>
+<li><a class="reference internal" href="#systemic-bias">Systemic Bias</a></li>
+<li><a class="reference internal" href="#sample-size-disparity">Sample Size Disparity</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xmpl_fairness_predictions_measure.html"
+                        title="previous chapter">Measuring Fairness of a Prediction – Counterfactual Fairness</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../transparency/xmpl_transparency_lime.html"
+                        title="next chapter">Using LIME Explainer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+              <span class="hiddenrellink left-button">
+                Examples
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_fairness_predictions_measure.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Measuring Fai...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Measuring Fairness of a Prediction – Counterfactual Fairness
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../transparency/xmpl_transparency_lime.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Using LIME Explainer
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Using LIME Explainer
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Measuring Fairness of a Data Set</a><ul>
+<li><a class="reference internal" href="#systemic-bias">Systemic Bias</a></li>
+<li><a class="reference internal" href="#sample-size-disparity">Sample Size Disparity</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
+</div>
+<div class="sphx-glr-example-title section" id="measuring-fairness-of-a-data-set">
+<span id="sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"></span><h1>Measuring Fairness of a Data Set<a class="headerlink" href="#measuring-fairness-of-a-data-set" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how to find unfair rows in a data set using the
+<a class="reference internal" href="../../generated/fatf.fairness.data.measures.systemic_bias.html#fatf.fairness.data.measures.systemic_bias" title="fatf.fairness.data.measures.systemic_bias"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.fairness.data.measures.systemic_bias</span></code></a> function and how to check
+whether each class is distributed equally between values of a selected feature,
+i.e. measuring the Sample Size Disparity (with <a class="reference internal" href="../../generated/fatf.utils.data.tools.group_by_column.html#fatf.utils.data.tools.group_by_column" title="fatf.utils.data.tools.group_by_column"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code></a> function).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that this example uses a data set that is represented as a
+structured numpy array, which supports mixed data types among columns with
+the features (columns) being index by the feature name rather than by
+consecutive integers.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Kacper Sokol &lt;k.sokol@bristol.ac.uk&gt;</span>
+<span class="c1"># License: new BSD</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+
+<span class="kn">import</span> <span class="nn">fatf.fairness.data.measures</span> <span class="k">as</span> <span class="nn">fatf_dfm</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.tools</span> <span class="k">as</span> <span class="nn">fatf_data_tools</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">hr_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_health_records.html#fatf.utils.data.datasets.load_health_records" title="View documentation for fatf.utils.data.datasets.load_health_records"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_health_records</span></a><span class="p">()</span>
+<span class="n">hr_X</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">hr_y</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="n">hr_feature_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="n">hr_class_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="systemic-bias">
+<h2>Systemic Bias<a class="headerlink" href="#systemic-bias" title="Permalink to this headline">¶</a></h2>
+<p>Before we proceed, we need to select which feature are <strong>protected</strong>, i.e.
+which ones are illegal to use when generating the prediction.</p>
+<p>We use them to see whether the data set contains rows that differ in some of
+the protected features and the labels (ground truth) but not in the rest of
+the features.</p>
+<p>The example presented below is rather naive as we do not have access to a
+more complicated dataset within the FAT-Forensics package. To demonstrate the
+functionality of the we indicate all but one feature to be protected, hence
+we are guaranteed to find quite a few unfair rows in the health records data
+set. This means that “unfair” data rows are the ones that have the same value
+of the <em>diagnosis</em> feature (with rest of the feature values being
+unimportant) and differ in their target (ground truth) value.</p>
+<p>Systematic bias is expressed here as a square matrix (numpy array) of length
+equal to the number of rows in the data array. Each element of this matrix
+is a boolean indicating whether the rows in the data array with a particular
+pair of indices (the row and column indices of the boolean matrix) violate
+the aforementioned fairness criterion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select which features should be treated as protected</span>
+<span class="n">protected_features</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;zipcode&#39;</span><span class="p">,</span> <span class="s1">&#39;dob&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Compute the data fairness matrix</span>
+<span class="n">data_fairness_matrix</span> <span class="o">=</span> <a href="../../generated/fatf.fairness.data.measures.systemic_bias.html#fatf.fairness.data.measures.systemic_bias" title="View documentation for fatf.fairness.data.measures.systemic_bias"><span class="n">fatf_dfm</span><span class="o">.</span><span class="n">systemic_bias</span></a><span class="p">(</span><span class="n">hr_X</span><span class="p">,</span> <span class="n">hr_y</span><span class="p">,</span> <span class="n">protected_features</span><span class="p">)</span>
+
+<span class="c1"># Check if the data set is unfair (at least one unfair pair of data points)</span>
+<span class="n">is_data_unfair</span> <span class="o">=</span> <a href="../../generated/fatf.fairness.data.measures.systemic_bias_check.html#fatf.fairness.data.measures.systemic_bias_check" title="View documentation for fatf.fairness.data.measures.systemic_bias_check"><span class="n">fatf_dfm</span><span class="o">.</span><span class="n">systemic_bias_check</span></a><span class="p">(</span><span class="n">data_fairness_matrix</span><span class="p">)</span>
+
+<span class="c1"># Identify which pairs of indices cause the unfairness</span>
+<span class="n">unfair_pairs_tuple</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html#numpy.where" title="View documentation for numpy.where"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><span class="n">data_fairness_matrix</span><span class="p">)</span>
+<span class="n">unfair_pairs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">unfair_pairs_tuple</span><span class="p">):</span>
+    <span class="n">pair_a</span><span class="p">,</span> <span class="n">pair_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pair_a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unfair_pairs</span> <span class="ow">and</span> <span class="n">pair_b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unfair_pairs</span><span class="p">:</span>
+        <span class="n">unfair_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pair_a</span><span class="p">)</span>
+
+<span class="c1"># Print out whether the fairness condition is violated</span>
+<span class="k">if</span> <span class="n">is_data_unfair</span><span class="p">:</span>
+    <span class="n">unfair_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unfair_pairs</span><span class="p">)</span>
+    <span class="n">unfair_fill</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">unfair_n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="s1">&#39;are&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">There </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> pair</span><span class="si">{}</span><span class="s1"> of data points that violates the fairness &#39;</span>
+          <span class="s1">&#39;criterion.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">unfair_fill</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">unfair_n</span><span class="p">,</span> <span class="n">unfair_fill</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The data set is fair.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the first pair of violating rows</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">hr_X</span><span class="p">[[</span><span class="n">unfair_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">unfair_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>There are 26 pairs of data points that violates the fairness criterion.
+
+array([(&#39;Heidi Mitchell&#39;, &#39;uboyd@hotmail.com&#39;, 74, 52, &#39;female&#39;, &#39;1121&#39;, &#39;cancer&#39;, &#39;03/06/2018&#39;),
+       (&#39;Kimberly Kent&#39;, &#39;wilsoncarla@mitchell-gree&#39;, 63, 51, &#39;male&#39;, &#39;2003&#39;, &#39;cancer&#39;, &#39;16/06/2017&#39;)],
+      dtype=[(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;email&#39;, &#39;&lt;U25&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;i4&#39;), (&#39;gender&#39;, &#39;&lt;U10&#39;), (&#39;zipcode&#39;, &#39;&lt;U6&#39;), (&#39;diagnosis&#39;, &#39;&lt;U6&#39;), (&#39;dob&#39;, &#39;&lt;U16&#39;)])
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-size-disparity">
+<h2>Sample Size Disparity<a class="headerlink" href="#sample-size-disparity" title="Permalink to this headline">¶</a></h2>
+<p>The measure of Sample Size Disparity can be achieved by calling the
+<a class="reference internal" href="../../generated/fatf.utils.data.tools.group_by_column.html#fatf.utils.data.tools.group_by_column" title="fatf.utils.data.tools.group_by_column"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code></a> grouping function and counting
+the number of instances in each group. By doing that for the <em>target vector</em>
+(ground truth) we can see whether the classes in our data set are balanced
+for each sub-group defined by a specified set of values for that feature.</p>
+<p>In the example below we will check whether there are roughly the same number
+of data points collected for <em>males</em> and <em>females</em>. Then we will see whether
+the class distribution (<em>fail</em> and <em>success</em>) for these two sub-populations
+is similar.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group the data based on the unique values of the &#39;gender&#39; column</span>
+<span class="n">grouping_column</span> <span class="o">=</span> <span class="s1">&#39;gender&#39;</span>
+<span class="n">grouping_indices</span><span class="p">,</span> <span class="n">grouping_names</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.tools.group_by_column.html#fatf.utils.data.tools.group_by_column" title="View documentation for fatf.utils.data.tools.group_by_column"><span class="n">fatf_data_tools</span><span class="o">.</span><span class="n">group_by_column</span></a><span class="p">(</span>
+    <span class="n">hr_X</span><span class="p">,</span> <span class="n">grouping_column</span><span class="p">,</span> <span class="n">treat_as_categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Print out the data distribution for the grouping</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The grouping based on the *</span><span class="si">{}</span><span class="s1">* feature has the &#39;</span>
+      <span class="s1">&#39;following distribution:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grouping_column</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">grouping_name</span><span class="p">,</span> <span class="n">grouping_idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grouping_names</span><span class="p">,</span> <span class="n">grouping_indices</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * &quot;</span><span class="si">{}</span><span class="s1">&quot; grouping has </span><span class="si">{}</span><span class="s1"> instances.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">grouping_name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grouping_idx</span><span class="p">)))</span>
+
+<span class="c1"># Get the class distribution for each sub-grouping</span>
+<span class="n">grouping_class_distribution</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">grouping_name</span><span class="p">,</span> <span class="n">grouping_idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grouping_names</span><span class="p">,</span> <span class="n">grouping_indices</span><span class="p">):</span>
+    <span class="n">sg_y</span> <span class="o">=</span> <span class="n">hr_y</span><span class="p">[</span><span class="n">grouping_idx</span><span class="p">]</span>
+    <span class="n">sg_classes</span><span class="p">,</span> <span class="n">sg_counts</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.unique.html#numpy.unique" title="View documentation for numpy.unique"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><span class="n">sg_y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">grouping_class_distribution</span><span class="p">[</span><span class="n">grouping_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">sg_class</span><span class="p">,</span> <span class="n">sg_count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sg_classes</span><span class="p">,</span> <span class="n">sg_counts</span><span class="p">):</span>
+        <span class="n">sg_class_name</span> <span class="o">=</span> <span class="n">hr_class_names</span><span class="p">[</span><span class="n">sg_class</span><span class="p">]</span>
+
+        <span class="n">grouping_class_distribution</span><span class="p">[</span><span class="n">grouping_name</span><span class="p">][</span><span class="n">sg_class_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">sg_count</span>
+
+<span class="c1"># Print out the class distribution per sub-group</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The class distribution per sub-population:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">grouping_name</span><span class="p">,</span> <span class="n">class_distribution</span> <span class="ow">in</span> <span class="n">grouping_class_distribution</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * For the &quot;</span><span class="si">{}</span><span class="s1">&quot; grouping the classes are distributed as &#39;</span>
+          <span class="s1">&#39;follows:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grouping_name</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_count</span> <span class="ow">in</span> <span class="n">class_distribution</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;        - The class *</span><span class="si">{}</span><span class="s1">* has </span><span class="si">{}</span><span class="s1"> data points.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">class_name</span><span class="p">,</span> <span class="n">class_count</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The grouping based on the *gender* feature has the following distribution:
+    * &quot;(&#39;female&#39;,)&quot; grouping has 12 instances.
+    * &quot;(&#39;male&#39;,)&quot; grouping has 9 instances.
+
+The class distribution per sub-population:
+    * For the &quot;(&#39;female&#39;,)&quot; grouping the classes are distributed as follows:
+        - The class *fail* has 5 data points.
+        - The class *success* has 7 data points.
+    * For the &quot;(&#39;male&#39;,)&quot; grouping the classes are distributed as follows:
+        - The class *fail* has 5 data points.
+        - The class *success* has 4 data points.
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.063 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d2e67f2bc35e8467a4fa3330b3050da8/xmpl_fairness_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_data_measure.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/88e346699def98206d6be594490509f9/xmpl_fairness_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_data_measure.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

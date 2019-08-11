@@ -1,0 +1,321 @@
+:orphan:
+
+
+
+.. _sphx_glr_sphinx_gallery_auto:
+
+.. _examples:
+
+Examples
+========
+
+Here you can find various examples of using FAT-Forensics.
+
+.. note::
+   Please note that all of the examples using the
+   :class:`fatf.utils.models.models.KNN` model class may be slow as our
+   implementation of the k-nearest neighbours algorithm is in pure Python,
+   hence is rather slow.
+
+
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_sphinx_gallery_auto_accountability:
+
+.. _accountability_examples:
+
+Accountability Examples
+=======================
+
+Here you can find various examples of how to use FAT-Forensics to evaluate
+accountability -- *security*, *safety*, *robustness* and *privacy* -- of data
+sets, machine learning models and their predictions.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to identify Sampling Bias for a data set grouping for a selected f...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/accountability/images/thumb/sphx_glr_xmpl_accountability_data_measure_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_data_measure.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/accountability/xmpl_accountability_data_measure
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to measure Systematic Performance Bias based on a selected predict...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/accountability/images/thumb/sphx_glr_xmpl_accountability_models_measure_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_models_measure.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/accountability/xmpl_accountability_models_measure
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a data density estimation to &quot;measure&quot; to what extent a pre...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/accountability/images/thumb/sphx_glr_xmpl_accountability_predictions_density_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_predictions_density.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_sphinx_gallery_auto_fairness:
+
+.. _fairness_examples:
+
+Fairness Examples
+=================
+
+Here you can find various examples of how to use FAT-Forensics to evaluate and
+mitigate a range of fairness aspects of data sets, machine learning models and
+their predictions.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to measure Disparate Impact of a predictive model. In this example...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/fairness/images/thumb/sphx_glr_xmpl_fairness_models_measure_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_models_measure.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/fairness/xmpl_fairness_models_measure
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how scrutinise a data point under the counterfactual fairness assumpti...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/fairness/images/thumb/sphx_glr_xmpl_fairness_predictions_measure_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/fairness/images/thumb/sphx_glr_xmpl_fairness_data_measure_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_data_measure.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/fairness/xmpl_fairness_data_measure
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. _sphx_glr_sphinx_gallery_auto_transparency:
+
+.. _transparency_examples:
+
+Transparency Examples
+=====================
+
+Here you can find various examples of how to use FAT-Forensics to explain and
+interpret data sets, machine learning models and their predictions.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer in its generic form to explain a...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_lime_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_lime.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_lime
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Partial Dependence (PD) explainer and its plotting func...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_pd_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_pd.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_pd
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Data Description to interpret a data set. (See the :mod...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_data_desc_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_data_desc
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Counterfactual Prediction explainer (:class:`fatf.trans...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_cf_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_cf.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_cf
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Individual Conditional Expectation explainer and its pl...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_ice_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_ice.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_ice
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Python source code: sphinx_gallery_auto_python.zip <//home/travis/build/So-Cool/fat-forensics/doc/sphinx_gallery_auto/sphinx_gallery_auto_python.zip>`
+
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Jupyter notebooks: sphinx_gallery_auto_jupyter.zip <//home/travis/build/So-Cool/fat-forensics/doc/sphinx_gallery_auto/sphinx_gallery_auto_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

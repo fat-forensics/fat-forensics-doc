@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Explaining a Machine Learning Model &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/tutorials/model-explainability.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Explaining Machine Learning Predictions: LIME and Counterfactuals" href="prediction-explainability.html" />
+    <link rel="prev" title="Using Grouping to Evaluate Robustness of Data and Models" href="grouping-robustness.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Explaining a Machine Learning Model: ICE and PD</a><ul>
+<li><a class="reference internal" href="#individual-conditional-expectation">Individual Conditional Expectation</a><ul>
+<li><a class="reference internal" href="#evaluation-data-density">Evaluation Data Density</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#partial-dependence">Partial Dependence</a><ul>
+<li><a class="reference internal" href="#misleading-average">Misleading Average</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="grouping-robustness.html"
+                        title="previous chapter">Using Grouping to Evaluate Robustness of Data and Models</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="prediction-explainability.html"
+                        title="next chapter">Explaining Machine Learning Predictions: LIME and Counterfactuals</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/model-explainability.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Tutorials
+              </span>
+              <span class="hiddenrellink left-button">
+                Tutorials
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="grouping-robustness.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Using Groupin...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Using Grouping to Evaluate Robustness of Data and Models
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="prediction-explainability.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Explaining Ma...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Explaining Machine Learning Predictions: LIME and Counterfactuals
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Explaining a Machine Learning Model: ICE and PD</a><ul>
+<li><a class="reference internal" href="#individual-conditional-expectation">Individual Conditional Expectation</a><ul>
+<li><a class="reference internal" href="#evaluation-data-density">Evaluation Data Density</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#partial-dependence">Partial Dependence</a><ul>
+<li><a class="reference internal" href="#misleading-average">Misleading Average</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="explaining-a-machine-learning-model-ice-and-pd">
+<span id="tutorials-model-explainability"></span><h1>Explaining a Machine Learning Model: ICE and PD<a class="headerlink" href="#explaining-a-machine-learning-model-ice-and-pd" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Tutorial Contents</p>
+<p>In this tutorial, we show how to gather some insights about inner workings
+of a predictive model by using <em>Individual Conditional Expectation</em> (ICE)
+and <em>Partial Dependence</em> (PD) tools. We highlight pros of these tools and
+point out a few caveats that every person using them should be aware of.
+Analysing ICE and PD of a predictive model allows us to understand how the
+model’s predictions change (on average) as we vary one of the features.</p>
+</div>
+<p>As with all the other tutorials, we first need to import all the necessary
+dependencies and load a data set. For this tutorial we will use the Iris data
+set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data_dict</span> <span class="o">=</span> <span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since this tutorial is focused on explaining a predictive model, we need to
+train one first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">iris_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Both ICE and PD will tell us how the probability of a selected class changes as
+we move along one of the features – for a selected subset of data points
+either individually (ICE) or on average (PD) – therefore we need to choose
+what class we are interested in, which feature want to inspect and what subset
+of data points we will use for the ICE/PD evaluation. Let us focus on the
+<strong>virginica</strong> iris type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_name</span> <span class="o">=</span> <span class="s1">&#39;virginica&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_target_names</span> <span class="o">==</span> <span class="n">selected_class_name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_index</span> <span class="o">=</span> <span class="n">selected_class_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_index</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">selected_class_index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We want know how does the <strong>sepal width (cm)</strong> feature influence the model’s
+predictions of this class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_name</span> <span class="o">=</span> <span class="s1">&#39;sepal width (cm)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_feature_names</span> <span class="o">==</span> <span class="n">selected_feature_name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_index</span> <span class="o">=</span> <span class="n">selected_feature_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_index</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">selected_feature_index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>For ICE/PD evaluation we will use the first 10 points of each class. Since the
+data points are ordered we will use <code class="docutils literal notranslate"><span class="pre">[0:10]</span></code> indices for the first class,
+<code class="docutils literal notranslate"><span class="pre">[50:60]</span></code> for the second one and <code class="docutils literal notranslate"><span class="pre">[100:110]</span></code> for the last one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">indices_data_eval</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">indices_data_eval</span><span class="p">)</span>
+<span class="go">30</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data_eval</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">indices_data_eval</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_eval</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">indices_data_eval</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_target_eval</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">(array([0, 1, 2]), array([10, 10, 10]))</span>
+</pre></div>
+</div>
+<p>Now, we are ready to pry this black box open.</p>
+<div class="section" id="individual-conditional-expectation">
+<h2>Individual Conditional Expectation<a class="headerlink" href="#individual-conditional-expectation" title="Permalink to this headline">¶</a></h2>
+<p>Let us dive straight in and see how the probability of the <em>virginica</em> class
+changes given the <em>sepal width</em> for the selected data points using the <a class="reference internal" href="../generated/fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="fatf.transparency.models.feature_influence.individual_conditional_expectation"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.individual_conditional_expectation</span></code></a>
+function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.transparency.models.feature_influence</span> <span class="k">as</span> <span class="nn">fatf_fi</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_array</span><span class="p">,</span> <span class="n">ice_linspace</span> <span class="o">=</span> <span class="n">fatf_fi</span><span class="o">.</span><span class="n">individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data_eval</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">steps_number</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_array</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(30, 100, 3)</span>
+</pre></div>
+</div>
+<p>To make sense of the ICE array – which holds probabilities outputted by the
+model for <code class="docutils literal notranslate"><span class="pre">3</span></code> classes of the <code class="docutils literal notranslate"><span class="pre">30</span></code> selected data points with the selected
+feature varied between its minimum and maximum over a <code class="docutils literal notranslate"><span class="pre">100</span></code> uniform steps –
+we can visualise it with a plotting function built into FAT Forensics:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.vis.feature_influence</span> <span class="k">as</span> <span class="nn">fatf_vis_fi</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_plot</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">ice_array</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ice.png"><img alt="../_images/ice.png" class="align-center" src="../_images/ice.png" style="width: 600.0px; height: 412.5px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Blockiness of the ICE Plot</p>
+<p>The ICE plot may seem blocky. This effect is due to the model being a
+k-Nearest Neighbour classifier (by default k is equal to 3) with the
+probability that it outputs being the proportion of the neighbours of a
+given class. Therefore, 4 different probability levels can be observed:</p>
+<ul class="simple">
+<li><p>0 – none of the neighbours is of <em>virginica</em> class,</p></li>
+<li><p>0.33 – one of the neighbours is of <em>virginica</em> class,</p></li>
+<li><p>0.66 – two of the neighbours are of <em>virginica</em> class, and</p></li>
+<li><p>1 – all of the neighbours are of <em>virginica</em> class.</p></li>
+</ul>
+</div>
+<p>The plot shows that for some of the data points the sepal width feature does
+not have any effect on the prediction – 0 and 1 probabilities of the virginica
+class – whereas for others it matters. This is not very informative. Let us
+separate these lines based on the ground truth (target vector) and inspect the
+results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;setosa&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_plot_0</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">ice_array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span>
+<span class="gp">... </span>   <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ice_0.png"><img alt="../_images/ice_0.png" class="align-center" src="../_images/ice_0.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Therefore, the probability of <em>virginica</em> is 0 for all of our <em>setosa</em> examples
+regardless of how we modify the sepal width feature value. One conclusion that
+we can reach from this experiment is that this feature is not important for
+predicting the <em>virginica</em> class.</p>
+<p>Now, let us try the <em>versicolor</em> examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;versicolor&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_plot_1</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">ice_array</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span>
+<span class="gp">... </span>   <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ice_1.png"><img alt="../_images/ice_1.png" class="align-center" src="../_images/ice_1.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Our <em>versicolor</em> examples indicate some dependence on the sepal width feature
+value in the region between 2.4 and 3. Given that there is just one example and
+that it would only be classified as <em>virginica</em> for sepal width between 2.7 and
+2.8 there is nothing definitive that we can say about this dependence. One
+observation worth mentioning is that there has to be some sort of feature
+correlation/dependence in the data set that result in this behaviour for the
+single data point.</p>
+<p>Finally, let us see how the probability of <em>virginica</em> changes based on the
+sepal width feature for the actual examples of <em>virginica</em> class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;virginica&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_plot_2</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">ice_array</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span>
+<span class="gp">... </span>   <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ice_2.png"><img alt="../_images/ice_2.png" class="align-center" src="../_images/ice_2.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Other than the two visible points, the model predicts probability of 1 for all
+the other ones. However, one of this “unstable” data points – the lowest
+line – is misclassified by the model regardless of the value of the sepal
+width feature, whereas the other data point would only be misclassified for a
+sepal width larger than 3.8.</p>
+<p>Given all these experiments we can conclude that telling apart the <em>virginica</em>
+class from the other two is not straight forward using the <em>sepal width</em>
+feature. For completeness, let us pick another feature, which we know (from
+experience) is a good predictor for the <em>virginica</em> class – <strong>petal length</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">other_feature_index</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_feature_name</span> <span class="o">=</span> <span class="n">iris_feature_names</span><span class="p">[</span><span class="n">other_feature_index</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other_feature_name</span>
+<span class="go">&#39;petal length (cm)&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_ice_arr</span><span class="p">,</span> <span class="n">n_ice_lin</span> <span class="o">=</span> <span class="n">fatf_fi</span><span class="o">.</span><span class="n">individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data_eval</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">other_feature_index</span><span class="p">,</span> <span class="n">steps_number</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_ice_plot</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">n_ice_arr</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">n_ice_lin</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">feature_name</span><span class="o">=</span><span class="n">other_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/n_ice.png"><img alt="../_images/n_ice.png" class="align-center" src="../_images/n_ice.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p><em>Petal length</em> is clearly a good predictor for the <em>virginica</em> class as for
+values of this feature falling below 3.6 there is 0 probability for our
+examples to be of <em>virginica</em> type, but above that the probability of this
+class grows rapidly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Grouping Based on the Ground Truth</p>
+<p>In this example we were able to separate data points into three bins based
+on their ground truth value since we know the ordering of the data in the
+array. For more complex cases you may want to use the grouping
+funcitonctionality implemented in the FAT Forensics package. Please consult
+the <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial for more information.</p>
+</div>
+<div class="section" id="evaluation-data-density">
+<h3>Evaluation Data Density<a class="headerlink" href="#evaluation-data-density" title="Permalink to this headline">¶</a></h3>
+<p>In the example above we only used 30 data points, which is not enough to make
+any meaningful conclusions. For the <em>virginica</em> data points we have noticed
+that <em>sepal width</em> above 3.8 causes one of the data points to be misclassified,
+but should we trust this observation? That depends on how many data points we
+have seen in this region. For some values of this feature we may have not
+observed any real data points, which means that the model is likely to output
+predictions that are not meaningful in this region. However, when evaluating
+the ICE of a model we plot these predictions anyway. Therefore, we should be
+careful when reading these plots and inspect distribution of the feature that
+we inspect to validate the effect presented in an ICE plot.</p>
+<p>Given this observation, let us see the distribution of the <em>sepal width</em>
+feature for the <strong>full</strong> Iris data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hist_plot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hist</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[:,</span> <span class="n">selected_feature_index</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ice_hist.png"><img alt="../_images/ice_hist.png" class="align-center" src="../_images/ice_hist.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>We can clearly see that there are only a few (training) data points that have
+the <em>sepal width</em> feature above 3.8. Therefore, before we draw a conclusion
+that <em>sepal width</em> above 3.8 indicates that it is not a <em>virginica</em> iris, we
+should first make additional experiments.</p>
+</div>
+</div>
+<div class="section" id="partial-dependence">
+<h2>Partial Dependence<a class="headerlink" href="#partial-dependence" title="Permalink to this headline">¶</a></h2>
+<p>A complement of the ICE is Partial Dependence that aims at finding <em>average</em>,
+rather than individual, feature influence on a selected class. To get a PD
+array we could use the <a class="reference internal" href="../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="fatf.transparency.models.feature_influence.partial_dependence"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence</span></code></a> function, however this would mean recomputing the ICE
+array. To avoid this expensive computation, we will use the <a class="reference internal" href="../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="fatf.transparency.models.feature_influence.partial_dependence_ice"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence_ice</span></code></a> function that
+can reuse an already existing ICE array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd_array</span> <span class="o">=</span> <span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence_ice</span><span class="p">(</span><span class="n">ice_array</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which we can plot with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd_plot</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">pd_array</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/pd_solo.png"><img alt="../_images/pd_solo.png" class="align-center" src="../_images/pd_solo.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>The PD plot, surprisingly, indicates that the <em>sepal width</em> feature does not
+influence the probability of the <em>virginica</em> class (<strong>on average</strong>) and
+regardless of the value that this feature takes the probability of <em>virginica</em>
+is around 0.35.</p>
+<div class="section" id="misleading-average">
+<h3>Misleading Average<a class="headerlink" href="#misleading-average" title="Permalink to this headline">¶</a></h3>
+<p>The surprising result sown above is the effect of PD taking an average over all
+the individual effects (ICE). This can often be misleading. To avoid
+misinterpreting PD results, we often overlay it on top of an ICE plot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ice_re_plot</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ice_array</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ice_re_plot_figure</span><span class="p">,</span> <span class="n">ice_re_plot_axis</span> <span class="o">=</span> <span class="n">ice_re_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd_re_plot</span> <span class="o">=</span> <span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">pd_array</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ice_linspace</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">selected_class_index</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">class_name</span><span class="o">=</span><span class="n">selected_class_name</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">plot_axis</span><span class="o">=</span><span class="n">ice_re_plot_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/pd_ice.png"><img alt="../_images/pd_ice.png" class="align-center" src="../_images/pd_ice.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Such plot presents a full picture and allows us to draw conclusions about the
+usefulness of the PD curve.</p>
+<hr class="docutils" />
+<p>This tutorial walked through using Individual Conditional Expectation and
+Partial Dependence to explain influence of features on predictions of a model.
+We saw how to use both these functions and what to look for when interpreting
+their results.</p>
+<p>In the <a class="reference internal" href="prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">next tutorial</span></a> we will see
+how to assess transparency of predictions with <em>counterfactuals</em> and <em>LIME</em>.
+If you are looking for a tutorial on explaining data sets, please have a look
+at the <a class="reference internal" href="grouping.html#tutorials-grouping-data-transparency"><span class="std std-ref">Using Grouping to Inspect a Data Set – Data Transparency</span></a> section of the
+<a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial.</p>
+</div>
+</div>
+<div class="section" id="relevant-fat-forensics-examples">
+<h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
+<p>The following examples provide more structured and code-focused use-cases of
+the ICE and PD functionality:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_ice.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-ice-py"><span class="std std-ref">Using Individual Conditional Expectation Explainer</span></a>,</p></li>
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_pd.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py"><span class="std std-ref">Using Partial Dependence Explainer</span></a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/tutorials/model-explainability.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

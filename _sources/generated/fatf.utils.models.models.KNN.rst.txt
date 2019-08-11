@@ -1,0 +1,11 @@
+:mod:`fatf.utils.models.models`.KNN
+==========================================
+
+.. currentmodule:: fatf.utils.models.models
+
+.. autoclass:: KNN
+
+.. include:: fatf.utils.models.models.KNN.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

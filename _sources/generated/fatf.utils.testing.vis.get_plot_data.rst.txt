@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.vis`.get_plot_data
+==================================================
+
+.. currentmodule:: fatf.utils.testing.vis
+
+.. autofunction:: get_plot_data
+
+.. include:: fatf.utils.testing.vis.get_plot_data.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Developers Guide &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/development.html" />
+    <link rel="shortcut icon" href="_static/fatf.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributors" href="contributors.html" />
+    <link rel="prev" title="News" href="news.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="_static/jquery.min.js"></script> -->
+  <script src="_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="index.html">
+      <img src="_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="api.html">API Reference</a>
+            <a class="dropdown-item" href="how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="news.html">News</a>
+            <a class="dropdown-item" href="#">Developers Guide</a>
+            <a class="dropdown-item" href="contributors.html">Contributors</a>
+            <a class="dropdown-item" href="changelog.html">Changelog</a>
+            <a class="dropdown-item" href="roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Developers Guide</a><ul>
+<li><a class="reference internal" href="#communication">Communication</a></li>
+<li><a class="reference internal" href="#contributing-code">Contributing Code</a><ul>
+<li><a class="reference internal" href="#installing-development-requirements">Installing Development Requirements</a></li>
+<li><a class="reference internal" href="#installing-the-package">Installing the Package</a></li>
+<li><a class="reference internal" href="#testing-environment">Testing Environment</a></li>
+<li><a class="reference internal" href="#code-formatting">Code Formatting</a></li>
+<li><a class="reference internal" href="#type-hints">Type Hints</a></li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#code">Code</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-by-step-guide">Step by Step Guide</a></li>
+<li><a class="reference internal" href="#contributing-documentation">Contributing Documentation</a><ul>
+<li><a class="reference internal" href="#code-documentation">Code Documentation</a></li>
+<li><a class="reference internal" href="#user-guide">User Guide</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pull-requests-and-issues">Pull Requests and Issues</a></li>
+<li><a class="reference internal" href="#package-structure">Package Structure</a><ul>
+<li><a class="reference internal" href="#fairness">Fairness</a></li>
+<li><a class="reference internal" href="#accountability">Accountability</a></li>
+<li><a class="reference internal" href="#transparency">Transparency</a></li>
+<li><a class="reference internal" href="#visualisations">Visualisations</a></li>
+<li><a class="reference internal" href="#utilities">Utilities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-resources">Package Resources</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="news.html"
+                        title="previous chapter">News</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="contributors.html"
+                        title="next chapter">Contributors</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/development.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="news.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                News
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  News
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="contributors.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Contributors
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Contributors
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Developers Guide</a><ul>
+<li><a class="reference internal" href="#communication">Communication</a></li>
+<li><a class="reference internal" href="#contributing-code">Contributing Code</a><ul>
+<li><a class="reference internal" href="#installing-development-requirements">Installing Development Requirements</a></li>
+<li><a class="reference internal" href="#installing-the-package">Installing the Package</a></li>
+<li><a class="reference internal" href="#testing-environment">Testing Environment</a></li>
+<li><a class="reference internal" href="#code-formatting">Code Formatting</a></li>
+<li><a class="reference internal" href="#type-hints">Type Hints</a></li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#code">Code</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-by-step-guide">Step by Step Guide</a></li>
+<li><a class="reference internal" href="#contributing-documentation">Contributing Documentation</a><ul>
+<li><a class="reference internal" href="#code-documentation">Code Documentation</a></li>
+<li><a class="reference internal" href="#user-guide">User Guide</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pull-requests-and-issues">Pull Requests and Issues</a></li>
+<li><a class="reference internal" href="#package-structure">Package Structure</a><ul>
+<li><a class="reference internal" href="#fairness">Fairness</a></li>
+<li><a class="reference internal" href="#accountability">Accountability</a></li>
+<li><a class="reference internal" href="#transparency">Transparency</a></li>
+<li><a class="reference internal" href="#visualisations">Visualisations</a></li>
+<li><a class="reference internal" href="#utilities">Utilities</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-resources">Package Resources</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="developers-guide">
+<span id="id1"></span><h1>Developers Guide<a class="headerlink" href="#developers-guide" title="Permalink to this headline">¶</a></h1>
+<p>In this guide you will find all the information you need to contribute high
+quality code and documentation to the package.</p>
+<div class="section" id="communication">
+<h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
+<p>We use a range of platforms for communication in the project:</p>
+<ul class="simple">
+<li><p>for issues with the source code or the documentation please open an issue on
+our <cite>GitHub issue tracker</cite>;</p></li>
+<li><p>the code-related development discussion should happen on our
+<a class="reference external" href="https://gitter.im/fat-forensics/fat-forensics">gitter channel</a>;</p></li>
+<li><p>the discussion about the project’s future and the direction of the
+development happens on our <a class="reference external" href="https://fat-forensics.slack.com">slack channel</a> and <a class="reference external" href="https://groups.google.com/forum/#!forum/fat-forensics">mailing list</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="contributing-code">
+<h2>Contributing Code<a class="headerlink" href="#contributing-code" title="Permalink to this headline">¶</a></h2>
+<p>There is a number of steps that any new code or documentation patch has to go
+through before being merged into the package. All of these are described below.</p>
+<div class="section" id="installing-development-requirements">
+<span id="developers-guide-dev-requirements"></span><h3>Installing Development Requirements<a class="headerlink" href="#installing-development-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The python tools and packages used for the development and testing of the code
+need to be installed before proceeding. In order to run all of the tests all:
+the <em>required</em> package dependencies, the <em>auxiliary</em> package dependencies and
+the <em>development</em> package dependencies need to be installed.</p>
+<p>Files with these requirements can be found in the root folder of the package
+repository under the following names:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/requirements.txt">requirements.txt</a> – the dependencies required by the package;</p></li>
+<li><p><a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/requirements-aux.txt">requirements-aux.txt</a> – the soft dependencies of the package (cf.
+<a class="reference internal" href="getting_started/install_deps_os.html#installation-instructions-soft-dependencies"><span class="std std-ref">Soft Dependencies</span></a>); and</p></li>
+<li><p><a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/requirements-dev.txt">requirements-dev.txt</a> – the development dependencies of the package.</p></li>
+</ul>
+<p>All of these can be installed directly from these files with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r &lt;dependencies file name&gt;
+</pre></div>
+</div>
+<p>or alongside the package with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e fat-forensics<span class="o">[</span>all,dev<span class="o">]</span>
+</pre></div>
+</div>
+<p>given that your current directory is the root directory of the package. (See
+the section below for more information.)</p>
+</div>
+<div class="section" id="installing-the-package">
+<h3>Installing the Package<a class="headerlink" href="#installing-the-package" title="Permalink to this headline">¶</a></h3>
+<p>When developing code for the package we advise to install it as an
+<strong>editable copy</strong> directly from sources. To achieve that you need to first
+clone our git repository and then install FAT Forensics as an editable package
+alongside all the required dependencies. To this end, please execute the three
+commands shown below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/So-Cool/fat-forensics.git
+$ <span class="nb">cd</span> fat-forensics
+$ pip install -e <span class="s1">&#39;.[all,dev]&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consider using <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> and <a class="reference external" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a> plugin to manage your Python
+versions and virtual environments. It makes the development so much easier.</p>
+</div>
+</div>
+<div class="section" id="testing-environment">
+<h3>Testing Environment<a class="headerlink" href="#testing-environment" title="Permalink to this headline">¶</a></h3>
+<p>We develop the package so that it is compatible with Python versions 3.5 and
+up. The specific versions of the package dependencies are listed in the three
+requirement files listed in the <a class="reference internal" href="#developers-guide-dev-requirements"><span class="std std-ref">Installing Development Requirements</span></a>
+section.</p>
+<p>All of the test and build commands are held in the <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/Makefile">Makefile</a>, which is placed
+in the root directory of the package. Please consult this file for the specific
+commands that are executed when building and testing the package.</p>
+<p>Our Continuous Integration (CI) is run on <a class="reference external" href="https://travis-ci.com/So-Cool/fat-forensics">Travis</a> with the configuration file
+– <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.travis.yml">.travis.yml</a> – held in the root directory of the package.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Random number generator</strong></p>
+<p>Since some of the package’s tests sample random numbers or are influenced by
+“randomness” of its dependencies, the package allows to fix the random seed
+of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/random/index.html#module-numpy.random" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
+generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
+variable to a selected number. (For tests this is set to 42 in the
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
+called upon importing the FAT Forensics package, will set both of the
+aforementioned random seeds to the desired value.</p>
+<p>If anywhere in the tests you wish to restore it to the desired value,
+calling the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function should suffice.</p>
+</div>
+</div>
+<div class="section" id="code-formatting">
+<h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h3>
+<p>When writing the code we try to follow the <a class="reference external" href="http://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.
+Code formatting adherence to this guideline can be checked with
+<em>Yet Another Python Formater</em> (<a class="reference external" href="https://github.com/google/yapf">YAPF</a>) by executing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-yapf
+</pre></div>
+</div>
+<p>which will highlight what needs to be changed rather than reformat the code
+automatically. The configuration of <a class="reference external" href="https://github.com/google/yapf">YAPF</a> for the package can be found in the
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/style.yapf">.style.yapf</a> file in the root directory of the package.</p>
+<p>Code formatting is also checked with <a class="reference external" href="https://www.pylint.org/">Pylint</a> and <a class="reference external" href="http://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
+with the following two commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
+$ make linting-flake8
+</pre></div>
+</div>
+<p>The configuration of both these linters can be found in <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.pylintrc">.pylintrc</a> and
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.flake8">.flake8</a> files respectively, both placed in the root directory of the
+package.</p>
+<p>To help the contributors adhere to the formatting style of the code,
+documentation and configuration files we use <a class="reference external" href="https://EditorConfig.org">EditorConfig</a>. By installing the
+<a class="reference external" href="https://EditorConfig.org">EditorConfig</a> plugin for your code editor the style of the new content that you
+author will automatically adhere to some of our coding style. You can find the
+configuration file of the EditorConfig – <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.editorconfig">.editorconfig</a> – in the root
+directory of the package.</p>
+</div>
+<div class="section" id="type-hints">
+<h3>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">¶</a></h3>
+<p>We try to annotate the code in the package with type hints whenever possible.
+The typing of the code is checked statically with <a class="reference external" href="http://mypy-lang.org/">mypy</a>. Our mypy configuration
+file – <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.mypy.ini">.mypy.ini</a> – is placed in the root directory of the package and the
+type checking is performed by executing the following line of code:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make check-types
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>We run tests on the package itself as well as on the code snippets spread
+throughout the documentation. To this end, we use <a class="reference external" href="https://pytest.org/en/latest/">pytest</a> configured with the
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/pytest.ini">pytest.ini</a> file kept in the root directory of the package.</p>
+<p>To gather code coverage statistics we use <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a> plugin with its partial
+configuration placed in the <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.coveragerc">.coveragerc</a> file kept in the root directory of
+the package.</p>
+<div class="section" id="code">
+<h4>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h4>
+<p>The unit tests for the package are held in directories named <code class="docutils literal notranslate"><span class="pre">tests</span></code> created
+separately for each module. To test the code you can execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make <span class="nb">test</span>
+</pre></div>
+</div>
+<p>and to get the code coverage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make code-coverage
+</pre></div>
+</div>
+<p>However, we recommend to execute both these steps at once to save time by
+using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make test-with-code-coverage
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="api.html#module-fatf.utils.testing" title="fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code></a> module holds a range of functions that are
+useful for the unit tests. If you find yourself reusing a piece of code
+in multiple places in the unit tests, please consider making it a part of
+this module.</p>
+</div>
+</div>
+<div class="section" id="documentation">
+<h4>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h4>
+<p>There are three different tests run on the documentation. The first one checks
+validity of links in the documentation and is run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-linkcheck
+</pre></div>
+</div>
+<p>The second one checks which Python objects, methods and functions are not
+documented (documentation coverage) and can be run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-coverage
+</pre></div>
+</div>
+<p>Finally, the code snippets spread throughout the documentation are run to test
+whether their output agrees with the one provided in the documentation. These
+tests can be run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make test-doc
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because of incompatibility of vanila (pytest) doctest and sphinx doctest
+we are using pure doctest syntax, i.e. no group annotations are possible.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-by-step-guide">
+<h2>Step by Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
+<p>To summarise, the following commands should be executed to fully test the
+package (cf. <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.travis.yml">.travis.yml</a> for more details):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
+$ make linting-flake8
+$ make linting-yapf
+
+$ make check-types
+
+$ make test-with-code-coverage
+
+$ make doc-linkcheck
+$ make doc-coverage
+$ make test-doc
+</pre></div>
+</div>
+</div>
+<div class="section" id="contributing-documentation">
+<h2>Contributing Documentation<a class="headerlink" href="#contributing-documentation" title="Permalink to this headline">¶</a></h2>
+<p>To understand the documentation structure and the intention of each section in
+the documentation please familiarise yourself with the <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">Getting Started</span></a>
+part of the documentation.</p>
+<div class="section" id="code-documentation">
+<h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h3>
+<p>For building the documentation we use <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/So-Cool/fat-forensics/tree/dev/doc/themes/fat-forensics">custom theme</a>. The API
+is documented using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/">numpydoc</a> docstring syntax and structure. The code example
+galleries are generated with the <a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a> extension.</p>
+<p>To build the documentation you can execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-html
+</pre></div>
+</div>
+<p>In addition to this command being available in the main <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/Makefile">Makefile</a> of the
+project, there is a <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/doc/Makefile">documentation-specific Makefile</a> in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory
+that supports the following documentation build command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+<p>Since some of the code snippets (in particular the ones placed in the
+tutorials) produce plots and figures that are later included in the
+documentation, these need to be executed first. To this end, the documentation
+tests (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-doc</span></code>) has to be executed before building the documentation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files describing the API documentation are generated
+automatically with sphinx’s <code class="docutils literal notranslate"><span class="pre">autosummary</span></code> extension and placed in the
+<code class="docutils literal notranslate"><span class="pre">doc/generated</span></code> directory some of the changes that are made to the API
+template or documentation may not trigger the automatic rebuilding of the
+generated files. In such cases the <code class="docutils literal notranslate"><span class="pre">doc/generated</span></code> directory has to be
+cleaned. This can be achieved with the <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/doc/Makefile">documentation-specific Makefile</a>
+via the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-clean
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-guide">
+<h3>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the FAT Forensics
+<a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">package-oriented documentation</span></a> we also maintain a
+<a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> that describes <a class="reference internal" href="user_guide/fairness/index.html#user-guide-fairness"><span class="std std-ref">Fairness</span></a>,
+<a class="reference internal" href="user_guide/accountability/index.html#user-guide-accountability"><span class="std std-ref">Accountability</span></a> and
+<a class="reference internal" href="user_guide/transparency/index.html#user-guide-transparency"><span class="std std-ref">Transparency</span></a> approaches on a more theoretical
+level. Entries in the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> should try to follow a specific
+fact-oriented pattern. When contributing please try to adhere to the style of
+the entries that are already in the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> as much as possible.
+At a minimum please provide the following fields in the method description
+placed in the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>:</p>
+<ul class="simple">
+<li><p>Name.</p></li>
+<li><p>Literature reference (BibTeX).</p></li>
+<li><p>List of implementations (both standalone implementations and implementations
+in packages and libraries).</p>
+<ul>
+<li><p>Programming language.</p></li>
+<li><p>Implementation URL (possibly GitHub).</p></li>
+<li><p>Licence.</p></li>
+<li><p><strong>F</strong>airness, <strong>A</strong>ccountability, <strong>T</strong>ransparency or <strong>*</strong> (other
+and related) field.</p></li>
+</ul>
+</li>
+<li><p>Is is a <em>Metric</em> (measure) or an <em>Application</em> (mitigation) technique.</p></li>
+<li><p>Is it <em>Model Dependent</em> (what are the applicable models) or <em>Model Agnostic</em>.</p></li>
+<li><p>Is it <em>Post-Hoc</em> or <em>Ante-Hoc</em>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="pull-requests-and-issues">
+<h2>Pull Requests and Issues<a class="headerlink" href="#pull-requests-and-issues" title="Permalink to this headline">¶</a></h2>
+<p>When making a pull request on GitHub please use the provided
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/.github/PULL_REQUEST_TEMPLATE.md">pull request template</a> and make sure that you comply with all the
+requirements listed therein. Furthermore, please have a browse through other
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/pulls">pull requests</a> and <a class="reference external" href="https://github.com/So-Cool/fat-forensics/issues">issues</a> to locate all the problems/solutions similar to
+yours.</p>
+<p>Similarly, we have <a class="reference external" href="https://github.com/So-Cool/fat-forensics/tree/dev/.github/ISSUE_TEMPLATE">issue templates</a>. Please use them (whenever possible)
+while opening a new issue.</p>
+</div>
+<div class="section" id="package-structure">
+<h2>Package Structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h2>
+<p>All the details of the package structure can be learnt from the
+<a class="reference internal" href="api.html#api-ref"><span class="std std-ref">API documentation</span></a>. However, we include a short summary below
+for completeness.</p>
+<div class="section" id="fairness">
+<h3>Fairness<a class="headerlink" href="#fairness" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.fairness" title="fatf.fairness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.fairness</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.fairness" title="fatf.fairness"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness</span></code></a> module implements a variety of fairness algorithms.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.fairness.data" title="fatf.fairness.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.fairness.data</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.fairness.data" title="fatf.fairness.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data</span></code></a> module implements fairness algorithms for data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.fairness.models" title="fatf.fairness.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.fairness.models</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.fairness.models" title="fatf.fairness.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.models</span></code></a> module holds fairness algorithms for models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.fairness.predictions" title="fatf.fairness.predictions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.fairness.predictions</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.fairness.predictions" title="fatf.fairness.predictions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.predictions</span></code></a> module houses fairness for predictions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="accountability">
+<h3>Accountability<a class="headerlink" href="#accountability" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.accountability" title="fatf.accountability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.accountability</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.accountability" title="fatf.accountability"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.accountability</span></code></a> module holds a range of accountability methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.accountability.data" title="fatf.accountability.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.accountability.data</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.accountability.data" title="fatf.accountability.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.accountability.data</span></code></a> module implements accountability algorithms for data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.accountability.models" title="fatf.accountability.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.accountability.models</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.accountability.models" title="fatf.accountability.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.accountability.models</span></code></a> module holds accountability algorithms for models.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="transparency">
+<h3>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency" title="fatf.transparency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.transparency" title="fatf.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency</span></code></a> module implements various transparency algorithms.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.data" title="fatf.transparency.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.data</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.data" title="fatf.transparency.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.data</span></code></a> module holds data transparency algorithms.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.models" title="fatf.transparency.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.models</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.models" title="fatf.transparency.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models</span></code></a> module holds models transparency functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.predictions" title="fatf.transparency.predictions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.predictions</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.predictions" title="fatf.transparency.predictions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions</span></code></a> module holds predictions transparency functions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="visualisations">
+<h3>Visualisations<a class="headerlink" href="#visualisations" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.vis" title="fatf.vis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.vis</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.vis" title="fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code></a> module implements visualisations of various FAT methods.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="utilities">
+<h3>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.utils" title="fatf.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils" title="fatf.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils</span></code></a> module includes various utilities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.utils.data" title="fatf.utils.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.data</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.data" title="fatf.utils.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data</span></code></a> module holds data tools and data sets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.utils.models" title="fatf.utils.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.models</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.models" title="fatf.utils.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models</span></code></a> module holds models tools and utilities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.utils.array" title="fatf.utils.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.array</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.array" title="fatf.utils.array"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.array</span></code></a> module holds array tools and validation functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.utils.distances" title="fatf.utils.distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.distances</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.distances" title="fatf.utils.distances"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.distances</span></code></a> module holds a variety of distance metrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.utils.metrics" title="fatf.utils.metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.metrics</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.metrics" title="fatf.utils.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics</span></code></a> module holds predictive performance metrics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.utils.tools" title="fatf.utils.tools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.tools" title="fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code></a> module implements general tools for the package.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.utils.testing" title="fatf.utils.testing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="api.html#module-fatf.utils.testing" title="fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code></a> module holds functions used across unit tests.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="package-resources">
+<h2>Package Resources<a class="headerlink" href="#package-resources" title="Permalink to this headline">¶</a></h2>
+<p>The documentation is build on top of the <a class="reference external" href="https://getbootstrap.com/">Bootstrap</a> (v4.3.1) and <a class="reference external" href="https://jquery.com/">jQuery</a>
+(3.4.1) libraries. The <a class="reference external" href="https://github.com/So-Cool/fat-forensics/tree/dev/doc/themes/fat-forensics">custom theme</a> is based on Sphinx’s <a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/sphinx/themes/nature/static/nature.css_t">nature theme</a>
+(commit hash 1b1ebd2; 2nd January 2019).</p>
+<p>The “Fork me on GitHub” ribbon is based on the CSS solution written by
+<a class="reference external" href="https://codepo8.github.io/css-fork-on-github-ribbon/">codepo8</a>.</p>
+<p>The package icons were created with <a class="reference external" href="https://developer.amazon.com/docs/tools/icon-builder.html">Amazon Alexa Icon Builder</a>:</p>
+<ul class="simple">
+<li><p>FAT Forensics icon.</p>
+<ul>
+<li><p>Style.</p>
+<ul>
+<li><p>Size: Maximal size.</p></li>
+<li><p>Type: Gradient.</p></li>
+<li><p>RGB: 40, 40, 40.</p></li>
+<li><p>Angle: 0.</p></li>
+</ul>
+</li>
+<li><p>Background.</p>
+<ul>
+<li><p>Type: Gradient.</p></li>
+<li><p>RGB: 185, 186, 70.</p></li>
+<li><p>Angle: 0.</p></li>
+</ul>
+</li>
+<li><p>Border.</p>
+<ul>
+<li><p>Type: Solid.</p></li>
+<li><p>RGB: 166, 153, 134.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Fairness, Accountability and Transparency icons.</p>
+<ul>
+<li><p>Style.</p>
+<ul>
+<li><p>Size: Maximal size.</p></li>
+<li><p>Type: Gradient.</p></li>
+<li><p>RGB: 40, 40, 40.</p></li>
+<li><p>Angle: 0.</p></li>
+</ul>
+</li>
+<li><p>Background.</p>
+<ul>
+<li><p>Type: Gradient.</p></li>
+<li><p>RGB: 185, 186, 70.</p></li>
+<li><p>Angle: 135.</p></li>
+</ul>
+</li>
+<li><p>Border.</p>
+<ul>
+<li><p>Type: Solid.</p></li>
+<li><p>RGB: 166, 153, 134.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="_sources/development.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

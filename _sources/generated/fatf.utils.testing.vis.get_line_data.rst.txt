@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.vis`.get_line_data
+==================================================
+
+.. currentmodule:: fatf.utils.testing.vis
+
+.. autofunction:: get_line_data
+
+.. include:: fatf.utils.testing.vis.get_line_data.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

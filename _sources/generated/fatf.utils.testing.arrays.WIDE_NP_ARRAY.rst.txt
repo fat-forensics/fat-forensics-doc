@@ -1,0 +1,6 @@
+fatf.utils.testing.arrays.WIDE\_NP\_ARRAY
+=========================================
+
+.. currentmodule:: fatf.utils.testing.arrays
+
+.. autodata:: WIDE_NP_ARRAY

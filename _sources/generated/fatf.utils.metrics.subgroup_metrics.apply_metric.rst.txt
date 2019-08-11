@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.subgroup_metrics`.apply_metric
+==============================================================
+
+.. currentmodule:: fatf.utils.metrics.subgroup_metrics
+
+.. autofunction:: apply_metric
+
+.. include:: fatf.utils.metrics.subgroup_metrics.apply_metric.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

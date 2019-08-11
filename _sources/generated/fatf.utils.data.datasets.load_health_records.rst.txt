@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.datasets`.load_health_records
+==========================================================
+
+.. currentmodule:: fatf.utils.data.datasets
+
+.. autofunction:: load_health_records
+
+.. include:: fatf.utils.data.datasets.load_health_records.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

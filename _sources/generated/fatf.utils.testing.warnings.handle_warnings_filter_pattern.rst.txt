@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.warnings`.handle_warnings_filter_pattern
+========================================================================
+
+.. currentmodule:: fatf.utils.testing.warnings
+
+.. autofunction:: handle_warnings_filter_pattern
+
+.. include:: fatf.utils.testing.warnings.handle_warnings_filter_pattern.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

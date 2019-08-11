@@ -1,0 +1,170 @@
+.. note::
+    :class: sphx-glr-download-link-note
+
+    Click :ref:`here <sphx_glr_download_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py>` to download the full example code or run this example in your browser via Binder
+.. rst-class:: sphx-glr-example-title
+
+.. _sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py:
+
+
+=============================================================
+Measuring Fairness of a Prediction -- Counterfactual Fairness
+=============================================================
+
+This example illustrates how scrutinise a data point under the counterfactual
+fairness assumption.
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    The following fautres are considered protected:
+        * "gender".
+        * "age".
+
+    Evaluating counterfactual fairness of a data point (index 6) of class *fail* with the following features:
+        * The feature *age* has value: 41.
+        * The feature *weight* has value: 73.
+        * The feature *gender* has value: female.
+        * The feature *diagnosis* has value: heart.
+
+    Instance (of class *fail*):
+    (41, 73, 'female', 'heart')
+
+    Feature names: ('age', 'weight', 'gender', 'diagnosis')
+
+    Counterfactual instance (of class *success*):
+    Distance: 19
+        feature *age*: *41* -> *22*
+
+    Counterfactual instance (of class *success*):
+    Distance: 20
+        feature *age*: *41* -> *22*
+        feature *gender*: *female* -> *male*
+
+
+
+
+|
+
+
+.. code-block:: default
+
+    # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
+    # License: new BSD
+
+    import numpy as np
+
+    import fatf.utils.data.datasets as fatf_datasets
+    import fatf.utils.models as fatf_models
+
+    import fatf.fairness.predictions.measures as fatf_pfm
+
+    import fatf.transparency.predictions.counterfactuals as fatf_cf
+
+    print(__doc__)
+
+    # Load data
+    hr_data_dict = fatf_datasets.load_health_records()
+    hr_X = hr_data_dict['data']
+    hr_y = hr_data_dict['target']
+    hr_feature_names = hr_data_dict['feature_names']
+    hr_class_names = hr_data_dict['target_names']
+
+    # Map target indices to target names
+    hr_y = np.array([hr_class_names[i] for i in hr_y])
+
+    # Drop the unique identifiers (features)
+    unique_identifiers = ['name', 'email', 'zipcode', 'dob']
+    columns_to_keep = [i for i in hr_X.dtype.names if i not in unique_identifiers]
+    #
+    hr_X = hr_X[columns_to_keep]
+    hr_feature_names = [i for i in hr_feature_names if i not in unique_identifiers]
+
+    # Train a model
+    clf = fatf_models.KNN()
+    clf.fit(hr_X, hr_y)
+
+    # Select a data point to evaluate its counterfactual fairness
+    data_point_index = 4 + 2
+    data_point = hr_X[data_point_index]
+    data_point_y = hr_y[data_point_index]
+
+    # Select a set of protected features
+    protected_features = ['gender', 'age']
+
+    # Print out the protected features
+    assert protected_features, 'The protected features list cannot be empty.'
+    person = ' is' if len(protected_features) == 1 else 's are'
+    print('The following fautre{} considered protected:'.format(person))
+    for feature_name in protected_features:
+        print('    * "{}".'.format(feature_name))
+
+    # Print the instance
+    print('\nEvaluating counterfactual fairness of a data point (index {}) of '
+          'class *{}* with the following features:'.format(data_point_index,
+                                                           data_point_y))
+    for feature_name in data_point.dtype.names:
+        print('    * The feature *{}* has value: {}.'.format(
+            feature_name, data_point[feature_name]))
+
+    # Compute counterfactually unfair examples
+    cfs, cfs_distances, cfs_classes = fatf_pfm.counterfactual_fairness(
+        instance=data_point,
+        protected_feature_indices=protected_features,
+        model=clf,
+        default_numerical_step_size=1,
+        dataset=hr_X)
+
+    # Textualise possible counterfactually unfair data points
+    cfs_text = fatf_cf.textualise_counterfactuals(
+        data_point,
+        cfs,
+        instance_class=data_point_y,
+        counterfactuals_distances=cfs_distances,
+        counterfactuals_predictions=cfs_classes)
+    print('\n{}'.format(cfs_text))
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  0.256 seconds)
+
+
+.. _sphx_glr_download_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py:
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
+
+  .. container:: binder-badge
+
+    .. image:: https://mybinder.org/badge_logo.svg
+      :target: https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.ipynb
+      :width: 150 px
+
+
+  .. container:: sphx-glr-download
+
+     :download:`Download Python source code: xmpl_fairness_predictions_measure.py <xmpl_fairness_predictions_measure.py>`
+
+
+
+  .. container:: sphx-glr-download
+
+     :download:`Download Jupyter notebook: xmpl_fairness_predictions_measure.ipynb <xmpl_fairness_predictions_measure.ipynb>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

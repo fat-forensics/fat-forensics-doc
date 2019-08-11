@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.augmentation.Mixup &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.utils.data.augmentation.Mixup.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.density.DensityCheck" href="fatf.utils.data.density.DensityCheck.html" />
+    <link rel="prev" title="fatf.utils.data.augmentation.NormalSampling" href="fatf.utils.data.augmentation.NormalSampling.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.augmentation.NormalSampling.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.NormalSampling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.density.DensityCheck.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>.DensityCheck</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.augmentation.Mixup.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.augmentation.NormalSampling.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.augmentation.NormalSampling
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.density.DensityCheck.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.density.DensityCheck
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.Mixup</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-augmentation-mixup">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.Mixup<a class="headerlink" href="#fatf-utils-data-augmentation-mixup" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.augmentation.Mixup">
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">Mixup</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>ground_truth: Optional[numpy.ndarray] = None</em>, <em>categorical_indices: Optional[numpy.ndarray] = None</em>, <em>beta_parameters: Optional[Tuple[float</em>, <em>float]] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/augmentation.py#L562"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Mixup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sampling data with the Mixup method.</p>
+<p>This object implements the Mixup method introduced by <a class="reference internal" href="#r2181a1810a53-zhang2018mixup" id="id1">[ZHANG2018MIXUP]</a>.
+For a specific data point it select points at random from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>
+(making sure that the sample is stratified when the <code class="docutils literal notranslate"><span class="pre">ground_truth</span></code>
+parameter is given), then it draws samples from a Beta distribution and it
+forms new data points (samples) according to the convex combination of the
+original data pint and the randomly sampled dataset points.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sampling from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> mean is not yet implemented.</p>
+</div>
+<p>For additional parameters, attributes, warnings and exceptions raised by
+this class please see the documentation of its parent class:
+<a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation" title="fatf.utils.data.augmentation.Augmentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Augmentation</span></code></a> and the function that
+validates the input parameters
+<code class="docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation._validate_input_mixup</span></code>.</p>
+<dl class="citation">
+<dt class="label" id="r2181a1810a53-zhang2018mixup"><span class="brackets"><a class="fn-backref" href="#id1">ZHANG2018MIXUP</a></span></dt>
+<dd><p>Zhang, H., Cisse, M., Dauphin, Y. N. and Lopez-Paz, D.,
+2018. mixup: Beyond Empirical Risk Minimization. International
+Conference on Learning Representations (ICLR 2018).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>beta_parameters</strong><span class="classifier">Tuple[number, number]], optional (default=None)</span></dt><dd><p>A pair of numerical parameters used with the Beta distribution. If
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, the beta parameters will be set to <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">5)</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">number</span></dt><dd><p>A threshold used for mixing the random sample from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> with
+the instance used to generate a sample. The threshold value is 0.5.</p>
+</dd>
+<dt><strong>beta_parameters</strong><span class="classifier">Tuple[number, number]</span></dt><dd><p>A pair of numbers used with the Beta distribution sampling.</p>
+</dd>
+<dt><strong>ground_truth_unique</strong><span class="classifier">np.ndarray</span></dt><dd><p>A sorted array holding all the unique values of the ground truth.</p>
+</dd>
+<dt><strong>ground_truth_frequencies</strong><span class="classifier">np.ndarray</span></dt><dd><p>An array holding frequencies of all the unique values in the ground
+truth array. The order of the frequencies correspond with the order of
+the unique values. The frequencies are normalised and they sum up to 1.</p>
+</dd>
+<dt><strong>indices_per_label</strong><span class="classifier">List[np.ndarray]</span></dt><dd><p>A list of arrays holding (<code class="docutils literal notranslate"><span class="pre">dataset</span></code>) row indices corresponding to
+each of the unique ground truth values. The order of this list
+corresponds with the order of the unique values.</p>
+</dd>
+<dt><strong>ground_truth_probabilities</strong><span class="classifier">np.ndarray</span></dt><dd><p>A numpy array of [number of dataset instances, number of unique ground
+truth values] shape that holds one-hot encoding (pseudo-probabilities)
+of the ground truth labels. The column ordering of this array
+corresponds with the order of the unique values.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">beta_parameters</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor a tuple. One
+of the values in the <code class="docutils literal notranslate"><span class="pre">beta_parameters</span></code> tuple is not a number.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">beta_parameters</span></code> tuple is not a pair (2-tuple). One of the
+numbers in the <code class="docutils literal notranslate"><span class="pre">beta_parameters</span></code> tuple is not positive.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.Mixup.sample" title="fatf.utils.data.augmentation.Mixup.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
+<td><p>Samples new data around the provided <code class="docutils literal notranslate"><span class="pre">data_row</span></code> using Mixup method.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.augmentation.Mixup.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>data_row_target: Union[float</em>, <em>str</em>, <em>None] = None</em>, <em>samples_number: int = 50</em>, <em>with_replacement: bool = True</em>, <em>return_probabilities: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, ...]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/augmentation.py#L907"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Mixup.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples new data around the provided <code class="docutils literal notranslate"><span class="pre">data_row</span></code> using Mixup method.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, only sampled data will be returned.
+Otherwise, if <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> is provided, the <code class="docutils literal notranslate"><span class="pre">Mixup</span></code> class will
+also attempt to sample labels. In this case the labels can either be
+an array of class probabilities when the <code class="docutils literal notranslate"><span class="pre">return_probabilities</span></code>
+parameter is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, or an array with a single label per
+instance selected based on the highest probability when the
+<code class="docutils literal notranslate"><span class="pre">return_probabilities</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sampling from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> mean is not yet implemented.</p>
+</div>
+<p>For the documentation of extra parameters, warnings and errors please
+see the description of the
+<a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation.sample" title="fatf.utils.data.augmentation.Augmentation.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">sample</span></code></a> method in the
+parent <a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation" title="fatf.utils.data.augmentation.Augmentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Augmentation</span></code></a> class.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_row_target</strong><span class="classifier">Union[number, string], optional (default=None)</span></dt><dd><p>A label (class) of the provided <code class="docutils literal notranslate"><span class="pre">data_row</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> the
+function will only return sampled data, otherwise it will also
+return targets for the sampled data.</p>
+</dd>
+<dt><strong>with_replacement</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> data points are sampled with replacements from the
+original <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>return_probabilities</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> the target (class) samples for the sampled data points
+are in form of a class probability matrix, otherwise they are a
+flat array with the target labels.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>samples</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array of shape [<code class="docutils literal notranslate"><span class="pre">samples_number</span></code>, number of features]
+that holds the sampled data.</p>
+</dd>
+<dt><strong>samples_target</strong><span class="classifier">numpy.ndarray, optional (returned when the <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> parameter is not <code class="docutils literal notranslate"><span class="pre">None</span></code>)</span></dt><dd><p>Either a numpy array of shape [samples_number, number of unique
+labels (classes)] holding the class probabilities for the sampled
+data or a 1-dimensional numpy array with labels for the sampled
+data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>NotImplementedError</strong></dt><dd><p>Raised when the user is trying to sample around the mean of the
+<code class="docutils literal notranslate"><span class="pre">dataset</span></code> – this functionality is not yet implemented.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">return_probabilities</span></code> or <code class="docutils literal notranslate"><span class="pre">with_replacement</span></code> parameters are
+not booleans. The <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> parameter is neither a number
+not a string.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> parameter has a value that does not appear
+in the ground truth vector used to initialise this class.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>The user is warned when the <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> parameter is given
+but the <code class="docutils literal notranslate"><span class="pre">Mixup</span></code> class was initialised without the ground truth
+for the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, therefore sampling target values is not
+possible and the <code class="docutils literal notranslate"><span class="pre">data_row_target</span></code> parameter will be ignored.
+The user is also warned that the random row indices will not be
+stratified according to the ground truth distribution if ground
+truth vector was not given when this class was initialised.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.augmentation.Mixup.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

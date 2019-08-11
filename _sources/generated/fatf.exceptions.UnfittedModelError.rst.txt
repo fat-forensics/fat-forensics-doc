@@ -1,0 +1,11 @@
+:mod:`fatf.exceptions`.UnfittedModelError
+================================================
+
+.. currentmodule:: fatf.exceptions
+
+.. autoexception:: UnfittedModelError
+    :no-members:
+    :no-undoc-members:
+    :no-inherited-members:
+    :no-private-members:
+    :no-special-members:

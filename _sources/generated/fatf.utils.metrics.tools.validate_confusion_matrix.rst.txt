@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.tools`.validate_confusion_matrix
+================================================================
+
+.. currentmodule:: fatf.utils.metrics.tools
+
+.. autofunction:: validate_confusion_matrix
+
+.. include:: fatf.utils.metrics.tools.validate_confusion_matrix.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

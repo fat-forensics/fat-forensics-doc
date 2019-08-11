@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.tools`.apply_to_column_grouping
+============================================================
+
+.. currentmodule:: fatf.utils.data.tools
+
+.. autofunction:: apply_to_column_grouping
+
+.. include:: fatf.utils.data.tools.apply_to_column_grouping.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

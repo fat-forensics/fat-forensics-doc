@@ -1,0 +1,11 @@
+:mod:`fatf.vis.feature_influence`.plot_partial_dependence
+================================================================
+
+.. currentmodule:: fatf.vis.feature_influence
+
+.. autofunction:: plot_partial_dependence
+
+.. include:: fatf.vis.feature_influence.plot_partial_dependence.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

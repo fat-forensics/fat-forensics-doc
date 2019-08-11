@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.structured_to_unstructured_row
+===================================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: structured_to_unstructured_row
+
+.. include:: fatf.utils.array.tools.structured_to_unstructured_row.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

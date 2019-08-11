@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Roadmap &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/roadmap.html" />
+    <link rel="shortcut icon" href="_static/fatf.ico"/>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Guide" href="user_guide/index.html" />
+    <link rel="prev" title="Changelog" href="changelog.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="_static/jquery.min.js"></script> -->
+  <script src="_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="index.html">
+      <img src="_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="api.html">API Reference</a>
+            <a class="dropdown-item" href="how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="news.html">News</a>
+            <a class="dropdown-item" href="development.html">Developers Guide</a>
+            <a class="dropdown-item" href="contributors.html">Contributors</a>
+            <a class="dropdown-item" href="changelog.html">Changelog</a>
+            <a class="dropdown-item" href="#">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Roadmap</a><ul>
+<li><a class="reference internal" href="#milestone-1">Milestone 1 ✔</a></li>
+<li><a class="reference internal" href="#milestone-2">Milestone 2</a></li>
+<li><a class="reference internal" href="#milestone-3">Milestone 3</a></li>
+<li><a class="reference internal" href="#milestone-4">Milestone 4</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="previous chapter">Changelog</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="user_guide/index.html"
+                        title="next chapter">User Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/roadmap.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="changelog.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Changelog
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Changelog
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="user_guide/index.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                User Guide
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  User Guide
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Roadmap</a><ul>
+<li><a class="reference internal" href="#milestone-1">Milestone 1 ✔</a></li>
+<li><a class="reference internal" href="#milestone-2">Milestone 2</a></li>
+<li><a class="reference internal" href="#milestone-3">Milestone 3</a></li>
+<li><a class="reference internal" href="#milestone-4">Milestone 4</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="roadmap">
+<span id="id1"></span><h1>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h1>
+<p>The following list of milestones is to guide the core developers on the future
+direction of the package development. The list is by no means exhaustive and
+will be updated over time as the development progresses and new algorithms
+are proposed by the research community.</p>
+<p>The list is algorithm- and feature-oriented as the goal of the package is to
+give the community access to a tool that has all the necessary functionality
+for FAT research and deployment.</p>
+<div class="section" id="milestone-1">
+<h2>Milestone 1 ✔<a class="headerlink" href="#milestone-1" title="Permalink to this headline">¶</a></h2>
+<p>The first milestone is our first public release of the package – version
+<em>0.0.1</em>. The following functionality should be available.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Fairness</p></td>
+<td><p>Accountability</p></td>
+<td><p>Transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Data/
+Features</p></td>
+<td><ul class="simple">
+<li><p>Systemic Bias
+(disparate treatment
+labelling)</p></li>
+<li><p>Sample size disparity
+(e.g., class imbalance)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Sampling bias</p></li>
+<li><p>Data Density Checker</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Data description</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Models</p></td>
+<td><ul class="simple">
+<li><p>Group-based fairness
+(disparate impact)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Systematic performance
+bias</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Partial dependence</p></li>
+<li><p>Individual conditional
+expectation</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Predictions</p></td>
+<td><ul class="simple">
+<li><p>Counterfactual fairness
+(disparate treatment)</p></li>
+</ul>
+</td>
+<td></td>
+<td><ul class="simple">
+<li><p>Counterfactuals</p></li>
+<li><p>Tabular LIME (wrapper)</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="milestone-2">
+<h2>Milestone 2<a class="headerlink" href="#milestone-2" title="Permalink to this headline">¶</a></h2>
+<p>This will be the first major update of the package. The focus will be placed on
+the transparency module. Nevertheless, some additional fairness and
+accountability functionality will be implemented as well.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Fairness</p></td>
+<td><p>Accountability</p></td>
+<td><p>Transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Data/
+Features</p></td>
+<td></td>
+<td><ul class="simple">
+<li><p>k-anonymity</p></li>
+<li><p>l-diversity</p></li>
+<li><p>t-closeness</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Models</p></td>
+<td><ul class="simple">
+<li><p>Additional fairness
+metrics (to be
+decided)</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Background check</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>PD/ICE enhancements</p></li>
+<li><p>Scikit-learn model
+explainers</p></li>
+<li><p>ANCHOR</p></li>
+<li><p>Forestspy</p></li>
+<li><p>Tree interpreter</p></li>
+<li><p>Feature importance</p></li>
+<li><p>Model reliance</p></li>
+<li><p>TREPAN</p></li>
+<li><p>Logical models
+counterfactual
+explainer
+for and their
+ensembles</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Predictions</p></td>
+<td></td>
+<td></td>
+<td><ul class="simple">
+<li><p>Scikit-learn
+prediction
+explainers</p></li>
+<li><p>Generalised local
+surrogates (bLIMEy)</p></li>
+<li><p>bLIMEy LIME
+implementation for
+tabular, text and
+image data</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Extra fairness metrics.</p>
+<ul>
+<li><p>Implement additional group-based fairness metrics.</p></li>
+<li><p>Implement threshold computation based on the selected group metric
+equality.</p></li>
+<li><p>Implement Jupyter Notebook interactive plugins (widgets) to allow the
+community to play with the fairness concepts. (E.g., widgets similar to
+interactive figures in this <a class="reference external" href="http://research.google.com/bigpicture/attacking-discrimination-in-ml/">Google blog post</a>.</p></li>
+</ul>
+</li>
+<li><p>Merge the pull request with k-anonimity, l-diversity and t-closeness.</p></li>
+<li><p>Implement <a class="reference external" href="https://github.com/perellonieto/background_check/blob/master/jupyter/background_check.ipynb">Background Check</a>.</p></li>
+<li><p>PD and ICE enhancements (pull request).</p>
+<ul>
+<li><p>2-D implementation.</p></li>
+<li><p>Implementation for classification and regression.</p></li>
+<li><p>Improved visualisations.</p></li>
+</ul>
+</li>
+<li><p>Scikit-learn model explainers (cf. the reference implementation in the
+<a class="reference external" href="https://eli5.readthedocs.io/en/latest/libraries/sklearn.html">eli5 package</a>).</p>
+<ul>
+<li><p>Decision trees.</p>
+<ul>
+<li><p>Feature importance.</p></li>
+<li><p>Decision tree structure (tree plot).</p></li>
+</ul>
+</li>
+<li><p>Rule lists and sets (these can share a common representation with the
+trees).</p>
+<ul>
+<li><p>Rule list structure (rule list in a text form).</p></li>
+</ul>
+</li>
+<li><p>Linear models.</p>
+<ul>
+<li><p>Feature importance (coefficients).</p></li>
+</ul>
+</li>
+<li><p>K-means.</p>
+<ul>
+<li><p>Prototypes.</p>
+<ul>
+<li><p>Similarities between examples in a cluster that are correctly assigned
+to this clusetr.</p></li>
+</ul>
+</li>
+<li><p>Criticisms.</p>
+<ul>
+<li><p>Similarities between examples in a cluster that are incorrectly
+assigned to this clusetr.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Implement <a class="reference external" href="https://github.com/marcotcr/anchor">ANCHOR</a>.</p></li>
+<li><p>Implement <a class="reference external" href="https://github.com/jvns/forestspy">forestspy</a>.</p></li>
+<li><p>Implement <em>Tree Interpreter</em>.</p>
+<ul>
+<li><p>“The global feature importance of random forests can be quantified by the
+total decrease in node impurity averaged over all trees of the ensemble
+(‘mean decrease impurity’).”</p></li>
+<li><p>“We can use the difference between the mean value of data points in a
+parent node between that of a child node to approximate the contribution of
+this split…”</p></li>
+<li><p><a class="reference external" href="http://blog.datadive.net/interpreting-random-forests/">Interpreting random forests</a> and
+<a class="reference external" href="http://blog.datadive.net/random-forest-interpretation-with-scikit-learn/">Random forest interpretation with scikit-learn</a> blog posts hold some
+useful information extracted from the “Interpreting random forests” paper
+by Ando Saabas.</p></li>
+</ul>
+</li>
+<li><p>Implement a variety of feature importance metrics.</p>
+<ul>
+<li><p>Random forest feature (variable) importance (“Random Forests”, Leo Breiman,
+2001). (Similar to <em>permutation importance</em>.)</p></li>
+<li><p>XGboost feature importance.</p>
+<ul>
+<li><p>Feature weight – the number of times a feature appears in a tree
+(ensemble).</p></li>
+<li><p>Gain – the average gain of splits that use the feature.</p></li>
+<li><p>Coverage – the average coverage (number of samples affected) of splits
+that use the feature.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://oracle.github.io/Skater/reference/interpretation.html#feature-importance">Skater feature importance</a>.</p></li>
+<li><p>Prediction variance – mean absolute value of changes in predictions given
+perturbations in the data.</p></li>
+<li><p>“Variable Importance Analysis: A Comprehensive Review”. Reliability
+Engineering &amp; System Safety 142 (2015): 399-432; Wei, Pengfei, Zhenzhou Lu,
+and Jingwen Song.</p></li>
+<li><p>Scikit-learn and eli5 <strong>permutation importance</strong> (a.k.a.
+<em>Mean Decrease Accuracy (MDA)</em>).</p>
+<ul>
+<li><p><a class="reference external" href="https://eli5.readthedocs.io/en/latest/autodocs/sklearn.html#module-eli5.sklearn.permutation_importance">eli5 implementation</a>.</p></li>
+<li><p>(These may be sensitive to features being correlated – a user guide note
+should suffice.)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Implement <em>model reliance</em> (Fisher, 2018). (“All Models are Wrong but many
+are Useful: Variable Importance for Black-Box, Proprietary, or Misspecified
+Prediction Models, using Model Class Reliance”, Aaron Fisher, Cynthia Rudin,
+Francesca Dominici.)</p></li>
+<li><p>Implement TREPAN (tree surrogate).</p>
+<ul>
+<li><p>“Extracting Comprehensible Models From Trained Neural Networks”, Mark W.
+Craven(1996). (<a class="reference external" href="http://ftp.cs.wisc.edu/machine-learning/shavlik-group/craven.thesis.pdf">PhD thesis</a>)</p></li>
+<li><p>“Extracting Thee-Structured Representations of Trained Networks”, Mark W.
+Craven and Jude W. Shavlik (NIPS, 96). (<a class="reference external" href="https://papers.nips.cc/paper/1152-extracting-tree-structured-representations-of-trained-networks.pdf">NIPS paper</a>)</p></li>
+<li><p>“Study of Various Decision Tree Pruning Methods with their Empirical
+Comparison in WEKA”, Nikita Patel and Saurabh Upadhyay (2012). (<a class="reference external" href="https://pdfs.semanticscholar.org/025b/8c109c38dc115024e97eb0ede5ea873fffdb.pdf">report</a>)</p></li>
+<li><p><a class="reference external" href="https://oracle.github.io/Skater/reference/interpretation.html#tree-surrogates-using-decision-trees">TREPAN implementation</a> in Skater.</p></li>
+</ul>
+</li>
+<li><p>Implement a counterfactual explainer for logical models and their ensembles.</p></li>
+<li><p>Scikit-learn prediction explainers.</p>
+<ul>
+<li><p>Decision trees.</p>
+<ul>
+<li><p>Root-to-leaf path (logical conditions).</p></li>
+<li><p>Counterfactuals.</p></li>
+</ul>
+</li>
+<li><p>Rule lists and sets.</p>
+<ul>
+<li><p>Logical conditions list (as text).</p></li>
+</ul>
+</li>
+<li><p>Neighbours.</p>
+<ul>
+<li><p>Similarities and differences (on the feature vector) among the neighbours
+of the same and the opposite class.</p></li>
+</ul>
+</li>
+<li><p>K-means.</p>
+<ul>
+<li><p>Prototypes.</p>
+<ul>
+<li><p>Nearest centroid of the same class.</p></li>
+</ul>
+</li>
+<li><p>Criticisms.</p>
+<ul>
+<li><p>Nearest centroid of the opposite class.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>bLIMEy implementation.</p></li>
+<li><p>Fresh LIME implementation.</p>
+<ul>
+<li><p>Write tutorials similar to <a class="reference external" href="https://github.com/marcotcr/lime/tree/gh-pages/tutorials">LIME tutorials</a>, in particular
+<a class="reference external" href="https://marcotcr.github.io/lime/tutorials/Lime%20-%20multiclass.html">this tutorial</a>.</p></li>
+<li><p>Have a look at what eli5 does: “eli5.lime provides dataset generation
+utilities for text data (remove random words) and for arbitrary data
+(sampling using Kernel Density Estimation) … for explaining predictions
+of probabilistic classifiers eli5 uses another classifier by default,
+trained using cross-entropy loss, while canonical library fits regression
+model on probability output.”</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="milestone-3">
+<h2>Milestone 3<a class="headerlink" href="#milestone-3" title="Permalink to this headline">¶</a></h2>
+<p>The third milestone will integrate the tool with important machine learning and
+fairness packages.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Fairness</p></td>
+<td><p>Accountability</p></td>
+<td><p>Transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Data/
+Features</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Models</p></td>
+<td><ul class="simple">
+<li><p>Fairness360 integration</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Distribution shift
+detection</p></li>
+<li><p>Calibration</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>SHAP package
+integration (Shapley
+sampling values &amp;
+Shapley regression
+values)</p></li>
+<li><p>Xgboost package
+interpreter</p></li>
+<li><p>LightGBM package
+interpreter</p></li>
+<li><p>Lightning package
+interpreter</p></li>
+<li><p>Sklearn-crfsuite
+package interpreter</p></li>
+<li><p>eli5 package
+integration</p></li>
+<li><p>Bayesian Rule Lists
+(BRL)</p></li>
+<li><p>PD/ICE speed
+improvements</p></li>
+<li><p>Interactive (JS)
+Jupyter Notebook plots</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Predictions</p></td>
+<td></td>
+<td></td>
+<td><ul class="simple">
+<li><p>SHAP package
+integration</p></li>
+<li><p>Xgboost package
+interpreter</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Integration or reimplementation of <a class="reference external" href="https://github.com/IBM/AIF360">fairness360</a> package (depending on the</p></li>
+<li><p>code quality).</p></li>
+<li><p>Implement <em>distribution shift</em> metrics.</p></li>
+<li><p>Implement <em>calibration</em> techniques.</p></li>
+<li><p>Integration with the <a class="reference external" href="https://github.com/slundberg/shap">SHAP</a> package.</p></li>
+<li><p>Explainers for models implemented in the <a class="reference external" href="https://github.com/dmlc/xgboost">Xgboost</a> package.</p></li>
+<li><p>Explainers for models implemented in the <a class="reference external" href="https://github.com/microsoft/LightGBM">LightGBM</a> package.</p></li>
+<li><p>Explainers for models implemented in the <a class="reference external" href="https://github.com/scikit-learn-contrib/lightning">Lightning</a> package.</p></li>
+<li><p>Explainers for models implemented in the <a class="reference external" href="https://github.com/TeamHG-Memex/sklearn-crfsuite">sklearn-crfsuite</a> package.</p></li>
+<li><p><a class="reference external" href="https://eli5.readthedocs.io/en/latest/libraries/index.html">eli5</a> integration. (“Text processing utilities from scikit-learn and can
+highlight text data accordingly. Pipeline and FeatureUnion are supported. It
+also allows to debug scikit-learn pipelines which contain HashingVectorizer,
+by undoing hashing.”)</p></li>
+<li><p>Implement Bayesian Rule Lists (BRL).</p>
+<ul>
+<li><p>Bayesian Rule Lists (BRL).</p>
+<ul>
+<li><p><a class="reference external" href="https://oracle.github.io/Skater/reference/interpretation.html#bayesian-rule-lists-brl">BRL reference implementation</a>.</p></li>
+<li><p>Example <a class="reference external" href="https://arxiv.org/abs/1511.01644">BRL use case</a>: “Interpretable classifiers using rules and
+Bayesian analysis: Building a better stroke prediction model”, Letham
+et.al(2015).</p></li>
+</ul>
+</li>
+<li><p>Scalable Bayesian Rule Lists (SBRL).</p>
+<ul>
+<li><p>“Scalable Bayesian Rule Lists”, Yang et.al (2016). (<a class="reference external" href="https://arxiv.org/abs/1602.08610">SBRL paper</a>)</p></li>
+<li><p>Bayesian Rule List Classifier (<a class="reference external" href="https://github.com/Hongyuy/sbrl-python-wrapper/blob/master/sbrl/C_sbrl.py">BRLC</a>) is a Python wrapper for the SBRL.</p></li>
+</ul>
+</li>
+<li><p>Big Data Bayesian Rule List Classifier (BigDataBRLC) is a BRLC to handle
+large data-sets.</p>
+<ul>
+<li><p>Skater’s <a class="reference external" href="https://oracle.github.io/Skater/reference/interpretation.html#skater.core.global_interpretation.interpretable_models.bigdatabrlc.BigDataBRLC">BigDataBRLC implementation</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/tmadl/sklearn-expertsys/blob/master/BigDataRuleListClassifier.py">Dr. Tamas Madl’s implementation</a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PD/ICE speed improvements – parallelisation and a progress bar.</p></li>
+<li><p>iPython/Jupyter Notebook interactive (JS) plots to improve research
+applicability aspect of the package.</p></li>
+</ul>
+</div>
+<div class="section" id="milestone-4">
+<h2>Milestone 4<a class="headerlink" href="#milestone-4" title="Permalink to this headline">¶</a></h2>
+<p>This milestone is focused on implementing in the package a collection of tools
+that will enable researchers and practitioners to use it with (deep) neural
+networks (Deep Learning, autograd, optimisation).</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Fairness</p></td>
+<td><p>Accountability</p></td>
+<td><p>Transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Data/
+Features</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Models</p></td>
+<td><ul class="simple">
+<li><p>what-if tool
+integration</p></li>
+</ul>
+</td>
+<td></td>
+<td><ul class="simple">
+<li><p>Quantitative Input
+influence (QII)</p></li>
+<li><p>Layer-wise Relevance
+Propagation (e-LRP)</p></li>
+<li><p>Occlusion</p></li>
+<li><p>integrated gradient</p></li>
+<li><p>what-if tool
+integration</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Predictions</p></td>
+<td></td>
+<td></td>
+<td><ul class="simple">
+<li><p>DeepLIFT (example
+explanation)</p></li>
+<li><p>DeepExplain</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Integration with the <a class="reference external" href="https://pair-code.github.io/what-if-tool/">what-if tool</a>.</p></li>
+<li><p>Implement Quantitative Input influence (QII).</p></li>
+<li><p>Implement epsilon-Layer-wise Relevance Propagation (e-LRP).</p>
+<ul>
+<li><p>“On Pixel-Wise Explanations for Non-Linear Classifier Decisions by
+Layer-Wise Relevance Propagation”, Bach S, Binder A, Montavon G, Klauschen
+F, Muller K-R, Samek W (2015).</p></li>
+<li><p>“Towards better understanding of gradient-based attribution methods for
+Deep Neural Networks”, Ancona M, Ceolini E, Oztireli C, Gross M (ICLR,
+2018).</p></li>
+</ul>
+</li>
+<li><p>Implement <em>occlusion</em>.</p>
+<ul>
+<li><p>“Visualizing and understanding convolutional networks”, Zeiler, M and
+Fergus, R (Springer, 2014).</p></li>
+<li><p><a class="reference external" href="https://github.com/marcoancona/DeepExplain/blob/master/deepexplain/tensorflow/methods.py">Occlusion implementation</a>.</p></li>
+</ul>
+</li>
+<li><p>Implement Integrated Gradient method.</p>
+<ul>
+<li><p>“Axiomatic Attribution for Deep Networks”, Sundararajan, M, Taly, A, Yan, Q
+(ICML, 2017).</p></li>
+<li><p><a class="reference external" href="http://theory.stanford.edu/~ataly/Talks/sri_attribution_talk_jun_2017.pdf">Integrated Gradient slides</a>.</p></li>
+</ul>
+</li>
+<li><p>Implement the DeepLIFT algorithm.</p></li>
+<li><p>Implement the DeepExplain algorithm.</p>
+<ul>
+<li><p>“Towards better understanding of gradient-based attribution methods for
+Deep Neural Networks”, Ancona M, Ceolini E, Oztireli C, Gross M
+(ICLR, 2018).</p></li>
+<li><p><a class="reference external" href="https://github.com/marcoancona/DeepExplain/blob/master/deepexplain/tensorflow/methods.py">DeepExplain implementation</a>.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Finalise full integration of Skater and SHAP (deep neural netowrks).</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="_sources/roadmap.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

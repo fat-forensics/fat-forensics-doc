@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.tools.group_by_column &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.utils.data.tools.group_by_column.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.tools.apply_to_column_grouping" href="fatf.utils.data.tools.apply_to_column_grouping.html" />
+    <link rel="prev" title="fatf.utils.data.datasets.load_iris" href="fatf.utils.data.datasets.load_iris.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code>.group_by_column</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-utils-data-tools-group-by-column">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.datasets.load_iris.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code>.load_iris</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.tools.apply_to_column_grouping.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code>.apply_to_column_grouping</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.tools.group_by_column.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.datasets.load_iris.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.datasets.load_iris
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.tools.apply_to_column_grouping.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.tools.apply_to_column_grouping
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code>.group_by_column</a><ul>
+<li><a class="reference internal" href="#examples-using-fatf-utils-data-tools-group-by-column">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-tools-group-by-column">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.tools" title="fatf.utils.data.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code></a>.group_by_column<a class="headerlink" href="#fatf-utils-data-tools-group-by-column" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="fatf.utils.data.tools.group_by_column">
+<code class="descclassname">fatf.utils.data.tools.</code><code class="descname">group_by_column</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, column_index: Union[int, str], groupings: Optional[List[Union[float, Tuple[str]]]] = None, numerical_bins_number: int = 5, treat_as_categorical: Optional[bool] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[List[List[int]], List[str]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/tools.py#L27"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.tools.group_by_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Groups row indices of an array based on value grouping of a chosen column.</p>
+<p>If selected column is numerical, by default the values are grouped into 5
+bins equally distributed between the minimum and the maximum value of the
+column. The number of bins can be changed with the
+<code class="docutils literal notranslate"><span class="pre">numerical_bins_number</span></code> if desired. Alternatively, the exact bin
+boundaries can be given via the <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter.</p>
+<p>For categorical columns, the default binning is one bin for every unique
+value in the selected column. This behaviour can be changed by providing
+the <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter, where multiple values can be selected to
+create one bin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A dataset to be used for grouping the row indices.</p>
+</dd>
+<dt><strong>column_index</strong><span class="classifier">Union[string, integer]</span></dt><dd><p>A column index (a string for structured numpy arrays or an integer for
+unstructured arrays) of the column based on which the row indices will
+be partitioned.</p>
+</dd>
+<dt><strong>groupings</strong><span class="classifier">List[Union[number, Tuple[string]]], optional (default=None)</span></dt><dd><p>A list of user-specified groupings for the selected column. The default
+grouping for categorical (textual) columns is splitting them by all the
+unique values therein. The numerical columns are, by default, binned
+into 5 bins (see the <code class="docutils literal notranslate"><span class="pre">numerical_bins_number</span></code> parameter) uniformly
+distributed between the minimum and the maximum value of the column.
+To introduce custom binning for a categorical column <code class="docutils literal notranslate"><span class="pre">groupings</span></code>
+parameter should be a list of tuples, where every tuple represents a
+single group. For example, a column with the following unique values
+<code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c',</span> <span class="pre">'d']</span></code> can be split into two groups: <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'d']</span></code>
+and <code class="docutils literal notranslate"><span class="pre">['b',</span> <span class="pre">'c']</span></code> by providing <code class="docutils literal notranslate"><span class="pre">[('a',</span> <span class="pre">'d'),</span> <span class="pre">('b',</span> <span class="pre">'c')]</span></code> grouping.
+For numerical columns custom grouping should be introduced as a list of
+bucket boundaries. Every bucket includes all the values that are
+<strong>less or equal</strong> to the specified bucket boundary and greater than the
+previous boundary if one is given.</p>
+</dd>
+<dt><strong>numerical_bins_number</strong><span class="classifier">integer, optional (default=5)</span></dt><dd><p>The number of bins used for default binning of numerical columns.</p>
+</dd>
+<dt><strong>treat_as_categorical</strong><span class="classifier">boolean, optional (default=None)</span></dt><dd><p>Whether the selected column should be treated as a categorical or
+numerical feature. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the type of the column will be
+inferred from the data therein. If set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the column will be
+treated as numerical unless it is string-based in which case a warning
+will be emitted and the column will be treated as numerical despite
+this setting. Finally, if set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the column will be treated
+as categorical.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>indices_per_bin</strong><span class="classifier">List[List[integer]]</span></dt><dd><p>A list of lists with the latter one holding row indices of a particular
+group.</p>
+</dd>
+<dt><strong>bin_names</strong><span class="classifier">List[string]</span></dt><dd><p>A list holding a description of each group.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not 2-dimensional.</p>
+</dd>
+<dt><strong>IndexError</strong></dt><dd><p>The supplied <code class="docutils literal notranslate"><span class="pre">column_index</span></code> is not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The column index is neither a string nor an integer. The numerical bins
+number is not an integer. The <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter is neither a list
+not <code class="docutils literal notranslate"><span class="pre">None</span></code>. One of the grouping bin boundaries (for a numerical
+feature column) is not a number. One of the groupings (for a
+categorical feature column) is not a tuple. The
+<code class="docutils literal notranslate"><span class="pre">treat_as_categorical</span></code> parameter is neither a boolean nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type. The numerical bins number
+is less than 2. The <code class="docutils literal notranslate"><span class="pre">groupings</span></code> list is empty. The numbers in the
+<code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter are not monotonically increasing (for a
+numerical column). There are duplicate values shared among tuples in
+the <code class="docutils literal notranslate"><span class="pre">grouping</span></code> parameter or one of the values does not appear in the
+selected column (for a categorical column).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>When grouping is done on a categorical column a warning is emitted when
+some of the values in that column are not accounted for, i.e. they are
+not included in the <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter. Also, if some of the rows
+are not included in any of the groupings, a warning is shown. Missing
+row indices may be a result of some of the values being not-a-number
+for a numerical column and missing some of the unique values for a
+categorical column. <code class="docutils literal notranslate"><span class="pre">treat_as_categorical</span></code> parameter is set to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, however the feature selected is string-based
+(i.e. categorical), therefore cannot be treated as a numerical one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="examples-using-fatf-utils-data-tools-group-by-column">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code><a class="headerlink" href="#examples-using-fatf-utils-data-tools-group-by-column" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d..."><div class="figure align-center" id="id1">
+<img alt="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" src="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="clear:both"></div></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.tools.group_by_column.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

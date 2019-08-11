@@ -1,0 +1,11 @@
+:mod:`fatf.fairness.models.measures`.demographic_parity
+==============================================================
+
+.. currentmodule:: fatf.fairness.models.measures
+
+.. autofunction:: demographic_parity
+
+.. include:: fatf.fairness.models.measures.demographic_parity.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.augmentation`.NormalSampling
+=========================================================
+
+.. currentmodule:: fatf.utils.data.augmentation
+
+.. autoclass:: NormalSampling
+
+.. include:: fatf.utils.data.augmentation.NormalSampling.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

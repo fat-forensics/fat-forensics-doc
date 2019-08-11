@@ -1,0 +1,11 @@
+:mod:`fatf.utils.distances`.hamming_distance_base
+========================================================
+
+.. currentmodule:: fatf.utils.distances
+
+.. autofunction:: hamming_distance_base
+
+.. include:: fatf.utils.distances.hamming_distance_base.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

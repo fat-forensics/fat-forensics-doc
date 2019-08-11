@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.density`.DensityCheck
+==================================================
+
+.. currentmodule:: fatf.utils.data.density
+
+.. autoclass:: DensityCheck
+
+.. include:: fatf.utils.data.density.DensityCheck.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

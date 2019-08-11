@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Measuring Robustness of a Data Set – Sampling Bias &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Measuring Robustness of a Predictive Model – Systematic Performance Bias" href="xmpl_accountability_models_measure.html" />
+    <link rel="prev" title="Examples" href="../index.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xmpl_accountability_models_measure.html"
+                        title="next chapter">Measuring Robustness of a Predictive Model – Systematic Performance Bias</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+              <span class="hiddenrellink left-button">
+                Examples
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Examples
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_accountability_models_measure.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Measuring Rob...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Measuring Robustness of a Predictive Model – Systematic Performance Bias
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Measuring Robustness of a Data Set – Sampling Bias</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
+</div>
+<div class="sphx-glr-example-title section" id="measuring-robustness-of-a-data-set-sampling-bias">
+<span id="sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"></span><h1>Measuring Robustness of a Data Set – Sampling Bias<a class="headerlink" href="#measuring-robustness-of-a-data-set-sampling-bias" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how to identify Sampling Bias for a data set grouping
+for a selected feature.</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The counts for groups defined on &quot;petal length (cm)&quot; feature (index 2) are:
+    * For the population split *x &lt;= 2.5* there are: 50 data points.
+    * For the population split *2.5 &lt; x &lt;= 4.75* there are: 45 data points.
+    * For the population split *4.75 &lt; x* there are: 55 data points.
+
+The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
+    * For &quot;x &lt;= 2.5&quot; and &quot;2.5 &lt; x &lt;= 4.75&quot; groupings there &gt;is no&lt; Sampling Bias.
+    * For &quot;x &lt;= 2.5&quot; and &quot;4.75 &lt; x&quot; groupings there &gt;is no&lt; Sampling Bias.
+    * For &quot;2.5 &lt; x &lt;= 4.75&quot; and &quot;4.75 &lt; x&quot; groupings there &gt;is&lt; Sampling Bias.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Kacper Sokol &lt;k.sokol@bristol.ac.uk&gt;</span>
+<span class="c1"># License: new BSD</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+
+<span class="kn">import</span> <span class="nn">fatf.accountability.data.measures</span> <span class="k">as</span> <span class="nn">fatf_dam</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
+<span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="n">iris_class_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="c1"># Select a feature for which the Sampling Bias be measured</span>
+<span class="n">selected_feature_index</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">selected_feature_name</span> <span class="o">=</span> <span class="n">iris_feature_names</span><span class="p">[</span><span class="n">selected_feature_index</span><span class="p">]</span>
+
+<span class="c1"># Define grouping on the selected feature</span>
+<span class="n">selected_feature_grouping</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">]</span>
+
+<span class="c1"># Get counts, weights and names of the specified grouping</span>
+<span class="n">grp_counts</span><span class="p">,</span> <span class="n">grp_weights</span><span class="p">,</span> <span class="n">grp_names</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias.html#fatf.accountability.data.measures.sampling_bias" title="View documentation for fatf.accountability.data.measures.sampling_bias"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias</span></a><span class="p">(</span>
+    <span class="n">iris_X</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">selected_feature_grouping</span><span class="p">)</span>
+
+<span class="c1"># Print out counts per group</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The counts for groups defined on &quot;</span><span class="si">{}</span><span class="s1">&quot; feature (index </span><span class="si">{}</span><span class="s1">) are:&#39;</span>
+      <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selected_feature_name</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">g_name</span><span class="p">,</span> <span class="n">g_count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grp_names</span><span class="p">,</span> <span class="n">grp_counts</span><span class="p">):</span>
+    <span class="n">is_are</span> <span class="o">=</span> <span class="s1">&#39;is&#39;</span> <span class="k">if</span> <span class="n">g_count</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;are&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * For the population split *</span><span class="si">{}</span><span class="s1">* there </span><span class="si">{}</span><span class="s1">: &#39;</span>
+          <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> data points.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">g_name</span><span class="p">,</span> <span class="n">is_are</span><span class="p">,</span> <span class="n">g_count</span><span class="p">))</span>
+
+<span class="c1"># Get the disparity grid</span>
+<span class="n">bias_grid</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias_grid_check.html#fatf.accountability.data.measures.sampling_bias_grid_check" title="View documentation for fatf.accountability.data.measures.sampling_bias_grid_check"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias_grid_check</span></a><span class="p">(</span><span class="n">grp_counts</span><span class="p">)</span>
+
+<span class="c1"># Print out disparity per every grouping pair</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The Sampling Bias for *</span><span class="si">{}</span><span class="s1">* feature (index </span><span class="si">{}</span><span class="s1">) grouping is:&#39;</span>
+      <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selected_feature_name</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">grouping_i</span><span class="p">,</span> <span class="n">grouping_name_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grp_names</span><span class="p">):</span>
+    <span class="n">j_offset</span> <span class="o">=</span> <span class="n">grouping_i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">grouping_j</span><span class="p">,</span> <span class="n">grouping_name_j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grp_names</span><span class="p">[</span><span class="n">j_offset</span><span class="p">:]):</span>
+        <span class="n">grouping_j</span> <span class="o">+=</span> <span class="n">j_offset</span>
+        <span class="n">is_not</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">bias_grid</span><span class="p">[</span><span class="n">grouping_i</span><span class="p">,</span> <span class="n">grouping_j</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39; no&#39;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * For &quot;</span><span class="si">{}</span><span class="s1">&quot; and &quot;</span><span class="si">{}</span><span class="s1">&quot; groupings there &gt;is</span><span class="si">{}</span><span class="s1">&lt; Sampling Bias.&#39;</span>
+              <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grouping_name_i</span><span class="p">,</span> <span class="n">grouping_name_j</span><span class="p">,</span> <span class="n">is_not</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.065 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/fa57ed92ca1664204c3a7644c3f010ed/xmpl_accountability_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_data_measure.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/0b565cfc03446937ee514872eb669622/xmpl_accountability_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_data_measure.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

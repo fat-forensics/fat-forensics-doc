@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.metrics`.multiclass_treatment
+=============================================================
+
+.. currentmodule:: fatf.utils.metrics.metrics
+
+.. autofunction:: multiclass_treatment
+
+.. include:: fatf.utils.metrics.metrics.multiclass_treatment.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.tools`.get_invalid_indices
+========================================================
+
+.. currentmodule:: fatf.utils.array.tools
+
+.. autofunction:: get_invalid_indices
+
+.. include:: fatf.utils.array.tools.get_invalid_indices.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

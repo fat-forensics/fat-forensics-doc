@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.validation`.are_similar_dtype_arrays
+==================================================================
+
+.. currentmodule:: fatf.utils.array.validation
+
+.. autofunction:: are_similar_dtype_arrays
+
+.. include:: fatf.utils.array.validation.are_similar_dtype_arrays.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

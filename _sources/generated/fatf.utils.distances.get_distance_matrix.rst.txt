@@ -1,0 +1,11 @@
+:mod:`fatf.utils.distances`.get_distance_matrix
+======================================================
+
+.. currentmodule:: fatf.utils.distances
+
+.. autofunction:: get_distance_matrix
+
+.. include:: fatf.utils.distances.get_distance_matrix.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,11 @@
+:mod:`fatf.accountability.data.measures`.sampling_bias
+=============================================================
+
+.. currentmodule:: fatf.accountability.data.measures
+
+.. autofunction:: sampling_bias
+
+.. include:: fatf.accountability.data.measures.sampling_bias.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

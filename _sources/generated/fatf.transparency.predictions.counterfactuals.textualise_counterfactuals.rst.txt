@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.predictions.counterfactuals`.textualise_counterfactuals
+======================================================================================
+
+.. currentmodule:: fatf.transparency.predictions.counterfactuals
+
+.. autofunction:: textualise_counterfactuals
+
+.. include:: fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

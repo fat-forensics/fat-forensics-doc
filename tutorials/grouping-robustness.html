@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Using Grouping to Evaluate Robustness of Data and Models &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/tutorials/grouping-robustness.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Explaining a Machine Learning Model: ICE and PD" href="model-explainability.html" />
+    <link rel="prev" title="Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness" href="grouping-fairness.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Grouping to Evaluate Robustness of Data and Models</a><ul>
+<li><a class="reference internal" href="#grouping-the-data-set">Grouping the Data Set</a></li>
+<li><a class="reference internal" href="#sampling-bias">Sampling Bias</a></li>
+<li><a class="reference internal" href="#systematic-performance-bias">Systematic Performance Bias</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="grouping-fairness.html"
+                        title="previous chapter">Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="model-explainability.html"
+                        title="next chapter">Explaining a Machine Learning Model: ICE and PD</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/grouping-robustness.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Tutorials
+              </span>
+              <span class="hiddenrellink left-button">
+                Tutorials
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="grouping-fairness.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Using Groupin...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="model-explainability.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Explaining a ...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Explaining a Machine Learning Model: ICE and PD
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Using Grouping to Evaluate Robustness of Data and Models</a><ul>
+<li><a class="reference internal" href="#grouping-the-data-set">Grouping the Data Set</a></li>
+<li><a class="reference internal" href="#sampling-bias">Sampling Bias</a></li>
+<li><a class="reference internal" href="#systematic-performance-bias">Systematic Performance Bias</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-grouping-to-evaluate-robustness-of-data-and-models">
+<span id="tutorials-grouping-robustness"></span><h1>Using Grouping to Evaluate Robustness of Data and Models<a class="headerlink" href="#using-grouping-to-evaluate-robustness-of-data-and-models" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Tutorial Contents</p>
+<p>In this tutorial, we show how data grouping can be used to evaluate
+bias – from the accountability perspective – of a data set
+(<em>sampling bias</em>) and a predictive model (<em>systematic performance bias</em>).
+The former can help us to determine whether defined sub-populations are
+well represented in a data set – similar to the
+<a class="reference internal" href="grouping-fairness.html#tutorials-grouping-fairness-labelling-disparity"><span class="std std-ref">data fairness</span></a>
+consideration in the
+<a class="reference internal" href="grouping-fairness.html#tutorials-grouping-fairness"><span class="std std-ref">previous tutorial</span></a>. The latter, can
+help us with identifying sub-populations in a data set for which a
+predictive model under-performs – similar to the
+<a class="reference internal" href="grouping-fairness.html#tutorials-grouping-fairness-model-disparity"><span class="std std-ref">model fairness</span></a>
+discussion in the <a class="reference internal" href="grouping-fairness.html#tutorials-grouping-fairness"><span class="std std-ref">previous tutorial</span></a>.</p>
+</div>
+<p>First, we need to load numpy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>Now, let us load and prepare the Iris data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data_dict</span> <span class="o">=</span> <span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about the Iris data set and its structure, please refer
+the the <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial or the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/iris">data set description</a>
+on the <a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UCI repository</a> website.</p>
+</div>
+<div class="section" id="grouping-the-data-set">
+<h2>Grouping the Data Set<a class="headerlink" href="#grouping-the-data-set" title="Permalink to this headline">¶</a></h2>
+<p>For the purpose of this tutorial we will group the data set based on the third
+feature of the data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_index</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">selected_feature_index</span><span class="p">]</span>
+<span class="go">&#39;petal length (cm)&#39;</span>
+</pre></div>
+</div>
+<p>Now, let us assume that for some, unknown, reason there are two important
+split values on this feature: <code class="docutils literal notranslate"><span class="pre">2.5</span></code> and <code class="docutils literal notranslate"><span class="pre">4.75</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.tools</span> <span class="k">as</span> <span class="nn">fatf_data_tools</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_groups</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_grouping</span> <span class="o">=</span> <span class="n">fatf_data_tools</span><span class="o">.</span><span class="n">group_by_column</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">selected_feature_index</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">groupings</span><span class="o">=</span><span class="n">selected_feature_groups</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&#39;x &lt;= 2.5&#39;, &#39;2.5 &lt; x &lt;= 4.75&#39;, &#39;4.75 &lt; x&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sampling-bias">
+<h2>Sampling Bias<a class="headerlink" href="#sampling-bias" title="Permalink to this headline">¶</a></h2>
+<p>Given these two important splits we can now inspect these groupings and see
+whether we have a comparable number of data points in each of them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">45</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">55</span>
+</pre></div>
+</div>
+<p>The number of data points for all the sub-populations seems to be (roughly)
+equally distributed. The only pair of sub-populations which may indicate a
+<em>sampling bias</em> is the second and the third one:
+<code class="docutils literal notranslate"><span class="pre">2.5</span> <span class="pre">&lt;</span> <span class="pre">petal</span> <span class="pre">length</span> <span class="pre">(cm)</span> <span class="pre">&lt;=</span> <span class="pre">4.75</span></code> and <code class="docutils literal notranslate"><span class="pre">4.75</span> <span class="pre">&lt;</span> <span class="pre">petal</span> <span class="pre">length</span> <span class="pre">(cm)</span></code>. For
+completeness, let us the
+<a class="reference internal" href="../generated/fatf.accountability.data.measures.sampling_bias_grid_check.html#fatf.accountability.data.measures.sampling_bias_grid_check" title="fatf.accountability.data.measures.sampling_bias_grid_check"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.accountability.data.measures.sampling_bias_grid_check</span></code></a> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.accountability.data.measures</span> <span class="k">as</span> <span class="nn">fatf_accountability_data</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">counts_per_grouping</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_accountability_data</span><span class="o">.</span><span class="n">sampling_bias_grid_check</span><span class="p">(</span><span class="n">counts_per_grouping</span><span class="p">)</span>
+<span class="go">array([[False, False, False],</span>
+<span class="go">       [False, False,  True],</span>
+<span class="go">       [False,  True, False]])</span>
+</pre></div>
+</div>
+<p>As expected, the only pair of sub-populations violating <em>sampling bias</em>
+criterion with the default threshold of <code class="docutils literal notranslate"><span class="pre">0.8</span></code> are sub-populations with
+indices 1 and 2 making them: <code class="docutils literal notranslate"><span class="pre">2.5</span> <span class="pre">&lt;</span> <span class="pre">petal</span> <span class="pre">length</span> <span class="pre">(cm)</span> <span class="pre">&lt;=</span> <span class="pre">4.75</span></code> and
+<code class="docutils literal notranslate"><span class="pre">4.75</span> <span class="pre">&lt;</span> <span class="pre">petal</span> <span class="pre">length</span> <span class="pre">(cm)</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that the same result can be achieved without doing the data
+grouping manually. To this end, you may use the
+<a class="reference internal" href="../generated/fatf.accountability.data.measures.sampling_bias.html#fatf.accountability.data.measures.sampling_bias" title="fatf.accountability.data.measures.sampling_bias"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.accountability.data.measures.sampling_bias</span></code></a> function, wchich
+internaly groups the data based on the specified feature index. The
+<a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"><span class="std std-ref">Measuring Robustness of a Data Set – Sampling Bias</span></a>
+code example shows how to use it.</p>
+</div>
+</div>
+<div class="section" id="systematic-performance-bias">
+<h2>Systematic Performance Bias<a class="headerlink" href="#systematic-performance-bias" title="Permalink to this headline">¶</a></h2>
+<p>Before we can evaluate robustness of a model, we first need one trained on the
+Iris data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">iris_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also need predictions of this model on a data set that we will use to
+evaluate its robustness; in this case we will use the training data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">iris_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before we can compute any performance metric, let us get confusion matrices for
+each sub-population:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.tools</span> <span class="k">as</span> <span class="nn">fatf_metrics_tools</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grouping_cm</span> <span class="o">=</span> <span class="n">fatf_metrics_tools</span><span class="o">.</span><span class="n">confusion_matrix_per_subgroup_indexed</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_target</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">iris_pred</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_target</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UserWarning</p>
+<p>The above function call will generate 2 warnings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">given</span> <span class="n">labels</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">either</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">arrays</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span><span class="o">.</span>
+<span class="ne">UserWarning</span><span class="p">:</span> <span class="n">Some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">given</span> <span class="n">labels</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">either</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">arrays</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">}</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>These are because for some of the sub-populations the ground truth (target)
+and the prediction vectors may only hold a single label, therefore the
+confusion matrix calculator is not aware of the rest and has to resort to
+using the labels specified in the <code class="docutils literal notranslate"><span class="pre">labels</span></code> parameter. Printing the unique
+target and prediction values of the first sub-population shows exactly this
+scenario happening:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_target</span><span class="p">[</span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+<span class="go">array([0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_pred</span><span class="p">[</span><span class="n">selected_feature_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+<span class="go">array([0])</span>
+</pre></div>
+</div>
+<p>This happens as the selected feature – petal length (cm) – is a very good
+predictor of the first class. For more details you may want to have a look
+at the
+<a class="reference internal" href="grouping.html#tutorials-grouping-data-transparency"><span class="std std-ref">data transparency section</span></a> of
+the <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">grouping tutorial</span></a> where this feature is
+explained in relation to the ground truth using the data descrition
+funcitonality of this package.</p>
+</div>
+<p>With confusion matrices for every grouping we can generate any performance
+metric. For the purposes of this tutorial let us look at <em>accuracy</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.metrics</span> <span class="k">as</span> <span class="nn">fatf_metrics</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_0_acc</span> <span class="o">=</span> <span class="n">fatf_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">grouping_cm</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_0_acc</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_1_acc</span> <span class="o">=</span> <span class="n">fatf_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">grouping_cm</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_1_acc</span>
+<span class="go">0.9777777777777777</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_2_acc</span> <span class="o">=</span> <span class="n">fatf_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">grouping_cm</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group_2_acc</span>
+<span class="go">0.9090909090909091</span>
+</pre></div>
+</div>
+<p>The accuracy seems to be comparable across sub-populations. Clearly none of
+the sub-populations defined on the petal length feature suffers from a
+performance bias as measured by accuracy. For completeness, let us test
+for the systematic performance bias with the
+<a class="reference internal" href="../generated/fatf.accountability.models.measures.systematic_performance_bias_grid.html#fatf.accountability.models.measures.systematic_performance_bias_grid" title="fatf.accountability.models.measures.systematic_performance_bias_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.accountability.models.measures.systematic_performance_bias_grid</span></code></a>
+function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.accountability.models.measures</span> <span class="k">as</span> <span class="nn">fatf_accountability_models</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_accountability_models</span><span class="o">.</span><span class="n">systematic_performance_bias_grid</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="n">group_0_acc</span><span class="p">,</span> <span class="n">group_1_acc</span><span class="p">,</span> <span class="n">group_2_acc</span><span class="p">])</span>
+<span class="go">array([[False, False, False],</span>
+<span class="go">       [False, False, False],</span>
+<span class="go">       [False, False, False]])</span>
+</pre></div>
+</div>
+<p>As expected, there is no systematic performance bias for these sub-populations
+given the predictive model at hand.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this part of the tutorial we used the
+<a class="reference internal" href="../generated/fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed.html#fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed" title="fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed</span></code></a>
+function to get a confusion matrix for each of the sub-populations and used
+these to compute the corresponding accuracies. All of these steps are
+combined by the
+<a class="reference internal" href="../generated/fatf.utils.metrics.subgroup_metrics.performance_per_subgroup.html#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="fatf.utils.metrics.subgroup_metrics.performance_per_subgroup"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.subgroup_metrics.performance_per_subgroup</span></code></a>
+function, therefore making the task of evaluating systematic performance
+bias easier. An example of how to use this function can be found in
+<a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_models_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-models-measure-py"><span class="std std-ref">Measuring Robustness of a Predictive Model – Systematic Performance Bias</span></a>
+code example.</p>
+</div>
+<hr class="docutils" />
+<p>In this tutorial we saw how to use data grouping to evaluate important
+accountability aspects of data sets and predictive models. This tutorial
+concludes the series of tutorials focused around data grouping. In the next one
+we move on to predictive models (<a class="reference internal" href="model-explainability.html#tutorials-model-explainability"><span class="std std-ref">Explaining a Machine Learning Model: ICE and PD</span></a>) and
+predictions (<a class="reference internal" href="prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">Explaining Machine Learning Predictions: LIME and Counterfactuals</span></a>) transparency. For data
+sets transparency please refer to the <strong>last section</strong> of the
+<a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial.</p>
+</div>
+<div class="section" id="relevant-fat-forensics-examples">
+<h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
+<p>The following examples provide more structured and code-focused use-cases of
+a group-based data and models inspection to evaluate their accountability:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"><span class="std std-ref">Measuring Robustness of a Data Set – Sampling Bias</span></a>,</p></li>
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_models_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-models-measure-py"><span class="std std-ref">Measuring Robustness of a Predictive Model – Systematic Performance Bias</span></a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/tutorials/grouping-robustness.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

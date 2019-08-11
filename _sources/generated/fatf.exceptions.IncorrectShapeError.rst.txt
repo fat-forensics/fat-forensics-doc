@@ -1,0 +1,11 @@
+:mod:`fatf.exceptions`.IncorrectShapeError
+=================================================
+
+.. currentmodule:: fatf.exceptions
+
+.. autoexception:: IncorrectShapeError
+    :no-members:
+    :no-undoc-members:
+    :no-inherited-members:
+    :no-private-members:
+    :no-special-members:

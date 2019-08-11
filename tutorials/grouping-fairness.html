@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Using Grouping to Evaluate Fairness of Data and Models &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/tutorials/grouping-fairness.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Grouping to Evaluate Robustness of Data and Models" href="grouping-robustness.html" />
+    <link rel="prev" title="Exploring the Grouping Concept – Defining Sub-Populations" href="grouping.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness</a><ul>
+<li><a class="reference internal" href="#grouping-the-data-set">Grouping the Data Set</a></li>
+<li><a class="reference internal" href="#labelling-disparity">Labelling Disparity</a></li>
+<li><a class="reference internal" href="#predictive-disparity-of-a-model">Predictive Disparity of a Model</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="grouping.html"
+                        title="previous chapter">Exploring the Grouping Concept – Defining Sub-Populations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="grouping-robustness.html"
+                        title="next chapter">Using Grouping to Evaluate Robustness of Data and Models</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/grouping-fairness.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Tutorials
+              </span>
+              <span class="hiddenrellink left-button">
+                Tutorials
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="grouping.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Exploring the...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Exploring the Grouping Concept – Defining Sub-Populations
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="grouping-robustness.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Using Groupin...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Using Grouping to Evaluate Robustness of Data and Models
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness</a><ul>
+<li><a class="reference internal" href="#grouping-the-data-set">Grouping the Data Set</a></li>
+<li><a class="reference internal" href="#labelling-disparity">Labelling Disparity</a></li>
+<li><a class="reference internal" href="#predictive-disparity-of-a-model">Predictive Disparity of a Model</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-grouping-to-evaluate-fairness-of-data-and-models-group-based-fairness">
+<span id="tutorials-grouping-fairness"></span><h1>Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness<a class="headerlink" href="#using-grouping-to-evaluate-fairness-of-data-and-models-group-based-fairness" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Tutorial Contents</p>
+<p>In this tutorial, we show how to use the grouping functionality introduced
+in the previous tutorial together with the
+<a class="reference internal" href="../generated/fatf.fairness.models.measures.disparate_impact_indexed.html#fatf.fairness.models.measures.disparate_impact_indexed" title="fatf.fairness.models.measures.disparate_impact_indexed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.fairness.models.measures.disparate_impact_indexed</span></code></a> function to
+check for disparate treatment of a protected group with respect to the
+ground truth labelling (data fairness) and predictions provided by a model
+(model fairness).</p>
+</div>
+<p>Before we proceed let us load packages that we will need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>For this tutorial we will use a small dataset distributed together with the
+FAT Forensics package – <em>health records</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hr_data_dict</span> <span class="o">=</span> <span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_health_records</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hr_data</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This data set is stored as a <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.rec.html">structured numpy array</a>, therefore the columns
+can be of different types (integers, strings, etc.) and they are accessible via
+a name rather than an index.</p>
+<p>The following features are available in this data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hr_data</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
+<span class="go">(&#39;name&#39;, &#39;email&#39;, &#39;age&#39;, &#39;weight&#39;, &#39;gender&#39;, &#39;zipcode&#39;, &#39;diagnosis&#39;, &#39;dob&#39;)</span>
+</pre></div>
+</div>
+<p>Throughout this tutorial we will assume that the protected attribute is
+<code class="docutils literal notranslate"><span class="pre">'gender'</span></code> and we will inspect the distribution of the ground truth and
+predictions of a model with respect to this feature in order to evaluate
+fairness of this data set (its labelling in particular) and a model trained on
+it.</p>
+<p>Before we dive in let us briefly look at the ground truth vector:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+<span class="go">array([&#39;fail&#39;, &#39;success&#39;], dtype=&#39;&lt;U7&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hr_target</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">hr_target</span><span class="p">)</span>
+<span class="go">array([0, 1])</span>
+</pre></div>
+</div>
+<p>Therefore, the target array has two possible values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> for a <strong>fail</strong>ed treatment and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> for a <strong>success</strong>ful one.</p></li>
+</ul>
+<div class="section" id="grouping-the-data-set">
+<h2>Grouping the Data Set<a class="headerlink" href="#grouping-the-data-set" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will look into the distribution of the ground truth
+(labeling) for sub-populations achieved by splitting the health records data
+set based on the <code class="docutils literal notranslate"><span class="pre">'gender'</span></code> feature. To this end, let us use the data
+grouping skills that we have learnt in the
+<a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">previous tutorial</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.tools</span> <span class="k">as</span> <span class="nn">fatf_data_tools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_grouping</span> <span class="o">=</span> <span class="n">fatf_data_tools</span><span class="o">.</span><span class="n">group_by_column</span><span class="p">(</span><span class="n">hr_data</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&quot;(&#39;female&#39;,)&quot;, &quot;(&#39;male&#39;,)&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">[0, 1, 2, 6, 9, 12, 13, 14, 16, 17, 18, 19]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[3, 4, 5, 7, 8, 10, 11, 15, 20]</span>
+</pre></div>
+</div>
+<p>Therefore, the data points with indices
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">6,</span> <span class="pre">9,</span> <span class="pre">12,</span> <span class="pre">13,</span> <span class="pre">14,</span> <span class="pre">16,</span> <span class="pre">17,</span> <span class="pre">18,</span> <span class="pre">19]</span></code> are <code class="docutils literal notranslate"><span class="pre">'female'</span></code>s and the
+data points with indices <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">10,</span> <span class="pre">11,</span> <span class="pre">15,</span> <span class="pre">20]</span></code> are <code class="docutils literal notranslate"><span class="pre">'male'</span></code>s.</p>
+</div>
+<div class="section" id="labelling-disparity">
+<span id="tutorials-grouping-fairness-labelling-disparity"></span><h2>Labelling Disparity<a class="headerlink" href="#labelling-disparity" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have <code class="docutils literal notranslate"><span class="pre">'gender'</span></code>-based grouping we can investigate how target
+labels are distributed for different genders. To this end, we will use numpy’s
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.unique.html#numpy.unique" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unique</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">return_counts</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">target_female</span> <span class="o">=</span> <span class="n">hr_target</span><span class="p">[</span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_female</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span>
+<span class="go">(array([0, 1]), array([5, 7]))</span>
+</pre></div>
+</div>
+<p>Therefore, for <code class="docutils literal notranslate"><span class="pre">'female'</span></code>s there are 5 whose treatment has <em>failed</em> and 7
+whose treatment was successful. For <code class="docutils literal notranslate"><span class="pre">'male'</span></code>s the distribution of can be
+computed in the same way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">target_male</span> <span class="o">=</span> <span class="n">hr_target</span><span class="p">[</span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_male_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_male</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_male_counts</span>
+<span class="go">(array([0, 1]), array([5, 4]))</span>
+</pre></div>
+</div>
+<p>Therefore, for <code class="docutils literal notranslate"><span class="pre">'male'</span></code>s there are 5 whose treatment has failed and 4 whose
+treatment was successful.</p>
+<p>These look quite similar for both genders, which means that failed and
+successful treatments distribution are comparable, therefore none of the gender
+groups is underrepresented. We hope for the sub-populations to be similarly
+distributed as an underrepresented group may cause a model to be under-fitted
+in this region therefore underperform for this gender sub-population. This,
+in turn, may lead to this sub-population being treated unfairly.</p>
+<p>For completeness, let us compare these ratios numerically. The ratios for
+females are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">female_fail_ratio</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">target_female_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">target_female_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">female_fail_ratio</span>
+<span class="go">0.4166666666666667</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">female_success_ratio</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">target_female_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">target_female_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">female_success_ratio</span>
+<span class="go">0.5833333333333334</span>
+</pre></div>
+</div>
+<p>And, the ratios for males are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">male_fail_ratio</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">target_male_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">target_male_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">male_fail_ratio</span>
+<span class="go">0.5555555555555556</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">male_success_ratio</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">target_male_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">target_male_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">male_success_ratio</span>
+<span class="go">0.4444444444444444</span>
+</pre></div>
+</div>
+<p>Therefore, the biggest ratio differences are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">female_success_ratio</span> <span class="o">-</span> <span class="n">male_success_ratio</span><span class="p">)</span>
+<span class="go">0.13888888888888895</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">female_fail_ratio</span> <span class="o">-</span> <span class="n">male_fail_ratio</span><span class="p">)</span>
+<span class="go">0.1388888888888889</span>
+</pre></div>
+</div>
+<p>which are acceptable if we assume a threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p>
+</div>
+<div class="section" id="predictive-disparity-of-a-model">
+<span id="tutorials-grouping-fairness-model-disparity"></span><h2>Predictive Disparity of a Model<a class="headerlink" href="#predictive-disparity-of-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Now, let us inspect group-based fairness of a predictive model. To this end, we
+first need to train a model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">hr_data</span><span class="p">,</span> <span class="n">hr_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we get the predictions for the training set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hr_predictions</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">hr_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With that, we can see what is the training set accuracy of our model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.tools</span> <span class="k">as</span> <span class="nn">fatf_metric_tools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.metrics</span> <span class="k">as</span> <span class="nn">fatf_performance_metrics</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hr_confusion_matrix</span> <span class="o">=</span> <span class="n">fatf_metric_tools</span><span class="o">.</span><span class="n">get_confusion_matrix</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">hr_target</span><span class="p">,</span> <span class="n">hr_predictions</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_performance_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">hr_confusion_matrix</span><span class="p">)</span>
+<span class="go">0.7619047619047619</span>
+</pre></div>
+</div>
+<p>The accuracy of <code class="docutils literal notranslate"><span class="pre">0.76</span></code> is not too bad. Now let us see how are accuracies
+for males and females. First, we need to get confusion matrices for these two
+sub-populations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gender_cm</span> <span class="o">=</span> <span class="n">fatf_metric_tools</span><span class="o">.</span><span class="n">confusion_matrix_per_subgroup_indexed</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">hr_target</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">hr_predictions</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">hr_target</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that had we not coputed the groupings beforehand, we could use
+the <a class="reference internal" href="../generated/fatf.utils.metrics.tools.confusion_matrix_per_subgroup.html#fatf.utils.metrics.tools.confusion_matrix_per_subgroup" title="fatf.utils.metrics.tools.confusion_matrix_per_subgroup"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools.confusion_matrix_per_subgroup</span></code></a> funciton,
+which computes the sub-populations automatically based on the feature
+indicated by the appropriate parameter. Please see the
+<a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"><span class="std std-ref">Measuring Fairness of a Predictive Model – Disparate Impact</span></a>
+code example to see how it is used in practice.</p>
+</div>
+<p>Let us see the accuracy for females, which is the first sub-group:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_performance_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">gender_cm</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">0.8333333333333334</span>
+</pre></div>
+</div>
+<p>And, now, the one for males:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_performance_metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">gender_cm</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">0.6666666666666666</span>
+</pre></div>
+</div>
+<p>The model at hand, clearly, performs better for females than it does for males.
+But with the default threshold (<code class="docutils literal notranslate"><span class="pre">0.2</span></code>) this should should not be enough to
+be indicated as violating the <a class="reference internal" href="../generated/fatf.fairness.models.measures.equal_accuracy.html#fatf.fairness.models.measures.equal_accuracy" title="fatf.fairness.models.measures.equal_accuracy"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_accuracy</span></code></a> disparate impact fairness
+metric:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.fairness.models.measures</span> <span class="k">as</span> <span class="nn">fatf_fairness_models</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_equal_accuracy</span> <span class="o">=</span> <span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">equal_accuracy</span><span class="p">(</span><span class="n">gender_cm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">disparate_impact_check</span><span class="p">(</span><span class="n">gender_equal_accuracy</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>As expected, none of the sub-population pairs – in this case just one pair:
+females-males – violates the <a class="reference internal" href="../generated/fatf.fairness.models.measures.equal_accuracy.html#fatf.fairness.models.measures.equal_accuracy" title="fatf.fairness.models.measures.equal_accuracy"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal_accuracy</span></code></a> disparate impact fairness
+metric, therefore the model is <strong>fair</strong> with respect to this metric with the
+default threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p>
+<p>Now, let us see whether it is also fair with respect the other two metrics
+available in the package – <em>equal opportunity</em> and <em>demographic parity</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gender_equal_opportunity</span> <span class="o">=</span> <span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">equal_opportunity</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">gender_cm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">disparate_impact_check</span><span class="p">(</span><span class="n">gender_equal_opportunity</span><span class="p">)</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gender_demographic_parity</span> <span class="o">=</span> <span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">demographic_parity</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">gender_cm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_fairness_models</span><span class="o">.</span><span class="n">disparate_impact_check</span><span class="p">(</span><span class="n">gender_demographic_parity</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>These results indicate that for a threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> the <em>equal opportunity</em>
+metric indicates fair treatment of both genders, whereas the
+<em>demographic parity</em> is not satisfied. This clearly indicates that the choice
+of a fairness metric (and a threshold) matters greatly and should always be
+justified. Therefore, as a guidance for choosing the appropriate metric, one
+should understand what it means for a given data set and modelling problem
+before committing to it.</p>
+<hr class="docutils" />
+<p>The concept of group-based fairness is strongly related to identifying
+<em>protected</em> sub-populations in a data set and ensuring that a predictive model
+does not underperform for one of them when compared to all the other. By
+grouping a data set, on the other hand, we can see whether each of these
+sub-groups is well represented, hence enable our predictive model to fit all of
+them equally well.</p>
+<p>The <a class="reference internal" href="grouping-robustness.html#tutorials-grouping-robustness"><span class="std std-ref">next tutorial</span></a> shows how to use
+grouping to inspect <em>accountability</em> of data and predictive models. Next, we
+will move on to transparency of models and their predictions.</p>
+</div>
+<div class="section" id="relevant-fat-forensics-examples">
+<h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
+<p>The following examples provide more structured and code-focused use-cases of
+the group-based fairness metrics and the data set fairness approaches:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"><span class="std std-ref">Measuring Fairness of a Predictive Model – Disparate Impact</span></a>,</p></li>
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/tutorials/grouping-fairness.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

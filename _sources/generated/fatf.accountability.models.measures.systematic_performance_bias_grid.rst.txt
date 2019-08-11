@@ -1,0 +1,11 @@
+:mod:`fatf.accountability.models.measures`.systematic_performance_bias_grid
+==================================================================================
+
+.. currentmodule:: fatf.accountability.models.measures
+
+.. autofunction:: systematic_performance_bias_grid
+
+.. include:: fatf.accountability.models.measures.systematic_performance_bias_grid.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

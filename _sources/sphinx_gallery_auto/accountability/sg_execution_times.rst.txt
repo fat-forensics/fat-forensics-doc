@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr_sphinx_gallery_auto_accountability_sg_execution_times:
+
+Computation times
+=================
+**00:01.967** total execution time for **sphinx_gallery_auto_accountability** files:
+
+- **00:01.281**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_predictions_density.py` (``xmpl_accountability_predictions_density.py``)
+- **00:00.621**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_models_measure.py` (``xmpl_accountability_models_measure.py``)
+- **00:00.065**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_data_measure.py` (``xmpl_accountability_data_measure.py``)

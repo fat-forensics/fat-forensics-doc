@@ -1,0 +1,11 @@
+:mod:`fatf.exceptions`.PrefittedModelError
+=================================================
+
+.. currentmodule:: fatf.exceptions
+
+.. autoexception:: PrefittedModelError
+    :no-members:
+    :no-undoc-members:
+    :no-inherited-members:
+    :no-private-members:
+    :no-special-members:

@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.augmentation.Augmentation &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.utils.data.augmentation.Augmentation.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.models.models.Model" href="fatf.utils.models.models.Model.html" />
+    <link rel="prev" title="fatf.exceptions.PrefittedModelError" href="fatf.exceptions.PrefittedModelError.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.exceptions.PrefittedModelError.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.exceptions</span></code>.PrefittedModelError</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.models.models.Model.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code>.Model</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.augmentation.Augmentation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.exceptions.PrefittedModelError.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.exceptio...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.exceptions.PrefittedModelError
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.models.models.Model.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.mo...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.models.models.Model
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.Augmentation</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-augmentation-augmentation">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.Augmentation<a class="headerlink" href="#fatf-utils-data-augmentation-augmentation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.augmentation.Augmentation">
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">Augmentation</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>ground_truth: Optional[numpy.ndarray] = None</em>, <em>categorical_indices: Optional[numpy.ndarray] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/augmentation.py#L110"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class for implementing data augmentation methods.</p>
+<p>An abstract class that all augmentation classes should inherit from. It
+contains abstract <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and <code class="docutils literal notranslate"><span class="pre">sample</span></code> methods and an input
+validator – <code class="docutils literal notranslate"><span class="pre">_validate_sample_input</span></code> – for the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method. The
+validation of the input parameters to the initialisation method is done via
+the <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation._validate_input</span></code> function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">_validate_sample_input</span></code> method should be called in all
+implementations of the <code class="docutils literal notranslate"><span class="pre">sample</span></code> method in the children classes to
+ensure that all the input parameters of this method are valid.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with a dataset to be used for sampling.</p>
+</dd>
+<dt><strong>ground_truth</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>A 1-dimensional numpy array with labels for the supplied dataset.</p>
+</dd>
+<dt><strong>categorical_indices</strong><span class="classifier">List[column indices], optional (default=None)</span></dt><dd><p>A list of column indices that should be treat as categorical features.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given this will be inferred from the data array:
+string-based columns will be treated as categorical features and
+numerical columns will be treated as numerical features.</p>
+</dd>
+<dt><strong>int_to_float</strong><span class="classifier">boolean</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, all of the integer dtype columns in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> will
+be generalised to <code class="docutils literal notranslate"><span class="pre">numpy.float64</span></code> type. Otherwise, integer type
+columns will remain integer and floating point type columns will remain
+floating point.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with a dataset to be used for sampling.</p>
+</dd>
+<dt><strong>data_points_number</strong><span class="classifier">integer</span></dt><dd><p>The number of data points in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>is_structured</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is a structured numpy array, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p>
+</dd>
+<dt><strong>ground_truth</strong><span class="classifier">Union[numpy.ndarray, None]</span></dt><dd><p>A 1-dimensional numpy array with labels for the supplied dataset.</p>
+</dd>
+<dt><strong>categorical_indices</strong><span class="classifier">List[column indices]</span></dt><dd><p>A list of column indices that should be treat as categorical features.</p>
+</dd>
+<dt><strong>numerical_indices</strong><span class="classifier">List[column indices]</span></dt><dd><p>A list of column indices that should be treat as numerical features.</p>
+</dd>
+<dt><strong>features_number</strong><span class="classifier">integer</span></dt><dd><p>The number of features (columns) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>sample_dtype</strong><span class="classifier">Union[numpy.dtype, List[Tuple[string, numpy.dtype]]</span></dt><dd><p>A dtype with numerical dtypes (in case of a structured data array)
+generalised to support the assignment of sampled values. For example,
+if the dtype of a numerical feature is <code class="docutils literal notranslate"><span class="pre">int</span></code> and the sampling
+generates <code class="docutils literal notranslate"><span class="pre">float</span></code> this dtype will generalise the type of that column
+to <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array. The
+<code class="docutils literal notranslate"><span class="pre">ground_truth</span></code> array is not a 1-dimensional numpy array. The number
+of ground truth annotation is different than the number of rows in the
+data array.</p>
+</dd>
+<dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
+parameter are not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> or the <code class="docutils literal notranslate"><span class="pre">ground_truth</span></code> array (if not <code class="docutils literal notranslate"><span class="pre">None</span></code>) are not
+of base (numerical and/or string) type. The <code class="docutils literal notranslate"><span class="pre">int_to_float</span></code> parameter
+is not a boolean.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+indicated to be categorical features by the user (via the
+<code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
+added to the list of categorical features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.Augmentation.sample" title="fatf.utils.data.augmentation.Augmentation.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
+<td><p>Samples a given number of data points based on the initialisation data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.augmentation.Augmentation.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/augmentation.py#L260"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples a given number of data points based on the initialisation data.</p>
+<p>This is an abstract method that must be implemented for each child
+object. This method should provide two modes of operation:</p>
+<ul class="simple">
+<li><p>if <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the sample should be from the
+distribution of the whole dataset that was used to initialise this
+class; and</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is a numpy array with a data point, the sample should
+be from the vicinity of this data point.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data_row</strong><span class="classifier">Union[numpy.ndarray, numpy.void], optional (default=None)</span></dt><dd><p>A data point. If given, the sample will be generated around that
+point.</p>
+</dd>
+<dt><strong>samples_number</strong><span class="classifier">integer, optional (default=50)</span></dt><dd><p>The number of samples to be generated.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>samples</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Sampled data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>NotImplementedError</strong></dt><dd><p>This is an abstract method and has not been implemented.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.augmentation.Augmentation.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

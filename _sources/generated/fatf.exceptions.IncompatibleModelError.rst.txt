@@ -1,0 +1,11 @@
+:mod:`fatf.exceptions`.IncompatibleModelError
+====================================================
+
+.. currentmodule:: fatf.exceptions
+
+.. autoexception:: IncompatibleModelError
+    :no-members:
+    :no-undoc-members:
+    :no-inherited-members:
+    :no-private-members:
+    :no-special-members:

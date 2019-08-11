@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.datasets`.load_iris
+================================================
+
+.. currentmodule:: fatf.utils.data.datasets
+
+.. autofunction:: load_iris
+
+.. include:: fatf.utils.data.datasets.load_iris.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

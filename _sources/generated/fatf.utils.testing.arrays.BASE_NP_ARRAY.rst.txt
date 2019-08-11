@@ -1,0 +1,6 @@
+fatf.utils.testing.arrays.BASE\_NP\_ARRAY
+=========================================
+
+.. currentmodule:: fatf.utils.testing.arrays
+
+.. autodata:: BASE_NP_ARRAY

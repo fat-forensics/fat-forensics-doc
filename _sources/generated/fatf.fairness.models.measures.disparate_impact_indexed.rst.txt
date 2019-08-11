@@ -1,0 +1,11 @@
+:mod:`fatf.fairness.models.measures`.disparate_impact_indexed
+====================================================================
+
+.. currentmodule:: fatf.fairness.models.measures
+
+.. autofunction:: disparate_impact_indexed
+
+.. include:: fatf.fairness.models.measures.disparate_impact_indexed.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

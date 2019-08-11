@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.lime`.Lime
+=========================================
+
+.. currentmodule:: fatf.transparency.lime
+
+.. autoclass:: Lime
+
+.. include:: fatf.transparency.lime.Lime.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

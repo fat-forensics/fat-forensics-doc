@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.datasets.load_data &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/generated/fatf.utils.data.datasets.load_data.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.datasets.load_health_records" href="fatf.utils.data.datasets.load_health_records.html" />
+    <link rel="prev" title="fatf.utils.array.validation.is_structured_array" href="fatf.utils.array.validation.is_structured_array.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.array.validation.is_structured_array.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.array.validation</span></code>.is_structured_array</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.datasets.load_health_records.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code>.load_health_records</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.datasets.load_data.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference...
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.1-dev1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.array.validation.is_structured_array.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.ar...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.array.validation.is_structured_array
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.datasets.load_health_records.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.datasets.load_health_records
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code>.load_data</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-datasets-load-data">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.datasets" title="fatf.utils.data.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code></a>.load_data<a class="headerlink" href="#fatf-utils-data-datasets-load-data" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="fatf.utils.data.datasets.load_data">
+<code class="descclassname">fatf.utils.data.datasets.</code><code class="descname">load_data</code><span class="sig-paren">(</span><em>file_path: str, dtype: Union[None, type, numpy.dtype, str, List[Tuple[str, str]], List[Tuple[str, numpy.dtype]]] = None, feature_names: List[str] = None</em><span class="sig-paren">)</span> &#x2192; Dict[str, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/7d9cafd/fatf/utils/data/datasets.py#L142"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.datasets.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a dataset from a file.</p>
+<p>The dataset file must be formatted in the <em>comma separated value</em> (<em>csv</em>)
+standard with <code class="docutils literal notranslate"><span class="pre">,</span></code> used as the delimiter. The first row of the file must
+be a header formatted as follows:
+<code class="docutils literal notranslate"><span class="pre">n_samples,n_features,class_name_1,class_name_2,...</span></code>, for example
+<code class="docutils literal notranslate"><span class="pre">150,5,red,green,blue,black</span></code> indicates that there are 150 data points,
+with 5 features and 4 possible classes: red, green, blue and black. The
+classes should be given in an order that matches the lexicographical
+ordering of the unique class values. For example, given that the class
+values in the data are: 3, 2, 4 and 1 the assignment would be: 1–red,
+2–green, 3–blue and 4–black. The rest of the csv file will be treated as
+a data array, with the last column being treated as the target (class)
+variable. The type of each column will be inferred if the <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
+parameter is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, otherwise the array will be cased into the
+provided dtype. In case the columns in the data are of different types or
+the user-provided dtype defines the columns to be of multiple types a
+structured numpy array is used to represent the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_path</strong><span class="classifier">string</span></dt><dd><p>Path to the csv data file.</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">Union[type, numpy.dtype, string, List[Tuple[string, string]], List[Tuple[string, type]], List[Tuple[string, numpy.dtype]]], optional (default=None)</span></dt><dd><p>dtypes used to read the csv data. Defaults to None in which case the
+types will be inferred. The user can provide either a single type for
+the whole array (as a built-in Python type, numpy’s dtype or a string
+representation of a numpy’s dtype) or a list of tuples representing the
+name (string) and type (see above) of every column in the data array.
+In the latter case they user may choose to provide the list of types
+for the whole dataset, including the target column, or just the columns
+representing features.</p>
+</dd>
+<dt><strong>feature_names</strong><span class="classifier">List[string]</span></dt><dd><p>List of strings representing the feature names. Defaults to None in
+which case features are given default names (‘feature_0’, etc.) or if a
+structured <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter is provided the names given in the
+<code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter are used.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">Dict[string, numpy.ndarray]</span></dt><dd><p>A dictionary representation of the dataset storing all the relevant
+information under the following keys: ‘data’, ‘target’, ‘target_names’,
+‘feature_names’.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>TypeError</strong></dt><dd><p>If provided, one of the feature names in the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code>
+parameter is not a string; the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> parameter is neither
+of the allowed types (None or a list); the first element of one of the
+<code class="docutils literal notranslate"><span class="pre">dtype</span></code> tuples is not a string or the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter is neither
+of the allowed types (None, a list of tuples, a built-in Python type,
+numpy’s dtype or a string representation of a numpy’s dtype).</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The number of feature names is inconsistent with the data header, the
+feature names are provided both in the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> and <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
+parameters, a tuple in the list of complex <code class="docutils literal notranslate"><span class="pre">dtype</span></code>s is
+malformatted, or the number of type definitions in the <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
+parameter is inconsistent with the number of features in the dataset.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="clear:both"></div></div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.datasets.load_data.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

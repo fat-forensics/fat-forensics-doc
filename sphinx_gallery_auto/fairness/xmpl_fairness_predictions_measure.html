@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Measuring Fairness of a Prediction – Counterfactual Fairness &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Measuring Fairness of a Data Set" href="xmpl_fairness_data_measure.html" />
+    <link rel="prev" title="Measuring Fairness of a Predictive Model – Disparate Impact" href="xmpl_fairness_models_measure.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xmpl_fairness_models_measure.html"
+                        title="previous chapter">Measuring Fairness of a Predictive Model – Disparate Impact</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xmpl_fairness_data_measure.html"
+                        title="next chapter">Measuring Fairness of a Data Set</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+              <span class="hiddenrellink left-button">
+                Examples
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_fairness_models_measure.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Measuring Fai...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Measuring Fairness of a Predictive Model – Disparate Impact
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_fairness_data_measure.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Measuring Fai...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Measuring Fairness of a Data Set
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Measuring Fairness of a Prediction – Counterfactual Fairness</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
+</div>
+<div class="sphx-glr-example-title section" id="measuring-fairness-of-a-prediction-counterfactual-fairness">
+<span id="sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py"></span><h1>Measuring Fairness of a Prediction – Counterfactual Fairness<a class="headerlink" href="#measuring-fairness-of-a-prediction-counterfactual-fairness" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how scrutinise a data point under the counterfactual
+fairness assumption.</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The following fautres are considered protected:
+    * &quot;gender&quot;.
+    * &quot;age&quot;.
+
+Evaluating counterfactual fairness of a data point (index 6) of class *fail* with the following features:
+    * The feature *age* has value: 41.
+    * The feature *weight* has value: 73.
+    * The feature *gender* has value: female.
+    * The feature *diagnosis* has value: heart.
+
+Instance (of class *fail*):
+(41, 73, &#39;female&#39;, &#39;heart&#39;)
+
+Feature names: (&#39;age&#39;, &#39;weight&#39;, &#39;gender&#39;, &#39;diagnosis&#39;)
+
+Counterfactual instance (of class *success*):
+Distance: 19
+    feature *age*: *41* -&gt; *22*
+
+Counterfactual instance (of class *success*):
+Distance: 20
+    feature *age*: *41* -&gt; *22*
+    feature *gender*: *female* -&gt; *male*
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Kacper Sokol &lt;k.sokol@bristol.ac.uk&gt;</span>
+<span class="c1"># License: new BSD</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+
+<span class="kn">import</span> <span class="nn">fatf.fairness.predictions.measures</span> <span class="k">as</span> <span class="nn">fatf_pfm</span>
+
+<span class="kn">import</span> <span class="nn">fatf.transparency.predictions.counterfactuals</span> <span class="k">as</span> <span class="nn">fatf_cf</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">hr_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_health_records.html#fatf.utils.data.datasets.load_health_records" title="View documentation for fatf.utils.data.datasets.load_health_records"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_health_records</span></a><span class="p">()</span>
+<span class="n">hr_X</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">hr_y</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="n">hr_feature_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="n">hr_class_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="c1"># Map target indices to target names</span>
+<span class="n">hr_y</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">hr_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_y</span><span class="p">])</span>
+
+<span class="c1"># Drop the unique identifiers (features)</span>
+<span class="n">unique_identifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;zipcode&#39;</span><span class="p">,</span> <span class="s1">&#39;dob&#39;</span><span class="p">]</span>
+<span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_X</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_identifiers</span><span class="p">]</span>
+<span class="c1">#</span>
+<span class="n">hr_X</span> <span class="o">=</span> <span class="n">hr_X</span><span class="p">[</span><span class="n">columns_to_keep</span><span class="p">]</span>
+<span class="n">hr_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_feature_names</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_identifiers</span><span class="p">]</span>
+
+<span class="c1"># Train a model</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">hr_X</span><span class="p">,</span> <span class="n">hr_y</span><span class="p">)</span>
+
+<span class="c1"># Select a data point to evaluate its counterfactual fairness</span>
+<span class="n">data_point_index</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">data_point</span> <span class="o">=</span> <span class="n">hr_X</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">]</span>
+<span class="n">data_point_y</span> <span class="o">=</span> <span class="n">hr_y</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">]</span>
+
+<span class="c1"># Select a set of protected features</span>
+<span class="n">protected_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print out the protected features</span>
+<span class="k">assert</span> <span class="n">protected_features</span><span class="p">,</span> <span class="s1">&#39;The protected features list cannot be empty.&#39;</span>
+<span class="n">person</span> <span class="o">=</span> <span class="s1">&#39; is&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">protected_features</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;s are&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The following fautre</span><span class="si">{}</span><span class="s1"> considered protected:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">person</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">protected_features</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * &quot;</span><span class="si">{}</span><span class="s1">&quot;.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature_name</span><span class="p">))</span>
+
+<span class="c1"># Print the instance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Evaluating counterfactual fairness of a data point (index </span><span class="si">{}</span><span class="s1">) of &#39;</span>
+      <span class="s1">&#39;class *</span><span class="si">{}</span><span class="s1">* with the following features:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_point_index</span><span class="p">,</span>
+                                                       <span class="n">data_point_y</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">data_point</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    * The feature *</span><span class="si">{}</span><span class="s1">* has value: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">feature_name</span><span class="p">,</span> <span class="n">data_point</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]))</span>
+
+<span class="c1"># Compute counterfactually unfair examples</span>
+<span class="n">cfs</span><span class="p">,</span> <span class="n">cfs_distances</span><span class="p">,</span> <span class="n">cfs_classes</span> <span class="o">=</span> <a href="../../generated/fatf.fairness.predictions.measures.counterfactual_fairness.html#fatf.fairness.predictions.measures.counterfactual_fairness" title="View documentation for fatf.fairness.predictions.measures.counterfactual_fairness"><span class="n">fatf_pfm</span><span class="o">.</span><span class="n">counterfactual_fairness</span></a><span class="p">(</span>
+    <span class="n">instance</span><span class="o">=</span><span class="n">data_point</span><span class="p">,</span>
+    <span class="n">protected_feature_indices</span><span class="o">=</span><span class="n">protected_features</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
+    <span class="n">default_numerical_step_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">hr_X</span><span class="p">)</span>
+
+<span class="c1"># Textualise possible counterfactually unfair data points</span>
+<span class="n">cfs_text</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span></a><span class="p">(</span>
+    <span class="n">data_point</span><span class="p">,</span>
+    <span class="n">cfs</span><span class="p">,</span>
+    <span class="n">instance_class</span><span class="o">=</span><span class="n">data_point_y</span><span class="p">,</span>
+    <span class="n">counterfactuals_distances</span><span class="o">=</span><span class="n">cfs_distances</span><span class="p">,</span>
+    <span class="n">counterfactuals_predictions</span><span class="o">=</span><span class="n">cfs_classes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cfs_text</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.256 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c1d2026c5c634d9caab21cf408217320/xmpl_fairness_predictions_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_predictions_measure.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/ca83181b81f12c011a67f753fee34dfd/xmpl_fairness_predictions_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_predictions_measure.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

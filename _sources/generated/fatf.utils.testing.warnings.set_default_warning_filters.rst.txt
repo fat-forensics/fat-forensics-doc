@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.warnings`.set_default_warning_filters
+=====================================================================
+
+.. currentmodule:: fatf.utils.testing.warnings
+
+.. autofunction:: set_default_warning_filters
+
+.. include:: fatf.utils.testing.warnings.set_default_warning_filters.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

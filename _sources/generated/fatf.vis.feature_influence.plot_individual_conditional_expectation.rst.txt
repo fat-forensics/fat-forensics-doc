@@ -1,0 +1,11 @@
+:mod:`fatf.vis.feature_influence`.plot_individual_conditional_expectation
+================================================================================
+
+.. currentmodule:: fatf.vis.feature_influence
+
+.. autofunction:: plot_individual_conditional_expectation
+
+.. include:: fatf.vis.feature_influence.plot_individual_conditional_expectation.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

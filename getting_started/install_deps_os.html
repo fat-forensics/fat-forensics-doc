@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Installation Instructions &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/getting_started/install_deps_os.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Citing FAT Forensics" href="cite.html" />
+    <link rel="prev" title="About the Package" href="structure.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation Instructions</a><ul>
+<li><a class="reference internal" href="#installing-the-package">Installing the Package</a></li>
+<li><a class="reference internal" href="#package-requirements">Package Requirements</a><ul>
+<li><a class="reference internal" href="#hard-dependencies">Hard Dependencies</a></li>
+<li><a class="reference internal" href="#soft-dependencies">Soft Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#supported-platforms">Supported Platforms</a></li>
+<li><a class="reference internal" href="#recommended-reading-order">Recommended Reading Order</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="structure.html"
+                        title="previous chapter">About the Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cite.html"
+                        title="next chapter">Citing FAT Forensics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/getting_started/install_deps_os.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Getting Started
+              </span>
+              <span class="hiddenrellink left-button">
+                Getting Started
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="structure.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                About the Package
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  About the Package
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="cite.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Citing FAT Forensics
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Citing FAT Forensics
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Installation Instructions</a><ul>
+<li><a class="reference internal" href="#installing-the-package">Installing the Package</a></li>
+<li><a class="reference internal" href="#package-requirements">Package Requirements</a><ul>
+<li><a class="reference internal" href="#hard-dependencies">Hard Dependencies</a></li>
+<li><a class="reference internal" href="#soft-dependencies">Soft Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#supported-platforms">Supported Platforms</a></li>
+<li><a class="reference internal" href="#recommended-reading-order">Recommended Reading Order</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation-instructions">
+<span id="id1"></span><h1>Installation Instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-the-package">
+<h2>Installing the Package<a class="headerlink" href="#installing-the-package" title="Permalink to this headline">¶</a></h2>
+<p>The package releases are uploaded to <a class="reference external" href="https://pypi.org/">PyPi</a>, therefore allowing you to install
+it with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install fat-forensics
+</pre></div>
+</div>
+<p>If you want to install the latest (development) version of the package please
+see the instructions provided in the
+<a class="reference internal" href="../development.html#developers-guide"><span class="std std-ref">Developer Guide</span></a>. Among others, it explains how to
+install the package from source.</p>
+</div>
+<div class="section" id="package-requirements">
+<h2>Package Requirements<a class="headerlink" href="#package-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hard-dependencies">
+<h3>Hard Dependencies<a class="headerlink" href="#hard-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>The package is built upon <a class="reference external" href="https://www.numpy.org/">NumPy</a> and <a class="reference external" href="https://www.scipy.org/">SciPy</a> with the following minimal
+requirements:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.numpy.org/">NumPy</a></p></td>
+<td><p>1.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.scipy.org/">SciPy</a></p></td>
+<td><p>0.13.3</p></td>
+</tr>
+</tbody>
+</table>
+<p>These requirements are listed in the <a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/requirements.txt">requirements.txt</a> file in our GitHub
+repository.</p>
+</div>
+<div class="section" id="soft-dependencies">
+<span id="installation-instructions-soft-dependencies"></span><h3>Soft Dependencies<a class="headerlink" href="#soft-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Some parts (modules) of FAT Forensics depend on other packages. These are not
+installed by default. The following table shows soft dependencies of <code class="docutils literal notranslate"><span class="pre">fatf</span></code>
+modules:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">fatf</span></code> module</p></th>
+<th class="head"><p>Required package</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a></p></td>
+<td rowspan="3"><p><a class="reference external" href="https://github.com/marcotcr/lime"><code class="docutils literal notranslate"><span class="pre">lime</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.lime" title="fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn" title="fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code></a></p></td>
+<td><p><a class="reference external" href="https://scikit-learn.org/stable/"><code class="docutils literal notranslate"><span class="pre">scikit-learn&gt;=0.19.2</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.vis" title="fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code></a></p></td>
+<td><p><a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib&gt;=3.0.0</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>These dependencies can either be installed manually or alongside
+<code class="docutils literal notranslate"><span class="pre">fat-forensics</span></code> via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install fat-forensics<span class="o">[</span>xxx<span class="o">]</span>
+</pre></div>
+</div>
+<p>where <strong>xxx</strong> can be replaced with any of the following to pull appropriate
+soft dependencies during the package installation:</p>
+<dl class="simple">
+<dt>all</dt><dd><p>Installs all soft dependencies: <code class="docutils literal notranslate"><span class="pre">lime</span></code>, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> and
+<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+</dd>
+<dt>lime</dt><dd><p>Only installs <code class="docutils literal notranslate"><span class="pre">lime</span></code> as a soft dependency.</p>
+</dd>
+<dt>ml</dt><dd><p>Only installs <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> as a soft dependency.</p>
+</dd>
+<dt>vis</dt><dd><p>Only installs <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> as a soft dependency.</p>
+</dd>
+<dt>dev</dt><dd><p>This option installs all the development requirements. Please consult the
+<a class="reference internal" href="../development.html#developers-guide"><span class="std std-ref">Developer Guide</span></a> for more details.</p>
+</dd>
+</dl>
+<p>The exact versions of these soft dependencies can be found in the
+<a class="reference external" href="https://github.com/So-Cool/fat-forensics/blob/dev/requirements-aux.txt">requirements-aux.txt</a> file.</p>
+</div>
+</div>
+<div class="section" id="supported-platforms">
+<h2>Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
+<p>At the moments we only test the package on <strong>Linux-based</strong> systems. From our
+experience the package also works on <em>Mac OS</em> and <em>Windows</em>, however these
+platforms are not officially supported.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="recommended-reading-order">
+<h2>Recommended Reading Order<a class="headerlink" href="#recommended-reading-order" title="Permalink to this headline">¶</a></h2>
+<p>We recommend going through the documentation in the following order:</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="structure.html#about-the-package"><span class="std std-ref">description and some background</span></a>,</p></li>
+<li><p>the <a class="reference internal" href="../tutorials/index.html#tutorials"><span class="std std-ref">tutorials</span></a>, which will walk you through the basic
+concepts and tasks that can be solved with FAT Forensics step-by-step,</p></li>
+<li><p>the <a class="reference internal" href="../sphinx_gallery_auto/index.html#sphx-glr-sphinx-gallery-auto"><span class="std std-ref">examples</span></a>, which show a minimal
+code example for using every major functionality implemented by the package,</p></li>
+<li><p>the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">user guide</span></a>, which describe the algorithms implemented
+by the package on a more conceptual level with their pros, cons, suggested
+applications, known shortcomings, best practices and alternative
+implementations,</p></li>
+<li><p>the <a class="reference internal" href="../how_to/index.html#how-to-guide"><span class="std std-ref">how to guides</span></a>, which show how to solve a particular
+problem with the package and, finally,</p></li>
+<li><p>the <a class="reference internal" href="../api.html#api-ref"><span class="std std-ref">API reference</span></a>, which should serve as a point of
+reference for every function and object within the package.</p></li>
+</ul>
+<p>Developers and contributors may be interesting in the following pages as well:</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="../development.html#developers-guide"><span class="std std-ref">Developers Guide</span></a> and</p></li>
+<li><p>the package development <a class="reference internal" href="../roadmap.html#roadmap"><span class="std std-ref">Roadmap</span></a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/getting_started/install_deps_os.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.array.validation`.is_numerical_array
+============================================================
+
+.. currentmodule:: fatf.utils.array.validation
+
+.. autofunction:: is_numerical_array
+
+.. include:: fatf.utils.array.validation.is_numerical_array.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.augmentation`.Augmentation
+=======================================================
+
+.. currentmodule:: fatf.utils.data.augmentation
+
+.. autoclass:: Augmentation
+
+.. include:: fatf.utils.data.augmentation.Augmentation.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

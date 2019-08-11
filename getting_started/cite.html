@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Citing FAT Forensics &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/getting_started/cite.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorials" href="../tutorials/index.html" />
+    <link rel="prev" title="Installation Instructions" href="install_deps_os.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Citing FAT Forensics</a><ul>
+<li><a class="reference internal" href="#citing-the-package">Citing the Package</a></li>
+<li><a class="reference internal" href="#citing-the-code">Citing the Code</a></li>
+<li><a class="reference internal" href="#citing-the-user-guide">Citing the User Guide</a><ul>
+<li><a class="reference internal" href="#explainability-fact-sheets">Explainability Fact Sheets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#our-contributors">Our Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install_deps_os.html"
+                        title="previous chapter">Installation Instructions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../tutorials/index.html"
+                        title="next chapter">Tutorials</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/getting_started/cite.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Getting Started
+              </span>
+              <span class="hiddenrellink left-button">
+                Getting Started
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="install_deps_os.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Installation ...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Installation Instructions
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../tutorials/index.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Tutorials
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Tutorials
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="#"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Citing FAT Forensics</a><ul>
+<li><a class="reference internal" href="#citing-the-package">Citing the Package</a></li>
+<li><a class="reference internal" href="#citing-the-code">Citing the Code</a></li>
+<li><a class="reference internal" href="#citing-the-user-guide">Citing the User Guide</a><ul>
+<li><a class="reference internal" href="#explainability-fact-sheets">Explainability Fact Sheets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#our-contributors">Our Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="citing-fat-forensics">
+<span id="citing"></span><h1>Citing FAT Forensics<a class="headerlink" href="#citing-fat-forensics" title="Permalink to this headline">¶</a></h1>
+<p>Please remember to cite our package and user guide whenever you use it.</p>
+<div class="section" id="citing-the-package">
+<h2>Citing the Package<a class="headerlink" href="#citing-the-package" title="Permalink to this headline">¶</a></h2>
+<p>When referring to the package, its architecture or functionality, please use:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>@article<span class="nb">{</span>fat-forensics,
+ title=<span class="nb">{{</span>F<span class="nb">}{</span>A<span class="nb">}{</span>T<span class="nb">}</span>-<span class="nb">{</span>F<span class="nb">}</span>orensics: <span class="nb">{</span>A<span class="nb">}</span> <span class="nb">{</span>Python <span class="nb">{</span>T<span class="nb">}</span>oolbox for <span class="nb">{</span>A<span class="nb">}</span>lgorithmic
+        <span class="nb">{</span>F<span class="nb">}</span>airness, <span class="nb">{</span>A<span class="nb">}</span>ccountability and <span class="nb">{</span>T<span class="nb">}</span>ransparency<span class="nb">}</span>,
+ author=<span class="nb">{</span>Sokol, K. and Santos-Rodriguez, R. and Flach, P.<span class="nb">}</span>,
+ year=<span class="nb">{</span>2019<span class="nb">}</span>
+<span class="nb">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="citing-the-code">
+<h2>Citing the Code<a class="headerlink" href="#citing-the-code" title="Permalink to this headline">¶</a></h2>
+<p>When using the package itself, parts of the code or, in general, referring to
+FAT Forensic’s API, please use:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>@article<span class="nb">{</span>fat-forensics,
+ title=<span class="nb">{{</span>F<span class="nb">}{</span>A<span class="nb">}{</span>T<span class="nb">}</span>-<span class="nb">{</span>F<span class="nb">}</span>orensics: <span class="nb">{</span>A<span class="nb">}</span> <span class="nb">{</span>Python <span class="nb">{</span>T<span class="nb">}</span>oolbox for <span class="nb">{</span>A<span class="nb">}</span>lgorithmic
+        <span class="nb">{</span>F<span class="nb">}</span>airness, <span class="nb">{</span>A<span class="nb">}</span>ccountability and <span class="nb">{</span>T<span class="nb">}</span>ransparency<span class="nb">}</span>,
+ author=<span class="nb">{</span>Sokol, K. and Hepburn, A. and Poyiadzi, R. and Clifford, M.
+         and Santos-Rodriguez, R. and Flach, P.<span class="nb">}</span>,
+ journal=<span class="nb">{</span>JOOS<span class="nb">}</span>,
+ year=<span class="nb">{</span>2019<span class="nb">}</span>
+<span class="nb">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="citing-the-user-guide">
+<h2>Citing the User Guide<a class="headerlink" href="#citing-the-user-guide" title="Permalink to this headline">¶</a></h2>
+<p>When referring to the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>, please use:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>@article<span class="nb">{</span>fat-forensics,
+ title=<span class="nb">{{</span>A<span class="nb">}</span>lgorithmic <span class="nb">{</span>A<span class="nb">}</span>pproach to <span class="nb">{</span>F<span class="nb">}</span>airness, <span class="nb">{</span>A<span class="nb">}</span>ccountability and
+        <span class="nb">{</span>T<span class="nb">}</span>ransparency<span class="nb">}</span>,
+ author=<span class="nb">{</span>Sokol, K. and Flach, P.<span class="nb">}</span>,
+ year=<span class="nb">{</span>2019<span class="nb">}</span>
+<span class="nb">}</span>
+</pre></div>
+</div>
+<div class="section" id="explainability-fact-sheets">
+<h3>Explainability Fact Sheets<a class="headerlink" href="#explainability-fact-sheets" title="Permalink to this headline">¶</a></h3>
+<p>When referring to the <em>Explainability Fact Sheets</em> used in the
+<a class="reference internal" href="../user_guide/transparency/index.html#user-guide-transparency"><span class="std std-ref">transparency part</span></a> of the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>,
+please use:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>@article<span class="nb">{</span>fat-forensics,
+ title=<span class="nb">{{</span>E<span class="nb">}</span>xplainability <span class="nb">{</span>F<span class="nb">}</span>act <span class="nb">{</span>S<span class="nb">}</span>heets: <span class="nb">{</span>A<span class="nb">}</span> <span class="nb">{</span>F<span class="nb">}</span>ramework for <span class="nb">{</span>S<span class="nb">}</span>ystematic
+        <span class="nb">{</span>A<span class="nb">}</span>ssessment of <span class="nb">{</span>E<span class="nb">}</span>xplainable <span class="nb">{</span>A<span class="nb">}</span>pproaches<span class="nb">}</span>,
+ author=<span class="nb">{</span>Sokol, K. and Flach, P.<span class="nb">}</span>,
+ year=<span class="nb">{</span>2019<span class="nb">}</span>
+<span class="nb">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="our-contributors">
+<h2>Our Contributors<a class="headerlink" href="#our-contributors" title="Permalink to this headline">¶</a></h2>
+<p>Please also remember to have a look at our
+<a class="reference internal" href="../contributors.html#contributors"><span class="std std-ref">contributors and sponsors</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/getting_started/cite.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

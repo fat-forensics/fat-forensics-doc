@@ -1,0 +1,11 @@
+:mod:`fatf.fairness.data.measures`.systemic_bias
+=======================================================
+
+.. currentmodule:: fatf.fairness.data.measures
+
+.. autofunction:: systemic_bias
+
+.. include:: fatf.fairness.data.measures.systemic_bias.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

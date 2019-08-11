@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Explaining Machine Learning Predictions &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/tutorials/prediction-explainability.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../sphinx_gallery_auto/index.html" />
+    <link rel="prev" title="Explaining a Machine Learning Model: ICE and PD" href="model-explainability.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Explaining Machine Learning Predictions: LIME and Counterfactuals</a><ul>
+<li><a class="reference internal" href="#counterfactual-explanations">Counterfactual Explanations</a><ul>
+<li><a class="reference internal" href="#explanation-reliability">Explanation Reliability</a></li>
+<li><a class="reference internal" href="#counterfactual-fairness">Counterfactual Fairness</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lime">LIME</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="model-explainability.html"
+                        title="previous chapter">Explaining a Machine Learning Model: ICE and PD</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../sphinx_gallery_auto/index.html"
+                        title="next chapter">Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/prediction-explainability.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Tutorials
+              </span>
+              <span class="hiddenrellink left-button">
+                Tutorials
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="model-explainability.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Explaining a ...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Explaining a Machine Learning Model: ICE and PD
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../sphinx_gallery_auto/index.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Examples
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Explaining Machine Learning Predictions: LIME and Counterfactuals</a><ul>
+<li><a class="reference internal" href="#counterfactual-explanations">Counterfactual Explanations</a><ul>
+<li><a class="reference internal" href="#explanation-reliability">Explanation Reliability</a></li>
+<li><a class="reference internal" href="#counterfactual-fairness">Counterfactual Fairness</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lime">LIME</a></li>
+<li><a class="reference internal" href="#relevant-fat-forensics-examples">Relevant FAT Forensics Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="explaining-machine-learning-predictions-lime-and-counterfactuals">
+<span id="tutorials-prediction-explainability"></span><h1>Explaining Machine Learning Predictions: LIME and Counterfactuals<a class="headerlink" href="#explaining-machine-learning-predictions-lime-and-counterfactuals" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Tutorial Contents</p>
+<p>In this tutorial, we look at explaining predictions of a machine learning
+model with <em>counterfactuals</em> and
+<em>Local Interpretable Model-agnostic Explanations</em> (LIME). We explain how to
+use these tools and point out what the user should consider when
+interpreting their output. We also show the importance of data density when
+judging reliability of the explanations.</p>
+</div>
+<p>To start with, let us load all the external dependencies and the Iris data
+set, which we will use for this tutorial:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data_dict</span> <span class="o">=</span> <span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Throughout the tutorial we will need to print some of the data points in a
+human-readable format. To make that easier let us define a function that will
+do that for us:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">describe_data_point</span><span class="p">(</span><span class="n">data_point_index</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Prints out a data point with the specified given index.&quot;&quot;&quot;</span>
+<span class="gp">... </span>    <span class="n">dp_to_explain</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">... </span>    <span class="n">dp_to_explain_class_index</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">dp_to_explain_class</span> <span class="o">=</span> <span class="n">iris_target_names</span><span class="p">[</span><span class="n">dp_to_explain_class_index</span><span class="p">]</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="n">feature_description_template</span> <span class="o">=</span> <span class="s1">&#39;    * </span><span class="si">{}</span><span class="s1"> (feature index </span><span class="si">{}</span><span class="s1">): </span><span class="si">{:.1f}</span><span class="s1">&#39;</span>
+<span class="gp">... </span>    <span class="n">features_description</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">dsc</span> <span class="o">=</span> <span class="n">feature_description_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">dp_to_explain</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">... </span>        <span class="n">features_description</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dsc</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">features_description</span> <span class="o">=</span> <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">features_description</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="n">data_point_description</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>        <span class="s1">&#39;The data point with index </span><span class="si">{}</span><span class="s1">, of class </span><span class="si">{}</span><span class="s1"> (class index </span><span class="si">{}</span><span class="s1">) &#39;</span>
+<span class="gp">... </span>        <span class="s1">&#39;has the</span><span class="se">\n</span><span class="s1">following feature values:</span><span class="se">\n</span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">data_point_index</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">dp_to_explain_class</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">dp_to_explain_class_index</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">features_description</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">data_point_description</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also need a predictive model, which predictions we will try to explain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">iris_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To finalise the setup, we need to choose a few data points to explain. For the
+purposes of this tutorial, we will choose three data points one of each class.
+Given that the data points are ordered by class and there are 50 samples of
+each class, we will use data points with indices 24, 74 and 124:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">index_setosa</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_setosa</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">index_setosa</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_setosa</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">index_setosa</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_data_point</span><span class="p">(</span><span class="n">index_setosa</span><span class="p">)</span>
+<span class="go">The data point with index 24, of class setosa (class index 0) has the</span>
+<span class="go">following feature values:</span>
+<span class="go">    * sepal length (cm) (feature index 0): 4.8,</span>
+<span class="go">    * sepal width (cm) (feature index 1): 3.4,</span>
+<span class="go">    * petal length (cm) (feature index 2): 1.9,</span>
+<span class="go">    * petal width (cm) (feature index 3): 0.2.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_setosa</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="go">&#39;setosa&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">index_versicolor</span> <span class="o">=</span> <span class="mi">74</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_versicolor</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">index_versicolor</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_versicolor</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">index_versicolor</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_data_point</span><span class="p">(</span><span class="n">index_versicolor</span><span class="p">)</span>
+<span class="go">The data point with index 74, of class versicolor (class index 1) has the</span>
+<span class="go">following feature values:</span>
+<span class="go">    * sepal length (cm) (feature index 0): 6.4,</span>
+<span class="go">    * sepal width (cm) (feature index 1): 2.9,</span>
+<span class="go">    * petal length (cm) (feature index 2): 4.3,</span>
+<span class="go">    * petal width (cm) (feature index 3): 1.3.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_versicolor</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="go">&#39;versicolor&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">index_virginica</span> <span class="o">=</span> <span class="mi">124</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_virginica</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">index_virginica</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_virginica</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">index_virginica</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">describe_data_point</span><span class="p">(</span><span class="n">index_virginica</span><span class="p">)</span>
+<span class="go">The data point with index 124, of class virginica (class index 2) has the</span>
+<span class="go">following feature values:</span>
+<span class="go">    * sepal length (cm) (feature index 0): 6.7,</span>
+<span class="go">    * sepal width (cm) (feature index 1): 3.3,</span>
+<span class="go">    * petal length (cm) (feature index 2): 5.7,</span>
+<span class="go">    * petal width (cm) (feature index 3): 2.1.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_virginica</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="go">&#39;virginica&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="counterfactual-explanations">
+<h2>Counterfactual Explanations<a class="headerlink" href="#counterfactual-explanations" title="Permalink to this headline">¶</a></h2>
+<p>A counterfactual explanation attempts to identify the smallest (according to an
+arbitrary distance metric) possible change in the feature vector that causes a
+data point to be classified differently to its original prediction. Before we
+can generate any counterfactual explanation we need to initialise a
+counterfactual explainer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.transparency.predictions.counterfactuals</span> <span class="k">as</span> <span class="nn">fatf_cf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_cf_explainer</span> <span class="o">=</span> <span class="n">fatf_cf</span><span class="o">.</span><span class="n">CounterfactualExplainer</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dataset</span><span class="o">=</span><span class="n">iris_data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">categorical_indices</span><span class="o">=</span><span class="p">[],</span>
+<span class="gp">... </span>    <span class="n">default_numerical_step_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, let us see how we can modify our <em>setosa</em> data point for it to be
+classified as one of the other two classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs</span> <span class="o">=</span> <span class="n">iris_cf_explainer</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">x_setosa</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data</span> <span class="o">=</span> <span class="n">setosa_cfs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_distances</span> <span class="o">=</span> <span class="n">setosa_cfs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_predictions</span> <span class="o">=</span> <span class="n">setosa_cfs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let us inspect the distances of the counterfactual data points:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_distances</span>
+<span class="go">array([1.20000002, 1.20000002, 1.20000003, 1.20000012, 1.20000012,</span>
+<span class="go">       1.20000012, 1.20000012, 2.50000009, 2.50000009, 2.50000009,</span>
+<span class="go">       3.4       ])</span>
+</pre></div>
+</div>
+<p>The first 7 counterfactuals are within the same 1.2 distance, the next 3 are
+within 2.5 distance and the last one is 3.4 away. (The default distance metric
+is the Euclidean distance.)</p>
+<p>Now, let us have a look at the predicted class of these counterfactual
+instances:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_predictions</span>
+<span class="go">array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;versicolor&#39;</span>
+</pre></div>
+</div>
+<p>All of the counterfactual instances are of <em>versicolor</em> class (class index 1)
+as opposed to <em>setosa</em> – the ground truth label the of data point we are
+trying to explain. One may conclude that setosa type (or at least this instance
+of setosa) is more similar to versicolor than virginica.</p>
+<p>Finally, let us see the feature values of the counterfactual data points:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data</span>
+<span class="go">array([[4.80000019, 3.4000001 , 3.1       , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.4000001 , 3.1       , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.4000001 , 3.1       , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.1       , 2.8       , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.2       , 2.9       , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.3       , 3.        , 0.2       ],</span>
+<span class="go">       [4.80000019, 3.4       , 3.1       , 0.2       ],</span>
+<span class="go">       [4.80000019, 2.        , 1.89999998, 1.3       ],</span>
+<span class="go">       [4.80000019, 2.1       , 1.89999998, 1.4       ],</span>
+<span class="go">       [4.80000019, 2.2       , 1.89999998, 1.5       ],</span>
+<span class="go">       [5.90000019, 3.4000001 , 1.89999998, 2.5       ]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The small differences in some of the features and duplicated counterfactual
+data points are due to numerical instabilty of floating point numbers and
+have nothing to do with the counterfactuals. This can be resolved with
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.around.html#numpy.around" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.around</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">setosa_cfs_data</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span>
+<span class="go">array([[4.8, 3.4, 3.1, 0.2],</span>
+<span class="go">       [4.8, 3.4, 3.1, 0.2],</span>
+<span class="go">       [4.8, 3.4, 3.1, 0.2],</span>
+<span class="go">       [4.8, 3.1, 2.8, 0.2],</span>
+<span class="go">       [4.8, 3.2, 2.9, 0.2],</span>
+<span class="go">       [4.8, 3.3, 3. , 0.2],</span>
+<span class="go">       [4.8, 3.4, 3.1, 0.2],</span>
+<span class="go">       [4.8, 2. , 1.9, 1.3],</span>
+<span class="go">       [4.8, 2.1, 1.9, 1.4],</span>
+<span class="go">       [4.8, 2.2, 1.9, 1.5],</span>
+<span class="go">       [5.9, 3.4, 1.9, 2.5]])</span>
+</pre></div>
+</div>
+</div>
+<p>With the original data point having the following feature values
+<code class="docutils literal notranslate"><span class="pre">[4.8,</span> <span class="pre">3.4,</span> <span class="pre">1.9,</span> <span class="pre">0.2]</span></code>, the <strong>first</strong> counterfactual data point looks the
+most promising. We can print it in a more human-readable format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">best_cfs_index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_setosa_cfs_data</span> <span class="o">=</span> <span class="n">setosa_cfs_data_around</span><span class="p">[</span><span class="n">best_cfs_index</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_setosa_cfs_predictions</span> <span class="o">=</span> <span class="n">setosa_cfs_predictions</span><span class="p">[</span><span class="n">best_cfs_index</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selected_setosa_cfs_distances</span> <span class="o">=</span> <span class="n">setosa_cfs_distances</span><span class="p">[</span><span class="n">best_cfs_index</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_0_text</span> <span class="o">=</span> <span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">instance_class</span><span class="o">=</span><span class="n">y_setosa</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">counterfactuals_distances</span><span class="o">=</span><span class="n">selected_setosa_cfs_distances</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">counterfactuals_predictions</span><span class="o">=</span><span class="n">selected_setosa_cfs_predictions</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">setosa_cfs_0_text</span><span class="p">)</span>
+<span class="go">Instance (of class *0*):</span>
+<span class="go">[4.8 3.4 1.9 0.2]</span>
+
+<span class="go">Feature names: [0, 1, 2, 3]</span>
+
+<span class="go">Counterfactual instance (of class *1*):</span>
+<span class="go">Distance: 1.2000000238418598</span>
+<span class="go">    feature *0*: *4.800000190734863* -&gt; *4.8*</span>
+<span class="go">    feature *1*: *3.4000000953674316* -&gt; *3.4*</span>
+<span class="go">    feature *2*: *1.899999976158142* -&gt; *3.1*</span>
+<span class="go">    feature *3*: *0.20000000298023224* -&gt; *0.2*</span>
+</pre></div>
+</div>
+<p>Therefore, by changing the feature with index 2 – petal length (cm) – from
+1.9 to 3.1, this instance of <em>setosa</em> (0) is being classified as <em>versicolor</em>
+(1).</p>
+<div class="section" id="explanation-reliability">
+<h3>Explanation Reliability<a class="headerlink" href="#explanation-reliability" title="Permalink to this headline">¶</a></h3>
+<p>This explanation may be appealing, however the counterfactual data points may
+not always be reliable or outright impossible to achieve in real life. Imagine
+a dataset where one of the features is age and the counterfactual explanation
+is conditioned on the age being more than 200. This particular unreliability is
+easy to spot, however some of these feature changes may be subtle and difficult
+to validate. To address this issue we may resort to data density estimation and
+checking whether the counterfactual data point lies in a dense region.</p>
+<p>Let us evaluate the density score of this counterfactual data point and see
+whether it is reliable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.density</span> <span class="k">as</span> <span class="nn">fatf_density</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_density</span> <span class="o">=</span> <span class="n">fatf_density</span><span class="o">.</span><span class="n">DensityCheck</span><span class="p">(</span><span class="n">iris_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cf_density_0</span> <span class="o">=</span> <span class="n">iris_density</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cf_density_0</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>The high density score for the counterfactual point – 1.0 – indicates that
+this data point lies in a region of low density, therefore such a data point
+may not be feasible in the real life. For comparison, let us see what is the
+density score for the original setosa data point:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_density</span> <span class="o">=</span> <span class="n">iris_density</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span><span class="n">x_setosa</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_density</span>
+<span class="go">0.28479221999754833</span>
+</pre></div>
+</div>
+<p>This data point is obviously in a relatively dense region. To put these two
+density scores in a perspective, let us compute the average density score
+for all the 150 data points in the Iris data set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">density_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_data</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">density_score</span> <span class="o">=</span> <span class="n">iris_density</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">density_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">density_score</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">density_scores</span><span class="p">)</span>
+<span class="go">0.27296921560737636</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">density_scores</span><span class="p">)</span>
+<span class="go">0.1704851801007168</span>
+</pre></div>
+</div>
+<p>Therefore, the counterfactuals is very unlikely to appear in the real world.
+Please note that computing the average density score for a data set may not
+always be possible in practice for a whole dataset as it is computationally
+expensive.</p>
+<p>To justify these scores let us try to plot the whole Iris data set alongside
+the counterfactual data point. To this end, we will plot the feature with index
+2 against the remaining 3 features on separate 2-dimensional scatter plots:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_other</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_counterfactual</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_02</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;To explain&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Counterfactual&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris data set scatter plot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_other</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/cf_density_02.png"><img alt="../_images/cf_density_02.png" class="align-center" src="../_images/cf_density_02.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Interestingly, the counterfactual data point seems to be in a dense region.
+However, these are just 2 of the 4 dimensions. Our best guess is that this
+counterfactual data point is actually in a sparse region in the remaining 2
+dimensions. Let us check that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_other</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_counterfactual</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_12</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;To explain&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Counterfactual&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris data set scatter plot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_other</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/cf_density_12.png"><img alt="../_images/cf_density_12.png" class="align-center" src="../_images/cf_density_12.png" style="width: 600.0px; height: 412.5px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_other</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_counterfactual</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_32</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;To explain&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_other</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">feature_counterfactual</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Counterfactual&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris data set scatter plot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_other</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="n">feature_counterfactual</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/cf_density_32.png"><img alt="../_images/cf_density_32.png" class="align-center" src="../_images/cf_density_32.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>We were right, the counterfactual data point actually lies in a sparse region.
+Given our observations, however, if we just consider features with indices 0
+(sepal length) and 2 (petal length) our counterfactual should be in a
+relatively dense region. Let us check that out:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_02_density</span> <span class="o">=</span> <span class="n">fatf_density</span><span class="o">.</span><span class="n">DensityCheck</span><span class="p">(</span><span class="n">iris_data</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_cf_density_0</span> <span class="o">=</span> <span class="n">iris_02_density</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_cf_density_0</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Surprisingly, even when just considering the two feature that make the
+counterfactual data point look like it lies in a dense region the density score
+is still very high. Let us see what is the density score of the setosa data
+point when we only consider these two features:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_density</span> <span class="o">=</span> <span class="n">iris_02_density</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span><span class="n">x_setosa</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_density</span>
+<span class="go">0.3279784272174436</span>
+</pre></div>
+</div>
+<p>0.33 seems to be reasonable as opposed to 1, which the counterfactual data
+point got when only considering the 2 feature that makes it lie in a relatively
+dense region. Let us revise the scatter plot.</p>
+<a class="reference internal image-reference" href="../_images/cf_density_02.png"><img alt="../_images/cf_density_02.png" class="align-center" src="../_images/cf_density_02.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>This figure is clearly inconsistent with the density score. However, a closer
+look at the default parameters of the
+<a class="reference internal" href="../generated/fatf.utils.data.density.DensityCheck.html#fatf.utils.data.density.DensityCheck" title="fatf.utils.data.density.DensityCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.density.DensityCheck</span></code></a> class provide some explanation.
+In particular the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter, which default value is <code class="docutils literal notranslate"><span class="pre">7</span></code>. This
+means that local density is evaluated based on the 7 closest data points. The
+setosa data point has more than 7 close neighbours, however the counterfactual
+data point has only 4. To validate this intuition, let us revise the density
+scores with the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">4</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_02_density_n4</span> <span class="o">=</span> <span class="n">fatf_density</span><span class="o">.</span><span class="n">DensityCheck</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">neighbours</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_density_n4</span> <span class="o">=</span> <span class="n">iris_02_density_n4</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_density_n4</span>
+<span class="go">0.2936750587688127</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_cf_density_0_n4</span> <span class="o">=</span> <span class="n">iris_02_density_n4</span><span class="o">.</span><span class="n">score_data_point</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">selected_setosa_cfs_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_02_cf_density_0_n4</span>
+<span class="go">0.5098398837987844</span>
+</pre></div>
+</div>
+<p>We were right! A clear message stemming from this peculiar example is that this
+particular density estimation is sensitive, and somehow fragile, to the
+definition of the neighbourhood and the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameters should be set
+by the user based on his experience and knowledge of the data set rather than
+left with the default value.</p>
+</div>
+<div class="section" id="counterfactual-fairness">
+<h3>Counterfactual Fairness<a class="headerlink" href="#counterfactual-fairness" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have seen how counterfactual explanations work, it is worth
+pointing out that the same mechanism can be used to investigate individual
+fairness. By checking whether a prediction for an individual would change
+had we altered one of the protected attributes like gender, marital status or
+race. By setting the <code class="docutils literal notranslate"><span class="pre">counterfactual_feature_indices</span></code> parameter of the
+<a class="reference internal" href="../generated/fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" title="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals.CounterfactualExplainer</span></code></a>
+class we can control which features will be modified in the counterfactual
+example. Therefore, we can include and exclude features to be used for
+conditioning the counterfactual explanation, hence use it to evaluate
+individual fairness.</p>
+</div>
+</div>
+<div class="section" id="lime">
+<h2>LIME<a class="headerlink" href="#lime" title="Permalink to this headline">¶</a></h2>
+<p>In addition to counterfactual explanations we also have an implementation of
+the Local Interpretable Model-agnostic Explanations (LIME). Let us see what
+LIME can tell us about our predictive model’s behaviour in the neighbourhood
+of our setosa data point:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.transparency.lime</span> <span class="k">as</span> <span class="nn">fatf_lime</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_lime</span> <span class="o">=</span> <span class="n">fatf_lime</span><span class="o">.</span><span class="n">Lime</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">feature_names</span><span class="o">=</span><span class="n">iris_feature_names</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">class_names</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lime_explanation</span> <span class="o">=</span> <span class="n">iris_lime</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_setosa</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us first have a look at the text version of our LIME explanation for the
+setosa data point:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">lime_explanation</span><span class="p">)</span>  
+<span class="go">{&#39;setosa&#39;: [(&#39;1.60 &lt; petal length (cm) &lt;= 4.35&#39;, -0.25827784290282646),</span>
+<span class="go">            (&#39;sepal length (cm) &lt;= 5.10&#39;, -0.06820460513339331),</span>
+<span class="go">            (&#39;petal width (cm) &lt;= 0.30&#39;, 0.012534253152155934),</span>
+<span class="go">            (&#39;sepal width (cm) &gt; 3.30&#39;, 0.008103961265902194)],</span>
+<span class="go"> &#39;versicolor&#39;: [(&#39;1.60 &lt; petal length (cm) &lt;= 4.35&#39;, 0.5153316006185029),</span>
+<span class="go">                (&#39;petal width (cm) &lt;= 0.30&#39;, 0.14167072386007803),</span>
+<span class="go">                (&#39;sepal width (cm) &gt; 3.30&#39;, 0.09194042744562049),</span>
+<span class="go">                (&#39;sepal length (cm) &lt;= 5.10&#39;, 0.03129418556543736)],</span>
+<span class="go"> &#39;virginica&#39;: [(&#39;1.60 &lt; petal length (cm) &lt;= 4.35&#39;, -0.2570537577156765),</span>
+<span class="go">               (&#39;petal width (cm) &lt;= 0.30&#39;, -0.15420497701223396),</span>
+<span class="go">               (&#39;sepal width (cm) &gt; 3.30&#39;, -0.10004438871152276),</span>
+<span class="go">               (&#39;sepal length (cm) &lt;= 5.10&#39;, 0.03691041956795597)]}</span>
+</pre></div>
+</div>
+<p>With all these numbers it may actually be easier to interpret their
+visualisation, which we can generate using the built-in
+<a class="reference internal" href="../generated/fatf.vis.lime.plot_lime.html#fatf.vis.lime.plot_lime" title="fatf.vis.lime.plot_lime"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.vis.lime.plot_lime</span></code></a> plotting function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.vis.lime</span> <span class="k">as</span> <span class="nn">fatf_vis_lime</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lime_fig_setosa</span> <span class="o">=</span> <span class="n">fatf_vis_lime</span><span class="o">.</span><span class="n">plot_lime</span><span class="p">(</span><span class="n">lime_explanation</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/lime.png"><img alt="../_images/lime.png" class="align-center" src="../_images/lime.png" style="width: 600.0px; height: 412.5px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>LIME Randomness</p>
+<p>Due to a radomness inherent to the LIME algorithm, you may get different
+results when executing the code responsible for producing the LIME
+explanation. Therefore, your numerical values and the plot may look slightly
+different, nevertheless the feature boundaries (bins) produced by LIME
+should be exactly the same in most of the cases. You may also notice that
+the textualisation of the LIME explanation is different (in values) to the
+one presented in the above figure. This is also due to LIME randomness and
+the limitations of sphinx’s doctest module.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/cf_density_32.png"><img alt="../_images/cf_density_32.png" class="align-center" src="../_images/cf_density_32.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>The setosa data point that we are trying to explain with LIME has <em>petal width</em>
+of 0.2 and <em>petal length</em> of 1.9. The LIME explanation for the setosa class –
+the leftmost pane – clearly shows that the reason for setosa prediction, in
+this instance (remember that LIME explanations are specific to a data point),
+is <em>petal width</em> not larger than 0.30 and <em>petal length</em> between 1.60 and 4.35.
+The first condition of these conditions can be understood as: “for the bar in
+the above plot, the vast majority (all of them in this case) of instances
+placed to the left of the 0.3 threshold on the <em>petal width</em> axis (x-axis) are
+of class setosa. The latter condition can be understood as: “the <em>petal length</em>
+between 1.6 and 4.35 indicates against the setosa class as most of the data
+points in this feature band are of a different class”. In the latter case a
+closer look at the scatter plot placed above shows that most of the data points
+in that band are of versicolor (green) class, which is clearly indicated by the
+high, positive value of this explanatory feature for the versicolor class in
+the LIME explanation.</p>
+<p>One may wander why these particular feature thresholds (bands) were chosen for
+the LIME explanation. Especially that they seem suboptimal for this example.
+This is due to the explanatory representation of the data (the thresholds)
+being generated based on the whole data set rather than the instance that is
+being explained. Furthermore, the randomness of the explanation mentioned in
+the note above may seem like a strong disadvantage with the LIME algorithm,
+especially when considering robustness and reproducibility. Finally, some may
+realise that the explanatory feature ranges used by LIME merely highlight the
+hypercube in which the explained data point lies with their assigned
+importances merely showing which one is the best predictor (purest hyperspace)
+for a given class. These are all valid criticisms, which we discuss in more
+details in the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>. As a final remark it suffices to say that
+the bLIMEy approach implemented by this package fixes all of the aforementioned
+shortcomings.</p>
+<hr class="docutils" />
+<p>In this tutorial we have worked through two different approaches to explaining
+predictions of a machine learning model: <em>counterfactuals</em> and <em>LIME</em>.
+Furthermore, we showed the importance of <em>data density</em> when evaluating
+quality of a counterfactual explanation. Last but not least, we showed how a
+counterfactual explanation can be used to evaluate individual (counterfactual)
+fairness.</p>
+<p>This tutorial only covered transparency of machine learning predictions. To
+learn more about <em>data set transparency</em> please refer to the
+<a class="reference internal" href="grouping.html#tutorials-grouping-data-transparency"><span class="std std-ref">Using Grouping to Inspect a Data Set – Data Transparency</span></a> section of the
+<a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial. <em>Predictive model transparency</em>
+introduction is provided by the
+<a class="reference internal" href="model-explainability.html#tutorials-model-explainability"><span class="std std-ref">previous tutorial</span></a>.</p>
+</div>
+<div class="section" id="relevant-fat-forensics-examples">
+<h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
+<p>The following examples provide more structured and code-focused use-cases of
+the counterfactuals, LIME and data density functionality:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_cf.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-cf-py"><span class="std std-ref">Using Counterfactual Prediction Explainer</span></a>,</p></li>
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a>,</p></li>
+<li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">Measuring Robustness of a Prediction – Data Density</span></a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/tutorials/prediction-explainability.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

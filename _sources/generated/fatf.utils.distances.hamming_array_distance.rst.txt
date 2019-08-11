@@ -1,0 +1,11 @@
+:mod:`fatf.utils.distances`.hamming_array_distance
+=========================================================
+
+.. currentmodule:: fatf.utils.distances
+
+.. autofunction:: hamming_array_distance
+
+.. include:: fatf.utils.distances.hamming_array_distance.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

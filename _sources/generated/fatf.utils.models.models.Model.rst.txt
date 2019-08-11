@@ -1,0 +1,11 @@
+:mod:`fatf.utils.models.models`.Model
+============================================
+
+.. currentmodule:: fatf.utils.models.models
+
+.. autoclass:: Model
+
+.. include:: fatf.utils.models.models.Model.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.distances`.binary_point_distance
+========================================================
+
+.. currentmodule:: fatf.utils.distances
+
+.. autofunction:: binary_point_distance
+
+.. include:: fatf.utils.distances.binary_point_distance.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

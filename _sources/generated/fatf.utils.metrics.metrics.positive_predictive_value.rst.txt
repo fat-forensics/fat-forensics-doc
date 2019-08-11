@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.metrics`.positive_predictive_value
+==================================================================
+
+.. currentmodule:: fatf.utils.metrics.metrics
+
+.. autofunction:: positive_predictive_value
+
+.. include:: fatf.utils.metrics.metrics.positive_predictive_value.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>Using Counterfactual Prediction Explainer &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="fat-forensics.org/sphinx_gallery_auto/transparency/xmpl_transparency_cf.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using Individual Conditional Expectation Explainer" href="xmpl_transparency_ice.html" />
+    <link rel="prev" title="Using Data Description Explainer" href="xmpl_transparency_data_desc.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            FAT
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
+            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
+            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xmpl_transparency_data_desc.html"
+                        title="previous chapter">Using Data Description Explainer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xmpl_transparency_ice.html"
+                        title="next chapter">Using Individual Conditional Expectation Explainer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/sphinx_gallery_auto/transparency/xmpl_transparency_cf.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                Examples
+              </span>
+              <span class="hiddenrellink left-button">
+                Examples
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_transparency_data_desc.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                Using Data De...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  Using Data Description Explainer
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="xmpl_transparency_ice.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                Using Individ...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  Using Individual Conditional Expectation Explainer
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">Using Counterfactual Prediction Explainer</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-cf-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
+</div>
+<div class="sphx-glr-example-title section" id="using-counterfactual-prediction-explainer">
+<span id="sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-cf-py"></span><h1>Using Counterfactual Prediction Explainer<a class="headerlink" href="#using-counterfactual-prediction-explainer" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how to use the Counterfactual Prediction explainer
+(<a class="reference internal" href="../../generated/fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" title="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals.CounterfactualExplainer</span></code></a>) and how to interpret the 3-tuple that it returns by
+“textualising” it (<a class="reference internal" href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals.textualise_counterfactuals</span></code></a>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Kacper Sokol &lt;k.sokol@bristol.ac.uk&gt;</span>
+<span class="c1"># License: new BSD</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+<span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+
+<span class="kn">import</span> <span class="nn">fatf.transparency.predictions.counterfactuals</span> <span class="k">as</span> <span class="nn">fatf_cf</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
+<span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
+<span class="n">iris_class_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="c1"># Train a model</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span> <span class="n">iris_y</span><span class="p">)</span>
+
+<span class="c1"># Create a Counterfactual Explainer</span>
+<span class="n">cf_explainer</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" title="View documentation for fatf.transparency.predictions.counterfactuals.CounterfactualExplainer"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">CounterfactualExplainer</span></a><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">iris_X</span><span class="p">,</span>
+    <span class="n">categorical_indices</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">default_numerical_step_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">describe_data_point</span><span class="p">(</span><span class="n">data_point_index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints out a data point with the specified given index.&quot;&quot;&quot;</span>
+    <span class="n">dp_to_explain</span> <span class="o">=</span> <span class="n">iris_X</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">dp_to_explain_class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">iris_y</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">])</span>
+    <span class="n">dp_to_explain_class</span> <span class="o">=</span> <span class="n">iris_class_names</span><span class="p">[</span><span class="n">dp_to_explain_class_index</span><span class="p">]</span>
+
+    <span class="n">feature_description_template</span> <span class="o">=</span> <span class="s1">&#39;    * </span><span class="si">{}</span><span class="s1"> (feature index </span><span class="si">{}</span><span class="s1">): </span><span class="si">{:.1f}</span><span class="s1">&#39;</span>
+    <span class="n">features_description</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">):</span>
+        <span class="n">dsc</span> <span class="o">=</span> <span class="n">feature_description_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">dp_to_explain</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">features_description</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dsc</span><span class="p">)</span>
+    <span class="n">features_description</span> <span class="o">=</span> <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">features_description</span><span class="p">)</span>
+
+    <span class="n">data_point_description</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;Explaining data point (index </span><span class="si">{}</span><span class="s1">) of class </span><span class="si">{}</span><span class="s1"> (class index </span><span class="si">{}</span><span class="s1">) with &#39;</span>
+        <span class="s1">&#39;features:</span><span class="se">\n</span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_point_index</span><span class="p">,</span> <span class="n">dp_to_explain_class</span><span class="p">,</span>
+                                <span class="n">dp_to_explain_class_index</span><span class="p">,</span>
+                                <span class="n">features_description</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">data_point_description</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Explain one of the data points.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a data point to be explained</span>
+<span class="n">dp_1_index</span> <span class="o">=</span> <span class="mi">49</span>
+<span class="n">dp_1_X</span> <span class="o">=</span> <span class="n">iris_X</span><span class="p">[</span><span class="n">dp_1_index</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">dp_1_y</span> <span class="o">=</span> <span class="n">iris_y</span><span class="p">[</span><span class="n">dp_1_index</span><span class="p">]</span>
+<span class="n">describe_data_point</span><span class="p">(</span><span class="n">dp_1_index</span><span class="p">)</span>
+
+<span class="c1"># Get a Counterfactual Explanation tuple for this data point</span>
+<span class="n">dp_1_cf_tuple</span> <span class="o">=</span> <span class="n">cf_explainer</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">dp_1_X</span><span class="p">)</span>
+<span class="n">dp_1_cfs</span><span class="p">,</span> <span class="n">dp_1_cfs_distances</span><span class="p">,</span> <span class="n">dp_1_cfs_predictions</span> <span class="o">=</span> <span class="n">dp_1_cf_tuple</span>
+<span class="n">dp_1_cfs_predictions_names</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
+    <span class="p">[</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dp_1_cfs_predictions</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Counterfactuals for the data point:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_1_cfs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Distances between the counterfactuals and the data point:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_1_cfs_distances</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Classes (indices and class names) of the counterfactuals:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_1_cfs_predictions</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_1_cfs_predictions_names</span><span class="p">)</span>
+
+<span class="c1"># Textualise the counterfactuals</span>
+<span class="n">dp_1_cfs_text</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span></a><span class="p">(</span>
+    <span class="n">dp_1_X</span><span class="p">,</span>
+    <span class="n">dp_1_cfs</span><span class="p">,</span>
+    <span class="n">instance_class</span><span class="o">=</span><span class="n">dp_1_y</span><span class="p">,</span>
+    <span class="n">counterfactuals_distances</span><span class="o">=</span><span class="n">dp_1_cfs_distances</span><span class="p">,</span>
+    <span class="n">counterfactuals_predictions</span><span class="o">=</span><span class="n">dp_1_cfs_predictions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dp_1_cfs_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Explaining data point (index 49) of class setosa (class index 0) with features:
+    * sepal length (cm) (feature index 0): 5.0,
+    * sepal width (cm) (feature index 1): 3.3,
+    * petal length (cm) (feature index 2): 1.4,
+    * petal width (cm) (feature index 3): 0.2.
+
+Counterfactuals for the data point:
+array([[4.90000019, 3.29999995, 3.        , 0.2       ],
+       [5.        , 3.        , 2.8       , 0.2       ],
+       [5.        , 3.1       , 2.9       , 0.2       ],
+       [5.        , 3.2       , 3.        , 0.2       ],
+       [5.        , 3.29999995, 3.        , 0.3       ],
+       [5.        , 3.29999995, 3.1       , 0.2       ]])
+
+Distances between the counterfactuals and the data point:
+array([1.69999983, 1.69999998, 1.69999998, 1.69999998, 1.70000002,
+       1.70000002])
+
+Classes (indices and class names) of the counterfactuals:
+array([1, 1, 1, 1, 1, 1])
+array([&#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;,
+       &#39;versicolor&#39;, &#39;versicolor&#39;], dtype=&#39;&lt;U10&#39;)
+Instance (of class *0*):
+[5.  3.3 1.4 0.2]
+
+Feature names: [0, 1, 2, 3]
+
+Counterfactual instance (of class *1*):
+Distance: 1.6999998331069985
+    feature *0*: *5.0* -&gt; *4.900000190734861*
+    feature *2*: *1.399999976158142* -&gt; *3.0000000000000018*
+
+Counterfactual instance (of class *1*):
+Distance: 1.6999999761581428
+    feature *1*: *3.299999952316284* -&gt; *3.000000000000001*
+    feature *2*: *1.399999976158142* -&gt; *2.8000000000000016*
+
+Counterfactual instance (of class *1*):
+Distance: 1.6999999761581428
+    feature *1*: *3.299999952316284* -&gt; *3.100000000000001*
+    feature *2*: *1.399999976158142* -&gt; *2.9000000000000017*
+
+Counterfactual instance (of class *1*):
+Distance: 1.6999999761581428
+    feature *1*: *3.299999952316284* -&gt; *3.200000000000001*
+    feature *2*: *1.399999976158142* -&gt; *3.0000000000000018*
+
+Counterfactual instance (of class *1*):
+Distance: 1.7000000223517435
+    feature *2*: *1.399999976158142* -&gt; *3.0000000000000018*
+    feature *3*: *0.20000000298023224* -&gt; *0.30000000149011613*
+
+Counterfactual instance (of class *1*):
+Distance: 1.7000000238418598
+    feature *2*: *1.399999976158142* -&gt; *3.100000000000002*
+</pre></div>
+</div>
+<p>Explain another data point.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a data point to be explained</span>
+<span class="n">dp_2_index</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">dp_2_X</span> <span class="o">=</span> <span class="n">iris_X</span><span class="p">[</span><span class="n">dp_2_index</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">dp_2_y</span> <span class="o">=</span> <span class="n">iris_y</span><span class="p">[</span><span class="n">dp_2_index</span><span class="p">]</span>
+<span class="n">describe_data_point</span><span class="p">(</span><span class="n">dp_2_index</span><span class="p">)</span>
+
+<span class="c1"># Get a Counterfactual Explanation tuple for this data point</span>
+<span class="n">dp_2_cf_tuple</span> <span class="o">=</span> <span class="n">cf_explainer</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span><span class="n">dp_2_X</span><span class="p">)</span>
+<span class="n">dp_2_cfs</span><span class="p">,</span> <span class="n">dp_2_cfs_distances</span><span class="p">,</span> <span class="n">dp_2_cfs_predictions</span> <span class="o">=</span> <span class="n">dp_2_cf_tuple</span>
+<span class="n">dp_2_cfs_predictions_names</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
+    <span class="p">[</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dp_2_cfs_predictions</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Counterfactuals for the data point:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_2_cfs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Distances between the counterfactuals and the data point:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_2_cfs_distances</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Classes (indices and class names) of the counterfactuals:&#39;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_2_cfs_predictions</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">dp_2_cfs_predictions_names</span><span class="p">)</span>
+
+<span class="c1"># Textualise the counterfactuals</span>
+<span class="n">dp_2_cfs_text</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span></a><span class="p">(</span>
+    <span class="n">dp_2_X</span><span class="p">,</span>
+    <span class="n">dp_2_cfs</span><span class="p">,</span>
+    <span class="n">instance_class</span><span class="o">=</span><span class="n">dp_2_y</span><span class="p">,</span>
+    <span class="n">counterfactuals_distances</span><span class="o">=</span><span class="n">dp_2_cfs_distances</span><span class="p">,</span>
+    <span class="n">counterfactuals_predictions</span><span class="o">=</span><span class="n">dp_2_cfs_predictions</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dp_2_cfs_text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Explaining data point (index 99) of class versicolor (class index 1) with features:
+    * sepal length (cm) (feature index 0): 5.7,
+    * sepal width (cm) (feature index 1): 2.8,
+    * petal length (cm) (feature index 2): 4.1,
+    * petal width (cm) (feature index 3): 1.3.
+
+Counterfactuals for the data point:
+array([[5.69999981, 2.79999995, 4.7       , 1.7       ],
+       [5.69999981, 2.79999995, 4.0999999 , 2.4       ],
+       [5.69999981, 2.79999995, 5.2       , 1.29999995],
+       [5.69999981, 2.8       , 4.0999999 , 2.4       ],
+       [5.69999981, 2.8       , 5.2       , 1.29999995],
+       [5.80000019, 2.79999995, 4.0999999 , 2.3       ],
+       [5.70000019, 2.79999995, 5.2       , 1.29999995]])
+
+Distances between the counterfactuals and the data point:
+array([1.00000014, 1.10000005, 1.1000001 , 1.1000001 , 1.10000014,
+       1.10000043, 1.10000048])
+
+Classes (indices and class names) of the counterfactuals:
+array([2, 2, 2, 2, 2, 2, 2])
+array([&#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;,
+       &#39;virginica&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U9&#39;)
+Instance (of class *1*):
+[5.7 2.8 4.1 1.3]
+
+Feature names: [0, 1, 2, 3]
+
+Counterfactual instance (of class *2*):
+Distance: 1.0000001445412665
+    feature *2*: *4.099999904632568* -&gt; *4.700000000000003*
+    feature *3*: *1.2999999523162842* -&gt; *1.7000000014901162*
+
+Counterfactual instance (of class *2*):
+Distance: 1.1000000491738322
+    feature *3*: *1.2999999523162842* -&gt; *2.4000000014901164*
+
+Counterfactual instance (of class *2*):
+Distance: 1.1000000953674354
+    feature *2*: *4.099999904632568* -&gt; *5.200000000000004*
+
+Counterfactual instance (of class *2*):
+Distance: 1.1000000968575487
+    feature *1*: *2.799999952316284* -&gt; *2.8000000000000007*
+    feature *3*: *1.2999999523162842* -&gt; *2.4000000014901164*
+
+Counterfactual instance (of class *2*):
+Distance: 1.100000143051152
+    feature *1*: *2.799999952316284* -&gt; *2.8000000000000007*
+    feature *2*: *4.099999904632568* -&gt; *5.200000000000004*
+
+Counterfactual instance (of class *2*):
+Distance: 1.1000004306435534
+    feature *0*: *5.699999809265137* -&gt; *5.800000190734858*
+    feature *3*: *1.2999999523162842* -&gt; *2.3000000014901163*
+
+Counterfactual instance (of class *2*):
+Distance: 1.100000476837157
+    feature *0*: *5.699999809265137* -&gt; *5.700000190734858*
+    feature *2*: *4.099999904632568* -&gt; *5.200000000000004*
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  59.975 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-cf-py">
+<div class="binder-badge docutils container">
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_cf.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6e69737f165bc34120aa901e750a3ec0/xmpl_transparency_cf.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_cf.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2ce85a2259252acb5072687e3abf576d/xmpl_transparency_cf.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_cf.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/sphinx_gallery_auto/transparency/xmpl_transparency_cf.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

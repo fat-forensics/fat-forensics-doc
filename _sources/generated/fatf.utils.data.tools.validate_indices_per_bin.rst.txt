@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.tools`.validate_indices_per_bin
+============================================================
+
+.. currentmodule:: fatf.utils.data.tools
+
+.. autofunction:: validate_indices_per_bin
+
+.. include:: fatf.utils.data.tools.validate_indices_per_bin.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

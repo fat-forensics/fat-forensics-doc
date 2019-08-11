@@ -1,0 +1,11 @@
+:mod:`fatf.utils.metrics.tools`.confusion_matrix_per_subgroup
+====================================================================
+
+.. currentmodule:: fatf.utils.metrics.tools
+
+.. autofunction:: confusion_matrix_per_subgroup
+
+.. include:: fatf.utils.metrics.tools.confusion_matrix_per_subgroup.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

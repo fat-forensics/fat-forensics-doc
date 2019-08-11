@@ -1,0 +1,262 @@
+.. note::
+    :class: sphx-glr-download-link-note
+
+    Click :ref:`here <sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py>` to download the full example code or run this example in your browser via Binder
+.. rst-class:: sphx-glr-example-title
+
+.. _sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py:
+
+
+================================
+Using Data Description Explainer
+================================
+
+This example illustrates how to use the Data Description to interpret a data
+set. (See the :mod:`fatf.transparency.data.describe_functions` module for more
+details.)
+
+
+.. code-block:: default
+
+    # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
+    # License: new BSD
+
+    from pprint import pprint
+    import numpy as np
+
+    import fatf.utils.data.datasets as fatf_datasets
+
+    import fatf.transparency.data.describe_functions as fatf_dd
+
+    print(__doc__)
+
+    # Load data
+    iris_data_dict = fatf_datasets.load_iris()
+    iris_X = iris_data_dict['data']
+    iris_y = iris_data_dict['target'].astype(int)
+    iris_feature_names = iris_data_dict['feature_names']
+    iris_class_names = iris_data_dict['target_names']
+
+
+
+
+
+
+
+Start by describing all of the features in the data set.
+
+
+.. code-block:: default
+
+
+    # Explain all of the features
+    features_description = fatf_dd.describe_array(iris_X)
+
+    # Conver feature ids into feature names
+    named_features_description = dict()
+    for fdi in features_description.items():
+        feature_id, feature_description = fdi
+        feature_name = iris_feature_names[feature_id]
+
+        named_features_description[feature_name] = feature_description
+
+    print('Data Description for each feature:')
+    pprint(named_features_description)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    Data Description for each feature:
+    {'petal length (cm)': {'25%': 1.600000023841858,
+                           '50%': 4.3500001430511475,
+                           '75%': 5.099999904632568,
+                           'count': 150,
+                           'max': 6.9,
+                           'mean': 3.7580001,
+                           'min': 1.0,
+                           'nan_count': 0,
+                           'std': 1.7594041},
+     'petal width (cm)': {'25%': 0.30000001192092896,
+                          '50%': 1.2999999523162842,
+                          '75%': 1.7999999523162842,
+                          'count': 150,
+                          'max': 2.5,
+                          'mean': 1.1993333,
+                          'min': 0.1,
+                          'nan_count': 0,
+                          'std': 0.7596926},
+     'sepal length (cm)': {'25%': 5.099999904632568,
+                           '50%': 5.800000190734863,
+                           '75%': 6.400000095367432,
+                           'count': 150,
+                           'max': 7.9,
+                           'mean': 5.8433332,
+                           'min': 4.3,
+                           'nan_count': 0,
+                           'std': 0.8253013},
+     'sepal width (cm)': {'25%': 2.799999952316284,
+                          '50%': 3.0,
+                          '75%': 3.299999952316284,
+                          'count': 150,
+                          'max': 4.4,
+                          'mean': 3.0573335,
+                          'min': 2.0,
+                          'nan_count': 0,
+                          'std': 0.434411}}
+
+
+Now describe the 'petal width (cm)' per class.
+
+
+.. code-block:: default
+
+
+    # Select the 'petal width (cm)' feature
+    selected_feature_id = 3
+    selected_feature_name = iris_feature_names[selected_feature_id]
+
+    # Group the data points per class
+    per_class_row_mask = dict()
+    for class_index, class_name in enumerate(iris_class_names):
+        per_class_row_mask[class_name] = iris_y == class_index
+
+    # Explain the 'petal width (cm)' feature per class
+    per_class_explanation = dict()
+    for class_name, class_mask in per_class_row_mask.items():
+        class_array = iris_X[class_mask, selected_feature_id]
+        per_class_explanation[class_name] = fatf_dd.describe_array(class_array)
+
+    print('Per-class Data Description of each feature for class '
+          "'{}' (class index {}):".format(selected_feature_name,
+                                          selected_feature_id))
+    pprint(per_class_explanation)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    Per-class Data Description of each feature for class 'petal width (cm)' (class index 3):
+    {'setosa': {'25%': 0.20000000298023224,
+                '50%': 0.20000000298023224,
+                '75%': 0.30000001192092896,
+                'count': 50,
+                'max': 0.6,
+                'mean': 0.246,
+                'min': 0.1,
+                'nan_count': 0,
+                'std': 0.10432641},
+     'versicolor': {'25%': 1.2000000476837158,
+                    '50%': 1.2999999523162842,
+                    '75%': 1.5,
+                    'count': 50,
+                    'max': 1.8,
+                    'mean': 1.3260001,
+                    'min': 1.0,
+                    'nan_count': 0,
+                    'std': 0.19576517},
+     'virginica': {'25%': 1.7999999523162842,
+                   '50%': 2.0,
+                   '75%': 2.299999952316284,
+                   'count': 50,
+                   'max': 2.5,
+                   'mean': 2.026,
+                   'min': 1.4,
+                   'nan_count': 0,
+                   'std': 0.2718897}}
+
+
+Finally, describe the class distribution.
+
+
+.. code-block:: default
+
+
+    # Get the Data Description for the target variable
+    target_explanation = fatf_dd.describe_categorical_array(iris_y)
+
+    print('Data Description of the target array:')
+    pprint(target_explanation)
+
+    # Since the targer array is numerical, we can convert it to class names first
+    iris_y_named = np.array([iris_class_names[i] for i in iris_y])
+    target_explanation_named = fatf_dd.describe_categorical_array(iris_y_named)
+
+    print('Data Description of the target array mapped to class names:')
+    pprint(target_explanation_named)
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    Data Description of the target array:
+    {'count': 150,
+     'freq': 50,
+     'is_top_unique': False,
+     'top': '0',
+     'unique': array(['0', '1', '2'], dtype='<U21'),
+     'unique_counts': array([50, 50, 50])}
+    Data Description of the target array mapped to class names:
+    {'count': 150,
+     'freq': 50,
+     'is_top_unique': False,
+     'top': 'setosa',
+     'unique': array(['setosa', 'versicolor', 'virginica'], dtype='<U10'),
+     'unique_counts': array([50, 50, 50])}
+
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** ( 0 minutes  0.073 seconds)
+
+
+.. _sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py:
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-example
+
+
+  .. container:: binder-badge
+
+    .. image:: https://mybinder.org/badge_logo.svg
+      :target: https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.ipynb
+      :width: 150 px
+
+
+  .. container:: sphx-glr-download
+
+     :download:`Download Python source code: xmpl_transparency_data_desc.py <xmpl_transparency_data_desc.py>`
+
+
+
+  .. container:: sphx-glr-download
+
+     :download:`Download Jupyter notebook: xmpl_transparency_data_desc.ipynb <xmpl_transparency_data_desc.ipynb>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

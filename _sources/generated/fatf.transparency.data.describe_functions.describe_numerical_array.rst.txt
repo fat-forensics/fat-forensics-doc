@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.data.describe_functions`.describe_numerical_array
+================================================================================
+
+.. currentmodule:: fatf.transparency.data.describe_functions
+
+.. autofunction:: describe_numerical_array
+
+.. include:: fatf.transparency.data.describe_functions.describe_numerical_array.examples
+.. raw:: html
+
+    <div class="clear:both"></div>
