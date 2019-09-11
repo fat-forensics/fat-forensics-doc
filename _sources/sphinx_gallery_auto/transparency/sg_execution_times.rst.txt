@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**01:34.217** total execution time for **sphinx_gallery_auto_transparency** files:
+**01:49.533** total execution time for **sphinx_gallery_auto_transparency** files:
 
-- **00:59.975**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_cf.py` (``xmpl_transparency_cf.py``)
-- **00:16.248**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_ice.py` (``xmpl_transparency_ice.py``)
-- **00:15.759**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_pd.py` (``xmpl_transparency_pd.py``)
-- **00:02.161**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_lime.py` (``xmpl_transparency_lime.py``)
-- **00:00.073**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py` (``xmpl_transparency_data_desc.py``)
+- **01:08.838**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_cf.py` (``xmpl_transparency_cf.py``)
+- **00:19.197**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_ice.py` (``xmpl_transparency_ice.py``)
+- **00:18.923**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_pd.py` (``xmpl_transparency_pd.py``)
+- **00:02.510**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_lime.py` (``xmpl_transparency_lime.py``)
+- **00:00.065**: :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py` (``xmpl_transparency_data_desc.py``)

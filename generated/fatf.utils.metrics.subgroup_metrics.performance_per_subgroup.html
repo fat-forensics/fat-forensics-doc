@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.metrics.subgroup_metrics.performance_per_subgroup &#8212; FAT Forensics 0.0.1-dev1 documentation</title>
+    <title>fatf.utils.metrics.subgroup_metrics.performance_per_subgroup &#8212; FAT Forensics 0.0.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -167,10 +167,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference...
+                API Reference (0.0.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1-dev1)
+                API Reference (0.0.1)
               </span>
               
             </a>
@@ -257,7 +257,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.metrics.subgroup_metrics" title="fatf.utils.metrics.subgroup_metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.subgroup_metrics</span></code></a>.performance_per_subgroup<a class="headerlink" href="#fatf-utils-metrics-subgroup-metrics-performance-per-subgroup" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.metrics.subgroup_metrics.performance_per_subgroup">
-<code class="descclassname">fatf.utils.metrics.subgroup_metrics.</code><code class="descname">performance_per_subgroup</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, ground_truth: numpy.ndarray, predictions: numpy.ndarray, column_index: Union[int, str], *args, label_index: int = 0, groupings: Optional[List[Union[float, Tuple[str]]]] = None, numerical_bins_number: int = 5, treat_as_categorical: Optional[bool] = None, labels: Optional[List[Union[float, str]]] = None, metric: Optional[str] = None, metric_function: Optional[Callable[numpy.ndarray, float]] = None, **kwargs</em><span class="sig-paren">)</span> &#x2192; Tuple[List[float], List[str]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/c063313/fatf/utils/metrics/subgroup_metrics.py#L187"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.metrics.subgroup_metrics.</code><code class="descname">performance_per_subgroup</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, ground_truth: numpy.ndarray, predictions: numpy.ndarray, column_index: Union[int, str], *args, label_index: int = 0, groupings: Optional[List[Union[float, Tuple[str]]]] = None, numerical_bins_number: int = 5, treat_as_categorical: Optional[bool] = None, labels: Optional[List[Union[float, str]]] = None, metric: Optional[str] = None, metric_function: Optional[Callable[numpy.ndarray, float]] = None, **kwargs</em><span class="sig-paren">)</span> &#x2192; Tuple[List[float], List[str]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f0bba20/fatf/utils/metrics/subgroup_metrics.py#L187"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes a chosen metric per sub-population for a data set.</p>
 <p>This function combines
 <a class="reference internal" href="fatf.utils.metrics.tools.confusion_matrix_per_subgroup.html#fatf.utils.metrics.tools.confusion_matrix_per_subgroup" title="fatf.utils.metrics.tools.confusion_matrix_per_subgroup"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools.confusion_matrix_per_subgroup</span></code></a>

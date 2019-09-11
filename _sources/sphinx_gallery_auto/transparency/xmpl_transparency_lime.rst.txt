@@ -32,18 +32,18 @@ identical fashion to explain a model and a prediction correspondingly.
 
  .. code-block:: none
 
-    {'setosa': [('petal length (cm) <= 1.60', 0.9159866045511165),
-                ('petal width (cm) <= 0.30', 0.059433082475136956),
-                ('sepal length (cm) <= 5.10', 0.0249183026828735),
-                ('3.00 < sepal width (cm) <= 3.30', -0.0112520720089285)],
-     'versicolor': [('petal length (cm) <= 1.60', -0.5678470073018964),
-                    ('petal width (cm) <= 0.30', 0.05858695107771317),
-                    ('3.00 < sepal width (cm) <= 3.30', -0.02921727009206925),
-                    ('sepal length (cm) <= 5.10', 0.00012419555258969494)],
-     'virginica': [('petal length (cm) <= 1.60', -0.3481395972492203),
-                   ('petal width (cm) <= 0.30', -0.11802003355285023),
-                   ('3.00 < sepal width (cm) <= 3.30', 0.04046934210099773),
-                   ('sepal length (cm) <= 5.10', -0.025042498235463215)]}
+    {'setosa': [('petal length (cm) <= 1.60', 0.9282835146042686),
+                ('petal width (cm) <= 0.30', 0.031127856385852776),
+                ('sepal length (cm) <= 5.10', 0.01960327625041223),
+                ('3.00 < sepal width (cm) <= 3.30', 0.01797702672643714)],
+     'versicolor': [('petal length (cm) <= 1.60', -0.6056572523241569),
+                    ('petal width (cm) <= 0.30', 0.12091430545930464),
+                    ('sepal length (cm) <= 5.10', -0.002060622514483286),
+                    ('3.00 < sepal width (cm) <= 3.30', -0.0018997323597226298)],
+     'virginica': [('petal length (cm) <= 1.60', -0.3226262622801118),
+                   ('petal width (cm) <= 0.30', -0.15204216184515737),
+                   ('sepal length (cm) <= 5.10', -0.017542653735928976),
+                   ('3.00 < sepal width (cm) <= 3.30', -0.016077294366714512)]}
 
 
 
@@ -101,7 +101,7 @@ identical fashion to explain a model and a prediction correspondingly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.161 seconds)
+   **Total running time of the script:** ( 0 minutes  2.510 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_lime.py:
@@ -116,7 +116,7 @@ identical fashion to explain a model and a prediction correspondingly.
   .. container:: binder-badge
 
     .. image:: https://mybinder.org/badge_logo.svg
-      :target: https://mybinder.org/v2/gh/fat-forensics/fat-forensics-docs/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_lime.ipynb
+      :target: https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_lime.ipynb
       :width: 150 px
 
 
