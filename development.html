@@ -323,10 +323,10 @@ the <em>development</em> package dependencies need to be installed.</p>
 <p>Files with these requirements can be found in the root folder of the package
 repository under the following names:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/requirements.txt">requirements.txt</a> – the dependencies required by the package;</p></li>
-<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/requirements-aux.txt">requirements-aux.txt</a> – the soft dependencies of the package (cf.
+<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/requirements.txt">requirements.txt</a> – the dependencies required by the package;</p></li>
+<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/requirements-aux.txt">requirements-aux.txt</a> – the soft dependencies of the package (cf.
 <a class="reference internal" href="getting_started/install_deps_os.html#installation-instructions-soft-dependencies"><span class="std std-ref">Soft Dependencies</span></a>); and</p></li>
-<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/requirements-dev.txt">requirements-dev.txt</a> – the development dependencies of the package.</p></li>
+<li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/requirements-dev.txt">requirements-dev.txt</a> – the development dependencies of the package.</p></li>
 </ul>
 <p>All of these can be installed directly from these files with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r &lt;dependencies file name&gt;
@@ -342,12 +342,13 @@ the section below for more information.)</p>
 <div class="section" id="installing-the-package">
 <h3>Installing the Package<a class="headerlink" href="#installing-the-package" title="Permalink to this headline">¶</a></h3>
 <p>When developing code for the package we advise to install it as an
-<strong>editable copy</strong> directly from sources. To achieve that you need to first
-clone our git repository and then install FAT Forensics as an editable package
-alongside all the required dependencies. To this end, please execute the three
-commands shown below.</p>
+<strong>editable copy</strong> directly from sources placed in the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch. To
+achieve that you need to first clone our git repository and then install FAT
+Forensics as an editable package alongside all the required dependencies. To
+this end, please execute the four commands shown below.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/fat-forensics/fat-forensics.git
 $ <span class="nb">cd</span> fat-forensics
+$ git checkout dev
 $ pip install -e <span class="s1">&#39;.[all,dev]&#39;</span>
 </pre></div>
 </div>
@@ -356,6 +357,8 @@ $ pip install -e <span class="s1">&#39;.[all,dev]&#39;</span>
 <p>Consider using <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> and <a class="reference external" href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a> plugin to manage your Python
 versions and virtual environments. It makes the development so much easier.</p>
 </div>
+<p>If you want to install the latest <em>stable</em> version from sources instead, please
+use the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch instead.</p>
 </div>
 <div class="section" id="testing-environment">
 <h3>Testing Environment<a class="headerlink" href="#testing-environment" title="Permalink to this headline">¶</a></h3>
@@ -363,11 +366,11 @@ versions and virtual environments. It makes the development so much easier.</p>
 up. The specific versions of the package dependencies are listed in the three
 requirement files listed in the <a class="reference internal" href="#developers-guide-dev-requirements"><span class="std std-ref">Installing Development Requirements</span></a>
 section.</p>
-<p>All of the test and build commands are held in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/Makefile">Makefile</a>, which is placed
+<p>All of the test and build commands are held in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>, which is placed
 in the root directory of the package. Please consult this file for the specific
 commands that are executed when building and testing the package.</p>
 <p>Our Continuous Integration (CI) is run on <a class="reference external" href="https://travis-ci.com/fat-forensics/fat-forensics">Travis</a> with the configuration file
-– <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.travis.yml">.travis.yml</a> – held in the root directory of the package.</p>
+– <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.travis.yml">.travis.yml</a> – held in the root directory of the package.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Random number generator</strong></p>
@@ -376,7 +379,7 @@ commands that are executed when building and testing the package.</p>
 of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/random/index.html#module-numpy.random" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
 generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
 variable to a selected number. (For tests this is set to 42 in the
-<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
+<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
 called upon importing the FAT Forensics package, will set both of the
 aforementioned random seeds to the desired value.</p>
 <p>If anywhere in the tests you wish to restore it to the desired value,
@@ -393,28 +396,28 @@ Code formatting adherence to this guideline can be checked with
 </div>
 <p>which will highlight what needs to be changed rather than reformat the code
 automatically. The configuration of <a class="reference external" href="https://github.com/google/yapf">YAPF</a> for the package can be found in the
-<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.style.yapf">.style.yapf</a> file in the root directory of the package.</p>
+<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.style.yapf">.style.yapf</a> file in the root directory of the package.</p>
 <p>Code formatting is also checked with <a class="reference external" href="https://www.pylint.org/">Pylint</a> and <a class="reference external" href="http://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
 with the following two commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
 </pre></div>
 </div>
-<p>The configuration of both these linters can be found in <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.pylintrc">.pylintrc</a> and
-<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.flake8">.flake8</a> files respectively, both placed in the root directory of the
+<p>The configuration of both these linters can be found in <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.pylintrc">.pylintrc</a> and
+<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.flake8">.flake8</a> files respectively, both placed in the root directory of the
 package.</p>
 <p>To help the contributors adhere to the formatting style of the code,
 documentation and configuration files we use <a class="reference external" href="https://editorconfig.org">EditorConfig</a>. By installing the
 <a class="reference external" href="https://editorconfig.org">EditorConfig</a> plugin for your code editor the style of the new content that you
 author will automatically adhere to some of our coding style. You can find the
-configuration file of the EditorConfig – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.editorconfig">.editorconfig</a> – in the root
+configuration file of the EditorConfig – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.editorconfig">.editorconfig</a> – in the root
 directory of the package.</p>
 </div>
 <div class="section" id="type-hints">
 <h3>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">¶</a></h3>
 <p>We try to annotate the code in the package with type hints whenever possible.
 The typing of the code is checked statically with <a class="reference external" href="http://mypy-lang.org/">mypy</a>. Our mypy configuration
-file – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.mypy.ini">.mypy.ini</a> – is placed in the root directory of the package and the
+file – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.mypy.ini">.mypy.ini</a> – is placed in the root directory of the package and the
 type checking is performed by executing the following line of code:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make check-types
 </pre></div>
@@ -424,9 +427,9 @@ type checking is performed by executing the following line of code:</p>
 <h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
 <p>We run tests on the package itself as well as on the code snippets spread
 throughout the documentation. To this end, we use <a class="reference external" href="https://pytest.org/en/latest/">pytest</a> configured with the
-<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/pytest.ini">pytest.ini</a> file kept in the root directory of the package.</p>
+<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/pytest.ini">pytest.ini</a> file kept in the root directory of the package.</p>
 <p>To gather code coverage statistics we use <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a> plugin with its partial
-configuration placed in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.coveragerc">.coveragerc</a> file kept in the root directory of
+configuration placed in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.coveragerc">.coveragerc</a> file kept in the root directory of
 the package.</p>
 <div class="section" id="code">
 <h4>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h4>
@@ -481,7 +484,7 @@ we are using pure doctest syntax, i.e. no group annotations are possible.</p>
 <div class="section" id="step-by-step-guide">
 <h2>Step by Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
 <p>To summarise, the following commands should be executed to fully test the
-package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.travis.yml">.travis.yml</a> for more details):</p>
+package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.travis.yml">.travis.yml</a> for more details):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
 $ make linting-yapf
@@ -503,15 +506,15 @@ the documentation please familiarise yourself with the <a class="reference inter
 part of the documentation.</p>
 <div class="section" id="code-documentation">
 <h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h3>
-<p>For building the documentation we use <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/dev/doc/themes/fat-forensics">custom theme</a>. The API
+<p>For building the documentation we use <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a>. The API
 is documented using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/">numpydoc</a> docstring syntax and structure. The code example
 galleries are generated with the <a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a> extension.</p>
 <p>To build the documentation you can execute:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-html
 </pre></div>
 </div>
-<p>In addition to this command being available in the main <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/Makefile">Makefile</a> of the
-project, there is a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/doc/Makefile">documentation-specific Makefile</a> in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory
+<p>In addition to this command being available in the main <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a> of the
+project, there is a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/doc/Makefile">documentation-specific Makefile</a> in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory
 that supports the following documentation build command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make html
 </pre></div>
@@ -527,7 +530,7 @@ automatically with sphinx’s <code class="docutils literal notranslate"><span c
 <code class="docutils literal notranslate"><span class="pre">doc/generated</span></code> directory some of the changes that are made to the API
 template or documentation may not trigger the automatic rebuilding of the
 generated files. In such cases the <code class="docutils literal notranslate"><span class="pre">doc/generated</span></code> directory has to be
-cleaned. This can be achieved with the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/doc/Makefile">documentation-specific Makefile</a>
+cleaned. This can be achieved with the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/doc/Makefile">documentation-specific Makefile</a>
 via the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-clean
 </pre></div>
@@ -568,11 +571,11 @@ and related) field.</p></li>
 <div class="section" id="pull-requests-and-issues">
 <h2>Pull Requests and Issues<a class="headerlink" href="#pull-requests-and-issues" title="Permalink to this headline">¶</a></h2>
 <p>When making a pull request on GitHub please use the provided
-<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/dev/.github/PULL_REQUEST_TEMPLATE.md">pull request template</a> and make sure that you comply with all the
+<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.github/PULL_REQUEST_TEMPLATE.md">pull request template</a> and make sure that you comply with all the
 requirements listed therein. Furthermore, please have a browse through other
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/pulls">pull requests</a> and <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/issues">issues</a> to locate all the problems/solutions similar to
 yours.</p>
-<p>Similarly, we have <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/dev/.github/ISSUE_TEMPLATE">issue templates</a>. Please use them (whenever possible)
+<p>Similarly, we have <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/.github/ISSUE_TEMPLATE">issue templates</a>. Please use them (whenever possible)
 while opening a new issue.</p>
 </div>
 <div class="section" id="package-structure">
@@ -699,7 +702,7 @@ for completeness.</p>
 <div class="section" id="package-resources">
 <h2>Package Resources<a class="headerlink" href="#package-resources" title="Permalink to this headline">¶</a></h2>
 <p>The documentation is build on top of the <a class="reference external" href="https://getbootstrap.com/">Bootstrap</a> (v4.3.1) and <a class="reference external" href="https://jquery.com/">jQuery</a>
-(3.4.1) libraries. The <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/dev/doc/themes/fat-forensics">custom theme</a> is based on Sphinx’s <a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/sphinx/themes/nature/static/nature.css_t">nature theme</a>
+(3.4.1) libraries. The <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a> is based on Sphinx’s <a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/sphinx/themes/nature/static/nature.css_t">nature theme</a>
 (commit hash 1b1ebd2; 2nd January 2019).</p>
 <p>The “Fork me on GitHub” ribbon is based on the CSS solution written by
 <a class="reference external" href="https://codepo8.github.io/css-fork-on-github-ribbon/">codepo8</a>.</p>
