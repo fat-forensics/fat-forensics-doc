@@ -257,7 +257,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a>.Lime<a class="headerlink" href="#fatf-transparency-lime-lime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.lime.Lime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>local_explanation: bool = True</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f0bba20/fatf/transparency/lime.py#L47"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>local_explanation: bool = True</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/2758606/fatf/transparency/lime.py#L47"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps LIME package’s <code class="docutils literal notranslate"><span class="pre">lime.lime_tabular.LimeTabularExplainer</span></code> class.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -384,7 +384,7 @@ provided. In such a case the <code class="docutils literal notranslate"><span cl
 </table>
 <dl class="method">
 <dt id="fatf.transparency.lime.Lime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f0bba20/fatf/transparency/lime.py#L298"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/2758606/fatf/transparency/lime.py#L298"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains an instance with the LIME tabular explainer.</p>
 <p>This method wraps around <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> <a class="reference external" href="https://lime-ml.readthedocs.io/en/latest/lime.html#lime.lime_tabular.LimeTabularExplainer.explain_instance">method</a> in the LIME
 tabular explainer object.</p>
