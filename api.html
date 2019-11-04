@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>API Reference &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>API Reference &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -127,7 +120,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">API Reference (0.0.1)</a><ul>
+<li><a class="reference internal" href="#">API Reference (0.0.2)</a><ul>
 <li><a class="reference internal" href="#fat-forensics">FAT-Forensics</a></li>
 <li><a class="reference internal" href="#module-fatf.fairness"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness</span></code>: Fairness</a><ul>
 <li><a class="reference internal" href="#module-fatf.fairness.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data</span></code>: Fairness for Data</a></li>
@@ -151,11 +144,20 @@
 <li><a class="reference internal" href="#module-fatf.transparency.predictions.counterfactuals"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>: Counterfactual Explainers</a><ul>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code>: Surrogate Explainers</a></li>
 <li><a class="reference internal" href="#module-fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code>: LIME for Predictions</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>: LIME Wrapper</a></li>
-<li><a class="reference internal" href="#module-fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code>: Scikit-learn Explainers</a></li>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code>: Scikit-learn Explainers</a><ul>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code>: Scikit-learn Explainer Tools</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code>: Linear Model Explainers</a><ul>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code>: Visualisations</a></li>
@@ -167,7 +169,14 @@
 <li><a class="reference internal" href="#module-fatf.utils.data.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code>: Data Sets</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code>: Data Set Tools</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>: Data Set Augmentation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.instance_augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code>: Data Point Augmentation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.transformation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code>: Data Set Transformation</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>: Data Set Density Checking and Estimation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code>: Data Set Discretisation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.feature_selection"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection</span></code>: Data Set Feature Selection</a><ul>
+<li><a class="reference internal" href="#module-fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>: sklearn Feature Selection</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.utils.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models</span></code>: Models Utilities</a><ul>
@@ -176,16 +185,26 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.utils.distances"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.distances</span></code>: Distances and Distance Utilities</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.kernels"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.kernels</span></code>: Kernel Functions and Kernel Utilities</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics</span></code>: Performance Metrics and Utilities</a><ul>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.metrics</span></code>: Basic Metrics</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.subgroup_metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.subgroup_metrics</span></code>: Metrics for Sub-Populations</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code>: Metric Tools</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-fatf.utils.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency</span></code>: Transparency Utilities</a><ul>
+<li><a class="reference internal" href="#module-fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code>: Explainer Utilities</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatf.utils.transparency.surrogate_evaluation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code>: Surrogates Evaluation</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code>: FAT-Forensics Tools</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code>: FAT-Forensics Validation Functions</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code>: Testing Utilities</a><ul>
-<li><a class="reference internal" href="#module-fatf.utils.testing.arrays">Constants</a></li>
-<li><a class="reference internal" href="#module-fatf.utils.testing.imports">Functions</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -278,7 +297,7 @@
 
         <div class="row toc">
           <ul>
-<li><a class="reference internal" href="#">API Reference (0.0.1)</a><ul>
+<li><a class="reference internal" href="#">API Reference (0.0.2)</a><ul>
 <li><a class="reference internal" href="#fat-forensics">FAT-Forensics</a></li>
 <li><a class="reference internal" href="#module-fatf.fairness"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness</span></code>: Fairness</a><ul>
 <li><a class="reference internal" href="#module-fatf.fairness.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data</span></code>: Fairness for Data</a></li>
@@ -302,11 +321,20 @@
 <li><a class="reference internal" href="#module-fatf.transparency.predictions.counterfactuals"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>: Counterfactual Explainers</a><ul>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code>: Surrogate Explainers</a></li>
 <li><a class="reference internal" href="#module-fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code>: LIME for Predictions</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>: LIME Wrapper</a></li>
-<li><a class="reference internal" href="#module-fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code>: Scikit-learn Explainers</a></li>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code>: Scikit-learn Explainers</a><ul>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code>: Scikit-learn Explainer Tools</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code>: Linear Model Explainers</a><ul>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code>: Visualisations</a></li>
@@ -318,7 +346,14 @@
 <li><a class="reference internal" href="#module-fatf.utils.data.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code>: Data Sets</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code>: Data Set Tools</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>: Data Set Augmentation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.instance_augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code>: Data Point Augmentation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.transformation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code>: Data Set Transformation</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.data.density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>: Data Set Density Checking and Estimation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code>: Data Set Discretisation</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.data.feature_selection"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection</span></code>: Data Set Feature Selection</a><ul>
+<li><a class="reference internal" href="#module-fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>: sklearn Feature Selection</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.utils.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models</span></code>: Models Utilities</a><ul>
@@ -327,16 +362,26 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#module-fatf.utils.distances"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.distances</span></code>: Distances and Distance Utilities</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.kernels"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.kernels</span></code>: Kernel Functions and Kernel Utilities</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics</span></code>: Performance Metrics and Utilities</a><ul>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.metrics</span></code>: Basic Metrics</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.subgroup_metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.subgroup_metrics</span></code>: Metrics for Sub-Populations</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.metrics.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code>: Metric Tools</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-fatf.utils.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency</span></code>: Transparency Utilities</a><ul>
+<li><a class="reference internal" href="#module-fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code>: Explainer Utilities</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatf.utils.transparency.surrogate_evaluation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code>: Surrogates Evaluation</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code>: FAT-Forensics Tools</a></li>
+<li><a class="reference internal" href="#module-fatf.utils.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code>: FAT-Forensics Validation Functions</a></li>
 <li><a class="reference internal" href="#module-fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code>: Testing Utilities</a><ul>
-<li><a class="reference internal" href="#module-fatf.utils.testing.arrays">Constants</a></li>
-<li><a class="reference internal" href="#module-fatf.utils.testing.imports">Functions</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -361,7 +406,7 @@
           <div class="body" role="main">
             
   <div class="section" id="api-reference-version">
-<span id="api-ref"></span><h1>API Reference (0.0.1)<a class="headerlink" href="#api-reference-version" title="Permalink to this headline">¶</a></h1>
+<span id="api-ref"></span><h1>API Reference (0.0.2)<a class="headerlink" href="#api-reference-version" title="Permalink to this headline">¶</a></h1>
 <p>This is the class and function reference of fat-forensics. Please refer to
 the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">full user guide</span></a> for further details, as the class and
 function raw specifications may not be enough to give full guidelines on their
@@ -569,6 +614,12 @@ Expectation (ICE) – model agnostic feature influence measurements.</p>
 </div>
 <div class="section" id="module-fatf.transparency.models.lime">
 <span id="fatf-transparency-models-lime-lime-for-models"></span><h4><a class="reference internal" href="#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a>: LIME for Models<a class="headerlink" href="#module-fatf.transparency.models.lime" title="Permalink to this headline">¶</a></h4>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.3: </span>This module will be deprecated in FAT Forensics version 0.0.3.
+Instead of wrapping the lime package a full (modular) version of the
+LIME surrogate explainer has been implemented – see the <a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> class and the
+<a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a> how-to guide for more details.</p>
+</div>
 <p>The <a class="reference internal" href="#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a> module prepares the LIME explainer for
 explaining models.</p>
 <p>This module instantiates <a class="reference internal" href="generated/fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class with
@@ -618,8 +669,51 @@ counterfactual explainers for predictions.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="module-fatf.transparency.predictions.surrogate_explainers">
+<span id="fatf-transparency-predictions-surrogate-explainers-surrogate-explainers"></span><h4><a class="reference internal" href="#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>: Surrogate Explainers<a class="headerlink" href="#module-fatf.transparency.predictions.surrogate_explainers" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a> module implements
+example surrogate explainers.</p>
+<p>Guidelines and tips for building custom surrogate explainers for various
+types of data (tabular, image and text) can be found in the <a class="reference internal" href="how_to/index.html#how-to-guide"><span class="std std-ref">How-to Guides</span></a>
+part of the documentation:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> package is required for the surrogate tree and linear
+model (LIME) explainers to work. When importing this module with
+<code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> missing, the user will only be warned about disabling this
+functionality not being available and the two explainers will
+be disabled to allow using the abstract SurrogateTabularExplainer without
+the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> package installed.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.html#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surrogate_explainers.SurrogateTabularExplainer</span></code></a></p></td>
+<td><p>An abstract parent class for implementing surrogate explainers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surrogate_explainers.TabularBlimeyLime</span></code></a></p></td>
+<td><p>A tabular LIME explainer – a surrogate explainer based on a linear model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surrogate_explainers.TabularBlimeyTree</span></code></a></p></td>
+<td><p>A surrogate explainer based on a decision tree.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="module-fatf.transparency.predictions.lime">
 <span id="fatf-transparency-predictions-lime-lime-for-predictions"></span><h4><a class="reference internal" href="#module-fatf.transparency.predictions.lime" title="fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code></a>: LIME for Predictions<a class="headerlink" href="#module-fatf.transparency.predictions.lime" title="Permalink to this headline">¶</a></h4>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.3: </span>This module will be deprecated in FAT Forensics version 0.0.3.
+Instead of wrapping the lime package a full (modular) version of the
+LIME surrogate explainer has been implemented – see the <a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> class and the
+<a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a> how-to guide for more details.</p>
+</div>
 <p>The <a class="reference internal" href="#module-fatf.transparency.predictions.lime" title="fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code></a> module prepares the LIME
 explainer for explaining predictions.</p>
 <p>This module instantiates <a class="reference internal" href="generated/fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class with
@@ -640,6 +734,12 @@ prediction.</p>
 </div>
 <div class="section" id="module-fatf.transparency.lime">
 <span id="fatf-transparency-lime-lime-wrapper"></span><h3><a class="reference internal" href="#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a>: LIME Wrapper<a class="headerlink" href="#module-fatf.transparency.lime" title="Permalink to this headline">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.3: </span>This module will be deprecated in FAT Forensics version 0.0.3.
+Instead of wrapping the lime package a full (modular) version of the
+LIME surrogate explainer has been implemented – see the <a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> class and the
+<a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a> how-to guide for more details.</p>
+</div>
 <p>The <a class="reference internal" href="#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a> module wraps the <a class="reference external" href="https://github.com/marcotcr/lime">LIME</a> explainer.</p>
 <p>This module implements a generic tabular data LIME explainer that can be
 customised to either explain models (<a class="reference internal" href="#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a>
@@ -664,6 +764,69 @@ would be a waste of time.)</p>
 <span id="fatf-transparency-sklearn-scikit-learn-explainers"></span><h3><a class="reference internal" href="#module-fatf.transparency.sklearn" title="fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code></a>: Scikit-learn Explainers<a class="headerlink" href="#module-fatf.transparency.sklearn" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="#module-fatf.transparency.sklearn" title="fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code></a> module implements scikit-learn explainers.</p>
 <p><strong>This module requires the scikit-learn package to be installed.</strong></p>
+<div class="section" id="module-fatf.transparency.sklearn.tools">
+<span id="fatf-transparency-sklearn-tools-scikit-learn-explainer-tools"></span><h4><a class="reference internal" href="#module-fatf.transparency.sklearn.tools" title="fatf.transparency.sklearn.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code></a>: Scikit-learn Explainer Tools<a class="headerlink" href="#module-fatf.transparency.sklearn.tools" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.transparency.sklearn.tools" title="fatf.transparency.sklearn.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code></a> module implements a base
+scikit-learn explainer.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.sklearn.tools.SKLearnExplainer.html#fatf.transparency.sklearn.tools.SKLearnExplainer" title="fatf.transparency.sklearn.tools.SKLearnExplainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tools.SKLearnExplainer</span></code></a></p></td>
+<td><p>Implements a base scikit-learn model explainer class.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.sklearn.tools.is_sklearn_model.html#fatf.transparency.sklearn.tools.is_sklearn_model" title="fatf.transparency.sklearn.tools.is_sklearn_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tools.is_sklearn_model</span></code></a></p></td>
+<td><p>Checks whether a class instance or a class is a scikit-learn predictor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.transparency.sklearn.tools.is_sklearn_model_instance.html#fatf.transparency.sklearn.tools.is_sklearn_model_instance" title="fatf.transparency.sklearn.tools.is_sklearn_model_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tools.is_sklearn_model_instance</span></code></a></p></td>
+<td><p>Checks whether a class instance (object) is a scikit-learn predictor.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.transparency.sklearn.linear_model">
+<span id="fatf-transparency-sklearn-linear-model-linear-model-explainers"></span><h4><a class="reference internal" href="#module-fatf.transparency.sklearn.linear_model" title="fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code></a>: Linear Model Explainers<a class="headerlink" href="#module-fatf.transparency.sklearn.linear_model" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.transparency.sklearn.linear_model" title="fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code></a> module implements linear
+scikit-learn model explainers.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.html#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer" title="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_model.SKLearnLinearModelExplainer</span></code></a></p></td>
+<td><p>A scikit-learn linear model explainer class.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.transparency.sklearn.linear_model.linear_classifier_coefficients.html#fatf.transparency.sklearn.linear_model.linear_classifier_coefficients" title="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_model.linear_classifier_coefficients</span></code></a></p></td>
+<td><p>Extracts coefficients (feature importances) of a linear scikit-learn model.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section" id="module-fatf.vis">
@@ -698,18 +861,21 @@ would be a waste of time.)</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.exceptions.FATFException.html#fatf.exceptions.FATFException" title="fatf.exceptions.FATFException"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FATFException</span></code></a></p></td>
-<td><p>Base class for FAT-Forensics exceptions (inherits from <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>).</p></td>
+<td><p>Base class for FAT-Forensics exceptions (inherits from <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.exceptions.IncorrectShapeError.html#fatf.exceptions.IncorrectShapeError" title="fatf.exceptions.IncorrectShapeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncorrectShapeError</span></code></a></p></td>
 <td><p>Exception raised when the shape of an array is not what is expected.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.exceptions.IncompatibleModelError.html#fatf.exceptions.IncompatibleModelError" title="fatf.exceptions.IncompatibleModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncompatibleModelError</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.exceptions.IncompatibleExplainerError.html#fatf.exceptions.IncompatibleExplainerError" title="fatf.exceptions.IncompatibleExplainerError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncompatibleExplainerError</span></code></a></p></td>
+<td><p>Exception raised when an explainer lacks desired functionality.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.exceptions.IncompatibleModelError.html#fatf.exceptions.IncompatibleModelError" title="fatf.exceptions.IncompatibleModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncompatibleModelError</span></code></a></p></td>
 <td><p>Exception raised when a model lacks desired functionality.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.exceptions.UnfittedModelError.html#fatf.exceptions.UnfittedModelError" title="fatf.exceptions.UnfittedModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnfittedModelError</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.exceptions.UnfittedModelError.html#fatf.exceptions.UnfittedModelError" title="fatf.exceptions.UnfittedModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnfittedModelError</span></code></a></p></td>
 <td><p>Exception raised when a model is unfitted and a fitted one is expected.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.exceptions.PrefittedModelError.html#fatf.exceptions.PrefittedModelError" title="fatf.exceptions.PrefittedModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrefittedModelError</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.exceptions.PrefittedModelError.html#fatf.exceptions.PrefittedModelError" title="fatf.exceptions.PrefittedModelError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrefittedModelError</span></code></a></p></td>
 <td><p>Exception raised when a model is fitted and an unfitted one is expected.</p></td>
 </tr>
 </tbody>
@@ -870,11 +1036,64 @@ records data set is a structured numpy array.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.NormalSampling.html#fatf.utils.data.augmentation.NormalSampling" title="fatf.utils.data.augmentation.NormalSampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.NormalSampling</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation" title="fatf.utils.data.augmentation.Augmentation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.Augmentation</span></code></a></p></td>
+<td><p>An abstract class for implementing data augmentation methods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.NormalSampling.html#fatf.utils.data.augmentation.NormalSampling" title="fatf.utils.data.augmentation.NormalSampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.NormalSampling</span></code></a></p></td>
 <td><p>Sampling data from a normal distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.TruncatedNormalSampling.html#fatf.utils.data.augmentation.TruncatedNormalSampling" title="fatf.utils.data.augmentation.TruncatedNormalSampling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.TruncatedNormalSampling</span></code></a></p></td>
+<td><p>Sampling data from a truncated normal distribution.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.Mixup.html#fatf.utils.data.augmentation.Mixup" title="fatf.utils.data.augmentation.Mixup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.Mixup</span></code></a></p></td>
 <td><p>Sampling data with the Mixup method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.NormalClassDiscovery.html#fatf.utils.data.augmentation.NormalClassDiscovery" title="fatf.utils.data.augmentation.NormalClassDiscovery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.NormalClassDiscovery</span></code></a></p></td>
+<td><p>Sampling data to discover instances spanning all the possible classes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.DecisionBoundarySphere.html#fatf.utils.data.augmentation.DecisionBoundarySphere" title="fatf.utils.data.augmentation.DecisionBoundarySphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.DecisionBoundarySphere</span></code></a></p></td>
+<td><p>Sampling data in a hyper-sphere around the closest decision boundary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.augmentation.LocalSphere.html#fatf.utils.data.augmentation.LocalSphere" title="fatf.utils.data.augmentation.LocalSphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">augmentation.LocalSphere</span></code></a></p></td>
+<td><p>Sampling data in a hyper-sphere around the selected data point.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.utils.data.instance_augmentation">
+<span id="fatf-utils-data-instance-augmentation-data-point-augmentation"></span><h4><a class="reference internal" href="#module-fatf.utils.data.instance_augmentation" title="fatf.utils.data.instance_augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code></a>: Data Point Augmentation<a class="headerlink" href="#module-fatf.utils.data.instance_augmentation" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.data.instance_augmentation" title="fatf.utils.data.instance_augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code></a> module implements various
+augmentation function for 1-dimensional numpy array-like objects.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.instance_augmentation.binary_sampler.html#fatf.utils.data.instance_augmentation.binary_sampler" title="fatf.utils.data.instance_augmentation.binary_sampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">instance_augmentation.binary_sampler</span></code></a></p></td>
+<td><p>Samples non-zero elements of the binary <code class="docutils literal notranslate"><span class="pre">data_row</span></code> array uniformly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.utils.data.transformation">
+<span id="fatf-utils-data-transformation-data-set-transformation"></span><h4><a class="reference internal" href="#module-fatf.utils.data.transformation" title="fatf.utils.data.transformation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code></a>: Data Set Transformation<a class="headerlink" href="#module-fatf.utils.data.transformation" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.data.transformation" title="fatf.utils.data.transformation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code></a> module holds data transformation
+functions.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.transformation.dataset_row_masking.html#fatf.utils.data.transformation.dataset_row_masking" title="fatf.utils.data.transformation.dataset_row_masking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformation.dataset_row_masking</span></code></a></p></td>
+<td><p>Creates a binary representation of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> by masking its rows.</p></td>
 </tr>
 </tbody>
 </table>
@@ -893,6 +1112,55 @@ records data set is a structured numpy array.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="module-fatf.utils.data.discretisation">
+<span id="fatf-utils-data-discretisation-data-set-discretisation"></span><h4><a class="reference internal" href="#module-fatf.utils.data.discretisation" title="fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code></a>: Data Set Discretisation<a class="headerlink" href="#module-fatf.utils.data.discretisation" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.data.discretisation" title="fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code></a> module implements data
+discretisation approaches.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.discretisation.Discretiser.html#fatf.utils.data.discretisation.Discretiser" title="fatf.utils.data.discretisation.Discretiser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretisation.Discretiser</span></code></a></p></td>
+<td><p>An abstract class that all discretiser implementations should inherit from.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.data.discretisation.QuartileDiscretiser.html#fatf.utils.data.discretisation.QuartileDiscretiser" title="fatf.utils.data.discretisation.QuartileDiscretiser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretisation.QuartileDiscretiser</span></code></a></p></td>
+<td><p>Discretises selected numerical features of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> into quartiles.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.utils.data.feature_selection">
+<span id="fatf-utils-data-feature-selection-data-set-feature-selection"></span><h4><a class="reference internal" href="#module-fatf.utils.data.feature_selection" title="fatf.utils.data.feature_selection"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection</span></code></a>: Data Set Feature Selection<a class="headerlink" href="#module-fatf.utils.data.feature_selection" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.data.feature_selection" title="fatf.utils.data.feature_selection"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection</span></code></a> module holds feature selection
+tools.</p>
+<div class="section" id="module-fatf.utils.data.feature_selection.sklearn">
+<span id="fatf-utils-data-feature-selection-sklearn-sklearn-feature-selection"></span><h5><a class="reference internal" href="#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a>: sklearn Feature Selection<a class="headerlink" href="#module-fatf.utils.data.feature_selection.sklearn" title="Permalink to this headline">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a> module implements
+scikit-learn-based feature selection approaches.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.data.feature_selection.sklearn.lasso_path.html#fatf.utils.data.feature_selection.sklearn.lasso_path" title="fatf.utils.data.feature_selection.sklearn.lasso_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.lasso_path</span></code></a></p></td>
+<td><p>Selects the specified number of features based on Lasso path coefficients.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section" id="module-fatf.utils.models">
@@ -981,6 +1249,34 @@ as well as for documentation examples and testing.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.distances.binary_array_distance.html#fatf.utils.distances.binary_array_distance" title="fatf.utils.distances.binary_array_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">binary_array_distance</span></code></a></p></td>
 <td><p>Calculates the binary distance matrix between rows in <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.distances.check_distance_functionality.html#fatf.utils.distances.check_distance_functionality" title="fatf.utils.distances.check_distance_functionality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_distance_functionality</span></code></a></p></td>
+<td><p>Checks whether a distance function takes exactly 2 required parameters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.utils.kernels">
+<span id="fatf-utils-kernels-kernel-functions-and-kernel-utilities"></span><h3><a class="reference internal" href="#module-fatf.utils.kernels" title="fatf.utils.kernels"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.kernels</span></code></a>: Kernel Functions and Kernel Utilities<a class="headerlink" href="#module-fatf.utils.kernels" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.kernels" title="fatf.utils.kernels"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.kernels</span></code></a> module holds distance transformation kernels.</p>
+<p>The kernel functions implemented by this module are mainly used to transform a
+distance into a similarity measure. One of their applications is to weight
+training data samples when training a predictive model based on their
+similarity (closeness) to a selected data point.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.kernels.exponential_kernel.html#fatf.utils.kernels.exponential_kernel" title="fatf.utils.kernels.exponential_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential_kernel</span></code></a></p></td>
+<td><p>Applies an exponential kernel to an array of distances.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.kernels.check_kernel_functionality.html#fatf.utils.kernels.check_kernel_functionality" title="fatf.utils.kernels.check_kernel_functionality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_kernel_functionality</span></code></a></p></td>
+<td><p>Checks whether a kernel function has exactly one required parameter.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1105,6 +1401,62 @@ module.</p>
 </table>
 </div>
 </div>
+<div class="section" id="module-fatf.utils.transparency">
+<span id="fatf-utils-transparency-transparency-utilities"></span><h3><a class="reference internal" href="#module-fatf.utils.transparency" title="fatf.utils.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency</span></code></a>: Transparency Utilities<a class="headerlink" href="#module-fatf.utils.transparency" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.transparency" title="fatf.utils.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency</span></code></a> module holds transparency utilities.</p>
+<div class="section" id="module-fatf.utils.transparency.explainers">
+<span id="fatf-utils-transparency-explainers-explainer-utilities"></span><h4><a class="reference internal" href="#module-fatf.utils.transparency.explainers" title="fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code></a>: Explainer Utilities<a class="headerlink" href="#module-fatf.utils.transparency.explainers" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.transparency.explainers" title="fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code></a> module holds utilities for
+building custom explainer objects.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.transparency.explainers.Explainer.html#fatf.utils.transparency.explainers.Explainer" title="fatf.utils.transparency.explainers.Explainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explainers.Explainer</span></code></a></p></td>
+<td><p>A base class for any explainer object implemented in the package.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.transparency.explainers.check_instance_explainer_functionality.html#fatf.utils.transparency.explainers.check_instance_explainer_functionality" title="fatf.utils.transparency.explainers.check_instance_explainer_functionality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explainers.check_instance_explainer_functionality</span></code></a></p></td>
+<td><p>Checks whether an explainer object can explain a data point (instance).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatf.utils.transparency.surrogate_evaluation">
+<span id="fatf-utils-transparency-surrogate-evaluation-surrogates-evaluation"></span><h4><a class="reference internal" href="#module-fatf.utils.transparency.surrogate_evaluation" title="fatf.utils.transparency.surrogate_evaluation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code></a>: Surrogates Evaluation<a class="headerlink" href="#module-fatf.utils.transparency.surrogate_evaluation" title="Permalink to this headline">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.transparency.surrogate_evaluation" title="fatf.utils.transparency.surrogate_evaluation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code></a> module implements
+various surrogate model evaluation measures.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.transparency.surrogate_evaluation.local_fidelity_score.html#fatf.utils.transparency.surrogate_evaluation.local_fidelity_score" title="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">surrogate_evaluation.local_fidelity_score</span></code></a></p></td>
+<td><p>Computes local fidelity between a global and a local (surrogate) model.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="module-fatf.utils.tools">
 <span id="fatf-utils-tools-fat-forensics-tools"></span><h3><a class="reference internal" href="#module-fatf.utils.tools" title="fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code></a>: FAT-Forensics Tools<a class="headerlink" href="#module-fatf.utils.tools" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="#module-fatf.utils.tools" title="fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code></a> module implements general tools for the package.</p>
@@ -1120,12 +1472,35 @@ module.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="module-fatf.utils.validation">
+<span id="fatf-utils-validation-fat-forensics-validation-functions"></span><h3><a class="reference internal" href="#module-fatf.utils.validation" title="fatf.utils.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code></a>: FAT-Forensics Validation Functions<a class="headerlink" href="#module-fatf.utils.validation" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-fatf.utils.validation" title="fatf.utils.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code></a> module validates functions and objects.</p>
+<p>This module holds functions responsible for validating generic functions and
+objects implemented across the FAT-Forensics package.</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.validation.get_required_parameters_number.html#fatf.utils.validation.get_required_parameters_number" title="fatf.utils.validation.get_required_parameters_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_required_parameters_number</span></code></a></p></td>
+<td><p>Checks if a callable object has the correct number of required parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.validation.check_object_functionality.html#fatf.utils.validation.check_object_functionality" title="fatf.utils.validation.check_object_functionality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_object_functionality</span></code></a></p></td>
+<td><p>Checks if an object has specified methods with given number of parameters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="module-fatf.utils.testing">
 <span id="fatf-utils-testing-testing-utilities"></span><h3><a class="reference internal" href="#module-fatf.utils.testing" title="fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code></a>: Testing Utilities<a class="headerlink" href="#module-fatf.utils.testing" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="#module-fatf.utils.testing" title="fatf.utils.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing</span></code></a> module holds functions used across unit tests.</p>
-<div class="section" id="module-fatf.utils.testing.arrays">
-<span id="constants"></span><h4>Constants<a class="headerlink" href="#module-fatf.utils.testing.arrays" title="Permalink to this headline">¶</a></h4>
-<span class="target" id="module-fatf.utils.testing.warnings"></span><table class="longtable docutils align-center">
+<span class="target" id="module-fatf.utils.testing.arrays"></span><span class="target" id="module-fatf.utils.testing.imports"></span><span class="target" id="module-fatf.utils.testing.transparency"></span><span class="target" id="module-fatf.utils.testing.vis"></span><span class="target" id="module-fatf.utils.testing.warnings"></span><div class="section" id="constants">
+<h4>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h4>
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -1161,6 +1536,24 @@ module.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.arrays.NOT_BASE_STRUCTURED_ARRAY.html#fatf.utils.testing.arrays.NOT_BASE_STRUCTURED_ARRAY" title="fatf.utils.testing.arrays.NOT_BASE_STRUCTURED_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arrays.NOT_BASE_STRUCTURED_ARRAY</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.LABELS.html#fatf.utils.testing.transparency.LABELS" title="fatf.utils.testing.transparency.LABELS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.LABELS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.NUMERICAL_NP_ARRAY.html#fatf.utils.testing.transparency.NUMERICAL_NP_ARRAY" title="fatf.utils.testing.transparency.NUMERICAL_NP_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.NUMERICAL_NP_ARRAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.NUMERICAL_STRUCT_ARRAY.html#fatf.utils.testing.transparency.NUMERICAL_STRUCT_ARRAY" title="fatf.utils.testing.transparency.NUMERICAL_STRUCT_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.NUMERICAL_STRUCT_ARRAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.CATEGORICAL_NP_ARRAY.html#fatf.utils.testing.transparency.CATEGORICAL_NP_ARRAY" title="fatf.utils.testing.transparency.CATEGORICAL_NP_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.CATEGORICAL_NP_ARRAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.CATEGORICAL_STRUCT_ARRAY.html#fatf.utils.testing.transparency.CATEGORICAL_STRUCT_ARRAY" title="fatf.utils.testing.transparency.CATEGORICAL_STRUCT_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.CATEGORICAL_STRUCT_ARRAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.MIXED_ARRAY.html#fatf.utils.testing.transparency.MIXED_ARRAY" title="fatf.utils.testing.transparency.MIXED_ARRAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.MIXED_ARRAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.warnings.DEFAULT_WARNINGS.html#fatf.utils.testing.warnings.DEFAULT_WARNINGS" title="fatf.utils.testing.warnings.DEFAULT_WARNINGS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">warnings.DEFAULT_WARNINGS</span></code></a></p></td>
 <td><p>list() -&gt; new empty list list(iterable) -&gt; new list initialized from iterable’s items</p></td>
 </tr>
@@ -1173,9 +1566,26 @@ module.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="module-fatf.utils.testing.imports">
-<span id="functions"></span><h4>Functions<a class="headerlink" href="#module-fatf.utils.testing.imports" title="Permalink to this headline">¶</a></h4>
-<span class="target" id="module-fatf.utils.testing.vis"></span><table class="longtable docutils align-center">
+<div class="section" id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.InvalidModel.html#fatf.utils.testing.transparency.InvalidModel" title="fatf.utils.testing.transparency.InvalidModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.InvalidModel</span></code></a></p></td>
+<td><p>An invalid model class – it does not implement a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.NonProbabilisticModel.html#fatf.utils.testing.transparency.NonProbabilisticModel" title="fatf.utils.testing.transparency.NonProbabilisticModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.NonProbabilisticModel</span></code></a></p></td>
+<td><p>A model that is not probabilistic – no <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> function.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h4>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h4>
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -1183,6 +1593,12 @@ module.</p>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.imports.module_import_tester.html#fatf.utils.testing.imports.module_import_tester" title="fatf.utils.testing.imports.module_import_tester"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imports.module_import_tester</span></code></a></p></td>
 <td><p>Provides a context for testing imports of installed and missing modules.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.is_explanation_equal_dict.html#fatf.utils.testing.transparency.is_explanation_equal_dict" title="fatf.utils.testing.transparency.is_explanation_equal_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.is_explanation_equal_dict</span></code></a></p></td>
+<td><p>Tests if the two dictionaries of a given structure are equal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/fatf.utils.testing.transparency.is_explanation_equal_list.html#fatf.utils.testing.transparency.is_explanation_equal_list" title="fatf.utils.testing.transparency.is_explanation_equal_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transparency.is_explanation_equal_list</span></code></a></p></td>
+<td><p>Tests if the two dictionaries of a given structure are equal.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/fatf.utils.testing.vis.get_plot_data.html#fatf.utils.testing.vis.get_plot_data" title="fatf.utils.testing.vis.get_plot_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vis.get_plot_data</span></code></a></p></td>
 <td><p>Extracts plot’s title, x-axis name and range and y-axis name and range.</p></td>

@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.sklearn.tools`.is_sklearn_model
+==============================================================
+
+.. currentmodule:: fatf.transparency.sklearn.tools
+
+.. autofunction:: is_sklearn_model
+
+.. include:: fatf.transparency.sklearn.tools.is_sklearn_model.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

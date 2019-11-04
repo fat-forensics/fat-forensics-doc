@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.predictions.surrogate_explainers`.SurrogateTabularExplainer
+==========================================================================================
+
+.. currentmodule:: fatf.transparency.predictions.surrogate_explainers
+
+.. autoclass:: SurrogateTabularExplainer
+
+.. include:: fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

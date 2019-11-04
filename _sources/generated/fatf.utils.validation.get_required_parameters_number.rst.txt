@@ -1,0 +1,11 @@
+:mod:`fatf.utils.validation`.get_required_parameters_number
+==================================================================
+
+.. currentmodule:: fatf.utils.validation
+
+.. autofunction:: get_required_parameters_number
+
+.. include:: fatf.utils.validation.get_required_parameters_number.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

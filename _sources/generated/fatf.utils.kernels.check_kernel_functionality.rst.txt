@@ -1,0 +1,11 @@
+:mod:`fatf.utils.kernels`.check_kernel_functionality
+===========================================================
+
+.. currentmodule:: fatf.utils.kernels
+
+.. autofunction:: check_kernel_functionality
+
+.. include:: fatf.utils.kernels.check_kernel_functionality.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

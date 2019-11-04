@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.augmentation`.TruncatedNormalSampling
+==================================================================
+
+.. currentmodule:: fatf.utils.data.augmentation
+
+.. autoclass:: TruncatedNormalSampling
+
+.. include:: fatf.utils.data.augmentation.TruncatedNormalSampling.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

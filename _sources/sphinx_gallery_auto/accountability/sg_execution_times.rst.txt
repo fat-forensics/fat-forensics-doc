@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:02.178** total execution time for **sphinx_gallery_auto_accountability** files:
+**00:01.969** total execution time for **sphinx_gallery_auto_accountability** files:
 
-- **00:01.443**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_predictions_density.py` (``xmpl_accountability_predictions_density.py``)
-- **00:00.685**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_models_measure.py` (``xmpl_accountability_models_measure.py``)
-- **00:00.050**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_data_measure.py` (``xmpl_accountability_data_measure.py``)
+- **00:01.280**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_predictions_density.py` (``xmpl_accountability_predictions_density.py``)
+- **00:00.627**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_models_measure.py` (``xmpl_accountability_models_measure.py``)
+- **00:00.062**: :ref:`sphx_glr_sphinx_gallery_auto_accountability_xmpl_accountability_data_measure.py` (``xmpl_accountability_data_measure.py``)

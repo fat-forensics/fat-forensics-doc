@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.models.models.Model &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.utils.models.models.Model &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -159,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -246,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.models.models" title="fatf.utils.models.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code></a>.Model<a class="headerlink" href="#fatf-utils-models-models-model" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.models.models.Model">
-<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">Model</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/models/models.py#L26"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">Model</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/models/models.py#L26"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class used to implement predictive models.</p>
 <p>This abstract class requires <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">predict</span></code> methods and defines
 an optional <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.</p>
@@ -281,7 +274,7 @@ implemented.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/models/models.py#L50"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.fit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/models/models.py#L50"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits this predictive model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -297,7 +290,7 @@ implemented.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/models/models.py#L63"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/models/models.py#L63"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts labels of new data points using this model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -311,7 +304,7 @@ implemented.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.predict_proba">
-<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/models/models.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/models/models.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts probabilities of labels for new data points using this model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

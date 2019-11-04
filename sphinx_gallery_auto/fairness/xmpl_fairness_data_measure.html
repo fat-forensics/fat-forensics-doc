@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Measuring Fairness of a Data Set &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>Measuring Fairness of a Data Set &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using LIME Explainer" href="../transparency/xmpl_transparency_lime.html" />
+    <link rel="next" title="Using a Surrogate Tree Explainer" href="../transparency/xmpl_transparency_tree.html" />
     <link rel="prev" title="Measuring Fairness of a Prediction – Counterfactual Fairness" href="xmpl_fairness_predictions_measure.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -138,8 +131,8 @@
   <p class="topless"><a href="xmpl_fairness_predictions_measure.html"
                         title="previous chapter">Measuring Fairness of a Prediction – Counterfactual Fairness</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../transparency/xmpl_transparency_lime.html"
-                        title="next chapter">Using LIME Explainer</a></p>
+  <p class="topless"><a href="../transparency/xmpl_transparency_tree.html"
+                        title="next chapter">Using a Surrogate Tree Explainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -205,19 +198,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="../transparency/xmpl_transparency_lime.html"
+               href="../transparency/xmpl_transparency_tree.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                Using LIME Explainer
+                Using a Surro...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  Using LIME Explainer
+                  Using a Surrogate Tree Explainer
                   </span>
             </a>
           </div>
@@ -413,7 +406,7 @@ The class distribution per sub-population:
         - The class *success* has 4 data points.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.050 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.062 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>

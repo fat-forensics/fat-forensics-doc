@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.sklearn.linear_model`.SKLearnLinearModelExplainer
+================================================================================
+
+.. currentmodule:: fatf.transparency.sklearn.linear_model
+
+.. autoclass:: SKLearnLinearModelExplainer
+
+.. include:: fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

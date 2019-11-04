@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.testing.imports.module_import_tester &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.utils.testing.imports.module_import_tester &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,8 +27,8 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.testing.imports.module_import_tester.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.testing.vis.get_plot_data" href="fatf.utils.testing.vis.get_plot_data.html" />
-    <link rel="prev" title="fatf.utils.testing.warnings.EMPTY_RE_I" href="fatf.utils.testing.warnings.EMPTY_RE_I.html" />
+    <link rel="next" title="fatf.utils.testing.transparency.is_explanation_equal_dict" href="fatf.utils.testing.transparency.is_explanation_equal_dict.html" />
+    <link rel="prev" title="fatf.utils.testing.transparency.NonProbabilisticModel" href="fatf.utils.testing.transparency.NonProbabilisticModel.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -126,11 +119,11 @@
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.utils.testing.warnings.EMPTY_RE_I.html"
-                        title="previous chapter">fatf.utils.testing.warnings.EMPTY_RE_I</a></p>
+  <p class="topless"><a href="fatf.utils.testing.transparency.NonProbabilisticModel.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.transparency</span></code>.NonProbabilisticModel</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.testing.vis.get_plot_data.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.vis</span></code>.get_plot_data</a></p>
+  <p class="topless"><a href="fatf.utils.testing.transparency.is_explanation_equal_dict.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.transparency</span></code>.is_explanation_equal_dict</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -159,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -176,7 +169,7 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.testing.warnings.EMPTY_RE_I.html"
+               href="fatf.utils.testing.transparency.NonProbabilisticModel.html"
                accesskey="P"
                role="button">
               Previous
@@ -188,7 +181,7 @@
                                left-button
                                "
                         data-container="body">
-                  fatf.utils.testing.warnings.EMPTY_RE_I
+                  fatf.utils.testing.transparency.NonProbabilisticModel
                   </span>
             </a>
           </div>
@@ -196,7 +189,7 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.testing.vis.get_plot_data.html"
+               href="fatf.utils.testing.transparency.is_explanation_equal_dict.html"
                accesskey="N"
                role="button">
               Next
@@ -208,7 +201,7 @@
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.testing.vis.get_plot_data
+                  fatf.utils.testing.transparency.is_explanation_equal_dict
                   </span>
             </a>
           </div>
@@ -246,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.testing.imports" title="fatf.utils.testing.imports"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.imports</span></code></a>.module_import_tester<a class="headerlink" href="#fatf-utils-testing-imports-module-import-tester" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.testing.imports.module_import_tester">
-<code class="descclassname">fatf.utils.testing.imports.</code><code class="descname">module_import_tester</code><span class="sig-paren">(</span><em>module_name: str</em>, <em>when_missing: bool = True</em><span class="sig-paren">)</span> &#x2192; Iterator[None]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/../../../../../../opt/python/3.6.7/lib/python3.6/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.testing.imports.</code><code class="descname">module_import_tester</code><span class="sig-paren">(</span><em>module_name: str</em>, <em>when_missing: bool = True</em><span class="sig-paren">)</span> &#x2192; Iterator[None]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/../../../../../../opt/python/3.6.7/lib/python3.6/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a context for testing imports of installed and missing modules.</p>
 <p>This context can be used to get an environment where a particular module
 (<code class="docutils literal notranslate"><span class="pre">module_name</span></code>) is either not installed – <code class="docutils literal notranslate"><span class="pre">when_missing=True</span></code> – or
@@ -269,8 +262,8 @@ that the import succeeds.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python 3.6 and later will result in
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

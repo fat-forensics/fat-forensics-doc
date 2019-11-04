@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>How-To Guides &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>How-to Guides &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/how_to/index.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="News" href="../news.html" />
+    <link rel="next" title="How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers" href="transparency/tabular-surrogates.html" />
     <link rel="prev" title="fatf.setup_random_seed" href="../generated/fatf.setup_random_seed.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -127,10 +120,10 @@
             </a></p>
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">How-To Guides</a><ul>
-<li><a class="reference internal" href="#fairness-how-to">Fairness How-To</a></li>
-<li><a class="reference internal" href="#accountability-how-to">Accountability How-To</a></li>
-<li><a class="reference internal" href="#transparency-how-to">Transparency How-To</a></li>
+<li><a class="reference internal" href="#">How-to Guides</a><ul>
+<li><a class="reference internal" href="#fairness-how-to">Fairness How-to</a></li>
+<li><a class="reference internal" href="#accountability-how-to">Accountability How-to</a></li>
+<li><a class="reference internal" href="#transparency-how-to">Transparency How-to</a></li>
 </ul>
 </li>
 </ul>
@@ -139,8 +132,8 @@
   <p class="topless"><a href="../generated/fatf.setup_random_seed.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf</span></code>.setup_random_seed</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../news.html"
-                        title="next chapter">News</a></p>
+  <p class="topless"><a href="transparency/tabular-surrogates.html"
+                        title="next chapter">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -189,19 +182,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="../news.html"
+               href="transparency/tabular-surrogates.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                News
+                How to build ...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  News
+                  How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers
                   </span>
             </a>
           </div>
@@ -218,10 +211,10 @@
 
         <div class="row toc">
           <ul>
-<li><a class="reference internal" href="#">How-To Guides</a><ul>
-<li><a class="reference internal" href="#fairness-how-to">Fairness How-To</a></li>
-<li><a class="reference internal" href="#accountability-how-to">Accountability How-To</a></li>
-<li><a class="reference internal" href="#transparency-how-to">Transparency How-To</a></li>
+<li><a class="reference internal" href="#">How-to Guides</a><ul>
+<li><a class="reference internal" href="#fairness-how-to">Fairness How-to</a></li>
+<li><a class="reference internal" href="#accountability-how-to">Accountability How-to</a></li>
+<li><a class="reference internal" href="#transparency-how-to">Transparency How-to</a></li>
 </ul>
 </li>
 </ul>
@@ -241,19 +234,28 @@
           <div class="body" role="main">
             
   <div class="section" id="how-to-guides">
-<span id="how-to-guide"></span><h1>How-To Guides<a class="headerlink" href="#how-to-guides" title="Permalink to this headline">¶</a></h1>
-<p>The <em>How To</em> guides are coming soon.</p>
+<span id="how-to-guide"></span><h1>How-to Guides<a class="headerlink" href="#how-to-guides" title="Permalink to this headline">¶</a></h1>
+<p>This part of the documentation holds a collection of <em>How-to</em> guides that
+illustrate how to solve a certain problem or achieve a desired result with
+FAT Forensics. The <em>How-to</em> guides are split into three parts: <em>fairness</em>,
+<em>transparency_</em> and <em>accountability</em>.</p>
 <div class="section" id="fairness-how-to">
-<span id="how-to-fairness"></span><h2>Fairness How-To<a class="headerlink" href="#fairness-how-to" title="Permalink to this headline">¶</a></h2>
-<p>The <em>How To Fairness</em> guides are coming soon.</p>
+<span id="how-to-fairness"></span><h2>Fairness How-to<a class="headerlink" href="#fairness-how-to" title="Permalink to this headline">¶</a></h2>
+<p>The <em>How to Fairness</em> guides are coming soon.</p>
 </div>
 <div class="section" id="accountability-how-to">
-<span id="how-to-accountability"></span><h2>Accountability How-To<a class="headerlink" href="#accountability-how-to" title="Permalink to this headline">¶</a></h2>
-<p>The <em>How To Accountability</em> guides are coming soon.</p>
+<span id="how-to-accountability"></span><h2>Accountability How-to<a class="headerlink" href="#accountability-how-to" title="Permalink to this headline">¶</a></h2>
+<p>The <em>How to Accountability</em> guides are coming soon.</p>
 </div>
 <div class="section" id="transparency-how-to">
-<span id="how-to-transparency"></span><h2>Transparency How-To<a class="headerlink" href="#transparency-how-to" title="Permalink to this headline">¶</a></h2>
-<p>The <em>How To Transparency</em> guides are coming soon.</p>
+<span id="how-to-transparency"></span><h2>Transparency How-to<a class="headerlink" href="#transparency-how-to" title="Permalink to this headline">¶</a></h2>
+<p>The following <em>How-to</em> guides discuss how to solve certain problems and build
+custom solutions using FAT Forensics.</p>
+<div class="toctree-wrapper compound" id="id1">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="transparency/tabular-surrogates.html">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</a></li>
+</ul>
+</div>
 </div>
 </div>
 

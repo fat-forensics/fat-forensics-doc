@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.sklearn.linear_model`.linear_classifier_coefficients
+===================================================================================
+
+.. currentmodule:: fatf.transparency.sklearn.linear_model
+
+.. autofunction:: linear_classifier_coefficients
+
+.. include:: fatf.transparency.sklearn.linear_model.linear_classifier_coefficients.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

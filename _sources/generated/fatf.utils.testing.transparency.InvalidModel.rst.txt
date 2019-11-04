@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.transparency`.InvalidModel
+==========================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autoclass:: InvalidModel
+
+.. include:: fatf.utils.testing.transparency.InvalidModel.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

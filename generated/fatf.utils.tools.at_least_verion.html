@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.tools.at_least_verion &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.utils.tools.at_least_verion &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,8 +27,8 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.tools.at_least_verion.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY" href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html" />
-    <link rel="prev" title="fatf.utils.metrics.tools.validate_confusion_matrix_size" href="fatf.utils.metrics.tools.validate_confusion_matrix_size.html" />
+    <link rel="next" title="fatf.utils.validation.get_required_parameters_number" href="fatf.utils.validation.get_required_parameters_number.html" />
+    <link rel="prev" title="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score" href="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -126,11 +119,11 @@
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.utils.metrics.tools.validate_confusion_matrix_size.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code>.validate_confusion_matrix_size</a></p>
+  <p class="topless"><a href="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code>.local_fidelity_score</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html"
-                        title="next chapter">fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY</a></p>
+  <p class="topless"><a href="fatf.utils.validation.get_required_parameters_number.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code>.get_required_parameters_number</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -159,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -176,19 +169,19 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.metrics.tools.validate_confusion_matrix_size.html"
+               href="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score.html"
                accesskey="P"
                role="button">
               Previous
               <br/>
               <span class="smallrellink">
-                fatf.utils.me...
+                fatf.utils.tr...
               </span>
                   <span class="hiddenrellink
                                left-button
                                "
                         data-container="body">
-                  fatf.utils.metrics.tools.validate_confusion_matrix_size
+                  fatf.utils.transparency.surrogate_evaluation.local_fidelity_score
                   </span>
             </a>
           </div>
@@ -196,19 +189,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html"
+               href="fatf.utils.validation.get_required_parameters_number.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.utils.te...
+                fatf.utils.va...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY
+                  fatf.utils.validation.get_required_parameters_number
                   </span>
             </a>
           </div>
@@ -246,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.tools" title="fatf.utils.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code></a>.at_least_verion<a class="headerlink" href="#fatf-utils-tools-at-least-verion" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.tools.at_least_verion">
-<code class="descclassname">fatf.utils.tools.</code><code class="descname">at_least_verion</code><span class="sig-paren">(</span><em>minimum_requirement: List[int], package_version: List[int]</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/tools.py#L12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.tools.at_least_verion" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.tools.</code><code class="descname">at_least_verion</code><span class="sig-paren">(</span><em>minimum_requirement: List[int], package_version: List[int]</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/tools.py#L12"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.tools.at_least_verion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the <code class="docutils literal notranslate"><span class="pre">package_version</span></code> satisfies the <code class="docutils literal notranslate"><span class="pre">minimum_requirement</span></code>.</p>
 <p>Both <code class="docutils literal notranslate"><span class="pre">package_version</span></code> and <code class="docutils literal notranslate"><span class="pre">minimum_requirement</span></code> are lists of integers
 representing Python package versions, e.g. <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">16,</span> <span class="pre">4]</span></code>. This function

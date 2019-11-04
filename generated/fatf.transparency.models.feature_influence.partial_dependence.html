@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.models.feature_influence.partial_dependence &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.transparency.models.feature_influence.partial_dependence &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -167,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -257,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.feature_influence" title="fatf.transparency.models.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code></a>.partial_dependence<a class="headerlink" href="#fatf-transparency-models-feature-influence-partial-dependence" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.models.feature_influence.partial_dependence">
-<code class="descclassname">fatf.transparency.models.feature_influence.</code><code class="descname">partial_dependence</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, model: object, feature_index: Union[int, str], treat_as_categorical: Optional[bool] = None, steps_number: Optional[int] = None, include_rows: Union[int, List[int], None] = None, exclude_rows: Union[int, List[int], None] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/transparency/models/feature_influence.py#L573"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.transparency.models.feature_influence.</code><code class="descname">partial_dependence</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, model: object, feature_index: Union[int, str], treat_as_categorical: Optional[bool] = None, steps_number: Optional[int] = None, include_rows: Union[int, List[int], None] = None, exclude_rows: Union[int, List[int], None] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/transparency/models/feature_influence.py#L573"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates Partial Dependence for a selected feature.</p>
 <p>Partial Dependence <a class="reference internal" href="#re938a68eec7e-friedman2001greedy" id="id1">[FRIEDMAN2001GREEDY]</a> is computed as a mean value of
 Individual Conditional Expectations (c.f. <a class="reference internal" href="fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="fatf.transparency.models.feature_influence.individual_conditional_expectation"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.individual_conditional_expectation</span></code></a>) over all the
@@ -274,7 +267,7 @@ computational cost.</p>
 <dt class="label" id="re938a68eec7e-friedman2001greedy"><span class="brackets"><a class="fn-backref" href="#id1">FRIEDMAN2001GREEDY</a></span></dt>
 <dd><p>J. H. Friedman. Greedy function approximation: A
 gradient boosting machine. The Annals of Statistics, 29:1189–1232, 2001.
-URL <a class="reference external" href="https://doi.org/10.1214/aos/1013203451">https://doi.org/10.1214/aos/1013203451</a>. [p421, 428]</p>
+URL <a class="reference external" href="https://projecteuclid.org/euclid.aos/1013203451">https://projecteuclid.org/euclid.aos/1013203451</a>. [p421, 428]</p>
 </dd>
 </dl>
 <dl class="field-list simple">

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.transparency`.NonProbabilisticModel
+===================================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autoclass:: NonProbabilisticModel
+
+.. include:: fatf.utils.testing.transparency.NonProbabilisticModel.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

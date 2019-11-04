@@ -1,0 +1,6 @@
+fatf.utils.testing.transparency.NUMERICAL\_NP\_ARRAY
+====================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autodata:: NUMERICAL_NP_ARRAY

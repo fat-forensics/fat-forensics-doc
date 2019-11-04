@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.feature_selection.sklearn`.lasso_path
+==================================================================
+
+.. currentmodule:: fatf.utils.data.feature_selection.sklearn
+
+.. autofunction:: lasso_path
+
+.. include:: fatf.utils.data.feature_selection.sklearn.lasso_path.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Using LIME Explainer &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>Using LIME Explainer &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using Partial Dependence Explainer" href="xmpl_transparency_pd.html" />
-    <link rel="prev" title="Measuring Fairness of a Data Set" href="../fairness/xmpl_fairness_data_measure.html" />
+    <link rel="prev" title="Using a Surrogate Tree Explainer" href="xmpl_transparency_tree.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../../_static/jquery.min.js"></script> -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -126,8 +119,8 @@
               <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../fairness/xmpl_fairness_data_measure.html"
-                        title="previous chapter">Measuring Fairness of a Data Set</a></p>
+  <p class="topless"><a href="xmpl_transparency_tree.html"
+                        title="previous chapter">Using a Surrogate Tree Explainer</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="xmpl_transparency_pd.html"
                         title="next chapter">Using Partial Dependence Explainer</a></p>
@@ -176,19 +169,19 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="../fairness/xmpl_fairness_data_measure.html"
+               href="xmpl_transparency_tree.html"
                accesskey="P"
                role="button">
               Previous
               <br/>
               <span class="smallrellink">
-                Measuring Fai...
+                Using a Surro...
               </span>
                   <span class="hiddenrellink
                                left-button
                                "
                         data-container="body">
-                  Measuring Fairness of a Data Set
+                  Using a Surrogate Tree Explainer
                   </span>
             </a>
           </div>
@@ -248,27 +241,25 @@
 </div>
 <div class="sphx-glr-example-title section" id="using-lime-explainer">
 <span id="sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"></span><h1>Using LIME Explainer<a class="headerlink" href="#using-lime-explainer" title="Permalink to this headline">¶</a></h1>
-<p>This example illustrates how to use the LIME tabular explainer in its generic
-form to explain a prediction.</p>
-<p>This example shows how to use the general LIME implementation (wrapper) –
-<a class="reference internal" href="../../generated/fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a>. However, the two sub-classes: one for a
-model (<a class="reference internal" href="../../generated/fatf.transparency.models.lime.Lime.html#fatf.transparency.models.lime.Lime" title="fatf.transparency.models.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.models.lime.Lime</span></code></a>) and one for a prediction
-(<a class="reference internal" href="../../generated/fatf.transparency.predictions.lime.Lime.html#fatf.transparency.predictions.lime.Lime" title="fatf.transparency.predictions.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime.Lime</span></code></a>) can be used in an almost
-identical fashion to explain a model and a prediction correspondingly.</p>
+<p>This example illustrates how to use the LIME tabular explainer to explain a
+prediction.</p>
+<p>This example shows how to use the tabular LIME implementation –
+<a class="reference internal" href="../../generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>
+– to explain a prediction of a black-box probabilistic model.</p>
 <img alt="../../_images/sphx_glr_xmpl_transparency_lime_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_xmpl_transparency_lime_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;setosa&#39;: [(&#39;petal length (cm) &lt;= 1.60&#39;, 0.9282835146042686),
-            (&#39;petal width (cm) &lt;= 0.30&#39;, 0.031127856385852776),
-            (&#39;sepal length (cm) &lt;= 5.10&#39;, 0.01960327625041223),
-            (&#39;3.00 &lt; sepal width (cm) &lt;= 3.30&#39;, 0.01797702672643714)],
- &#39;versicolor&#39;: [(&#39;petal length (cm) &lt;= 1.60&#39;, -0.6056572523241569),
-                (&#39;petal width (cm) &lt;= 0.30&#39;, 0.12091430545930464),
-                (&#39;sepal length (cm) &lt;= 5.10&#39;, -0.002060622514483286),
-                (&#39;3.00 &lt; sepal width (cm) &lt;= 3.30&#39;, -0.0018997323597226298)],
- &#39;virginica&#39;: [(&#39;petal length (cm) &lt;= 1.60&#39;, -0.3226262622801118),
-               (&#39;petal width (cm) &lt;= 0.30&#39;, -0.15204216184515737),
-               (&#39;sepal length (cm) &lt;= 5.10&#39;, -0.017542653735928976),
-               (&#39;3.00 &lt; sepal width (cm) &lt;= 3.30&#39;, -0.016077294366714512)]}
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;setosa&#39;: {&#39;*petal length (cm)* &lt;= 1.60&#39;: 0.9307866199252784,
+            &#39;*petal width (cm)* &lt;= 0.30&#39;: 0.04259129805843401,
+            &#39;*sepal length (cm)* &lt;= 5.10&#39;: -0.0027663756624473936,
+            &#39;3.00 &lt; *sepal width (cm)* &lt;= 3.30&#39;: -0.011263216273426888},
+ &#39;versicolor&#39;: {&#39;*petal length (cm)* &lt;= 1.60&#39;: -0.5593822883064358,
+                &#39;*petal width (cm)* &lt;= 0.30&#39;: 0.07065024115814264,
+                &#39;*sepal length (cm)* &lt;= 5.10&#39;: 0.025538640983435418,
+                &#39;3.00 &lt; *sepal width (cm)* &lt;= 3.30&#39;: 0.0663293593939103},
+ &#39;virginica&#39;: {&#39;*petal length (cm)* &lt;= 1.60&#39;: -0.37140433161884245,
+               &#39;*petal width (cm)* &lt;= 0.30&#39;: -0.11324153921657666,
+               &#39;*sepal length (cm)* &lt;= 5.10&#39;: -0.022772265320988014,
+               &#39;3.00 &lt; *sepal width (cm)* &lt;= 3.30&#39;: -0.05506614312048342}}
 </pre></div>
 </div>
 <div class="line-block">
@@ -279,30 +270,35 @@ identical fashion to explain a model and a prediction correspondingly.</p>
 
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
+<span class="kn">import</span> <span class="nn">fatf</span>
+
 <span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
 <span class="kn">import</span> <span class="nn">fatf.utils.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
 
-<span class="kn">import</span> <span class="nn">fatf.transparency.lime</span> <span class="k">as</span> <span class="nn">fatf_lime</span>
+<span class="kn">import</span> <span class="nn">fatf.transparency.predictions.surrogate_explainers</span> <span class="k">as</span> <span class="nn">fatf_surrogates</span>
 
 <span class="kn">import</span> <span class="nn">fatf.vis.lime</span> <span class="k">as</span> <span class="nn">fatf_vis_lime</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
+<span class="c1"># Fix random seed</span>
+<a href="../../generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="View documentation for fatf.setup_random_seed"><span class="n">fatf</span><span class="o">.</span><span class="n">setup_random_seed</span></a><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
 <span class="c1"># Load data</span>
 <span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
-<span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
-<span class="n">iris_class_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+<span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">iris_class_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
 <span class="c1"># Train a model</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">()</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span> <span class="n">iris_y</span><span class="p">)</span>
 
 <span class="c1"># Create a LIME explainer</span>
-<span class="n">lime</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="View documentation for fatf.transparency.lime.Lime"><span class="n">fatf_lime</span><span class="o">.</span><span class="n">Lime</span></a><span class="p">(</span>
+<span class="n">lime</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="View documentation for fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><span class="n">fatf_surrogates</span><span class="o">.</span><span class="n">TabularBlimeyLime</span></a><span class="p">(</span>
     <span class="n">iris_X</span><span class="p">,</span>
-    <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
+    <span class="n">clf</span><span class="p">,</span>
     <span class="n">feature_names</span><span class="o">=</span><span class="n">iris_feature_names</span><span class="p">,</span>
     <span class="n">class_names</span><span class="o">=</span><span class="n">iris_class_names</span><span class="p">)</span>
 
@@ -311,7 +307,7 @@ identical fashion to explain a model and a prediction correspondingly.</p>
 
 <span class="c1"># Explain an instance</span>
 <span class="n">lime_explanation</span> <span class="o">=</span> <span class="n">lime</span><span class="o">.</span><span class="n">explain_instance</span><span class="p">(</span>
-    <span class="n">iris_X</span><span class="p">[</span><span class="n">index_to_explain</span><span class="p">,</span> <span class="p">:],</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+    <span class="n">iris_X</span><span class="p">[</span><span class="n">index_to_explain</span><span class="p">,</span> <span class="p">:],</span> <span class="n">samples_number</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># Display the textual explanation</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">lime_explanation</span><span class="p">)</span>
@@ -320,7 +316,7 @@ identical fashion to explain a model and a prediction correspondingly.</p>
 <a href="../../generated/fatf.vis.lime.plot_lime.html#fatf.vis.lime.plot_lime" title="View documentation for fatf.vis.lime.plot_lime"><span class="n">fatf_vis_lime</span><span class="o">.</span><span class="n">plot_lime</span></a><span class="p">(</span><span class="n">lime_explanation</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.510 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.198 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_lime.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>

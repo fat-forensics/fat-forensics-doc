@@ -1,0 +1,11 @@
+:mod:`fatf.utils.testing.transparency`.is_explanation_equal_dict
+=======================================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autofunction:: is_explanation_equal_dict
+
+.. include:: fatf.utils.testing.transparency.is_explanation_equal_dict.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

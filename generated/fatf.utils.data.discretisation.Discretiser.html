@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.discretisation.Discretiser &#8212; FAT Forensics 0.0.2 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.discretisation.Discretiser.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.discretisation.QuartileDiscretiser" href="fatf.utils.data.discretisation.QuartileDiscretiser.html" />
+    <link rel="prev" title="fatf.utils.data.density.DensityCheck" href="fatf.utils.data.density.DensityCheck.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.density.DensityCheck.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>.DensityCheck</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.discretisation.QuartileDiscretiser.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code>.QuartileDiscretiser</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.discretisation.Discretiser.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference (0.0.2)
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.2)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.density.DensityCheck.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.density.DensityCheck
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.discretisation.QuartileDiscretiser.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.discretisation.QuartileDiscretiser
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code>.Discretiser</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-discretisation-discretiser">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.discretisation" title="fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code></a>.Discretiser<a class="headerlink" href="#fatf-utils-data-discretisation-discretiser" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.discretisation.Discretiser">
+<em class="property">class </em><code class="descclassname">fatf.utils.data.discretisation.</code><code class="descname">Discretiser</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/data/discretisation.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class that all discretiser implementations should inherit from.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>The validation of the initialiser input parameters is done via the
+<code class="docutils literal notranslate"><span class="pre">fatf.utils.data.discretise._validate_input_discretiser</span></code> function.
+This abstract class also contains an abstract <code class="docutils literal notranslate"><span class="pre">discretise</span></code> method and its
+input validator <code class="docutils literal notranslate"><span class="pre">_validate_input_discretise</span></code>. The <code class="docutils literal notranslate"><span class="pre">discretise</span></code> method
+should be overwritten in the children classes and the
+<code class="docutils literal notranslate"><span class="pre">_validate_input_discretise</span></code> methods should be called therein to validate
+their input.</p>
+<p>If you need extra initialisation capabilities, you may overwrite the
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> method in which case please remember to call
+<code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> at its top to make sure that all of the abstract
+class attributes are validated and initialised.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">feature_value_names</span></code> and <code class="docutils literal notranslate"><span class="pre">feature_bin_boundaries</span></code> class
+attributes must be overwritten by every child class. The first attribute
+is of <code class="docutils literal notranslate"><span class="pre">Dictionary[Column</span> <span class="pre">Index,</span> <span class="pre">Dictionary[integer,</span> <span class="pre">string]]</span></code> type
+where the outer dictionary is mapping a column (feature) index of the
+input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> to a dictionary with keys being discretised bin ids
+for that feature and values being these bins (string) descriptions, for
+example, if we discretised a feature vector into quartiles the inner
+dictionary would be {0: ‘feature &lt; q1’, 1: ‘q1 &lt; feature &lt; q2’, 2: ‘q2 &lt;
+feature &lt; q3’, 3: ‘feature &gt; q3’}, where q1, q2 and q3 are quartile
+boundaries.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">feature_bin_boundaries</span></code> attribute should be overwritten with a
+dictionary which keys are column (feature) indices and values are numpy
+arrays holding bin boundaries for each feature. Using the above example
+this would be <code class="docutils literal notranslate"><span class="pre">numpy.array([q1,</span> <span class="pre">q2,</span> <span class="pre">q3])</span></code>. (By default the upper bin
+boundary should be inclusive.)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with a dataset to be discretised.</p>
+</dd>
+<dt><strong>categorical_indices</strong><span class="classifier">List[column indices], optional (default=None)</span></dt><dd><p>A list of column indices that should be treat as categorical features.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given, this will be inferred from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array:
+string-based columns will be treated as categorical features and
+numerical columns will be treated as numerical features.</p>
+</dd>
+<dt><strong>feature_names</strong><span class="classifier">List[strings], optional (default=None)</span></dt><dd><p>A list of feature names in order they appear in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, this will be extracted from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array. For
+structured arrays these will be the column names extracted from the
+dtype; for classic arrays these will be numbers indicating the column
+index in the array.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>dataset_dtype</strong><span class="classifier">numpy.dtype</span></dt><dd><p>The dtype of the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>is_structured</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is a structured numpy array,
+<code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+<dt><strong>features_number</strong><span class="classifier">integer</span></dt><dd><p>The number of features (columns) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>categorical_indices</strong><span class="classifier">List[Column Indices]</span></dt><dd><p>A list of column indices that should be treat as categorical features.</p>
+</dd>
+<dt><strong>numerical_indices</strong><span class="classifier">List[Column Indices]</span></dt><dd><p>A list of column indices that should be treat as numerical features.</p>
+</dd>
+<dt><strong>feature_names_map</strong><span class="classifier">Dict[Column Index, String]</span></dt><dd><p>A dictionary that holds mapping of column (feature) indices to their
+names (feature names). If the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> parameter was not given
+(<code class="docutils literal notranslate"><span class="pre">None</span></code>), the feature names are inferred from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>feature_value_names</strong><span class="classifier">Dictionary[Index, Dictionary[Integer, String]]</span></dt><dd><p>A dictionary mapping <code class="docutils literal notranslate"><span class="pre">dataset</span></code> column (feature) indices to
+dictionaries holding description (value) of each discrete value (key)
+for that feature.</p>
+</dd>
+<dt><strong>feature_bin_boundaries</strong><span class="classifier">Dictionary[Index, numpy.ndarray]</span></dt><dd><p>A dictionary mapping <code class="docutils literal notranslate"><span class="pre">dataset</span></code> column (feature) indices to numpy
+arrays holding bin boundaries (with the upper threshold inclusive) for
+each feature.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
+</dd>
+<dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> list
+are invalid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string) type.
+The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> is neither a Python list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> is neither a Python list nor <code class="docutils literal notranslate"><span class="pre">None</span></code> or one of
+its elements (if it is a list) is not a string.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The length of the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> list is different than the number
+of columns (features) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+indicated to be categorical features by the user (via the
+<code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
+added to the list of categorical features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="fatf.utils.data.discretisation.Discretiser.discretise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretise</span></code></a>(dataset, numpy.void])</p></td>
+<td><p>Discretises non-categorical (numerical) features in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.discretisation.Discretiser.discretise">
+<code class="descname">discretise</code><span class="sig-paren">(</span><em>dataset: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/data/discretisation.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discretises non-categorical (numerical) features in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+<p>This is an abstract method that must be implemented for each
+discretiser object that inherits form <code class="docutils literal notranslate"><span class="pre">Discretiser</span></code>. This method
+should return a numpy.ndarray with all non-categorical columns
+(features) of the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> being discretised.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When implementing this method please remember to call
+<code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">self._validate_input_discretise(dataset)</span></code> to validate
+the input parameters.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">Union[numpy.ndarray, numpy.void]</span></dt><dd><p>A data point (1-D) or an array (2-D) of data points to be
+discretised.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>discretised_data</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A discretised data array.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>NotImplementedError</strong></dt><dd><p>This is an abstract method and has not been implemented.</p>
+</dd>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is neither 1- nor 2-dimensional numpy array.
+The number of features (columns) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is
+different than the number of features in the dataset used to
+initialise this object.</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The dtype of the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is too different from the dtype
+of the dataset used to initialise this object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.discretisation.Discretiser.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

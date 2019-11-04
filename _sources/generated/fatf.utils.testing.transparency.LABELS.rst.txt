@@ -1,0 +1,6 @@
+fatf.utils.testing.transparency.LABELS
+======================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autodata:: LABELS

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.augmentation`.NormalClassDiscovery
+===============================================================
+
+.. currentmodule:: fatf.utils.data.augmentation
+
+.. autoclass:: NormalClassDiscovery
+
+.. include:: fatf.utils.data.augmentation.NormalClassDiscovery.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

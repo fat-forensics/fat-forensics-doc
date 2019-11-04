@@ -1,0 +1,11 @@
+:mod:`fatf.utils.distances`.check_distance_functionality
+===============================================================
+
+.. currentmodule:: fatf.utils.distances
+
+.. autofunction:: check_distance_functionality
+
+.. include:: fatf.utils.distances.check_distance_functionality.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

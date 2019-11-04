@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.metrics.tools.validate_confusion_matrix_size &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.utils.metrics.tools.validate_confusion_matrix_size &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.metrics.tools.validate_confusion_matrix_size.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.tools.at_least_verion" href="fatf.utils.tools.at_least_verion.html" />
+    <link rel="next" title="fatf.utils.transparency.explainers.Explainer" href="fatf.utils.transparency.explainers.Explainer.html" />
     <link rel="prev" title="fatf.utils.metrics.tools.validate_confusion_matrix" href="fatf.utils.metrics.tools.validate_confusion_matrix.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -129,8 +122,8 @@
   <p class="topless"><a href="fatf.utils.metrics.tools.validate_confusion_matrix.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code>.validate_confusion_matrix</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.tools.at_least_verion.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.tools</span></code>.at_least_verion</a></p>
+  <p class="topless"><a href="fatf.utils.transparency.explainers.Explainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code>.Explainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -159,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -196,19 +189,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.tools.at_least_verion.html"
+               href="fatf.utils.transparency.explainers.Explainer.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.utils.to...
+                fatf.utils.tr...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.tools.at_least_verion
+                  fatf.utils.transparency.explainers.Explainer
                   </span>
             </a>
           </div>
@@ -246,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.metrics.tools" title="fatf.utils.metrics.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code></a>.validate_confusion_matrix_size<a class="headerlink" href="#fatf-utils-metrics-tools-validate-confusion-matrix-size" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.metrics.tools.validate_confusion_matrix_size">
-<code class="descclassname">fatf.utils.metrics.tools.</code><code class="descname">validate_confusion_matrix_size</code><span class="sig-paren">(</span><em>confusion_matrix: numpy.ndarray</em>, <em>size: int</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/utils/metrics/tools.py#L101"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.tools.validate_confusion_matrix_size" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.metrics.tools.</code><code class="descname">validate_confusion_matrix_size</code><span class="sig-paren">(</span><em>confusion_matrix: numpy.ndarray</em>, <em>size: int</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/metrics/tools.py#L101"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.tools.validate_confusion_matrix_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the exact shape of the confusion matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

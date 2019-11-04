@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>fatf.utils.data.augmentation.NormalClassDiscovery &#8212; FAT Forensics 0.0.2 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.augmentation.NormalClassDiscovery.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.augmentation.DecisionBoundarySphere" href="fatf.utils.data.augmentation.DecisionBoundarySphere.html" />
+    <link rel="prev" title="fatf.utils.data.augmentation.Mixup" href="fatf.utils.data.augmentation.Mixup.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.augmentation.Mixup.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.Mixup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.augmentation.DecisionBoundarySphere.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.DecisionBoundarySphere</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.augmentation.NormalClassDiscovery.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference (0.0.2)
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.0.2)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.augmentation.Mixup.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.augmentation.Mixup
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.augmentation.DecisionBoundarySphere.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.augmentation.DecisionBoundarySphere
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.NormalClassDiscovery</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fatf-utils-data-augmentation-normalclassdiscovery">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.NormalClassDiscovery<a class="headerlink" href="#fatf-utils-data-augmentation-normalclassdiscovery" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.augmentation.NormalClassDiscovery">
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">NormalClassDiscovery</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, predictive_function: Callable[numpy.ndarray, numpy.ndarray], categorical_indices: Optional[numpy.ndarray] = None, int_to_float: bool = True, classes_number: Optional[int] = None, class_proportion_threshold: float = 0.05, standard_deviation_init: float = 1.0, standard_deviation_increment: float = 0.1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/data/augmentation.py#L1262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sampling data to discover instances spanning all the possible classes.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.0.2.</span></p>
+</div>
+<p>This augmenter ensures that the generated sample has at least a predefined
+proportion (cf. <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter) of every possible
+class. For a specific data point, it samples with a normal distribution
+centered around this point, incrementally increasing the standard deviation
+of the sample until the proportion of the samples of a class different
+(assigned by the predictive function) than the one of the specified data
+point is reached. Next, one of the data points found to be in another class
+is used as the centre of the normal distribution sampling to discover
+another class. These steps are repeated until all of the classes (with
+satisfying proportion) are in the sampled data set. If the <code class="docutils literal notranslate"><span class="pre">sample</span></code>
+method is called without a <code class="docutils literal notranslate"><span class="pre">data_row</span></code>, the starting point for the
+sampling procedure is the mean of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>. For categorical
+features in the dataset, the values are sampled with replacement with the
+probability for each unique value calculated based on the frequency of
+their appearance in the dataset.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of classes when using a <em>classifier</em>.</p>
+<p>Consider using the <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter when using a
+non-probabilistic <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. For more details please see
+the description of the <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter.</p>
+<p>(When initialising this class without user-defined number of classes –
+via the <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter – it will log the number of
+discovered target classes when the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is a
+<em>classifier</em>.)</p>
+</div>
+<p>For additional parameters, attributes, warnings and exceptions raised by
+this class please see the documentation of its parent class:
+<a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation" title="fatf.utils.data.augmentation.Augmentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Augmentation</span></code></a>.</p>
+<p>This augmentation approach is similar to the <em>Growing Spheres</em> technique
+introduced by <a class="reference internal" href="#r2bb8282c82c0-laugel2018inverse" id="id1">[LAUGEL2018INVERSE]</a>.</p>
+<dl class="citation">
+<dt class="label" id="r2bb8282c82c0-laugel2018inverse"><span class="brackets"><a class="fn-backref" href="#id1">LAUGEL2018INVERSE</a></span></dt>
+<dd><p>Laugel, T., Lesot, M.J., Marsala, C., Renard, X. and
+Detyniecki, M., 2017. Inverse Classification for Comparison-based
+Interpretability in Machine Learning. arXiv preprint arXiv:1712.08443.</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>predictive_function</strong><span class="classifier">Callable[[numpy.ndarray], numpy.ndarray]</span></dt><dd><p>A Python callable, e.g., a function, that is either a <em>classifier</em> or a
+<em>probabilistic</em> predictor. This function is used to compute the class
+of the sampled data, which is used to ensure meeting the
+<code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code>. A probabilistic function is expected to
+output a 2-dimensional numpy array with the assigned class being the
+one with maximum probability. A classifier function is expected to
+output a 1-dimensional numpy array with class assignment. The
+<code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> should require exactly one input parameter –
+a data array to be predicted.</p>
+</dd>
+<dt><strong>classes_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The number of classes (target values) modelled by the
+<code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. If the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is
+probabilistic, the number of classes is inferred from the width of the
+probabilities outputted by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. If the
+<code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is a classifier, it is applied to the input
+<code class="docutils literal notranslate"><span class="pre">dataset</span></code> and the number of classes is computed based on the unique
+number of elements in this predictions array. <strong>Since the latter case</strong>
+<strong>may result in not all of the classes being discovered, it is</strong>
+<strong>advised to specify the number of classes using this parameter.</strong></p>
+</dd>
+<dt><strong>class_proportion_threshold</strong><span class="classifier">float, optional (default=0.05)</span></dt><dd><p>The minimum proportion of data points assigned to a different class
+by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> when sampling for each data point as per
+the procedure described above.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setting the <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter.</p>
+<p>This augmenter samples a cloud of points for each discovered class
+with each cloud having 1 / <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> number of points.
+This means that the value of the <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> has
+to be smaller than this number for the sampling to be successful.
+For example, for 2 classes and 100 sampled points, 2 clouds of 50
+data points each will be generated. By setting the
+<code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">0.6</span></code>, at least 60
+point of each class are expected, which cannot be achieved.</p>
+</div>
+</dd>
+<dt><strong>standard_deviation_init</strong><span class="classifier">float, optional (default=1)</span></dt><dd><p>The standard deviation of the normal distribution used for initial
+sampling around each selected data point.</p>
+</dd>
+<dt><strong>standard_deviation_increment</strong><span class="classifier">float, optional (default=0.1)</span></dt><dd><p>The increment used to increase the standard deviation every time the
+sample does not satisfy the specified <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code>
+or at least one data point of yet unseen class is not discovered.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>predictive_function</strong><span class="classifier">Callable[[numpy.ndarray], numpy.ndarray]</span></dt><dd><p>The predictive function used to initialise this class.</p>
+</dd>
+<dt><strong>is_probabilistic</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is probabilistic, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise. This attribute is set based on the shape of the numpy array
+outputted by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>: if it is a 2-dimensional
+array, the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is assumed to be probabilistic, if
+it is a 1-dimensional array, the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is assumed to
+be a classifier.</p>
+</dd>
+<dt><strong>classes_number</strong><span class="classifier">integer</span></dt><dd><p>The number of classes modelled by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>, either
+defined by the user when initialising this class or inferred from the
+output of the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>.</p>
+</dd>
+<dt><strong>standard_deviation_init</strong><span class="classifier">float</span></dt><dd><p>The initial value of the standard deviation used to initialise this
+class.</p>
+</dd>
+<dt><strong>standard_deviation_increment</strong><span class="classifier">float</span></dt><dd><p>The standard deviation increment value used to initialise this class.</p>
+</dd>
+<dt><strong>class_proportion_threshold</strong><span class="classifier">float</span></dt><dd><p>The value of the smallest proportion of a different class for sampling
+used to initialise this class.</p>
+</dd>
+<dt><strong>categorical_sampling_values</strong><span class="classifier">Dictionary[column index, Tuple[numpy.ndarray, numpy.ndarray]]</span></dt><dd><p>Dictionary mapping categorical column feature indices to tuples
+consisting of two 1-dimensional numpy arrays: one with unique values
+for that column and the other one with their normalised (summing up to
+1) frequencies.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> does not require exactly one input
+parameter.</p>
+</dd>
+<dt><strong>RuntimeError</strong></dt><dd><p>The class initialisation was unable to identify the number of classes
+using the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> and the provided <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>.
+The value of the <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter is too large
+for the given number of classes (please see the warning in the
+<code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter description for more
+information).</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is not a Python callable. The
+<code class="docutils literal notranslate"><span class="pre">classes_number</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor an integer.
+The <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> is not a float. Either
+<code class="docutils literal notranslate"><span class="pre">standard_deviation_init</span></code> or <code class="docutils literal notranslate"><span class="pre">standard_deviation_increment</span></code> is not
+a number.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter is smaller than 2.
+The <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter is outside of the (0, 1)
+range (non-inclusive). The <code class="docutils literal notranslate"><span class="pre">standard_deviation_init</span></code> or
+<code class="docutils literal notranslate"><span class="pre">standard_deviation_increment</span></code> parameter is not a positive number.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="fatf.utils.data.augmentation.NormalClassDiscovery.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
+<td><p>Samples data using normal distribution class discovery process.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.augmentation.NormalClassDiscovery.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em>, <em>max_iter: int = 1000</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/utils/data/augmentation.py#L1495"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples data using normal distribution class discovery process.</p>
+<p>For the additional documentation of parameters, warnings and errors
+please see the description of the
+<a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation.sample" title="fatf.utils.data.augmentation.Augmentation.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Augmentation.sample</span></code></a> method in the
+parent <a class="reference internal" href="fatf.utils.data.augmentation.Augmentation.html#fatf.utils.data.augmentation.Augmentation" title="fatf.utils.data.augmentation.Augmentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Augmentation</span></code></a> class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>max_iter</strong><span class="classifier">integer, optional (default=1000)</span></dt><dd><p>The maximum number of iterations for the iterative normal sampling
+procedure. If the limit is reached and the
+<code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> is not satisfied in addition to
+discovering at least one data point of yet unseen class a
+<code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> is raised. If this is the case you may want to
+consider initialising the class with a smaller
+<code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter or larger
+<code class="docutils literal notranslate"><span class="pre">standard_deviation_init</span></code> and <code class="docutils literal notranslate"><span class="pre">standard_deviation_increment</span></code>
+parameters. Alternatively, increasing the <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> may help to
+discover all of the classes with the other parameters fixed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>samples</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array of [<code class="docutils literal notranslate"><span class="pre">samples_number</span></code>, number of features] shape
+holding the sampled data.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>RuntimeError</strong></dt><dd><p>The maximum number of iterations was reached without discovering
+samples from every class (with the specified proportion).</p>
+</dd>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not an integer.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not a positive number
+(greater than 0).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.augmentation.NormalClassDiscovery.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

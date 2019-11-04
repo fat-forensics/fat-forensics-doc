@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.setup_warning_filters &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.setup_warning_filters &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -159,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -246,13 +239,13 @@
 <h1><a class="reference internal" href="../api.html#module-fatf" title="fatf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf</span></code></a>.setup_warning_filters<a class="headerlink" href="#fatf-setup-warning-filters" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.setup_warning_filters">
-<code class="descclassname">fatf.</code><code class="descname">setup_warning_filters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/__init__.py#L38"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_warning_filters" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.</code><code class="descname">setup_warning_filters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/__init__.py#L51"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_warning_filters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets up desired warning filters.</p>
 <p>If the warning filters are not specified on the command line or via
-the system variable make sure that <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> and
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportWarning" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportWarning</span></code></a> raised by this this package always get printed.</p>
+the system variable make sure that <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportWarning" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportWarning</span></code></a> raised by this this package always get printed.</p>
 <p>The warning settings used by pytest can be found in pytest.ini, where in
-addition to these two warnings <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#PendingDeprecationWarning" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a> is
+addition to these two warnings <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#PendingDeprecationWarning" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a> is
 enabled as well.</p>
 <p>This functionality is tested by test_warnings_emission1() and
 test_warnings_emission2() functions in fatf.tests.test_warning_filters

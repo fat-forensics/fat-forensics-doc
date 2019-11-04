@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.discretisation`.Discretiser
+========================================================
+
+.. currentmodule:: fatf.utils.data.discretisation
+
+.. autoclass:: Discretiser
+
+.. include:: fatf.utils.data.discretisation.Discretiser.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

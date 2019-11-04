@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.transformation`.dataset_row_masking
+================================================================
+
+.. currentmodule:: fatf.utils.data.transformation
+
+.. autofunction:: dataset_row_masking
+
+.. include:: fatf.utils.data.transformation.dataset_row_masking.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

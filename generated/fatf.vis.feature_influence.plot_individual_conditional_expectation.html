@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.vis.feature_influence.plot_individual_conditional_expectation &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.vis.feature_influence.plot_individual_conditional_expectation &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fatf.vis.feature_influence.plot_partial_dependence" href="fatf.vis.feature_influence.plot_partial_dependence.html" />
-    <link rel="prev" title="fatf.transparency.lime.Lime" href="fatf.transparency.lime.Lime.html" />
+    <link rel="prev" title="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients" href="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -134,8 +127,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.transparency.lime.Lime.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>.Lime</a></p>
+  <p class="topless"><a href="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code>.linear_classifier_coefficients</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fatf.vis.feature_influence.plot_partial_dependence.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.feature_influence</span></code>.plot_partial_dependence</a></p>
@@ -167,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -184,7 +177,7 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.lime.Lime.html"
+               href="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients.html"
                accesskey="P"
                role="button">
               Previous
@@ -196,7 +189,7 @@
                                left-button
                                "
                         data-container="body">
-                  fatf.transparency.lime.Lime
+                  fatf.transparency.sklearn.linear_model.linear_classifier_coefficients
                   </span>
             </a>
           </div>
@@ -257,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.vis.feature_influence" title="fatf.vis.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.feature_influence</span></code></a>.plot_individual_conditional_expectation<a class="headerlink" href="#fatf-vis-feature-influence-plot-individual-conditional-expectation" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.vis.feature_influence.plot_individual_conditional_expectation">
-<code class="descclassname">fatf.vis.feature_influence.</code><code class="descname">plot_individual_conditional_expectation</code><span class="sig-paren">(</span><em>ice_array: numpy.ndarray</em>, <em>feature_linespace: numpy.ndarray</em>, <em>class_index: int</em>, <em>feature_name: Optional[str] = None</em>, <em>class_name: Optional[str] = None</em>, <em>plot_axis: Optional[matplotlib.axes._axes.Axes] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[Optional[matplotlib.figure.Figure], matplotlib.axes._axes.Axes]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/vis/feature_influence.py#L267"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.vis.feature_influence.</code><code class="descname">plot_individual_conditional_expectation</code><span class="sig-paren">(</span><em>ice_array: numpy.ndarray</em>, <em>feature_linespace: numpy.ndarray</em>, <em>class_index: int</em>, <em>feature_name: Optional[str] = None</em>, <em>class_name: Optional[str] = None</em>, <em>plot_axis: Optional[matplotlib.axes._axes.Axes] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[Optional[matplotlib.figure.Figure], matplotlib.axes._axes.Axes]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/vis/feature_influence.py#L267"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots Individual Conditional Expectation for a selected class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -1,0 +1,11 @@
+:mod:`fatf.utils.kernels`.exponential_kernel
+===================================================
+
+.. currentmodule:: fatf.utils.kernels
+
+.. autofunction:: exponential_kernel
+
+.. include:: fatf.utils.kernels.exponential_kernel.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

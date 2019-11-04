@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.predictions.surrogate_explainers`.TabularBlimeyLime
+==================================================================================
+
+.. currentmodule:: fatf.transparency.predictions.surrogate_explainers
+
+.. autoclass:: TabularBlimeyLime
+
+.. include:: fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

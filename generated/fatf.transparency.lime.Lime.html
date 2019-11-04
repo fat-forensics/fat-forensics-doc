@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.lime.Lime &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>fatf.transparency.lime.Lime &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.lime.Lime.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.vis.feature_influence.plot_individual_conditional_expectation" href="fatf.vis.feature_influence.plot_individual_conditional_expectation.html" />
+    <link rel="next" title="fatf.transparency.sklearn.tools.SKLearnExplainer" href="fatf.transparency.sklearn.tools.SKLearnExplainer.html" />
     <link rel="prev" title="fatf.transparency.predictions.lime.Lime" href="fatf.transparency.predictions.lime.Lime.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="../user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="../user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="../user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -125,20 +118,12 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>.Lime</a><ul>
-<li><a class="reference internal" href="#examples-using-fatf-transparency-lime-lime">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="fatf.transparency.predictions.lime.Lime.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code>.Lime</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.vis.feature_influence.plot_individual_conditional_expectation.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.feature_influence</span></code>.plot_individual_conditional_expectation</a></p>
+  <p class="topless"><a href="fatf.transparency.sklearn.tools.SKLearnExplainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code>.SKLearnExplainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -167,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.1)
+                API Reference (0.0.2)
               </span>
               
             </a>
@@ -204,19 +189,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.vis.feature_influence.plot_individual_conditional_expectation.html"
+               href="fatf.transparency.sklearn.tools.SKLearnExplainer.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.vis.feat...
+                fatf.transpar...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.vis.feature_influence.plot_individual_conditional_expectation
+                  fatf.transparency.sklearn.tools.SKLearnExplainer
                   </span>
             </a>
           </div>
@@ -233,10 +218,7 @@
 
         <div class="row toc">
           <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>.Lime</a><ul>
-<li><a class="reference internal" href="#examples-using-fatf-transparency-lime-lime">Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>.Lime</a></li>
 </ul>
 
         </div>
@@ -257,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a>.Lime<a class="headerlink" href="#fatf-transparency-lime-lime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.lime.Lime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>local_explanation: bool = True</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/transparency/lime.py#L47"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>local_explanation: bool = True</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/transparency/lime.py#L54"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps LIME package’s <code class="docutils literal notranslate"><span class="pre">lime.lime_tabular.LimeTabularExplainer</span></code> class.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -364,6 +346,8 @@ neither of ‘classification’ nor ‘regression’.</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
+<dt><strong>FutureWarning</strong></dt><dd><p>This class will be deprecated in FAT Forensics version 0.0.3.</p>
+</dd>
 <dt><strong>UserWarning</strong></dt><dd><p>The user is warned when both a <code class="docutils literal notranslate"><span class="pre">model</span></code> and a <code class="docutils literal notranslate"><span class="pre">predict_fn</span></code> are
 provided. In such a case the <code class="docutils literal notranslate"><span class="pre">predict_fn</span></code> takes the precedence.</p>
 </dd>
@@ -384,7 +368,7 @@ provided. In such a case the <code class="docutils literal notranslate"><span cl
 </table>
 <dl class="method">
 <dt id="fatf.transparency.lime.Lime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0697da9/fatf/transparency/lime.py#L298"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f76a9a6/fatf/transparency/lime.py#L317"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains an instance with the LIME tabular explainer.</p>
 <p>This method wraps around <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> <a class="reference external" href="https://lime-ml.readthedocs.io/en/latest/lime.html#lime.lime_tabular.LimeTabularExplainer.explain_instance">method</a> in the LIME
 tabular explainer object.</p>
@@ -446,14 +430,7 @@ attribute of this class, nor as a <code class="docutils literal notranslate"><sp
 
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-transparency-lime-lime">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code><a class="headerlink" href="#examples-using-fatf-transparency-lime-lime" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer in its generic form to explain a..."><div class="figure align-center" id="id3">
-<img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<div class="clear:both"></div></div>
 
 
           </div>

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Developers Guide &#8212; FAT Forensics 0.0.1 documentation</title>
+    <title>Developers Guide &#8212; FAT Forensics 0.0.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -80,17 +80,10 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-            FAT
+        <li class="nav-item">
+          <a class="nav-link" href="user_guide/index.html">
+            FAT User Guide
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="user_guide/index.html">FAT User Guide</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="user_guide/fairness/index.html"><b>F</b>airness</a>
-            <a class="dropdown-item" href="user_guide/accountability/index.html"><b>A</b>ccountability</a>
-            <a class="dropdown-item" href="user_guide/transparency/index.html"><b>T</b>ansparency</a>
-          </div>
         </li>
       </ul>
 
@@ -376,7 +369,7 @@ commands that are executed when building and testing the package.</p>
 <p><strong>Random number generator</strong></p>
 <p>Since some of the package’s tests sample random numbers or are influenced by
 “randomness” of its dependencies, the package allows to fix the random seed
-of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.7)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/random/index.html#module-numpy.random" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
+of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/random/index.html#module-numpy.random" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
 generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
 variable to a selected number. (For tests this is set to 42 in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
@@ -541,9 +534,9 @@ via the following command:</p>
 <h3>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the FAT Forensics
 <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">package-oriented documentation</span></a> we also maintain a
-<a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> that describes <a class="reference internal" href="user_guide/fairness/index.html#user-guide-fairness"><span class="std std-ref">Fairness</span></a>,
-<a class="reference internal" href="user_guide/accountability/index.html#user-guide-accountability"><span class="std std-ref">Accountability</span></a> and
-<a class="reference internal" href="user_guide/transparency/index.html#user-guide-transparency"><span class="std std-ref">Transparency</span></a> approaches on a more theoretical
+<a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> that describes <a class="reference internal" href="user_guide/index.html#user-guide-fairness"><span class="std std-ref">Fairness</span></a>,
+<a class="reference internal" href="user_guide/index.html#user-guide-accountability"><span class="std std-ref">Accountability</span></a> and
+<a class="reference internal" href="user_guide/index.html#user-guide-transparency"><span class="std std-ref">Transparency</span></a> approaches on a more theoretical
 level. Entries in the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> should try to follow a specific
 fact-oriented pattern. When contributing please try to adhere to the style of
 the entries that are already in the <a class="reference internal" href="user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> as much as possible.

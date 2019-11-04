@@ -1,0 +1,11 @@
+:mod:`fatf.utils.validation`.check_object_functionality
+==============================================================
+
+.. currentmodule:: fatf.utils.validation
+
+.. autofunction:: check_object_functionality
+
+.. include:: fatf.utils.validation.check_object_functionality.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

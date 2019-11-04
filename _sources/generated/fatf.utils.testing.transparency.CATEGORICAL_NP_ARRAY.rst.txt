@@ -1,0 +1,6 @@
+fatf.utils.testing.transparency.CATEGORICAL\_NP\_ARRAY
+======================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autodata:: CATEGORICAL_NP_ARRAY

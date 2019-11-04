@@ -1,0 +1,6 @@
+fatf.utils.testing.transparency.NUMERICAL\_STRUCT\_ARRAY
+========================================================
+
+.. currentmodule:: fatf.utils.testing.transparency
+
+.. autodata:: NUMERICAL_STRUCT_ARRAY

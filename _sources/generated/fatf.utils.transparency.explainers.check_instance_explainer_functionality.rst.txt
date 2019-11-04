@@ -1,0 +1,11 @@
+:mod:`fatf.utils.transparency.explainers`.check_instance_explainer_functionality
+=======================================================================================
+
+.. currentmodule:: fatf.utils.transparency.explainers
+
+.. autofunction:: check_instance_explainer_functionality
+
+.. include:: fatf.utils.transparency.explainers.check_instance_explainer_functionality.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

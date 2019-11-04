@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+    <title>How to build LIME yourself (bLIMEy) &#8212; FAT Forensics 0.0.2 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/how_to/transparency/tabular-surrogates.html" />
+    <link rel="shortcut icon" href="../../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="News" href="../../news.html" />
+    <link rel="prev" title="How-to Guides" href="../index.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../../_static/jquery.min.js"></script> -->
+  <script src="../../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../../index.html">
+      <img src="../../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT-Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../../api.html">API Reference</a>
+            <a class="dropdown-item" href="../index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../news.html">News</a>
+            <a class="dropdown-item" href="../../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#surrogate-linear-model-lime">Surrogate Linear Model (LIME)</a><ul>
+<li><a class="reference internal" href="#data-augmentation">Data Augmentation</a></li>
+<li><a class="reference internal" href="#interpretable-representation">Interpretable Representation</a></li>
+<li><a class="reference internal" href="#explanation-generation">Explanation Generation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrogate-tree">Surrogate Tree</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">How-to Guides</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../news.html"
+                        title="next chapter">News</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/how_to/transparency/tabular-surrogates.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                How-to Guides
+              </span>
+              <span class="hiddenrellink left-button">
+                How-to Guides
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../index.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                How-to Guides
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  How-to Guides
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="../../news.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                News
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  News
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#surrogate-linear-model-lime">Surrogate Linear Model (LIME)</a><ul>
+<li><a class="reference internal" href="#data-augmentation">Data Augmentation</a></li>
+<li><a class="reference internal" href="#interpretable-representation">Interpretable Representation</a></li>
+<li><a class="reference internal" href="#explanation-generation">Explanation Generation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrogate-tree">Surrogate Tree</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-build-lime-yourself-blimey-surrogate-tabular-explainers">
+<span id="how-to-tabular-surrogates"></span><h1>How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers<a class="headerlink" href="#how-to-build-lime-yourself-blimey-surrogate-tabular-explainers" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">How-to Guide Contents</p>
+<p>This how-to guide illustrates how to construct a local surrogate model on
+top of a black-box model and use it to generate explanations of selected
+predictions of the black-box model.</p>
+<p>This how-to guide requires <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> package as it uses ridge
+regression and decision tree predictors (implemented therein) as local
+surrogate models.</p>
+</div>
+<p>Each surrogate explainer is composed of three main parts:</p>
+<ul class="simple">
+<li><p>interpretable data representation;</p></li>
+<li><p>data sampling; and</p></li>
+<li><p>explanation generation.</p></li>
+</ul>
+<p>Choosing a particular algorithm for each of these components shapes the type
+of surrogate explanations that can be generated with the final explainer.
+(The theoretical considerations for each component can be found in
+<a class="reference internal" href="../../user_guide/transparency/surrogates.html#user-guide-surrogate-transparency"><span class="std std-ref">Surrogate Transparency User Guide</span></a>, <a class="reference internal" href="#sokol2019blimey" id="id1"><span>[SOKOL2019BLIMEY]</span></a> and the
+<a class="reference external" href="https://github.com/So-Cool/bLIMEy/blob/master/HCML_2019/bLIMEy.ipynb">Jupyter Notebook</a> distributed with the latter manuscript.)
+In this how-to guide we will show how to build the tabular LIME explainer
+<a class="reference internal" href="#ribeiro2016why" id="id2"><span>[RIBEIRO2016WHY]</span></a> (with fixed sampling procedure <a class="reference internal" href="#sokol2019blimey" id="id3"><span>[SOKOL2019BLIMEY]</span></a> and
+the sampling algorithm replaced with MixuP –
+<a class="reference internal" href="../../generated/fatf.utils.data.augmentation.Mixup.html#fatf.utils.data.augmentation.Mixup" title="fatf.utils.data.augmentation.Mixup"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Mixup</span></code></a>) and a simple tree-based surrogate.</p>
+<p>Two similar surrogate explainer are already distributed with this package:
+<a class="reference internal" href="../../generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>
+and
+<a class="reference internal" href="../../generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree</span></code></a>.
+However, the LIME explainer implementation is the exact replica of its official
+implementation, hence it does the “reverse sampling”, which introduces
+randomness to the explainer. Both of these classes provide usage convenience
+– no need to build the explainers from scratch – in exchange for lack of
+flexibility – none of the three aforementioned components can be customised.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deploying Surrogate Explainers</p>
+<p>You may want to consider using the abstract <a class="reference internal" href="../../generated/fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.html#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer</span></code></a>
+class to implement a custom surrogate explainer for tabular data. This
+abstract class implements a series of input validation steps and internal
+attribute computation that make implementing a custom surrogate considerably
+easier.</p>
+</div>
+<dl class="citation">
+<dt class="label" id="sokol2019blimey"><span class="brackets">SOKOL2019BLIMEY</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Sokol, K., Hepburn, A., Santos-Rodriguez, R. and
+Flach, P., 2019. bLIMEy: Surrogate Prediction Explanations Beyond LIME.
+2019 Workshop on Human-Centric Machine Learning (HCML 2019). 33rd Conference
+on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada.
+arXiv preprint arXiv:1910.13016. URL https://arxiv.org/abs/1910.13016.</p>
+</dd>
+<dt class="label" id="ribeiro2016why"><span class="brackets"><a class="fn-backref" href="#id2">RIBEIRO2016WHY</a></span></dt>
+<dd><p>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016,
+August. Why should i trust you?: Explaining the predictions of any
+classifier. In Proceedings of the 22nd ACM SIGKDD international
+conference on knowledge discovery and data mining (pp. 1135-1144). ACM.</p>
+</dd>
+</dl>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>First, let us set the random seed to ensure reproducibility of the results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fatf</span><span class="o">.</span><span class="n">setup_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will also need <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>Next, we need to load the IRIS data set, which we will use for this how-to
+guide:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.datasets</span> <span class="k">as</span> <span class="nn">fatf_datasets</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data_dict</span> <span class="o">=</span> <span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_data</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, we will train a black-box model – k-nearest neighbours predictor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blackbox_model</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blackbox_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">iris_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and compute its training set accuracy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.metrics</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">predictions</span> <span class="o">=</span> <span class="n">blackbox_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">iris_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">iris_target</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+<span class="go">0.96</span>
+</pre></div>
+</div>
+<p>As you can see, the IRIS dataset is reasonably easy for the k-NN classifier and
+it achieves a high accuracy. Next, we need to choose a data point for which
+we will generate an explanation with respect to this model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_point</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point</span>
+<span class="go">array([5.1, 3.5, 1.4, 0.2], dtype=float32)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_probabilities</span> <span class="o">=</span> <span class="n">blackbox_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_probabilities</span>
+<span class="go">array([1., 0., 0.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_prediction</span> <span class="o">=</span> <span class="n">data_point_probabilities</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_prediction</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_class</span> <span class="o">=</span> <span class="n">iris_target_names</span><span class="p">[</span><span class="n">data_point_prediction</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_class</span>
+<span class="go">&#39;setosa&#39;</span>
+</pre></div>
+</div>
+<p>Let us visualise where the <code class="docutils literal notranslate"><span class="pre">data_point</span></code> lies in the data set by plotting the
+last two dimensions of the data and highlighting the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">[&#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Explained Data Point&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iris_plot_explanation.png"><img alt="../../_images/iris_plot_explanation.png" class="align-center" src="../../_images/iris_plot_explanation.png" style="width: 600.0px; height: 412.5px;" /></a>
+</div>
+<div class="section" id="surrogate-linear-model-lime">
+<h2>Surrogate Linear Model (LIME)<a class="headerlink" href="#surrogate-linear-model-lime" title="Permalink to this headline">¶</a></h2>
+<p>We will use the quartile discretiser for the
+<em>interpretable data representation</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.discretisation</span> <span class="k">as</span> <span class="nn">fatf_discretisation</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">discretiser</span> <span class="o">=</span> <span class="n">fatf_discretisation</span><span class="o">.</span><span class="n">QuartileDiscretiser</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">feature_names</span><span class="o">=</span><span class="n">iris_feature_names</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mixup for <em>data sampling</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.augmentation</span> <span class="k">as</span> <span class="nn">fatf_augmentation</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">augmenter</span> <span class="o">=</span> <span class="n">fatf_augmentation</span><span class="o">.</span><span class="n">Mixup</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">ground_truth</span><span class="o">=</span><span class="n">iris_target</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and a ridge regression for <em>explanation generation</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.linear_model</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lime</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="data-augmentation">
+<h3>Data Augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h3>
+<p>First, we will sample new data in the neighbourhood of the selected
+<code class="docutils literal notranslate"><span class="pre">data_point</span></code>, predict them with the black-box model and plot them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data</span> <span class="o">=</span> <span class="n">augmenter</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">data_point</span><span class="p">,</span> <span class="n">samples_number</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_probabilities</span> <span class="o">=</span> <span class="n">blackbox_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">sampled_data</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_predictions</span> <span class="o">=</span> <span class="n">sampled_data_probabilities</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_0_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sampled_data_predictions</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_1_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sampled_data_predictions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_2_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sampled_data_predictions</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">iris_data</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Explained Data Point: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_point_class</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_0_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_0_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_1_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_1_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_2_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_2_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iris_plot_augmented.png"><img alt="../../_images/iris_plot_augmented.png" class="align-center" src="../../_images/iris_plot_augmented.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>In case of LIME we use the probabilistic output of the black-box classifier as
+the local model – ridge regression – is fitted against the probabilities of
+a selected class. When using any other model (cf. the decision tree surrogate
+section below) it is possible to use class predictions instead.
+Using the probabilistic output of the black-box model also entails training the
+local model as one-vs-rest for a selected class to be explained. In this case
+we will explain the class to which the selected <code class="docutils literal notranslate"><span class="pre">data_point</span></code> belongs:
+<code class="docutils literal notranslate"><span class="pre">'setosa'</span></code>.</p>
+</div>
+<div class="section" id="interpretable-representation">
+<h3>Interpretable Representation<a class="headerlink" href="#interpretable-representation" title="Permalink to this headline">¶</a></h3>
+<p>LIME introduces an explicit interpretable representation – discretisation of
+continuous features – to improve comprehensibility of explanations. This step
+may not be necessary for other choices of local surrogates (cf. the decision
+tree surrogate section below) but for LIME it allows the explanation to
+indicate how moving the data point out of each of the discretised bins would
+affect the prediction. The exact steps taken by LIME are described in the
+documentation of the
+<a class="reference internal" href="../../generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>
+class.</p>
+<p>First, we transform the selected <code class="docutils literal notranslate"><span class="pre">data_point</span></code> and the data sampled around it
+into the interpretable representation, i.e., we discretise them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_discretised</span> <span class="o">=</span> <span class="n">discretiser</span><span class="o">.</span><span class="n">discretise</span><span class="p">(</span><span class="n">data_point</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_discretised</span> <span class="o">=</span> <span class="n">discretiser</span><span class="o">.</span><span class="n">discretise</span><span class="p">(</span><span class="n">sampled_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we create a new representation of the discretised data, which indicates
+whether for each discretised feature of the sampled data whether it is the same
+as the bin to which the <code class="docutils literal notranslate"><span class="pre">data_point</span></code> belongs or not:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.transformation</span> <span class="k">as</span> <span class="nn">fatf_transformation</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_binarised</span> <span class="o">=</span> <span class="n">fatf_transformation</span><span class="o">.</span><span class="n">dataset_row_masking</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data_discretised</span><span class="p">,</span> <span class="n">data_point_discretised</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us show how this affects the first sampled data point:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_point_discretised</span>
+<span class="go">array([0, 3, 0, 0], dtype=int8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_discretised</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="go">array([1, 3, 0, 0], dtype=int8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_binarised</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="go">array([0, 1, 1, 1], dtype=int8)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="explanation-generation">
+<h3>Explanation Generation<a class="headerlink" href="#explanation-generation" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we train a local linear (ridge) regression to the locally sampled,
+discretised and binarised data and extract the explanation from its
+coefficient. To enforce the locality of the explanation even further, we first
+calculate the distances between the binarised <code class="docutils literal notranslate"><span class="pre">data_point</span></code> and the sampled
+data and kernelis these distances (with an exponential kernel) to get data
+point weights. We use the <span class="math notranslate nohighlight">\(0.75 * \sqrt{\text{features number}}\)</span> as the
+kernel width:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.distances</span> <span class="k">as</span> <span class="nn">fatf_distances</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.kernels</span> <span class="k">as</span> <span class="nn">fatf_kernels</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">features_number</span> <span class="o">=</span> <span class="n">sampled_data_binarised</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernel_width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">features_number</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.75</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">fatf_distances</span><span class="o">.</span><span class="n">euclidean_point_distance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">features_number</span><span class="p">),</span> <span class="n">sampled_data_binarised</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span> <span class="o">=</span> <span class="n">fatf_kernels</span><span class="o">.</span><span class="n">exponential_kernel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">distances</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">kernel_width</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">np.ones(...)</span></code> here as it is equivalent to binarising the
+<code class="docutils literal notranslate"><span class="pre">data_point</span></code> against itself:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fatf_transformation</span><span class="o">.</span><span class="n">dataset_row_masking</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point_discretised</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">data_point_discretised</span><span class="p">)</span>
+<span class="go">array([[1, 1, 1, 1]], dtype=int8)</span>
+</pre></div>
+</div>
+<p>As mentioned before, we will explain the <code class="docutils literal notranslate"><span class="pre">'setosa'</span></code> class, which has index
+<code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris_target_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;setosa&#39;</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Therefore, we extract the probabilities of the first column (with index <code class="docutils literal notranslate"><span class="pre">0</span></code>)
+form the black-box predictions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_predictions_setosa</span> <span class="o">=</span> <span class="n">sampled_data_probabilities</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Next, we do weighted feature selection to introduce sparsity to the
+explanation. To this end, we use k-LASSO and select 2 features with it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.feature_selection.sklearn</span> <span class="k">as</span> <span class="nn">fatf_feature_ssk</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lasso_indices</span> <span class="o">=</span> <span class="n">fatf_feature_ssk</span><span class="o">.</span><span class="n">lasso_path</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data_binarised</span><span class="p">,</span> <span class="n">sampled_data_predictions_setosa</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we prepare the binarised data set for training the surrogate ridge
+regression by extracting the features chosen with lasso:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_binarised_2f</span> <span class="o">=</span> <span class="n">sampled_data_binarised</span><span class="p">[:,</span> <span class="n">lasso_indices</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and retrieve the names of these two binary features (in the interpretable
+representation):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">interpretable_feature_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feature_index</span> <span class="ow">in</span> <span class="n">lasso_indices</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">bin_id</span> <span class="o">=</span> <span class="n">data_point_discretised</span><span class="p">[</span><span class="n">feature_index</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">interpretable_feature_name</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>        <span class="n">discretiser</span><span class="o">.</span><span class="n">feature_value_names</span><span class="p">[</span><span class="n">feature_index</span><span class="p">][</span><span class="n">bin_id</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="n">interpretable_feature_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interpretable_feature_name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpretable_feature_names</span>
+<span class="go">[&#39;*petal length (cm)* &lt;= 1.60&#39;, &#39;*petal width (cm)* &lt;= 0.30&#39;]</span>
+</pre></div>
+</div>
+<p>Last but not least, we train a local weighted ridge regression:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lime</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data_binarised_2f</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">sampled_data_predictions_setosa</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">sample_weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+<span class="go">Ridge(alpha=1.0, copy_X=True, fit_intercept=True, max_iter=None,</span>
+<span class="go">      normalize=False, random_state=None, solver=&#39;auto&#39;, tol=0.001)</span>
+</pre></div>
+</div>
+<p>and explain the <code class="docutils literal notranslate"><span class="pre">data_point</span></code> with its coefficients:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">importance</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">interpretable_feature_names</span><span class="p">,</span> <span class="n">lime</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&gt;</span><span class="si">{}</span><span class="s1">&lt;-: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">importance</span><span class="p">))</span>
+<span class="go">-&gt;*petal length (cm)* &lt;= 1.60&lt;-: 0.4297609038698995</span>
+<span class="go">-&gt;*petal width (cm)* &lt;= 0.30&lt;-: 0.37901863586706086</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iris_plot_explanation.png"><img alt="../../_images/iris_plot_explanation.png" class="align-center" src="../../_images/iris_plot_explanation.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>This explanation agrees with our intuition as based on the data scatter plot
+if the petal length (x-axis) is larger than 1.6, we are moving outside of the
+blue cluster (setosa) and if petal width (y-axis) is larger than 0.3, we are
+also moving outside of the blue cluster.</p>
+<hr class="docutils" />
+<p>We leave explaining the other classes as an exercise for the reader.</p>
+</div>
+</div>
+<div class="section" id="surrogate-tree">
+<h2>Surrogate Tree<a class="headerlink" href="#surrogate-tree" title="Permalink to this headline">¶</a></h2>
+<p>A linear regression fitted as one-vs-rest to probabilities of a selected class
+is not the only surrogate that can give us some insights into the black-box
+model operations. Next, we train a shallow local decision tree.</p>
+<p>Since a decision tree can learn its own interpretable representation – the
+feature splits – we can use the sampled data in its original domain to train
+the surrogate tree. Furthermore, by limiting the depth of the tree we force it
+to do feature selection, hence no need for an auxiliary dimensionality
+reduction. To this end, we just need to compute weights between the sampled
+data and the <code class="docutils literal notranslate"><span class="pre">data_point</span></code> in this domain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features_number</span> <span class="o">=</span> <span class="n">sampled_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernel_width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">features_number</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.75</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">fatf_distances</span><span class="o">.</span><span class="n">euclidean_point_distance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">,</span> <span class="n">sampled_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span> <span class="o">=</span> <span class="n">fatf_kernels</span><span class="o">.</span><span class="n">exponential_kernel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">distances</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">kernel_width</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lastly, we need to decide whether we want to train the tree as a regressor for
+probabilities of one of the classes (as with LIME) or use a classification
+tree. We will go with the latter option. Now, we have a choice between training
+the tree as a multi-class classifier for all of the classes or as one-vs-rest
+for a selected class. The advantage of the former is that the same tree can be
+used to explain all of the classes at one, therefore we will go with a
+multi-class classification tree:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.tree</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">,</span> <span class="n">sampled_data_predictions</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+<span class="go">DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=3,</span>
+<span class="go">                       max_features=None, max_leaf_nodes=None,</span>
+<span class="go">                       min_impurity_decrease=0.0, min_impurity_split=None,</span>
+<span class="go">                       min_samples_leaf=1, min_samples_split=2,</span>
+<span class="go">                       min_weight_fraction_leaf=0.0, presort=False,</span>
+<span class="go">                       random_state=None, splitter=&#39;best&#39;)</span>
+</pre></div>
+</div>
+<p>Once possible explanation that we can extract from the tree is feature
+importance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">,</span> <span class="n">blimey_tree</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">name</span><span class="p">,</span> <span class="n">importance</span> <span class="o">=</span> <span class="n">n_i</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&gt;</span><span class="si">{}</span><span class="s1">&lt;-: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">importance</span><span class="p">))</span>
+<span class="go">-&gt;sepal length (cm)&lt;-: 0.0</span>
+<span class="go">-&gt;sepal width (cm)&lt;-: 0.0057061683826981156</span>
+<span class="go">-&gt;petal length (cm)&lt;-: 0.008758435540648965</span>
+<span class="go">-&gt;petal width (cm)&lt;-: 0.9855353960766529</span>
+</pre></div>
+</div>
+<p>This explanation agrees with LIME but is not as informative as the one derived
+with LIME. A better explanation is the tree structure itself:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree_text</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">export</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">blimey_tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">iris_feature_names</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">blimey_tree_text</span><span class="p">)</span>
+<span class="go">|--- petal width (cm) &lt;= 0.71</span>
+<span class="go">|   |--- class: 0</span>
+<span class="go">|--- petal width (cm) &gt;  0.71</span>
+<span class="go">|   |--- petal length (cm) &lt;= 4.58</span>
+<span class="go">|   |   |--- class: 1</span>
+<span class="go">|   |--- petal length (cm) &gt;  4.58</span>
+<span class="go">|   |   |--- sepal width (cm) &lt;= 2.91</span>
+<span class="go">|   |   |   |--- class: 2</span>
+<span class="go">|   |   |--- sepal width (cm) &gt;  2.91</span>
+<span class="go">|   |   |   |--- class: 1</span>
+</pre></div>
+</div>
+<p>Let us recall the sampled data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_0_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_0_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_1_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_1_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_2_indices</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">[</span><span class="n">sampled_data_2_indices</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Augmented Data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">data_point</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Explained Data Point: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_point_class</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iris_plot_tree.png"><img alt="../../_images/iris_plot_tree.png" class="align-center" src="../../_images/iris_plot_tree.png" style="width: 600.0px; height: 412.5px;" /></a>
+<p>Clearly, the first split <em>petal width (cm) &lt;= 0.71</em>, which is on the y-axis
+is enough to separate the blue cloud (setosa) from the other two classes and
+the <em>petal length (cm) &lt;= 4.58</em> split for petal width &gt; 0.71 is the best we
+can do to separate the orange and green clouds. Had we sampled more data,
+the local surrogate would have better approximated the local decision boundary
+of the black-box model. We leave further experiments in this direction to the
+reader.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2019, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../../_sources/how_to/transparency/tabular-surrogates.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

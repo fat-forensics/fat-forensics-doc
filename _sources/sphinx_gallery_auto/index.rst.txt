@@ -194,7 +194,27 @@ interpret data sets, machine learning models and their predictions.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer in its generic form to explain a...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a tabular surrogate tree-based explainer to explain a predi...">
+
+.. only:: html
+
+    .. figure:: /sphinx_gallery_auto/transparency/images/thumb/sphx_glr_xmpl_transparency_tree_thumb.png
+
+        :ref:`sphx_glr_sphinx_gallery_auto_transparency_xmpl_transparency_tree.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /sphinx_gallery_auto/transparency/xmpl_transparency_tree
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction.">
 
 .. only:: html
 
