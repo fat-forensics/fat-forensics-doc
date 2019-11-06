@@ -122,6 +122,7 @@
   <ul>
 <li><a class="reference internal" href="#">News</a><ul>
 <li><a class="reference internal" href="#version-0-0-1-released">[01/08/2019] Version 0.0.1 released!</a></li>
+<li><a class="reference internal" href="#version-0-0-2-released">[04/11/2019] Version 0.0.2 released!</a></li>
 </ul>
 </li>
 </ul>
@@ -211,6 +212,7 @@
           <ul>
 <li><a class="reference internal" href="#">News</a><ul>
 <li><a class="reference internal" href="#version-0-0-1-released">[01/08/2019] Version 0.0.1 released!</a></li>
+<li><a class="reference internal" href="#version-0-0-2-released">[04/11/2019] Version 0.0.2 released!</a></li>
 </ul>
 </li>
 </ul>
@@ -235,7 +237,25 @@
 <h2>[01/08/2019] Version 0.0.1 released!<a class="headerlink" href="#version-0-0-1-released" title="Permalink to this headline">¶</a></h2>
 <p>Today we release our first public version of the FAT Forensics package. To
 familiarise yourself with the FAT Forensics Python package make sure to check
-out our <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">Getting Started</span></a> page.</p>
+out our <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">Getting Started</span></a> page. The changelog summarises functionality
+of this release: <a class="reference internal" href="changelog.html#changelog-0-0-1"><span class="std std-ref">0.0.1 (01/08/2019)</span></a>.</p>
+</div>
+<div class="section" id="version-0-0-2-released">
+<h2>[04/11/2019] Version 0.0.2 released!<a class="headerlink" href="#version-0-0-2-released" title="Permalink to this headline">¶</a></h2>
+<p>Today we release an incremental update focused on surrogate explainability of
+black-box models for tabular data – a collection of techniques and algorithms
+that we call <em>build LIME yourself</em> (<strong>bLIMEy</strong>). The changelog summarises the
+functionality added with this release: <a class="reference internal" href="changelog.html#changelog-0-0-2"><span class="std std-ref">0.0.2 (04/11/2019)</span></a>.</p>
+<p>This code release comes with a new <em>how-to</em> guide:
+<a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a>. We have also added one more code example –
+<a class="reference internal" href="sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a> –
+and updated the LIME code example
+(<a class="reference internal" href="sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a>)
+to use the bLIMEy implementation of LIME
+(<a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>)
+instead. The “<a class="reference internal" href="tutorials/prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">Explaining Machine Learning Predictions: LIME and Counterfactuals</span></a>” tutorial has also
+been updated to use bLIMEy instead of LIME.</p>
+<p>Surrogate explainability for image and text data is coming soon so stay tuned.</p>
 </div>
 </div>
 

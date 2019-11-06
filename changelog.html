@@ -121,7 +121,12 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id2">0.0.1 (01/08/2019)</a></li>
+<li><a class="reference internal" href="#changelog-0-0-1">0.0.1 (01/08/2019)</a></li>
+<li><a class="reference internal" href="#changelog-0-0-2">0.0.2 (04/11/2019)</a><ul>
+<li><a class="reference internal" href="#blimey">bLIMEy</a></li>
+<li><a class="reference internal" href="#other-functionality">Other Functionality</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -210,7 +215,12 @@
         <div class="row toc">
           <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#id2">0.0.1 (01/08/2019)</a></li>
+<li><a class="reference internal" href="#changelog-0-0-1">0.0.1 (01/08/2019)</a></li>
+<li><a class="reference internal" href="#changelog-0-0-2">0.0.2 (04/11/2019)</a><ul>
+<li><a class="reference internal" href="#blimey">bLIMEy</a></li>
+<li><a class="reference internal" href="#other-functionality">Other Functionality</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -231,8 +241,8 @@
             
   <div class="section" id="changelog">
 <span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>0.0.1 (01/08/2019)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changelog-0-0-1">
+<span id="id2"></span><h2>0.0.1 (01/08/2019)<a class="headerlink" href="#changelog-0-0-1" title="Permalink to this headline">¶</a></h2>
 <p>This is the initial releases of the package. The following functionality is
 made available with this release:</p>
 <table class="docutils align-center">
@@ -301,6 +311,86 @@ expectation</p></li>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="changelog-0-0-2">
+<span id="id3"></span><h2>0.0.2 (04/11/2019)<a class="headerlink" href="#changelog-0-0-2" title="Permalink to this headline">¶</a></h2>
+<p>The following functionality is made available with this release:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 28%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>Fairness</p></td>
+<td><p>Accountability</p></td>
+<td><p>Transparency</p></td>
+</tr>
+<tr class="row-even"><td><p>Data/
+Features</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Models</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Predictions</p></td>
+<td></td>
+<td></td>
+<td><ul class="simple">
+<li><p>Tabular bLIMEy</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Included tutorials:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tutorials/prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">Explaining Machine Learning Predictions: LIME and Counterfactuals</span></a> (updated to use
+<a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>
+instead of <a class="reference internal" href="generated/fatf.transparency.predictions.lime.Lime.html#fatf.transparency.predictions.lime.Lime" title="fatf.transparency.predictions.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime.Lime</span></code></a>).</p></li>
+</ul>
+<p>Included how-to guides:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a>.</p></li>
+</ul>
+<p>Included code examples:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a>
+(updated to use
+<a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>
+instead of <a class="reference internal" href="generated/fatf.transparency.predictions.lime.Lime.html#fatf.transparency.predictions.lime.Lime" title="fatf.transparency.predictions.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime.Lime</span></code></a>) and</p></li>
+<li><p><a class="reference internal" href="sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a>.</p></li>
+</ul>
+<div class="section" id="blimey">
+<h3>bLIMEy<a class="headerlink" href="#blimey" title="Permalink to this headline">¶</a></h3>
+<p>This release adds support for custom surrogate explainers of tabular data
+called <strong>bLIMEy</strong>. The two pre-made classes are available as part of the
+<a class="reference internal" href="api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a> module:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree</span></code></a> and</p></li>
+<li><p><a class="reference internal" href="generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a>.</p></li>
+</ul>
+<p>Since the latter class implements LIME from components available in FAT
+Forensics, the LIME wrapper available under
+<a class="reference internal" href="generated/fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> will be retired in release 0.0.3.</p>
+<p>To facilitate building custom tabular surrogate explainers a range of
+functionality has been implemented including: data discretisation, data
+transformation, data augmentation, data point augmentation, distance
+kernelisation, scikit-learn model tools, feature selection and surrogate model
+evaluation.</p>
+</div>
+<div class="section" id="other-functionality">
+<h3>Other Functionality<a class="headerlink" href="#other-functionality" title="Permalink to this headline">¶</a></h3>
+<p>Seeding of the random number generators via the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a>
+function can now be done by passing a parameter to this function (in addition
+to using the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system variable).</p>
+</div>
 </div>
 </div>
 
