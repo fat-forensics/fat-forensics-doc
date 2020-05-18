@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Explaining Machine Learning Predictions &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>Explaining Machine Learning Predictions &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="index.html">Tutorials</a>
@@ -261,7 +261,7 @@
   <div class="section" id="explaining-machine-learning-predictions-lime-and-counterfactuals">
 <span id="tutorials-prediction-explainability"></span><h1>Explaining Machine Learning Predictions: LIME and Counterfactuals<a class="headerlink" href="#explaining-machine-learning-predictions-lime-and-counterfactuals" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
-<p class="topic-title first">Tutorial Contents</p>
+<p class="topic-title">Tutorial Contents</p>
 <p>In this tutorial, we look at explaining predictions of a machine learning
 model with <em>counterfactuals</em> and
 <em>Local Interpretable Model-agnostic Explanations</em> (LIME). We explain how to
@@ -274,7 +274,7 @@ set, which we will use for this tutorial:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf</span>
 
@@ -745,7 +745,7 @@ visualisation, which we can generate using the built-in
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lime_fig_setosa</span> <span class="o">=</span> <span class="n">fatf_vis_lime</span><span class="o">.</span><span class="n">plot_lime</span><span class="p">(</span><span class="n">lime_explanation</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/lime.png"><img alt="../_images/lime.png" class="align-center" src="../_images/lime.png" style="width: 600.0px; height: 412.5px;" /></a>
+<a class="reference internal image-reference" href="../_images/lime.png"><img alt="../_images/lime.png" class="align-center" src="../_images/lime.png" style="width: 651.75px; height: 391.5px;" /></a>
 <a class="reference internal image-reference" href="../_images/cf_density_32.png"><img alt="../_images/cf_density_32.png" class="align-center" src="../_images/cf_density_32.png" style="width: 600.0px; height: 412.5px;" /></a>
 <p>The setosa data point that we are trying to explain with LIME has <em>petal width</em>
 of 0.2 and <em>petal length</em> of 1.9. The LIME explanation for the setosa class –
@@ -815,7 +815,7 @@ the counterfactuals, LIME and data density functionality:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

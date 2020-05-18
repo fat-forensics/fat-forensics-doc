@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.fairness.predictions.measures.counterfactual_fairness &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.fairness.predictions.measures.counterfactual_fairness &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -250,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.predictions.measures" title="fatf.fairness.predictions.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.predictions.measures</span></code></a>.counterfactual_fairness<a class="headerlink" href="#fatf-fairness-predictions-measures-counterfactual-fairness" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.predictions.measures.counterfactual_fairness">
-<code class="descclassname">fatf.fairness.predictions.measures.</code><code class="descname">counterfactual_fairness</code><span class="sig-paren">(</span><em>instance: Union[numpy.ndarray, numpy.void], protected_feature_indices: List[Union[str, int]], counterfactual_class: Union[int, str, None] = None, model: object = None, predictive_function: Optional[Callable] = None, dataset: Optional[numpy.ndarray] = None, categorical_indices: Optional[List[Union[str, int]]] = None, numerical_indices: Optional[List[Union[str, int]]] = None, max_counterfactual_length: int = 2, feature_ranges: Optional[Dict[Union[int, str], Union[Tuple[float, float], List[Union[float, str]]]]] = None, distance_functions: Optional[Dict[Union[int, str], Callable]] = None, step_sizes: Optional[Dict[Union[int, str], float]] = None, default_numerical_step_size: float = 1.0, normalise_distance: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/fairness/predictions/measures.py#L25"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.predictions.measures.counterfactual_fairness" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.fairness.predictions.measures.</code><code class="descname">counterfactual_fairness</code><span class="sig-paren">(</span><em>instance: Union[numpy.ndarray, numpy.void], protected_feature_indices: List[Union[str, int]], counterfactual_class: Union[int, str, None] = None, model: object = None, predictive_function: Optional[Callable] = None, dataset: Optional[numpy.ndarray] = None, categorical_indices: Optional[List[Union[str, int]]] = None, numerical_indices: Optional[List[Union[str, int]]] = None, max_counterfactual_length: int = 2, feature_ranges: Optional[Dict[Union[int, str], Union[Tuple[float, float], List[Union[float, str]]]]] = None, distance_functions: Optional[Dict[Union[int, str], Callable]] = None, step_sizes: Optional[Dict[Union[int, str], float]] = None, default_numerical_step_size: float = 1.0, normalise_distance: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/fairness/predictions/measures.py#L25"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.predictions.measures.counterfactual_fairness" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks counterfactual fairness of a prediction given a model.</p>
 <p>This is an example of <strong>disparate treatment</strong> fairness approach, i.e.
 individual fairness. It checks whether there are two “similar” individuals
@@ -309,7 +309,7 @@ data point.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

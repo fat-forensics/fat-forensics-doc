@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.predictions.lime.Lime &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.data.feature_selection.sklearn.forward_selection &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -24,11 +24,11 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
-    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.predictions.lime.Lime.html" />
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.feature_selection.sklearn.forward_selection.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.transparency.lime.Lime" href="fatf.transparency.lime.Lime.html" />
-    <link rel="prev" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html" />
+    <link rel="next" title="fatf.utils.data.feature_selection.sklearn.highest_weights" href="fatf.utils.data.feature_selection.sklearn.highest_weights.html" />
+    <link rel="prev" title="fatf.utils.data.feature_selection.sklearn.lasso_path" href="fatf.utils.data.feature_selection.sklearn.lasso_path.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -119,15 +119,15 @@
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code>.TabularBlimeyTree</a></p>
+  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.lasso_path.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.lasso_path</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.transparency.lime.Lime.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code>.Lime</a></p>
+  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.highest_weights</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/generated/fatf.transparency.predictions.lime.Lime.rst.txt"
+      <li><a href="../_sources/generated/fatf.utils.data.feature_selection.sklearn.forward_selection.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -169,19 +169,19 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html"
+               href="fatf.utils.data.feature_selection.sklearn.lasso_path.html"
                accesskey="P"
                role="button">
               Previous
               <br/>
               <span class="smallrellink">
-                fatf.transpar...
+                fatf.utils.da...
               </span>
                   <span class="hiddenrellink
                                left-button
                                "
                         data-container="body">
-                  fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree
+                  fatf.utils.data.feature_selection.sklearn.lasso_path
                   </span>
             </a>
           </div>
@@ -189,19 +189,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.lime.Lime.html"
+               href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.transpar...
+                fatf.utils.da...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.transparency.lime.Lime
+                  fatf.utils.data.feature_selection.sklearn.highest_weights
                   </span>
             </a>
           </div>
@@ -218,7 +218,7 @@
 
         <div class="row toc">
           <ul>
-<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code>.Lime</a></li>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.forward_selection</a></li>
 </ul>
 
         </div>
@@ -235,91 +235,81 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-transparency-predictions-lime-lime">
-<h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.lime" title="fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code></a>.Lime<a class="headerlink" href="#fatf-transparency-predictions-lime-lime" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="fatf.transparency.predictions.lime.Lime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.lime.</code><code class="descname">Lime</code><span class="sig-paren">(</span><em>data: numpy.ndarray</em>, <em>model: object = None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/lime.py#L28"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.lime.Lime" title="Permalink to this definition">¶</a></dt>
-<dd><p>A sub-class of the Lime class designated for explaining a prediction.</p>
-<p>This class initialises a <a class="reference internal" href="fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class and
-overwrites the <code class="docutils literal notranslate"><span class="pre">sample_around_instance</span></code>/<code class="docutils literal notranslate"><span class="pre">local_explanation</span></code> to be
-<code class="docutils literal notranslate"><span class="pre">True</span></code>, therefore creates a single prediction explainer.</p>
-<p>For reference please see the description of the
-<a class="reference internal" href="fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a> class.</p>
-<p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.lime.Lime.explain_instance" title="fatf.transparency.predictions.lime.Lime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(instance, **kwargs)</p></td>
-<td><p>Explains an instance with the LIME tabular explainer.</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="fatf.transparency.predictions.lime.Lime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: numpy.ndarray</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Tuple[str, float]], List[Tuple[str, float]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/lime.py#L317"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.lime.Lime.explain_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explains an instance with the LIME tabular explainer.</p>
-<p>This method wraps around <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> <a class="reference external" href="https://lime-ml.readthedocs.io/en/latest/lime.html#lime.lime_tabular.LimeTabularExplainer.explain_instance">method</a> in the LIME
-tabular explainer object.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Contrarily to the LIME tabular explainer this wrapper produces
-explanations for all of the classes for a classification task by
-default.</p>
+  <div class="section" id="fatf-utils-data-feature-selection-sklearn-forward-selection">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a>.forward_selection<a class="headerlink" href="#fatf-utils-data-feature-selection-sklearn-forward-selection" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="fatf.utils.data.feature_selection.sklearn.forward_selection">
+<code class="descclassname">fatf.utils.data.feature_selection.sklearn.</code><code class="descname">forward_selection</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>target: numpy.ndarray</em>, <em>weights: Optional[numpy.ndarray] = None</em>, <em>features_number: Optional[int] = None</em>, <em>features_percentage: int = 100</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/feature_selection/sklearn.py#L284"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.feature_selection.sklearn.forward_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the specified number of features based on iterative importance.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.0.</span></p>
 </div>
-<p>If any of the named parameters for this function were specified when
-initialising this object they will be used unless they are also defined
-when calling this method, in which case the latter take the precedence.</p>
-<p>If all: a class-wide model, a class-wide prediction function and a
-local prediction function (via named parameter to this function) are
-specified, they are used in the following order:</p>
-<ul class="simple">
-<li><p>local prediction function,</p></li>
-<li><p>global prediction function, and finally</p></li>
-<li><p>the model.</p></li>
-</ul>
-<p>Based on whether the task at hand is classification or regression
-either <code class="docutils literal notranslate"><span class="pre">predict</span></code> (regression) or <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> (classification)
-method of the model is used.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">weights</span></code> provided as the input parameter are incorporated into the
+feature selection via the ridge regression training procedure.
+If the value of <code class="docutils literal notranslate"><span class="pre">feature_percentage</span></code> results in selecting
+0 features, 1 feature will be selected and a warning will be logged.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature selection procedure is computationally expensive when
+the number of features to be selected is large.</p>
+</div>
+<p>This feature selection method is based on <a class="reference external" href="https://github.com/marcotcr/lime">LIME</a> (Local Interpretable
+Model-agnostic Explanations). The original implementation can be found in
+the <code class="docutils literal notranslate"><span class="pre">lime.lime_base.LimeBase.forward_selection</span></code> method in the
+<a class="reference external" href="https://github.com/marcotcr/lime/blob/0.2.0.0/lime/lime_base.py#L49">official LIME package</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>instance</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 1-dimensional data point (numpy array) to be explained.</p>
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array holding a data set.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">lime.lime_tabular.LimeTabularExplainer.explain_instance</span></dt><dd><p>LIME tabular explainer’s <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> optional parameters.</p>
+<dt><strong>target</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The class/probability/regression values of each row in the input data
+set.</p>
+</dd>
+<dt><strong>weights</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>An array of (importance) weights for each data point in the input data
+set. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the data points are treated equally important.</p>
+</dd>
+<dt><strong>features_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The number of (top) features to be selected. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the top x% of
+the features are selected where x is given by the
+<code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter.</p>
+</dd>
+<dt><strong>features_percentage</strong><span class="classifier">integer, optional (default=100)</span></dt><dd><p>The percentage of (top) features to be selected. By default all of the
+features are returned if <code class="docutils literal notranslate"><span class="pre">features_number</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>explanation</strong><span class="classifier">Dictionary[string, Tuple[string, float]] or List[Tuple[string, float]]</span></dt><dd><p>For classification a dictionary where the keys correspond to class
-names and the values are tuples (string and float), which represent
-an explanation in terms of one of the features and the importance
-of this explanation. For regression a list of tuples (string and
-float) with the same meaning.</p>
+<dt><strong>feature_indices</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Array with indices of features chosen with forward selection.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>AttributeError</strong></dt><dd><p>One of the named parameters is invalid for the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code>
-method of the LIME tabular explainer.</p>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array is not 2-dimensional. The <code class="docutils literal notranslate"><span class="pre">target</span></code> array is not
+1-dimensional. The number of elements in the <code class="docutils literal notranslate"><span class="pre">target</span></code> array is
+different than the number of samples in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array. The
+<code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not 1-dimensional. The number of weights in the
+<code class="docutils literal notranslate"><span class="pre">weights</span></code> array does not agree with the number of samples in the
+<code class="docutils literal notranslate"><span class="pre">dataset</span></code> array.</p>
 </dd>
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">instance</span></code> is not a 1-dimensional numpy array.</p>
+<dt><strong>TypeError</strong></dt><dd><p>One of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not
+purely numerical. The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not an integer.
+The <code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter is not an integer.</p>
 </dd>
-<dt><strong>RuntimeError</strong></dt><dd><p>A predictive function is not available (neither as a <code class="docutils literal notranslate"><span class="pre">model</span></code>
-attribute of this class, nor as a <code class="docutils literal notranslate"><span class="pre">predict_fn</span></code> parameter).</p>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not a positive integer. The
+<code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter is outside of the allowed range
+0–100 (inclusive).</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">instance</span></code> is not purely numerical.</p>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>UserWarning</strong></dt><dd><p>The specified <code class="docutils literal notranslate"><span class="pre">features_number</span></code> is larger than the number of features
+in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array; all of the features are selected.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
 </dd></dl>
 
 <div class="clear:both"></div></div>
@@ -337,7 +327,7 @@ attribute of this class, nor as a <code class="docutils literal notranslate"><sp
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -351,7 +341,7 @@ attribute of this class, nor as a <code class="docutils literal notranslate"><sp
         </a>
       </div>
       <div class="col-3">
-        <a href="../_sources/generated/fatf.transparency.predictions.lime.Lime.rst.txt" rel="nofollow">
+        <a href="../_sources/generated/fatf.utils.data.feature_selection.sklearn.forward_selection.rst.txt" rel="nofollow">
           Show this page source
         </a>
       </div>

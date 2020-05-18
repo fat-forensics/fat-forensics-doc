@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.fairness.data.measures.systemic_bias &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.fairness.data.measures.systemic_bias &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fatf.fairness.data.measures.systemic_bias_check" href="fatf.fairness.data.measures.systemic_bias_check.html" />
-    <link rel="prev" title="API Reference (0.0.2)" href="../api.html" />
+    <link rel="prev" title="API Reference (0.1.0)" href="../api.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -128,7 +128,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="../api.html"
-                        title="previous chapter">API Reference (0.0.2)</a></p>
+                        title="previous chapter">API Reference (0.1.0)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fatf.fairness.data.measures.systemic_bias_check.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data.measures</span></code>.systemic_bias_check</a></p>
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -183,13 +183,13 @@
               Previous
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
                   <span class="hiddenrellink
                                left-button
                                "
                         data-container="body">
-                  API Reference (0.0.2)
+                  API Reference (0.1.0)
                   </span>
             </a>
           </div>
@@ -250,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.data.measures" title="fatf.fairness.data.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data.measures</span></code></a>.systemic_bias<a class="headerlink" href="#fatf-fairness-data-measures-systemic-bias" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.data.measures.systemic_bias">
-<code class="descclassname">fatf.fairness.data.measures.</code><code class="descname">systemic_bias</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, ground_truth: numpy.ndarray, protected_features: List[Union[str, int]]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/fairness/data/measures.py#L24"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.data.measures.systemic_bias" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.fairness.data.measures.</code><code class="descname">systemic_bias</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, ground_truth: numpy.ndarray, protected_features: List[Union[str, int]]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/fairness/data/measures.py#L24"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.data.measures.systemic_bias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for systemic bias in a dataset.</p>
 <p>This function checks whether there exist data points that share the same
 unprotected features but differ in protected features. For all of these
@@ -317,7 +317,7 @@ not valid for the input dataset.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

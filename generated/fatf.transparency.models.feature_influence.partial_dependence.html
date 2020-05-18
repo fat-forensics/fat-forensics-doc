@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.models.feature_influence.partial_dependence &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.transparency.models.feature_influence.partial_dependence &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.models.feature_influence.partial_dependence.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.transparency.models.lime.Lime" href="fatf.transparency.models.lime.Lime.html" />
+    <link rel="next" title="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html" />
     <link rel="prev" title="fatf.transparency.models.feature_influence.partial_dependence_ice" href="fatf.transparency.models.feature_influence.partial_dependence_ice.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -130,8 +130,8 @@
   <p class="topless"><a href="fatf.transparency.models.feature_influence.partial_dependence_ice.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code>.partial_dependence_ice</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.transparency.models.lime.Lime.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code>.Lime</a></p>
+  <p class="topless"><a href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>.CounterfactualExplainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -197,7 +197,7 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.models.lime.Lime.html"
+               href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
                accesskey="N"
                role="button">
               Next
@@ -209,7 +209,7 @@
                                right-button
                                "
                         data-container="body">
-                  fatf.transparency.models.lime.Lime
+                  fatf.transparency.predictions.counterfactuals.CounterfactualExplainer
                   </span>
             </a>
           </div>
@@ -250,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.feature_influence" title="fatf.transparency.models.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code></a>.partial_dependence<a class="headerlink" href="#fatf-transparency-models-feature-influence-partial-dependence" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.models.feature_influence.partial_dependence">
-<code class="descclassname">fatf.transparency.models.feature_influence.</code><code class="descname">partial_dependence</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, model: object, feature_index: Union[int, str], treat_as_categorical: Optional[bool] = None, steps_number: Optional[int] = None, include_rows: Union[int, List[int], None] = None, exclude_rows: Union[int, List[int], None] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/models/feature_influence.py#L573"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.transparency.models.feature_influence.</code><code class="descname">partial_dependence</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, model: object, feature_index: Union[int, str], treat_as_categorical: Optional[bool] = None, steps_number: Optional[int] = None, include_rows: Union[int, List[int], None] = None, exclude_rows: Union[int, List[int], None] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/models/feature_influence.py#L572"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates Partial Dependence for a selected feature.</p>
 <p>Partial Dependence <a class="reference internal" href="#re938a68eec7e-friedman2001greedy" id="id1">[FRIEDMAN2001GREEDY]</a> is computed as a mean value of
 Individual Conditional Expectations (c.f. <a class="reference internal" href="fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="fatf.transparency.models.feature_influence.individual_conditional_expectation"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.individual_conditional_expectation</span></code></a>) over all the
@@ -308,7 +308,7 @@ evaluated with the specified model.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

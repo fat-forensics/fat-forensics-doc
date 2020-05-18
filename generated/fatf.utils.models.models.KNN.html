@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.models.models.KNN &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.models.models.KNN &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fatf.utils.models.validation.check_model_functionality" href="fatf.utils.models.validation.check_model_functionality.html" />
-    <link rel="prev" title="fatf.utils.data.feature_selection.sklearn.lasso_path" href="fatf.utils.data.feature_selection.sklearn.lasso_path.html" />
+    <link rel="prev" title="fatf.utils.data.feature_selection.sklearn.highest_weights" href="fatf.utils.data.feature_selection.sklearn.highest_weights.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -119,8 +119,8 @@
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.lasso_path.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.lasso_path</a></p>
+  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.highest_weights</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fatf.utils.models.validation.check_model_functionality.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.validation</span></code>.check_model_functionality</a></p>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -169,7 +169,7 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.data.feature_selection.sklearn.lasso_path.html"
+               href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
                accesskey="P"
                role="button">
               Previous
@@ -181,7 +181,7 @@
                                left-button
                                "
                         data-container="body">
-                  fatf.utils.data.feature_selection.sklearn.lasso_path
+                  fatf.utils.data.feature_selection.sklearn.highest_weights
                   </span>
             </a>
           </div>
@@ -239,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.models.models" title="fatf.utils.models.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code></a>.KNN<a class="headerlink" href="#fatf-utils-models-models-knn" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.models.models.KNN">
-<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">KNN</code><span class="sig-paren">(</span><em>k: int = 3</em>, <em>mode: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/models/models.py#L93"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">KNN</code><span class="sig-paren">(</span><em>k: int = 3</em>, <em>mode: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/models/models.py#L93"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN" title="Permalink to this definition">¶</a></dt>
 <dd><p>A K-Nearest Neighbours model based on Euclidean distance.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is set to 0 the model works as a majority class
 classifier. In case the count of neighbours (within <code class="docutils literal notranslate"><span class="pre">k</span></code>) results in a
@@ -343,7 +343,7 @@ or <code class="docutils literal notranslate"><span class="pre">'regressor'</spa
 </table>
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/models/models.py#L290"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/models/models.py#L290"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears (unfits) the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -358,7 +358,7 @@ Try using the fit method to <code class="docutils literal notranslate"><span cla
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/models/models.py#L209"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.fit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/models/models.py#L209"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -390,7 +390,7 @@ non-numerical target variable.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/models/models.py#L377"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/models/models.py#L377"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts labels of new instances with the fitted model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -422,7 +422,7 @@ fitted yet. Try using the <code class="docutils literal notranslate"><span class
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.predict_proba">
-<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/models/models.py#L478"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/models/models.py#L478"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates label probabilities for new instances with the fitted model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -473,7 +473,7 @@ initialised as a regressor.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

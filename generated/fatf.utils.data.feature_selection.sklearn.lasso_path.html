@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.data.feature_selection.sklearn.lasso_path &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.data.feature_selection.sklearn.lasso_path &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.feature_selection.sklearn.lasso_path.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.models.models.KNN" href="fatf.utils.models.models.KNN.html" />
+    <link rel="next" title="fatf.utils.data.feature_selection.sklearn.forward_selection" href="fatf.utils.data.feature_selection.sklearn.forward_selection.html" />
     <link rel="prev" title="fatf.utils.data.discretisation.QuartileDiscretiser" href="fatf.utils.data.discretisation.QuartileDiscretiser.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -122,8 +122,8 @@
   <p class="topless"><a href="fatf.utils.data.discretisation.QuartileDiscretiser.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code>.QuartileDiscretiser</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.models.models.KNN.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code>.KNN</a></p>
+  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.forward_selection.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.forward_selection</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -189,19 +189,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.models.models.KNN.html"
+               href="fatf.utils.data.feature_selection.sklearn.forward_selection.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.utils.mo...
+                fatf.utils.da...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.models.models.KNN
+                  fatf.utils.data.feature_selection.sklearn.forward_selection
                   </span>
             </a>
           </div>
@@ -239,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a>.lasso_path<a class="headerlink" href="#fatf-utils-data-feature-selection-sklearn-lasso-path" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.feature_selection.sklearn.lasso_path">
-<code class="descclassname">fatf.utils.data.feature_selection.sklearn.</code><code class="descname">lasso_path</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>target: numpy.ndarray</em>, <em>weights: Optional[numpy.ndarray] = None</em>, <em>features_number: Optional[int] = None</em>, <em>features_percentage: int = 100</em><span class="sig-paren">)</span> &#x2192; List[Union[str, int]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/data/feature_selection/sklearn.py#L108"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.feature_selection.sklearn.lasso_path" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.data.feature_selection.sklearn.</code><code class="descname">lasso_path</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>target: numpy.ndarray</em>, <em>weights: Optional[numpy.ndarray] = None</em>, <em>features_number: Optional[int] = None</em>, <em>features_percentage: int = 100</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/feature_selection/sklearn.py#L130"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.feature_selection.sklearn.lasso_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the specified number of features based on Lasso path coefficients.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -258,29 +258,27 @@ feature selection process by centering the <code class="docutils literal notrans
 weighted average (if no weights are provided, the average is simply not
 weighted) and scaling by the square root of the <code class="docutils literal notranslate"><span class="pre">weights</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">target</span></code> array is treated in the same way.</p>
-<p>This feature selection method is based on the default feature selection
-mechanism implemented by <a class="reference external" href="https://github.com/marcotcr/lime">LIME</a> (Local Interpretable Model-agnostic
-Explanations. The original implementation can be found in the
-<code class="docutils literal notranslate"><span class="pre">lime.lime_base.LimeBase.feature_selection</span></code> method in the
-<a class="reference external" href="https://github.com/marcotcr/lime/blob/master/lime/lime_base.py#L116">official LIME package</a>.</p>
+<p>This feature selection method is based on <a class="reference external" href="https://github.com/marcotcr/lime">LIME</a> (Local Interpretable
+Model-agnostic Explanations). The original implementation can be found in
+the <code class="docutils literal notranslate"><span class="pre">lime.lime_base.LimeBase.feature_selection</span></code> method in the
+<a class="reference external" href="https://github.com/marcotcr/lime/blob/0.2.0.0/lime/lime_base.py#L115">official LIME package</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with holding a data set.</p>
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array holding a data set.</p>
 </dd>
-<dt><strong>target</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The class/probabilities/regression values of each row in the input data
+<dt><strong>target</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>The class/probability/regression values of each row in the input data
 set.</p>
 </dd>
 <dt><strong>weights</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>An array of (importance) weights for each data point in the input data
-set. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the data points are the same important when
+set. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the data points are equally important when
 computing the Lasso path.</p>
 </dd>
 <dt><strong>features_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The number of (top) features to be selected. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the top x% of
 the features are selected where x is given by the
-<code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter. It may be the case that exactly the
-exact number of features cannot be extracted in which case a warning
-will be logged and the next biggest subset of features will be
-selected.</p>
+<code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter. It may be the case that the
+specified number of features cannot be extracted, in which case a
+warning is logged and the next biggest subset of features is selected.</p>
 </dd>
 <dt><strong>features_percentage</strong><span class="classifier">integer, optional (default=100)</span></dt><dd><p>The percentage of (top) features to be selected. By default all of the
 features are returned if <code class="docutils literal notranslate"><span class="pre">features_number</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -289,20 +287,20 @@ features are returned if <code class="docutils literal notranslate"><span class=
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>feature_indices</strong><span class="classifier">List[Index]</span></dt><dd><p>List of indices indicating features selected by the Lasso path.</p>
+<dt><strong>feature_indices</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>Array with indices of features selected by the Lasso path.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array is not 2-dimensional. The <code class="docutils literal notranslate"><span class="pre">target</span></code> array is not
-1-dimensional. The number of labels in the <code class="docutils literal notranslate"><span class="pre">target</span></code> array is
+1-dimensional. The number of elements in the <code class="docutils literal notranslate"><span class="pre">target</span></code> array is
 different than the number of samples in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array. The
 <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not 1-dimensional. The number of weights in the
 <code class="docutils literal notranslate"><span class="pre">weights</span></code> array does not agree with the number of samples in the
 <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The one of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not
+<dt><strong>TypeError</strong></dt><dd><p>One of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not
 purely numerical. The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not an integer.
 The <code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter is not an integer.</p>
 </dd>
@@ -337,7 +335,7 @@ in the <code class="docutils literal notranslate"><span class="pre">dataset</spa
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

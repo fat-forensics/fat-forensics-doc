@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.transparency.explainers.Explainer &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.transparency.explainers.Explainer &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -239,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.transparency.explainers" title="fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code></a>.Explainer<a class="headerlink" href="#fatf-utils-transparency-explainers-explainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.transparency.explainers.Explainer">
-<em class="property">class </em><code class="descclassname">fatf.utils.transparency.explainers.</code><code class="descname">Explainer</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/transparency/explainers.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.transparency.explainers.</code><code class="descname">Explainer</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/transparency/explainers.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>A base class for any explainer object implemented in the package.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -264,7 +264,7 @@
 </table>
 <dl class="method">
 <dt id="fatf.utils.transparency.explainers.Explainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an explanation of a single data point (instance).</p>
 <p>This can be an explanation of a data point from a data set or of a
 prediction provided by a predictive model.</p>
@@ -272,13 +272,13 @@ prediction provided by a predictive model.</p>
 
 <dl class="method">
 <dt id="fatf.utils.transparency.explainers.Explainer.explain_model">
-<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.explain_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.explain_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a model explanation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.utils.transparency.explainers.Explainer.feature_importance">
-<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/transparency/explainers.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.feature_importance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/transparency/explainers.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.Explainer.feature_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes feature importance.</p>
 </dd></dl>
 
@@ -299,7 +299,7 @@ prediction provided by a predictive model.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

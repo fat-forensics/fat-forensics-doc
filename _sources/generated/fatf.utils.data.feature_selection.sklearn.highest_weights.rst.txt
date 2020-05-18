@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.feature_selection.sklearn`.highest_weights
+=======================================================================
+
+.. currentmodule:: fatf.utils.data.feature_selection.sklearn
+
+.. autofunction:: highest_weights
+
+.. include:: fatf.utils.data.feature_selection.sklearn.highest_weights.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

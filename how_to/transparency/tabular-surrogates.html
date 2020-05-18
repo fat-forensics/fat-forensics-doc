@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>How to build LIME yourself (bLIMEy) &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>How to build LIME yourself (bLIMEy) &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../../tutorials/index.html">Tutorials</a>
@@ -263,7 +263,7 @@
   <div class="section" id="how-to-build-lime-yourself-blimey-surrogate-tabular-explainers">
 <span id="how-to-tabular-surrogates"></span><h1>How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers<a class="headerlink" href="#how-to-build-lime-yourself-blimey-surrogate-tabular-explainers" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
-<p class="topic-title first">How-to Guide Contents</p>
+<p class="topic-title">How-to Guide Contents</p>
 <p>This how-to guide illustrates how to construct a local surrogate model on
 top of a black-box model and use it to generate explanations of selected
 predictions of the black-box model.</p>
@@ -597,8 +597,7 @@ representation):</p>
 <span class="gp">... </span>    <span class="n">sampled_data_binarised_2f</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">sampled_data_predictions_setosa</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">sample_weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
-<span class="go">Ridge(alpha=1.0, copy_X=True, fit_intercept=True, max_iter=None,</span>
-<span class="go">      normalize=False, random_state=None, solver=&#39;auto&#39;, tol=0.001)</span>
+<span class="go">Ridge()</span>
 </pre></div>
 </div>
 <p>and explain the <code class="docutils literal notranslate"><span class="pre">data_point</span></code> with its coefficients:</p>
@@ -649,12 +648,7 @@ multi-class classification tree:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">sampled_data</span><span class="p">,</span> <span class="n">sampled_data_predictions</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
-<span class="go">DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=3,</span>
-<span class="go">                       max_features=None, max_leaf_nodes=None,</span>
-<span class="go">                       min_impurity_decrease=0.0, min_impurity_split=None,</span>
-<span class="go">                       min_samples_leaf=1, min_samples_split=2,</span>
-<span class="go">                       min_weight_fraction_leaf=0.0, presort=False,</span>
-<span class="go">                       random_state=None, splitter=&#39;best&#39;)</span>
+<span class="go">DecisionTreeClassifier(max_depth=3)</span>
 </pre></div>
 </div>
 <p>Once possible explanation that we can extract from the tree is feature
@@ -670,7 +664,7 @@ importance:</p>
 </div>
 <p>This explanation agrees with LIME but is not as informative as the one derived
 with LIME. A better explanation is the tree structure itself:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree_text</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">export</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">blimey_tree_text</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">export_text</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">blimey_tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">iris_feature_names</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">blimey_tree_text</span><span class="p">)</span>
 <span class="go">|--- petal width (cm) &lt;= 0.71</span>
@@ -735,7 +729,7 @@ reader.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

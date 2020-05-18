@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.predictions.counterfactuals.CounterfactualExplainer &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.transparency.predictions.counterfactuals.CounterfactualExplainer &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" href="fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html" />
-    <link rel="prev" title="fatf.transparency.models.lime.Lime" href="fatf.transparency.models.lime.Lime.html" />
+    <link rel="prev" title="fatf.transparency.models.feature_influence.partial_dependence" href="fatf.transparency.models.feature_influence.partial_dependence.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -127,8 +127,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.transparency.models.lime.Lime.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code>.Lime</a></p>
+  <p class="topless"><a href="fatf.transparency.models.feature_influence.partial_dependence.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code>.partial_dependence</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>.textualise_counterfactuals</a></p>
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -177,7 +177,7 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.models.lime.Lime.html"
+               href="fatf.transparency.models.feature_influence.partial_dependence.html"
                accesskey="P"
                role="button">
               Previous
@@ -189,7 +189,7 @@
                                left-button
                                "
                         data-container="body">
-                  fatf.transparency.models.lime.Lime
+                  fatf.transparency.models.feature_influence.partial_dependence
                   </span>
             </a>
           </div>
@@ -250,7 +250,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.counterfactuals" title="fatf.transparency.predictions.counterfactuals"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code></a>.CounterfactualExplainer<a class="headerlink" href="#fatf-transparency-predictions-counterfactuals-counterfactualexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.counterfactuals.</code><code class="descname">CounterfactualExplainer</code><span class="sig-paren">(</span><em>model: object = None, predictive_function: Optional[Callable] = None, dataset: Optional[numpy.ndarray] = None, categorical_indices: Optional[List[Union[str, int]]] = None, numerical_indices: Optional[List[Union[str, int]]] = None, counterfactual_feature_indices: Optional[List[Union[str, int]]] = None, max_counterfactual_length: int = 2, feature_ranges: Optional[Dict[Union[int, str], Union[Tuple[float, float], List[Union[float, str]]]]] = None, distance_functions: Optional[Dict[Union[int, str], Callable]] = None, step_sizes: Optional[Dict[Union[int, str], float]] = None, default_numerical_step_size: float = 1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/counterfactuals.py#L36"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.counterfactuals.</code><code class="descname">CounterfactualExplainer</code><span class="sig-paren">(</span><em>model: object = None, predictive_function: Optional[Callable] = None, dataset: Optional[numpy.ndarray] = None, categorical_indices: Optional[List[Union[str, int]]] = None, numerical_indices: Optional[List[Union[str, int]]] = None, counterfactual_feature_indices: Optional[List[Union[str, int]]] = None, max_counterfactual_length: int = 2, feature_ranges: Optional[Dict[Union[int, str], Union[Tuple[float, float], List[Union[float, str]]]]] = None, distance_functions: Optional[Dict[Union[int, str], Callable]] = None, step_sizes: Optional[Dict[Union[int, str], float]] = None, default_numerical_step_size: float = 1.0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/counterfactuals.py#L36"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates counterfactual explanations of black-box classifier predictions.</p>
 <p>Finds counterfactual explanations for an arbitrary black-box <strong>classifier</strong>
 by a brute-force grid search with a specified step size for a selected
@@ -471,7 +471,7 @@ unique value for any particular feature.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: Union[numpy.ndarray, numpy.void], counterfactual_class: Union[int, str, None] = None, normalise_distance: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/counterfactuals.py#L714"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>instance: Union[numpy.ndarray, numpy.void], counterfactual_class: Union[int, str, None] = None, normalise_distance: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/counterfactuals.py#L714"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds counterfactual data points, their class and distance.</p>
 <p>Returns a numpy array with counterfactual instances, their predicted
 classes and distances for a given data <code class="docutils literal notranslate"><span class="pre">instance</span></code>. The counterfactual
@@ -554,7 +554,7 @@ range for this feature.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

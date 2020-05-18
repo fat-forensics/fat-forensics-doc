@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.data.augmentation.NormalClassDiscovery &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.data.augmentation.NormalClassDiscovery &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -239,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.NormalClassDiscovery<a class="headerlink" href="#fatf-utils-data-augmentation-normalclassdiscovery" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.augmentation.NormalClassDiscovery">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">NormalClassDiscovery</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, predictive_function: Callable[numpy.ndarray, numpy.ndarray], categorical_indices: Optional[numpy.ndarray] = None, int_to_float: bool = True, classes_number: Optional[int] = None, class_proportion_threshold: float = 0.05, standard_deviation_init: float = 1.0, standard_deviation_increment: float = 0.1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/data/augmentation.py#L1262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">NormalClassDiscovery</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, predictive_function: Callable[numpy.ndarray, numpy.ndarray], categorical_indices: Optional[numpy.ndarray] = None, int_to_float: bool = True, classes_number: Optional[int] = None, class_proportion_threshold: float = 0.05, standard_deviation_init: float = 1.0, standard_deviation_increment: float = 0.1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/augmentation.py#L1262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sampling data to discover instances spanning all the possible classes.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -298,7 +298,7 @@ a data array to be predicted.</p>
 <dt><strong>classes_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The number of classes (target values) modelled by the
 <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. If the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is
 probabilistic, the number of classes is inferred from the width of the
-probabilities outputted by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. If the
+probabilities output by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>. If the
 <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is a classifier, it is applied to the input
 <code class="docutils literal notranslate"><span class="pre">dataset</span></code> and the number of classes is computed based on the unique
 number of elements in this predictions array. <strong>Since the latter case</strong>
@@ -336,7 +336,7 @@ or at least one data point of yet unseen class is not discovered.</p>
 </dd>
 <dt><strong>is_probabilistic</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is probabilistic, <code class="docutils literal notranslate"><span class="pre">False</span></code>
 otherwise. This attribute is set based on the shape of the numpy array
-outputted by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>: if it is a 2-dimensional
+output by the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>: if it is a 2-dimensional
 array, the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is assumed to be probabilistic, if
 it is a 1-dimensional array, the <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is assumed to
 be a classifier.</p>
@@ -400,7 +400,7 @@ range (non-inclusive). The <code class="docutils literal notranslate"><span clas
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.augmentation.NormalClassDiscovery.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em>, <em>max_iter: int = 1000</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/data/augmentation.py#L1495"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em>, <em>max_iter: int = 1000</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/augmentation.py#L1494"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples data using normal distribution class discovery process.</p>
 <p>For the additional documentation of parameters, warnings and errors
 please see the description of the
@@ -461,7 +461,7 @@ samples from every class (with the specified proportion).</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

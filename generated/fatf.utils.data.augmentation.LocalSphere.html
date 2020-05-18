@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.utils.data.augmentation.LocalSphere &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.utils.data.augmentation.LocalSphere &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -239,7 +239,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.LocalSphere<a class="headerlink" href="#fatf-utils-data-augmentation-localsphere" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.augmentation.LocalSphere">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">LocalSphere</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/data/augmentation.py#L2068"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.LocalSphere" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">LocalSphere</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/augmentation.py#L2067"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.LocalSphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sampling data in a hyper-sphere around the selected data point.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -290,7 +290,7 @@ type is not supported at present.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.augmentation.LocalSphere.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], fidelity_radius_percentage: int = 5, samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/utils/data/augmentation.py#L2121"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.LocalSphere.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], fidelity_radius_percentage: int = 5, samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/utils/data/augmentation.py#L2120"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.LocalSphere.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples new data in a hyper-sphere around the selected data point.</p>
 <p>For the additional description of the parameters, warnings and errors
 please see the documentation of the
@@ -346,7 +346,7 @@ integer.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

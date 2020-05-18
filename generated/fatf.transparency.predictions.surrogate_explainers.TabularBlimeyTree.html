@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -27,7 +27,7 @@
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.transparency.predictions.lime.Lime" href="fatf.transparency.predictions.lime.Lime.html" />
+    <link rel="next" title="fatf.transparency.sklearn.tools.SKLearnExplainer" href="fatf.transparency.sklearn.tools.SKLearnExplainer.html" />
     <link rel="prev" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -130,8 +130,8 @@
   <p class="topless"><a href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code>.TabularBlimeyLime</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.transparency.predictions.lime.Lime.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code>.Lime</a></p>
+  <p class="topless"><a href="fatf.transparency.sklearn.tools.SKLearnExplainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code>.SKLearnExplainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -197,7 +197,7 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.transparency.predictions.lime.Lime.html"
+               href="fatf.transparency.sklearn.tools.SKLearnExplainer.html"
                accesskey="N"
                role="button">
               Next
@@ -209,7 +209,7 @@
                                right-button
                                "
                         data-container="body">
-                  fatf.transparency.predictions.lime.Lime
+                  fatf.transparency.sklearn.tools.SKLearnExplainer
                   </span>
             </a>
           </div>
@@ -250,8 +250,11 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.TabularBlimeyTree<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-tabularblimeytree" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyTree</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L1357"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyTree</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L1506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>A surrogate explainer based on a decision tree.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.1.0: </span>Added support for regression models.</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
 </div>
@@ -260,14 +263,16 @@ is learnt by the tree). The data augmentation is done with <em>Mixup</em>
 (<a class="reference internal" href="fatf.utils.data.augmentation.Mixup.html#fatf.utils.data.augmentation.Mixup" title="fatf.utils.data.augmentation.Mixup"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation.Mixup</span></code></a>) around the data point
 specified in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method. No data weighting procedure
 is used when fitting the local surrogate model.</p>
-<p>When the underlying predictive model is probabilistic
-(<code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>), the local decision tree is trained as a
-regressor of probabilities outputted by the black-box <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>.
-When the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is a non-probabilistic classifier, the local
-decision tree is a classifier that is either fitted as one-vs-rest for a
-selected class or mimics the classification problem by fitting a
-multi-class classifier.</p>
-<p>The explanation outputted by the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method is a simple
+<p>When <code class="docutils literal notranslate"><span class="pre">as_regressor</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, a surrogate regression tree is
+fitted to a black-box regression. When it is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>,
+<code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is treated as a classifier. When the underlying
+predictive model is probabilistic (<code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>), the local
+decision tree is trained as a regressor of probabilities output by the
+black-box <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>. When the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is a
+non-probabilistic classifier, the local decision tree is a classifier that
+is either fitted as one-vs-rest for a selected class or mimics the
+classification problem by fitting a multi-class classifier.</p>
+<p>The explanation output by the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method is a simple
 feature importance measure extracted from the local tree. Alternatively,
 the local tree model can be returned for further processing or visualising.</p>
 <p>Since this explainer is based on scikit-learn’s implementation of decision
@@ -307,17 +312,18 @@ contains non-numerical features.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, one_vs_rest: bool = True, samples_number: int = 50, maximum_depth: int = 3, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Dict[str, fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L1608"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, one_vs_rest: bool = True, samples_number: int = 50, maximum_depth: int = 3, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L1782"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with decision tree feature importance.</p>
-<p>By default the explanations will be produced for all of the classes,
-what can be limited by selecting a specific class with the
-<code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter. By default the local tree is learnt as
+<p>If the black-box model is a classifier, the explanations will be
+produced for all of the classes by default. This behaviour can be
+changed by selecting a specific class with the <code class="docutils literal notranslate"><span class="pre">explained_class</span></code>
+parameter. For black-box classifiers, the local tree is learnt as
 a one-vs-rest (for one class at a time or only for the selected class)
-model. This is a requirement for probabilistic black-box models as
-the local model has to be a regression (tree) of probabilities for a
-selected class. However, when the black-box model is a
-non-probabilistic classifier, the local tree can either be learnt as
-one-vs-rest or multi-class (chosen by setting the <code class="docutils literal notranslate"><span class="pre">one_vs_rest</span></code>
+model by default. This is a requirement for probabilistic black-box
+models as the local model has to be a regression (tree) of
+probabilities for a selected class. However, when the black-box model
+is a non-probabilistic classifier, the local tree can either be learnt
+as one-vs-rest or multi-class (chosen by setting the <code class="docutils literal notranslate"><span class="pre">one_vs_rest</span></code>
 parameter). The depth of the local tree can also be limited to improve
 its comprehensiveness by setting the <code class="docutils literal notranslate"><span class="pre">maximum_depth</span></code> parameter.</p>
 <p>The data sampling around the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> can be customised by
@@ -333,19 +339,22 @@ class method <a class="reference internal" href="fatf.transparency.predictions.s
 <dd class="field-odd"><dl class="simple">
 <dt><strong>data_row</strong><span class="classifier">Union[numpy.ndarray, numpy.void]</span></dt><dd><p>A data point to be explained (1-dimensional numpy array).</p>
 </dd>
-<dt><strong>explained_class</strong><span class="classifier">Union[integer, string], optional (default=None)</span></dt><dd><p>The class to be explained. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the classes will be
-explained. For probabilistic (black-box) models this can either be
-the index of the class (the column index of the probabilistic
-vector) or the class name (taken from <code class="docutils literal notranslate"><span class="pre">self.class_names</span></code>).
-For non-probabilistic (black-box) models this can either be the
-name of the class (taken from <code class="docutils literal notranslate"><span class="pre">self.class_names</span></code>), the prediction
-value (taken from <code class="docutils literal notranslate"><span class="pre">self.unique_predictions</span></code>) or the index of any
-of these two (given the lexicographical ordering of the unique
-predictions outputted by the model).</p>
+<dt><strong>explained_class</strong><span class="classifier">Union[integer, string], optional (default=None)</span></dt><dd><p>The class to be explained. This parameter is ignored when the
+black-box model is a regressor. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the classes
+will be explained. For probabilistic (black-box) models this can
+either be the index of the class (the column index of the
+probabilistic vector) or the class name (taken from
+<code class="docutils literal notranslate"><span class="pre">self.class_names</span></code>). For non-probabilistic (black-box) models
+this can either be the name of the class (taken from
+<code class="docutils literal notranslate"><span class="pre">self.class_names</span></code>), the prediction value (taken from
+<code class="docutils literal notranslate"><span class="pre">self.unique_predictions</span></code>) or the index of any of these two
+(assuming the lexicographical ordering of the unique predictions
+output by the model).</p>
 </dd>
 <dt><strong>one_vs_rest</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>A boolean indicating whether the local model should be fitted as
 one-vs-rest (required for probabilistic models) or as a multi-class
-classifier.</p>
+classifier. This parameter is ignored when the black-box model is
+a regressor.</p>
 </dd>
 <dt><strong>samples_number</strong><span class="classifier">integer, optional (default=50)</span></dt><dd><p>The number of data points sampled from the Mixup augmenter, which
 will be used to fit the local surrogate model.</p>
@@ -380,8 +389,8 @@ parameter is set to <code class="docutils literal notranslate"><span class="pre"
 <dt><strong>RuntimeError</strong></dt><dd><p>A surrogate cannot be fitted as the (black-box) predictions for
 the sampled data are of a single class or do not have the requested
 class in case of the one-vs-rest local model (only applies to
-black-box models that are non-probabilistic
-(<code class="docutils literal notranslate"><span class="pre">self.as_probabilistic=False</span></code>).</p>
+black-box models that are non-probabilistic classifiers
+(<code class="docutils literal notranslate"><span class="pre">self.as_probabilistic=False</span></code> and <code class="docutils literal notranslate"><span class="pre">self.as_regressor=False</span></code>).</p>
 </dd>
 <dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string or
 an integer. The <code class="docutils literal notranslate"><span class="pre">one_vs_rest</span></code> parameter is not a boolean.
@@ -443,7 +452,7 @@ surrogate.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

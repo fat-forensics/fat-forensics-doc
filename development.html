@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Developers Guide &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>Developers Guide &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="tutorials/index.html">Tutorials</a>
@@ -298,7 +298,7 @@ quality code and documentation to the package.</p>
 <li><p>for issues with the source code or the documentation please open an issue on
 our <cite>GitHub issue tracker</cite>;</p></li>
 <li><p>the code-related development discussion should happen on our
-<a class="reference external" href="https://gitter.im/fat-forensics/fat-forensics">gitter channel</a>;</p></li>
+<a class="reference external" href="https://gitter.im/fat-forensics">gitter channel</a>;</p></li>
 <li><p>the discussion about the project’s future and the direction of the
 development happens on our <a class="reference external" href="https://fat-forensics.slack.com">slack channel</a> and <a class="reference external" href="https://groups.google.com/forum/#!forum/fat-forensics">mailing list</a>.</p></li>
 </ul>
@@ -380,7 +380,7 @@ calling the <a class="reference internal" href="generated/fatf.setup_random_seed
 </div>
 </div>
 <div class="section" id="code-formatting">
-<h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h3>
+<span id="developers-guide-code-formatting"></span><h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h3>
 <p>When writing the code we try to follow the <a class="reference external" href="http://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.
 Code formatting adherence to this guideline can be checked with
 <em>Yet Another Python Formater</em> (<a class="reference external" href="https://github.com/google/yapf">YAPF</a>) by executing:</p>
@@ -390,7 +390,7 @@ Code formatting adherence to this guideline can be checked with
 <p>which will highlight what needs to be changed rather than reformat the code
 automatically. The configuration of <a class="reference external" href="https://github.com/google/yapf">YAPF</a> for the package can be found in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.style.yapf">.style.yapf</a> file in the root directory of the package.</p>
-<p>Code formatting is also checked with <a class="reference external" href="https://www.pylint.org/">Pylint</a> and <a class="reference external" href="http://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
+<p>Code formatting is also checked with <a class="reference external" href="https://www.pylint.org/">Pylint</a> and <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
 with the following two commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
@@ -499,7 +499,7 @@ the documentation please familiarise yourself with the <a class="reference inter
 part of the documentation.</p>
 <div class="section" id="code-documentation">
 <h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h3>
-<p>For building the documentation we use <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a>. The API
+<p>For building the documentation we use <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a>. The API
 is documented using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/">numpydoc</a> docstring syntax and structure. The code example
 galleries are generated with the <a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a> extension.</p>
 <p>To build the documentation you can execute:</p>
@@ -632,19 +632,13 @@ for completeness.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency" title="fatf.transparency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency</span></code></a></p></td>
 <td><p>The <a class="reference internal" href="api.html#module-fatf.transparency" title="fatf.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency</span></code></a> module implements various transparency algorithms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a></p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.3.</span></p>
-</div>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.data" title="fatf.transparency.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.data</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.data" title="fatf.transparency.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.data</span></code></a></p></td>
 <td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.data" title="fatf.transparency.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.data</span></code></a> module holds data transparency algorithms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.models" title="fatf.transparency.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.models</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.models" title="fatf.transparency.models"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.models</span></code></a></p></td>
 <td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.models" title="fatf.transparency.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models</span></code></a> module holds models transparency functions.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.predictions" title="fatf.transparency.predictions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.predictions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api.html#module-fatf.transparency.predictions" title="fatf.transparency.predictions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fatf.transparency.predictions</span></code></a></p></td>
 <td><p>The <a class="reference internal" href="api.html#module-fatf.transparency.predictions" title="fatf.transparency.predictions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions</span></code></a> module holds predictions transparency functions.</p></td>
 </tr>
 </tbody>
@@ -794,7 +788,7 @@ for completeness.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

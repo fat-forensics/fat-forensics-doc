@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -152,10 +152,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -239,8 +239,11 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.SurrogateTabularExplainer<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-surrogatetabularexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">SurrogateTabularExplainer</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L226"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">SurrogateTabularExplainer</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L250"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract parent class for implementing surrogate explainers.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.1.0: </span>Added support for regression models.</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
 </div>
@@ -252,10 +255,10 @@ to the <code class="docutils literal notranslate"><span class="pre">__init__</sp
 <code class="docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers._input_is_valid</span></code>
 function.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is a non-probabilistic classifier
-(<code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code>), it is advised to specify both
-<code class="docutils literal notranslate"><span class="pre">classes_number</span></code> and <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code> parameters to ensure proper
-functionality of the explainer. Please see the respective parameter
-descriptions for more details.</p>
+(<code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code> and <code class="docutils literal notranslate"><span class="pre">as_regressor=False</span></code>), it is advised to
+specify both <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> and <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code> parameters to
+ensure proper functionality of the explainer. Please see the respective
+parameter descriptions for more details.</p>
 <p>For detailed instruction how to build your own surrogate please see the
 <a class="reference internal" href="../how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a> <em>how-to guide</em>.</p>
 <div class="admonition warning">
@@ -265,9 +268,9 @@ implementations of the <code class="docutils literal notranslate"><span class="p
 classes to ensure that all of the input parameters passed to this method
 are valid.</p>
 </div>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
+<dd class="field-odd"><dl>
 <dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with a dataset (utilised in various ways
 throughout the explainer).</p>
 </dd>
@@ -283,18 +286,28 @@ have a <code class="docutils literal notranslate"><span class="pre">predict</spa
 <dt><strong>as_probabilistic</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>A boolean indicating whether the global model is probabilistic. If
 <code class="docutils literal notranslate"><span class="pre">True</span></code>, the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> must have a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>
 method. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> must have a <code class="docutils literal notranslate"><span class="pre">predict</span></code>
-method.</p>
+method. This parameter is disregarded when <code class="docutils literal notranslate"><span class="pre">as_regressor=True</span></code>.</p>
+</dd>
+<dt><strong>as_regressor</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.0.</span></p>
+</div>
+<p>A boolean indicating whether the global model is regression. If
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> must have a <code class="docutils literal notranslate"><span class="pre">predict</span></code>
+method; the <code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter is disregarded. If
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, the model is treated as a classifier – see
+<code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter.</p>
 </dd>
 <dt><strong>categorical_indices</strong><span class="classifier">List[column indices], optional (default=None)</span></dt><dd><p>A list of column indices in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> that should be
 treated as categorical features.</p>
 </dd>
 <dt><strong>class_names</strong><span class="classifier">List[string], optional (default=None)</span></dt><dd><p>A list of strings defining the names of classes. If the predictive
 model is probabilistic, the order of the class names should correspond
-to the order of columns outputted by the model. For other models the
+to the order of columns output by the model. For other models the
 order should correspond to lexicographical ordering of all the possible
 outputs of this model. For example, if the model outputs
 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'c',</span> <span class="pre">'0']</span></code> the class names should be given for
-<code class="docutils literal notranslate"><span class="pre">['0',</span> <span class="pre">'a',</span> <span class="pre">'c']</span></code> ordering.</p>
+<code class="docutils literal notranslate"><span class="pre">['0',</span> <span class="pre">'a',</span> <span class="pre">'c']</span></code> ordering. This parameter is disregarded when
+<code class="docutils literal notranslate"><span class="pre">as_regressor=True</span></code>.</p>
 </dd>
 <dt><strong>classes_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The unique number of classes modelled by the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>.
 If the model is probabilistic, setting this parameter is not required
@@ -306,7 +319,8 @@ will be predicted and the unique values will be counter therein.
 Since the latter method cannot guarantee counting all the possible
 predictions, a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code> will be emitted encouraging the user to
 specify the number of classes via the <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter.
-For non-probabilistic models it is advised to specify this parameter.</p>
+For non-probabilistic models it is advised to specify this parameter.
+This parameter is disregarded when <code class="docutils literal notranslate"><span class="pre">as_regressor=True</span></code>.</p>
 </dd>
 <dt><strong>feature_names</strong><span class="classifier">List[string], optional (default=None)</span></dt><dd><p>A list of strings defining the names of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> features. The
 order of the names should correspond to the order of features in the
@@ -314,7 +328,8 @@ order of the names should correspond to the order of features in the
 </dd>
 <dt><strong>unique_predictions</strong><span class="classifier">List[strings or integers], optional (default=None)</span></dt><dd><p>A complete list of unique predictions that the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> can
 output. This parameter is only used when the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is a
-non-probabilistic classifier (<code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code>).</p>
+non-probabilistic classifier (<code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code>).
+This parameter is disregarded when <code class="docutils literal notranslate"><span class="pre">as_regressor=True</span></code>.</p>
 </dd>
 </dl>
 </dd>
@@ -334,6 +349,10 @@ otherwise.</p>
 <dt><strong>as_probabilistic</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> should be treated as
 probabilistic and <code class="docutils literal notranslate"><span class="pre">False</span></code> if it should be treated as a classifier.</p>
 </dd>
+<dt><strong>as_regressor</strong><span class="classifier">boolean</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> should be treated as
+regression and <code class="docutils literal notranslate"><span class="pre">False</span></code> if it should be treated as a (probabilistic)
+classifier.</p>
+</dd>
 <dt><strong>predictive_model</strong><span class="classifier">object</span></dt><dd><p>A pre-trained (black-box) predictive model to be explained.</p>
 </dd>
 <dt><strong>predictive_function</strong><span class="classifier">Callable[[np.ndarray], np.ndarray]</span></dt><dd><p>A function that will be used to get predictions from the input
@@ -349,7 +368,7 @@ specified by the user, the classes will be assigned names based on the
 following pattern: ‘class %d’. If the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> is a
 classifier (<code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code>) and the number of unique
 predictions is equal to the number of classes, the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> will
-be lexicographically sorted list of the unique values outputted by the
+be lexicographically sorted list of the unique values output by the
 <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>.</p>
 </dd>
 <dt><strong>feature_names</strong><span class="classifier">List[string]</span></dt><dd><p>A list of strings defining the names of the features. If this was not
@@ -357,7 +376,7 @@ specified by the user, the features will be assigned names based on the
 following pattern: ‘feature %d’.</p>
 </dd>
 <dt><strong>unique_predictions</strong><span class="classifier">List[strings or integers] or None</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">None</span></code> for probabilistic <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>
-(<code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>) and a list of unique classes outputted by
+(<code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>) and a list of unique classes output by
 the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> if it is non-probabilistic.</p>
 </dd>
 </dl>
@@ -366,17 +385,17 @@ the <code class="docutils literal notranslate"><span class="pre">predictive_mode
 <dd class="field-odd"><dl class="simple">
 <dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> does not have the required functionality:
 <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method for probabilistic models and <code class="docutils literal notranslate"><span class="pre">predict</span></code>
-method for all other predictive models.</p>
+method for regressors and non-probabilistic classifiers.</p>
 </dd>
 <dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
 </dd>
 <dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
 parameter are not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt><strong>RuntimeError</strong></dt><dd><p>The number of columns in the probabilistic matrix outputted by the
+<dt><strong>RuntimeError</strong></dt><dd><p>The number of columns in the probabilistic matrix output by the
 <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> (when <code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>) is different
 to the number of features specified by the user via the
-<code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> has outputted
+<code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> has output
 different unique classes to the ones specified by the user via the
 <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code> parameter (checked only for non-probabilistic
 models, i.e., <code class="docutils literal notranslate"><span class="pre">as_probabilistic=False</span></code>). Either the user-specified
@@ -385,6 +404,7 @@ internal number of classes.</p>
 </dd>
 <dt><strong>TypeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string)
 type. The <code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter is not a boolean.
+The <code class="docutils literal notranslate"><span class="pre">as_regressor</span></code> parameter is not a boolean.
 The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">class_names</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code> or one of
 the elements in this list is not a string.
@@ -420,7 +440,7 @@ advised to specify the <code class="docutils literal notranslate"><span class="p
 The user has provided unique predictions via the <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code>
 parameter for a probabilistic model (<code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>),
 which are not needed and will be disregarded. The unique predictions
-had to be inferred from the predictions outputted by the
+had to be inferred from the predictions output by the
 (non-probabilistic) <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code>, therefore may be incomplete.
 It is advised to provide this list via the <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code>
 parameter to ensure proper functionality of the explainer.</p>
@@ -442,7 +462,7 @@ parameter to ensure proper functionality of the explainer.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; Any<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L680"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; Any<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L754"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains a <code class="docutils literal notranslate"><span class="pre">data_row</span></code>.</p>
 <p>This is an abstract method that must be implemented for each child
 object of this abstract class.</p>
@@ -500,7 +520,7 @@ data array used to initialise this object.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

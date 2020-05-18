@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.feature_selection.sklearn`.forward_selection
+=========================================================================
+
+.. currentmodule:: fatf.utils.data.feature_selection.sklearn
+
+.. autofunction:: forward_selection
+
+.. include:: fatf.utils.data.feature_selection.sklearn.forward_selection.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

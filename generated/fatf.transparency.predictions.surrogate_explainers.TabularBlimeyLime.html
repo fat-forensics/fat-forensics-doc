@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -250,8 +250,16 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.TabularBlimeyLime<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-tabularblimeylime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L726"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L800"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tabular LIME explainer – a surrogate explainer based on a linear model.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.1.0: </span>(1) Added support for regression models.
+(2) Changed the feature selection mechanism from k-LASSO to
+<a class="reference internal" href="fatf.utils.data.feature_selection.sklearn.forward_selection.html#fatf.utils.data.feature_selection.sklearn.forward_selection" title="fatf.utils.data.feature_selection.sklearn.forward_selection"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward_selection</span></code></a>
+when the number of selected features is less than 7, and
+<a class="reference internal" href="fatf.utils.data.feature_selection.sklearn.highest_weights.html#fatf.utils.data.feature_selection.sklearn.highest_weights" title="fatf.utils.data.feature_selection.sklearn.highest_weights"><code class="xref py py-func docutils literal notranslate"><span class="pre">highest_weights</span></code></a>
+otherwise – the default LIME behaviour.</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
 </div>
@@ -290,17 +298,26 @@ set and the <code class="docutils literal notranslate"><span class="pre">data_ro
 <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is computed and passed through an exponential kernel
 (<a class="reference internal" href="fatf.utils.kernels.exponential_kernel.html#fatf.utils.kernels.exponential_kernel" title="fatf.utils.kernels.exponential_kernel"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.kernels.exponential_kernel</span></code></a>) to get similarity scores,
 which will be used as data point weights when reducing the number of
-features with k-LASSO (see below) and training the linear regression.</p></li>
-<li><p>K-LASSO is used to limit the number of features in the explanation if
-enabled by the user. (This is controlled by the <code class="docutils literal notranslate"><span class="pre">features_number</span></code>
-parameter in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method and by default –
-<code class="docutils literal notranslate"><span class="pre">features_number=None</span></code> – the feature selection is not performed.)</p></li>
+features (see below) and training the linear regression.</p></li>
+<li><p>To limit the number of features in the explanation (if enabled by the
+user) we either use <em>forward selection</em> when the number of selected
+features is less than 7 or <em>highest weights</em> otherwise. (This is
+controlled by the <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter in the
+<code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method and by default – <code class="docutils literal notranslate"><span class="pre">features_number=None</span></code> –
+all of the feature are used.)</p></li>
 <li><p>A local (weighted) ridge regression (<code class="docutils literal notranslate"><span class="pre">sklearn.linear_model.Ridge</span></code>) is
-fitted to the sampled and binarised data with the target being a
-vector of probabilities outputted by the black-box model for the selected
-class (one-vs-rest). By default, one model is trained for all of the
-classes (<code class="docutils literal notranslate"><span class="pre">explained_class=None</span></code> in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method),
-however the class to be explained can be specified by the user.</p></li>
+fitted to the sampled and binarised data with the target being:</p>
+<ul>
+<li><p>The numerical predictions of the black-box model when the underlying
+model is a regression.</p></li>
+<li><p>A vector of probabilities output by the black-box model for the
+selected class (one-vs-rest) when the underlying model is a
+probabilistic classifier. By default, one model is trained for all of
+the classes (<code class="docutils literal notranslate"><span class="pre">explained_class=None</span></code> in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code>
+method), however the class to be explained can be specified by the
+user.</p></li>
+</ul>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -313,19 +330,22 @@ to the following question:</p>
 <div><p>“Had this particular feature value of the explained data point
 been outside of this range (for numerical features) or had a
 different value (for categorical feature), how would that influence
-the probability of this point belonging to the explained class?”</p>
+the <em>probability of this point belonging to the explained class</em>
+(probabilistic classification) / <em>predicted numerical value</em>
+(regression)?”</p>
 </div></blockquote>
 </div>
-<p>This LIME implementation is limited to black-box <strong>probabilistic</strong> models
-(similarly to the <a class="reference external" href="https://github.com/marcotcr/lime/blob/master/lime/lime_tabular.py#L357">official implementation</a>), i.e., the
-<code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> must have a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.
-In all cases the local model will be trained using the <strong>one-vs-rest</strong>
-approach since the output of the global model is an array with
-probabilities of each class (the classes to be explained can be selected
-using the <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code>
-method).
-The column indices indicated as categorical features (via the
-<code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) will not be discretised.</p>
+<p>This LIME implementation is limited to black-box
+<strong>probabilistic classifiers</strong> and <strong>regressors</strong> (similarly to the
+<a class="reference external" href="https://github.com/marcotcr/lime/blob/master/lime/lime_tabular.py#L357">official implementation</a>). Therefore, the <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> must have
+a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method for probabilistic models and <code class="docutils literal notranslate"><span class="pre">predict</span></code> method
+for regressors. When the surrogate is built for a probabilistic classifier,
+the local model will be trained using the <strong>one-vs-rest</strong> approach since
+the output of the global model is an array with probabilities of each class
+(the classes to be explained can be selected using the <code class="docutils literal notranslate"><span class="pre">explained_class</span></code>
+parameter in the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method). The column indices indicated
+as categorical features (via the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) will
+not be discretised.</p>
 <p>For detailed instructions on how to build a custom surrogate explainer
 (to avoid tinkering with this class) please see the
 <a class="reference internal" href="../how_to/transparency/tabular-surrogates.html#how-to-tabular-surrogates"><span class="std std-ref">How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers</span></a> <em>how-to guide</em>.</p>
@@ -339,9 +359,9 @@ classifier. In Proceedings of the 22nd ACM SIGKDD international
 conference on knowledge discovery and data mining (pp. 1135-1144). ACM.</p>
 </dd>
 </dl>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
+<dd class="field-odd"><dl>
 <dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array with a dataset (utilised in various ways
 throughout the explainer).</p>
 </dd>
@@ -354,12 +374,18 @@ probabilities of belonging to each class. Otherwise, if
 have a <code class="docutils literal notranslate"><span class="pre">predict</span></code> method that outputs a 1-dimensional array with
 (class) predictions.</p>
 </dd>
+<dt><strong>as_regressor</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.0.</span></p>
+</div>
+<p>A boolean indicating whether the global model should be treated as
+regression (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or probabilistic classification (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</dd>
 <dt><strong>categorical_indices</strong><span class="classifier">List[column indices], optional (default=None)</span></dt><dd><p>A list of column indices in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> that should be
 treated as categorical features.</p>
 </dd>
 <dt><strong>class_names</strong><span class="classifier">List[string], optional (default=None)</span></dt><dd><p>A list of strings defining the names of classes. If the predictive
 model is probabilistic, the order of the class names should correspond
-to the order of columns outputted by the model. For other models the
+to the order of columns output by the model. For other models the
 order should correspond to lexicographical ordering of all the possible
 outputs of this model. For example, if the model outputs
 <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'c',</span> <span class="pre">'0']</span></code> the class names should be given for
@@ -424,17 +450,24 @@ this bin will be sampled.)</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, samples_number: int = 50, features_number: Optional[int] = None, kernel_width: Optional[float] = None, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Dict[str, fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/transparency/predictions/surrogate_explainers.py#L1136"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, samples_number: int = 50, features_number: Optional[int] = None, kernel_width: Optional[float] = None, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/transparency/predictions/surrogate_explainers.py#L1235"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with linear regression feature importance.</p>
-<p>By default the explanations will be produced for all of the classes,
-what can be limited by selecting a specific class with the
-<code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter. The default <code class="docutils literal notranslate"><span class="pre">kernel_width</span></code> is computed
-as the square root of the number of features multiplied by 0.75.
-Also, by default, all of the (interpretable) features will be used
-to create an explanation, what can be limited by setting the
-<code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter. The data sampling around the
-<code class="docutils literal notranslate"><span class="pre">data_row</span></code> can be customised by specifying the number of points to be
-generated (<code class="docutils literal notranslate"><span class="pre">samples_number</span></code>).</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.1.0: </span>Changed the feature selection mechanism from k-LASSO to
+<a class="reference internal" href="fatf.utils.data.feature_selection.sklearn.forward_selection.html#fatf.utils.data.feature_selection.sklearn.forward_selection" title="fatf.utils.data.feature_selection.sklearn.forward_selection"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward_selection</span></code></a>
+when the number of selected features is less than 7, and
+<a class="reference internal" href="fatf.utils.data.feature_selection.sklearn.highest_weights.html#fatf.utils.data.feature_selection.sklearn.highest_weights" title="fatf.utils.data.feature_selection.sklearn.highest_weights"><code class="xref py py-func docutils literal notranslate"><span class="pre">highest_weights</span></code></a>
+otherwise – the default LIME behaviour.</p>
+</div>
+<p>For probabilistic classifiers the explanations will be produced for all
+of the classes by default. This can be changed by selecting a specific
+class with the <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter.</p>
+<p>The default <code class="docutils literal notranslate"><span class="pre">kernel_width</span></code> is computed as the square root of the
+number of features multiplied by 0.75. Also, by default, all of the
+(interpretable) features will be used to create an explanation, which
+can be limited by setting the <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter. The data
+sampling around the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> can be customised by specifying the
+number of points to be generated (<code class="docutils literal notranslate"><span class="pre">samples_number</span></code>).</p>
 <p>By default, this method only returns feature importance, however
 by setting <code class="docutils literal notranslate"><span class="pre">return_models</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will also return the local
 linear surrogates for further analysis and processing done outside of
@@ -451,7 +484,8 @@ class method <a class="reference internal" href="fatf.transparency.predictions.s
 <dd class="field-odd"><dl class="simple">
 <dt><strong>data_row</strong><span class="classifier">Union[numpy.ndarray, numpy.void]</span></dt><dd><p>A data point to be explained (1-dimensional numpy array).</p>
 </dd>
-<dt><strong>explained_class</strong><span class="classifier">Union[integer, string], optional (default=None)</span></dt><dd><p>The class to be explained. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the classes will be
+<dt><strong>explained_class</strong><span class="classifier">Union[integer, string], optional (default=None)</span></dt><dd><p>The class to be explained – only applicable to probabilistic
+classifiers. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all of the classes will be
 explained. This can either be the index of the class (the column
 index of the probabilistic vector) or the class name (taken from
 <code class="docutils literal notranslate"><span class="pre">self.class_names</span></code>).</p>
@@ -460,9 +494,10 @@ index of the probabilistic vector) or the class name (taken from
 will be used to fit the local surrogate model.</p>
 </dd>
 <dt><strong>features_number</strong><span class="classifier">integer, optional (default=None)</span></dt><dd><p>The maximum number of (interpretable) features – found with
-K-LASSO – to be used in the explanation (the local surrogate
-model is trained with this feature subset). By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>),
-all of the (interpretable) features will be used.</p>
+<em>forward selection</em> or <em>highest weights</em> – to be used in the
+explanation (the local surrogate model is trained with this feature
+subset). By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>), all of the (interpretable) features
+are used.</p>
 </dd>
 <dt><strong>kernel_width</strong><span class="classifier">float, optional (default=None)</span></dt><dd><p>The width of the exponential kernel used when computing weights of
 the sampled data based on the distances between the sampled data
@@ -537,7 +572,7 @@ nor an index of a class name.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

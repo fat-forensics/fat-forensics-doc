@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>Installation Instructions &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>Installation Instructions &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -318,21 +318,14 @@ modules:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.lime" title="fatf.transparency.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.lime</span></code></a></p></td>
-<td rowspan="3"><p><a class="reference external" href="https://github.com/marcotcr/lime"><code class="docutils literal notranslate"><span class="pre">lime</span></code></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.models.lime" title="fatf.transparency.models.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.lime</span></code></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.lime" title="fatf.transparency.predictions.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.lime</span></code></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a></p></td>
 <td rowspan="3"><p><a class="reference external" href="https://scikit-learn.org/stable/"><code class="docutils literal notranslate"><span class="pre">scikit-learn&gt;=0.19.2</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn" title="fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn" title="fatf.transparency.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api.html#module-fatf.vis" title="fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api.html#module-fatf.vis" title="fatf.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis</span></code></a></p></td>
 <td><p><a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib&gt;=3.0.0</span></code></a></p></td>
 </tr>
 </tbody>
@@ -345,10 +338,7 @@ modules:</p>
 <p>where <strong>xxx</strong> can be replaced with any of the following to pull appropriate
 soft dependencies during the package installation:</p>
 <dl class="simple">
-<dt>all</dt><dd><p>Installs all soft dependencies: <code class="docutils literal notranslate"><span class="pre">lime</span></code>, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> and
-<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
-</dd>
-<dt>lime</dt><dd><p>Only installs <code class="docutils literal notranslate"><span class="pre">lime</span></code> as a soft dependency.</p>
+<dt>all</dt><dd><p>Installs all soft dependencies: <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 </dd>
 <dt>ml</dt><dd><p>Only installs <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> as a soft dependency.</p>
 </dd>
@@ -408,7 +398,7 @@ reference for every function and object within the package.</p></li>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -9,7 +9,7 @@
 Examples
 ========
 
-Here you can find various examples of using FAT-Forensics.
+Here you can find various examples of using FAT Forensics.
 
 .. note::
    Please note that all of the examples using the
@@ -31,7 +31,7 @@ Here you can find various examples of using FAT-Forensics.
 Accountability Examples
 =======================
 
-Here you can find various examples of how to use FAT-Forensics to evaluate
+Here you can find various examples of how to use FAT Forensics to evaluate
 accountability -- *security*, *safety*, *robustness* and *privacy* -- of data
 sets, machine learning models and their predictions.
 
@@ -109,7 +109,7 @@ sets, machine learning models and their predictions.
 Fairness Examples
 =================
 
-Here you can find various examples of how to use FAT-Forensics to evaluate and
+Here you can find various examples of how to use FAT Forensics to evaluate and
 mitigate a range of fairness aspects of data sets, machine learning models and
 their predictions.
 
@@ -187,7 +187,7 @@ their predictions.
 Transparency Examples
 =====================
 
-Here you can find various examples of how to use FAT-Forensics to explain and
+Here you can find various examples of how to use FAT Forensics to explain and
 interpret data sets, machine learning models and their predictions.
 
 

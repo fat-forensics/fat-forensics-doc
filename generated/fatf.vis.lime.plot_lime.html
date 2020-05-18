@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
   
-    <title>fatf.vis.lime.plot_lime &#8212; FAT Forensics 0.0.2 documentation</title>
+    <title>fatf.vis.lime.plot_lime &#8212; FAT Forensics 0.1.0 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
        alt="Logo"
        width="35" height="35"
        class="d-inline-block align-middle">
-      FAT-Forensics
+      FAT Forensics
     </a>
 
     <button class="navbar-toggler"
@@ -64,7 +64,7 @@
             Documentation
           </a>
           <div class="dropdown-menu">
-            <div class="dropdown-header">FAT-Forensics</div>
+            <div class="dropdown-header">FAT Forensics</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
             <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
@@ -160,10 +160,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.0.2)
+                API Reference (0.1.0)
               </span>
               
             </a>
@@ -250,21 +250,27 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.vis.lime" title="fatf.vis.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.lime</span></code></a>.plot_lime<a class="headerlink" href="#fatf-vis-lime-plot-lime" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.vis.lime.plot_lime">
-<code class="descclassname">fatf.vis.lime.</code><code class="descname">plot_lime</code><span class="sig-paren">(</span><em>lime_explanation: Union[List[Tuple[str, float]], Dict[str, List[Tuple[str, float]]], Dict[str, Dict[str, float]]]</em><span class="sig-paren">)</span> &#x2192; matplotlib.figure.Figure<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0fd975e/fatf/vis/lime.py#L19"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.lime.plot_lime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots a LIME explanation.</p>
-<p>This plotting function is intended for the
-<a class="reference internal" href="fatf.transparency.lime.Lime.html#fatf.transparency.lime.Lime" title="fatf.transparency.lime.Lime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.lime.Lime</span></code></a>, <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> and <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree</span></code></a>  explainers.</p>
+<code class="descclassname">fatf.vis.lime.</code><code class="descname">plot_lime</code><span class="sig-paren">(</span><em>surrogate_explanation: Union[Dict[str, float], Dict[str, Dict[str, float]]]</em><span class="sig-paren">)</span> &#x2192; matplotlib.figure.Figure<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0bb69b2/fatf/vis/lime.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.lime.plot_lime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots an importance-based surrogate explanation, e.g., LIME.</p>
+<p>This plotting function is intended for the <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> and <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree</span></code></a> explainers.
+When multiple explanations are provided, they will share a common y-axis
+if they use the same set of interpretable features.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>lime_explanation</strong><span class="classifier">Dictionary[string, List[Tuple[string, float]]] or Dictionary[string, Dictionary[string, float]] or List[Tuple[string, float]]</span></dt><dd><p>An explanation returned by the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method of the LIME
-explainer or one of the surrogate explainers. For a classifier this
-will be a dictionary where the keys are class names and the values are
-either lists of 2-tuples or dictionaries where the first element (key)
-is an explanatory feature name and the second element (value) is the
-importance of this explanatory feature. For regressor explanations this
-will be simply a list of 2-tuples of the same structure as for the
-classifier.</p>
+<dt><strong>surrogate_explanation</strong><span class="classifier">Dictionary[string, float] or Dictionary[string, Dictionary[string, float]]</span></dt><dd><p>An explanation returned by the <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> method of a
+surrogate explainer. For a classifier this will be a dictionary where
+the keys are class names and the values are dictionaries where the key
+is an interpretable feature name and the value is the importance of
+this interpretable feature. For regressor explanations this will be
+a dictionary where the key is an interpretable feature name and the
+value is the importance of this interpretable feature.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.1.0: </span>Dropped support for LIME explanation format:
+<code class="docutils literal notranslate"><span class="pre">List[Tuple[string,</span> <span class="pre">float]]</span></code> for regressors and
+<code class="docutils literal notranslate"><span class="pre">Dictionary[string,</span> <span class="pre">List[Tuple[string,</span> <span class="pre">float]]]</span></code> for probabilistic
+classifiers.</p>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.0.2: </span>Support for surrogate explainer explanations of the form:
 <code class="docutils literal notranslate"><span class="pre">Dictionary[string,</span> <span class="pre">Dictionary[string,</span> <span class="pre">float]]</span></code>.</p>
@@ -274,17 +280,18 @@ classifier.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>figure</strong><span class="classifier">matplotlib.pyplot.Figure</span></dt><dd><p>A matplotlib figure with subplots explaining every label in LIME
+<dt><strong>figure</strong><span class="classifier">matplotlib.pyplot.Figure</span></dt><dd><p>A matplotlib figure with subplots explaining every label in a surrogate
 explanation.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">lime_explanation</span></code> parameter is not a list (regression) or a
-dictionary (classification). One of the class names is not a string.
-One of the explanatory features is not a string. One of the explanatory
-values is not a number.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">surrogate_explanation</span></code> parameter is not a dictionary. One of the
+class names is not a string. One of the interpretable feature names is
+not a string. One of the importance values is not a number.</p>
+</dd>
+<dt><strong>ValueError</strong></dt><dd><p>One of the explanations is an empty dictionary.</p>
 </dd>
 </dl>
 </dd>
@@ -317,7 +324,7 @@ values is not a number.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2019, Kacper Sokol et al.
+        &copy; 2018--2020, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
