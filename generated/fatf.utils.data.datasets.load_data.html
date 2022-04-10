@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.datasets.load_data &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.datasets.load_data &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.datasets.load_data.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-datasets-load-data">
+  <section id="fatf-utils-data-datasets-load-data">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.datasets" title="fatf.utils.data.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.datasets</span></code></a>.load_data<a class="headerlink" href="#fatf-utils-data-datasets-load-data" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.datasets.load_data">
-<code class="descclassname">fatf.utils.data.datasets.</code><code class="descname">load_data</code><span class="sig-paren">(</span><em>file_path: str, dtype: Union[None, type, numpy.dtype, str, List[Tuple[str, str]], List[Tuple[str, numpy.dtype]]] = None, feature_names: List[str] = None</em><span class="sig-paren">)</span> &#x2192; Dict[str, numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/datasets.py#L142"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.datasets.load_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.data.datasets.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">dtype=None</em>, <em class="sig-param">feature_names=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/datasets.py#L142"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.datasets.load_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a dataset from a file.</p>
 <p>The dataset file must be formatted in the <em>comma separated value</em> (<em>csv</em>)
 standard with <code class="docutils literal notranslate"><span class="pre">,</span></code> used as the delimiter. The first row of the file must
@@ -288,14 +289,14 @@ information under the following keys: ‘data’, ‘target’, ‘target_names�
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>If provided, one of the feature names in the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code>
+<dt>TypeError</dt><dd><p>If provided, one of the feature names in the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code>
 parameter is not a string; the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> parameter is neither
 of the allowed types (None or a list); the first element of one of the
 <code class="docutils literal notranslate"><span class="pre">dtype</span></code> tuples is not a string or the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter is neither
 of the allowed types (None, a list of tuples, a built-in Python type,
 numpy’s dtype or a string representation of a numpy’s dtype).</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The number of feature names is inconsistent with the data header, the
+<dt>ValueError</dt><dd><p>The number of feature names is inconsistent with the data header, the
 feature names are provided both in the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> and <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
 parameters, a tuple in the list of complex <code class="docutils literal notranslate"><span class="pre">dtype</span></code>s is
 malformatted, or the number of type definitions in the <code class="docutils literal notranslate"><span class="pre">dtype</span></code>
@@ -306,7 +307,7 @@ parameter is inconsistent with the number of features in the dataset.</p>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -321,7 +322,7 @@ parameter is inconsistent with the number of features in the dataset.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

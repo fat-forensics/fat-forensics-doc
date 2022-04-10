@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Measuring Fairness of a Predictive Model – Disparate Impact &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Measuring Fairness of a Predictive Model – Disparate Impact &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
@@ -142,15 +143,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -254,7 +255,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
 </div>
-<div class="sphx-glr-example-title section" id="measuring-fairness-of-a-predictive-model-disparate-impact">
+<section class="sphx-glr-example-title" id="measuring-fairness-of-a-predictive-model-disparate-impact">
 <span id="sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"></span><h1>Measuring Fairness of a Predictive Model – Disparate Impact<a class="headerlink" href="#measuring-fairness-of-a-predictive-model-disparate-impact" title="Permalink to this headline">¶</a></h1>
 <p>This example illustrates how to measure Disparate Impact of a predictive model.
 In this example we measure the three most common Disparate Impact measures:</p>
@@ -324,7 +325,7 @@ would need to be pre-processed first.</p>
                                             <span class="n">grouping_name_j</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="section" id="equal-accuracy">
+<section id="equal-accuracy">
 <h2>Equal Accuracy<a class="headerlink" href="#equal-accuracy" title="Permalink to this headline">¶</a></h2>
 <p>First, let’s measure whether the model is fair according to the Equal
 Accuracy metric.</p>
@@ -340,8 +341,8 @@ Accuracy metric.</p>
     * The fairness metric is satisfied for &quot;(&#39;female&#39;,)&quot; and &quot;(&#39;male&#39;,)&quot; sub-populations.
 </pre></div>
 </div>
-</div>
-<div class="section" id="equal-opportunity">
+</section>
+<section id="equal-opportunity">
 <h2>Equal Opportunity<a class="headerlink" href="#equal-opportunity" title="Permalink to this headline">¶</a></h2>
 <p>Now, let’s see whether the model is fair according to the Equal Opportunity
 metric.</p>
@@ -357,8 +358,8 @@ metric.</p>
     * The fairness metric is satisfied for &quot;(&#39;female&#39;,)&quot; and &quot;(&#39;male&#39;,)&quot; sub-populations.
 </pre></div>
 </div>
-</div>
-<div class="section" id="demographic-parity">
+</section>
+<section id="demographic-parity">
 <h2>Demographic Parity<a class="headerlink" href="#demographic-parity" title="Permalink to this headline">¶</a></h2>
 <p>Finally, let’s measure the Demographic Parity of the model.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the Demographic Parity binary matrix</span>
@@ -378,21 +379,21 @@ metric.</p>
 <p>Based on these results we can easily see that <strong>Demographic Parity</strong> is the
 only fairness metric that is violated.</p>
 <hr class="docutils" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.068 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.113 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/9c29922fd8b510b1976ac72387761acf/xmpl_fairness_models_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_models_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/bf7ca3a5d77258c506a460f5c96112eb/xmpl_fairness_models_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_models_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/927c491c786a15a8dc18c5a2d2cb2072/xmpl_fairness_models_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_models_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/59bead30ffaa81934dc423fd2ad39d88/xmpl_fairness_models_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_models_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -407,7 +408,7 @@ only fairness metric that is violated.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

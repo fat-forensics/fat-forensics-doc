@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>fatf.utils.data.occlusion.Occlusion &#8212; FAT Forensics 0.1.1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.occlusion.Occlusion.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.segmentation.Segmentation" href="fatf.utils.data.segmentation.Segmentation.html" />
+    <link rel="prev" title="fatf.utils.data.feature_selection.sklearn.highest_weights" href="fatf.utils.data.feature_selection.sklearn.highest_weights.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.highest_weights</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.segmentation.Segmentation.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code>.Segmentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.occlusion.Occlusion.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference (0.1.1)
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.1.1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.feature_selection.sklearn.highest_weights.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.feature_selection.sklearn.highest_weights
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.segmentation.Segmentation.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.segmentation.Segmentation
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code>.Occlusion</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fatf-utils-data-occlusion-occlusion">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.occlusion" title="fatf.utils.data.occlusion"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code></a>.Occlusion<a class="headerlink" href="#fatf-utils-data-occlusion-occlusion" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.occlusion.Occlusion">
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.occlusion.</code><code class="sig-name descname">Occlusion</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">segments</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L31"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements functionality for (partiall) occlusion a segmented image.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.1.</span></p>
+</div>
+<p>This class allows to occlude specified segments of an image with
+a selected colouring strategy.
+This class is designed for images represented as numpy arrays with their
+values in the 0–255 range:</p>
+<ul class="simple">
+<li><p>2-dimensional arrays for grayscale (0–255 range) and
+black-and-white (0 and 255 valued) images; and</p></li>
+<li><p>3-dimensional arrays for colour images.</p></li>
+</ul>
+<p>The colouring strategy used by this class can be overwritten either with
+the <code class="docutils literal notranslate"><span class="pre">set_colouring_strategy</span></code> method or by directly setting the
+<code class="docutils literal notranslate"><span class="pre">colouring_strategy</span></code> attribute, both of which will perform the
+necessary validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array representing an image to be occluded.</p>
+</dd>
+<dt><strong>segments</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array defining segmentation of an image
+(each unique integer – in sequence starting at 1 – indicates segment
+id of the pixel at this coordinate).</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">string, integer or tuple(integer, integer, integer), optional (default=None)</span></dt><dd><p>One of the colour specifier strings: <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>, <code class="docutils literal notranslate"><span class="pre">'black'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'white'</span></code>, <code class="docutils literal notranslate"><span class="pre">'red'</span></code>, <code class="docutils literal notranslate"><span class="pre">'green'</span></code>, <code class="docutils literal notranslate"><span class="pre">'blue'</span></code>, <code class="docutils literal notranslate"><span class="pre">'pink'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'random'</span></code>, <code class="docutils literal notranslate"><span class="pre">'random-patch'</span></code>, <code class="docutils literal notranslate"><span class="pre">'randomise'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'randomise-patch'</span></code>.
+For black-and-white and grayscale images it can be an integer
+specifying respectively black or white (0 or 255)
+and intensity (0–255).
+RGB images, on the other hand, accept RGB triplets.
+See the documentation of the
+<a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion.Occlusion.set_colouring_strategy</span></code></a>
+method for more details.
+By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) the mean-colour occlusion is selected for colour
+and grayscale images, and black occlusion for black-and-white images.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array representing an image to be occluded.</p>
+</dd>
+<dt><strong>segments</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array representing segmentation of the <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p>
+</dd>
+<dt><strong>is_rgb</strong><span class="classifier">boolean</span></dt><dd><p>Indicates whether the <code class="docutils literal notranslate"><span class="pre">image</span></code> is RGB or grayscale/black-and-white.</p>
+</dd>
+<dt><strong>is_bnw</strong><span class="classifier">boolean</span></dt><dd><p>Indicates whether the <code class="docutils literal notranslate"><span class="pre">image</span></code> is black-and-white.</p>
+</dd>
+<dt><strong>unique_segments</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 1-D numpy array holding unique segmentation ids.</p>
+</dd>
+<dt><strong>segments_number</strong><span class="classifier">integer</span></dt><dd><p>The number of segments.</p>
+</dd>
+<dt><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.colouring_strategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colouring_strategy</span></code></a><span class="classifier">callable(image indices)</span></dt><dd><p>Retrieves the colouring strategy.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is not 2-dimensional.
+The the height or width the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array does not agree with
+the dimensions of the segmented image.</p>
+</dd>
+<dt>RuntimeError</dt><dd><p>A black-and-white image does not use 0 as black and 1 or 255 as white.
+The mean-colour occlusion was selected for a black-and-white image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is either a structured numpy array or it is not a
+numerical array.
+The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is either a structured numpy array or
+it is not an integer-valued array.
+The colour specifier is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string, an integer or
+a tuple; or one of the tuple elements is not an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The elements of the input <code class="docutils literal notranslate"><span class="pre">image</span></code> are not integers in
+the 0–255 range.
+The unique elements of the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array do not form a continuous
+sequence starting at 1.
+The colour string specifier refers to an unknown colouring
+strategy name.
+An colour integer specifier for a black-and-white image is neither
+0 for black nor 1 or 255 for white.
+A colour component for an RGB image or pixel intensity for a grayscale
+image is outside of the 0–255 range.
+An RGB colour specifier is not a 3-tuple.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="fatf.utils.data.occlusion.Occlusion.occlude_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments</span></code></a>(segments_subset[, image, …])</p></td>
+<td><p>Generates the image with a specified subset of segments occluded.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments_vectorised</span></code></a>(…[, image, colour])</p></td>
+<td><p>Generates multiple images with a selected subsets of segments occluded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_colouring_strategy</span></code></a>(colour)</p></td>
+<td><p>Selects the colouring strategy.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.occlusion.Occlusion.colouring_strategy">
+<em class="property">property </em><code class="sig-name descname">colouring_strategy</code><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.colouring_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the colouring strategy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments">
+<code class="sig-name descname">occlude_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_subset</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L424"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the image with a specified subset of segments occluded.</p>
+<p>The occlusion is applied on top of the image used to initialise this
+class; alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same type and
+dimensions can be supplied.
+If a colouring strategy different to the one of the class is desired,
+it can be specified via the <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments_subset</strong><span class="classifier">intiger or list(integer)</span></dt><dd><p>An id of a specific segment or a list of segment ids to be
+occluded.</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, this <code class="docutils literal notranslate"><span class="pre">image</span></code> will be occluded instead of the one
+used to initialise this class.</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">string, integer, tuple(integer, integer, integer), optional (default=None)</span></dt><dd><p>A colour specifier.
+By default (colour=None) the colouring strategy of the class is
+used.
+See the documentation of the
+<a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion.Occlusion.set_colouring_strategy</span></code></a>
+method for more details.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image_occluded</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image with the selected subset of
+segments occluded.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+The the height, width or the number of channels in the <code class="docutils literal notranslate"><span class="pre">image</span></code>
+array does not agree with the same parameters of the class image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither an integer nor a list
+of integers; one of the segment ids in this list is not an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+for the class segmentation or some of its elements are duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised">
+<code class="sig-name descname">occlude_segments_vectorised</code><span class="sig-paren">(</span><em class="sig-param">vectorised_segments_subset</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L521"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates multiple images with a selected subsets of segments occluded.</p>
+<p>The segments to be occluded are provided as boolean vectors;
+either a 1-D numpy array of length equal to the number of segments
+to produce a single occluded image, or a 2-D array where each row
+represents a separate occlusion pattern.
+In this format the n-th element or column corresponds to the the
+n+1 segment id;
+1 indicates that the segment should be preserved and 0 that it should
+be occluded.</p>
+<p>The occlusion is applied on top of the image used to initialise this
+class; alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same type and
+dimensions can be supplied.
+If a colouring strategy different to the one of the class is desired,
+it can be specified via the <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>vectorised_segments_subset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 1-D boolean occlusion vector of the length equal to the number of
+segments or a 2-D boolean matrix of the (number of occlusion images
+to generate X number of segments) shape.</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, this <code class="docutils literal notranslate"><span class="pre">image</span></code> will be occluded instead of the one
+used to initialise this class.</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">string, integer, tuple(integer, integer, integer), optional (default=None)</span></dt><dd><p>A colour specifier.
+By default (<code class="docutils literal notranslate"><span class="pre">colour=None</span></code>) the colouring strategy of the class is
+used.
+See the documentation of the
+<a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion.Occlusion.set_colouring_strategy</span></code></a>
+method for more details.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image_occluded</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image(s) with the selected subset(s) of
+segments occluded.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is neither 1- nor
+2-dimensional.
+The number of elements in <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> (when it
+is 1-D) does not correspond to the number of segments.
+The number of columns in <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> (when it is
+2-D) does not correspond to the number of segments.
+The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+The the height, width or the number of channels in the <code class="docutils literal notranslate"><span class="pre">image</span></code>
+array does not agree with the same parameters of the class image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is not boolean.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy">
+<code class="sig-name descname">set_colouring_strategy</code><span class="sig-paren">(</span><em class="sig-param">colour</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L184"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the colouring strategy.</p>
+<p>For colour images this can be specified with one of the following
+strings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'mean'</span></code> – the mean RGB colour of each segment;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'black'</span></code> – RGB black (0, 0, 0);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'white'</span></code> – RGB white (255, 255, 255);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'red'</span></code> – RGB white (255, 0, 0);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'green'</span></code> – RGB white (0, 255, 0);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'blue'</span></code> – RGB white (0, 0, 255);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pink'</span></code> – RGB white (255, 192, 203);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random'</span></code> – a single random RGB colour for all the segments;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random-patch'</span></code> – a separate random RGB colour for each segment;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'randomise'</span></code> – for each occlusion procedure randomly select
+a single RGB occlusion colour for all the segments; or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'randomise-patch'</span></code> – for each occlusion procedure randomly select
+a separate random RGB colour for each segment.</p></li>
+</ul>
+<p>Alternatively, it can be a user-defined RGB colour provided as a
+3-tuple with values in the 0–255 range.
+For black-and-white and grayscale images the string specifier can be
+one of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'black'</span></code> – black (0);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'white'</span></code> – white (255);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random'</span></code> – a single random 0–255 intensity for all the segments
+for grayscale images and one of 0 or 255 for black-and-white images;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'random-patch'</span></code> – a separate random intensity for each segment;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'randomise'</span></code> – for each occlusion procedure randomly select
+a single occlusion intensity for all the segments; or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'randomise-patch'</span></code> – for each occlusion procedure randomly select
+a separate random intensity for each segment.</p></li>
+</ul>
+<p>Alternatively, it can be a user-defined intensity provided as an
+integer with values in the 0–255 range for grayscale images or 0 or
+255 for black-and-white images.</p>
+<p>The colouring strategy is constructed as a callable object (a function)
+that takes in a boolean numpy array of the same dimensions as
+<code class="docutils literal notranslate"><span class="pre">segments</span></code> and returns a numpy array with the colours generated
+according to the desired colouring strategy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed as the <code class="docutils literal notranslate"><span class="pre">colour</span></code>, the mean-colour occlusion
+is selected.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>colour</strong><span class="classifier">string, integer, tuple(integer, integer, integer) or None</span></dt><dd><p>A colour specifier.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><dl class="simple">
+<dt>RuntimeError</dt><dd><p>The mean-colour occlusion was selected for a black-and-white image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The colour specifier is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string, an integer or
+a tuple; or one of the tuple elements is not an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The colour string specifier refers to an unknown colouring
+strategy name.
+An colour integer specifier for a black-and-white image is neither
+0 for black nor 1 or 255 for white.
+A colour component for an RGB image or pixel intensity for a
+grayscale image is outside of the 0–255 range.
+An RGB colour specifier is not a 3-tuple.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></section>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2022, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.occlusion.Occlusion.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

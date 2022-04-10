@@ -1,6 +1,0 @@
-fatf.utils.testing.warnings.DEFAULT\_WARNINGS
-=============================================
-
-.. currentmodule:: fatf.utils.testing.warnings
-
-.. autodata:: DEFAULT_WARNINGS

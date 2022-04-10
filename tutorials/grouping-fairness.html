@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Using Grouping to Evaluate Fairness of Data and Models &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Using Grouping to Evaluate Fairness of Data and Models &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/tutorials/grouping-fairness.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -143,15 +144,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -252,7 +253,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="using-grouping-to-evaluate-fairness-of-data-and-models-group-based-fairness">
+  <section id="using-grouping-to-evaluate-fairness-of-data-and-models-group-based-fairness">
 <span id="tutorials-grouping-fairness"></span><h1>Using Grouping to Evaluate Fairness of Data and Models – Group-Based Fairness<a class="headerlink" href="#using-grouping-to-evaluate-fairness-of-data-and-models-group-based-fairness" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
 <p class="topic-title">Tutorial Contents</p>
@@ -300,7 +301,7 @@ it.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> for a <strong>fail</strong>ed treatment and</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> for a <strong>success</strong>ful one.</p></li>
 </ul>
-<div class="section" id="grouping-the-data-set">
+<section id="grouping-the-data-set">
 <h2>Grouping the Data Set<a class="headerlink" href="#grouping-the-data-set" title="Permalink to this headline">¶</a></h2>
 <p>In this section we will look into the distribution of the ground truth
 (labeling) for sub-populations achieved by splitting the health records data
@@ -320,12 +321,12 @@ grouping skills that we have learnt in the
 <p>Therefore, the data points with indices
 <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">6,</span> <span class="pre">9,</span> <span class="pre">12,</span> <span class="pre">13,</span> <span class="pre">14,</span> <span class="pre">16,</span> <span class="pre">17,</span> <span class="pre">18,</span> <span class="pre">19]</span></code> are <code class="docutils literal notranslate"><span class="pre">'female'</span></code>s and the
 data points with indices <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">10,</span> <span class="pre">11,</span> <span class="pre">15,</span> <span class="pre">20]</span></code> are <code class="docutils literal notranslate"><span class="pre">'male'</span></code>s.</p>
-</div>
-<div class="section" id="labelling-disparity">
+</section>
+<section id="labelling-disparity">
 <span id="tutorials-grouping-fairness-labelling-disparity"></span><h2>Labelling Disparity<a class="headerlink" href="#labelling-disparity" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have <code class="docutils literal notranslate"><span class="pre">'gender'</span></code>-based grouping we can investigate how target
 labels are distributed for different genders. To this end, we will use numpy’s
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.unique.html#numpy.unique" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unique</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">return_counts</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="(in NumPy v1.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unique</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">return_counts</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">target_female</span> <span class="o">=</span> <span class="n">hr_target</span><span class="p">[</span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_female</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span>
@@ -380,8 +381,8 @@ females are:</p>
 </pre></div>
 </div>
 <p>which are acceptable if we assume a threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p>
-</div>
-<div class="section" id="predictive-disparity-of-a-model">
+</section>
+<section id="predictive-disparity-of-a-model">
 <span id="tutorials-grouping-fairness-model-disparity"></span><h2>Predictive Disparity of a Model<a class="headerlink" href="#predictive-disparity-of-a-model" title="Permalink to this headline">¶</a></h2>
 <p>Now, let us inspect group-based fairness of a predictive model. To this end, we
 first need to train a model:</p>
@@ -478,8 +479,8 @@ them equally well.</p>
 <p>The <a class="reference internal" href="grouping-robustness.html#tutorials-grouping-robustness"><span class="std std-ref">next tutorial</span></a> shows how to use
 grouping to inspect <em>accountability</em> of data and predictive models. Next, we
 will move on to transparency of models and their predictions.</p>
-</div>
-<div class="section" id="relevant-fat-forensics-examples">
+</section>
+<section id="relevant-fat-forensics-examples">
 <h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
 <p>The following examples provide more structured and code-focused use-cases of
 the group-based fairness metrics and the data set fairness approaches:</p>
@@ -487,8 +488,8 @@ the group-based fairness metrics and the data set fairness approaches:</p>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"><span class="std std-ref">Measuring Fairness of a Predictive Model – Disparate Impact</span></a>,</p></li>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -503,7 +504,7 @@ the group-based fairness metrics and the data set fairness approaches:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

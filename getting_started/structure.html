@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>About the Package &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>About the Package &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/getting_started/structure.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -150,15 +151,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -266,7 +267,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="about-the-package">
+  <section id="about-the-package">
 <span id="id1"></span><h1>About the Package<a class="headerlink" href="#about-the-package" title="Permalink to this headline">¶</a></h1>
 <p>FAT Forensics is a Python package – supporting <strong>Python 3.5</strong> and up – that
 implements the state of the art <strong>Fairness</strong>, <strong>Accountability</strong> and
@@ -285,13 +286,13 @@ Programming Interface (API).</p>
 being developed with the best software engineering practices in mind. Many
 other packages in this space are a research output, therefore unintentionally
 skewing their development towards particular research goals, hence forfeiting
-flexibility. On the other hand, FAT Forensics is <a class="reference external" href="https://travis-ci.com/fat-forensics/fat-forensics">tested</a> and supported by
+flexibility. On the other hand, FAT Forensics is <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/actions/workflows/tests.yml">tested</a> and supported by
 <a class="reference internal" href="../how_to/index.html#how-to-guide"><span class="std std-ref">how to guides</span></a>, <a class="reference internal" href="../tutorials/index.html#tutorials"><span class="std std-ref">tutorials</span></a>,
 <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">user guides</span></a> and
 <a class="reference internal" href="../sphinx_gallery_auto/index.html#sphx-glr-sphinx-gallery-auto"><span class="std std-ref">examples</span></a> on top of the
 <a class="reference internal" href="../api.html#api-ref"><span class="std std-ref">raw API documentation</span></a>. All of this components contribute to a
 package that is robust and easy to use, contribute and maintain.</p>
-<div class="section" id="use-cases">
+<section id="use-cases">
 <h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
 <p>We envisage two main use cases for the package, each supported by distinct
 features implemented to support it:</p>
@@ -299,7 +300,7 @@ features implemented to support it:</p>
 <li><p>an interactive <em>research</em> mode and</p></li>
 <li><p>a deployment mode for monitoring FAT aspects of a predictive system.</p></li>
 </ul>
-<div class="section" id="interactive-research">
+<section id="interactive-research">
 <h3>Interactive (Research)<a class="headerlink" href="#interactive-research" title="Permalink to this headline">¶</a></h3>
 <p>In a research mode – data in, visualisation out – the tool can be loaded into
 an interactive Python session, e.g., a Jupyter Notebook, to support prototyping
@@ -310,8 +311,8 @@ launch them in <a class="reference external" href="https://mybinder.org/v2/gh/fa
 <p>This mode is intended for FAT researchers who, for example, can use it to
 propose new fairness metrics, compare them with the existing ones or use them
 to inspect a new system or a data set.</p>
-</div>
-<div class="section" id="deployment-monitoring">
+</section>
+<section id="deployment-monitoring">
 <h3>Deployment (Monitoring)<a class="headerlink" href="#deployment-monitoring" title="Permalink to this headline">¶</a></h3>
 <p>In a deployment mode – data in, data out – the tool can be used as a part of
 a data processing pipeline to provide a (numerical) FAT analytics, hence
@@ -322,16 +323,16 @@ a back-end.</p>
 or evaluate a Machine Learning system in pre-production, i.e. development and
 deployment (train-deploy-monitor life-cycle), production (e.g., certification)
 and post-production (e.g., reporting).</p>
-</div>
-</div>
-<div class="section" id="structure-of-the-package">
+</section>
+</section>
+<section id="structure-of-the-package">
 <h2>Structure of the Package<a class="headerlink" href="#structure-of-the-package" title="Permalink to this headline">¶</a></h2>
 <p>The algorithms implemented by the package can be categorised along two main
 axes: the <strong>type of algorithm</strong> (Fairness, Accountability and Transparency) and
 the <strong>part of a data processing pipeline</strong> to which it is applicable (data,
 models and predictions). The following table summarises this landscape and
 names the main techniques implemented by FAT Forensics for each intersection.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 29%" />
@@ -379,6 +380,7 @@ bias</p></li>
 <li><p>Partial dependence</p></li>
 <li><p>Individual conditional
 expectation</p></li>
+<li><p>Submodular pick</p></li>
 </ul>
 </td>
 </tr>
@@ -393,12 +395,14 @@ expectation</p></li>
 <li><p>Counterfactuals</p></li>
 <li><p>Tabular bLIMEy (LIME
 alternative)</p></li>
+<li><p>Image bLIMEy (LIME
+alternative)</p></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="fairness">
+<section id="fairness">
 <h3>Fairness<a class="headerlink" href="#fairness" title="Permalink to this headline">¶</a></h3>
 <p>The <em>Fairness</em> part of the package is concerned with the broad field of
 algorithmic fairness. It contains algorithms that can measure, evaluate and
@@ -419,8 +423,8 @@ consult the following parts of the documentation:</p>
 <li><p><a class="reference internal" href="../how_to/index.html#how-to-fairness"><span class="std std-ref">fairness how to guides</span></a> and</p></li>
 <li><p><a class="reference internal" href="../api.html#module-fatf.fairness" title="fatf.fairness"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness</span></code></a> module API documentation.</p></li>
 </ul>
-</div>
-<div class="section" id="accountability">
+</section>
+<section id="accountability">
 <h3>Accountability<a class="headerlink" href="#accountability" title="Permalink to this headline">¶</a></h3>
 <p>The <em>Accountability</em> part of the package is concerned with <strong>safety</strong>,
 <strong>security</strong>, <strong>robustness</strong> and <strong>privacy</strong> of predictive systems. It contains
@@ -441,8 +445,8 @@ please consult the following parts of the documentation:</p>
 <li><p><a class="reference internal" href="../how_to/index.html#how-to-accountability"><span class="std std-ref">accountability how to guides</span></a> and</p></li>
 <li><p><a class="reference internal" href="../api.html#module-fatf.accountability" title="fatf.accountability"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.accountability</span></code></a> module API documentation.</p></li>
 </ul>
-</div>
-<div class="section" id="transparency">
+</section>
+<section id="transparency">
 <h3>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
 <p>The <em>Transparency</em> part of the package is concerned with <strong>explainability</strong>,
 <strong>interpretability</strong> and <strong>intelligibility</strong> of predictive systems. It contains
@@ -464,9 +468,9 @@ please consult the following parts of the documentation:</p>
 <li><p><a class="reference internal" href="../how_to/index.html#how-to-transparency"><span class="std std-ref">transparency how to guides</span></a> and</p></li>
 <li><p><a class="reference internal" href="../api.html#module-fatf.transparency" title="fatf.transparency"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency</span></code></a> module API documentation.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -481,7 +485,7 @@ please consult the following parts of the documentation:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

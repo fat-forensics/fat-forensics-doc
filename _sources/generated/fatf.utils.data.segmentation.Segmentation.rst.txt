@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.segmentation`.Segmentation
+=======================================================
+
+.. currentmodule:: fatf.utils.data.segmentation
+
+.. autoclass:: Segmentation
+
+.. include:: fatf.utils.data.segmentation.Segmentation.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Explaining Machine Learning Predictions &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Explaining Machine Learning Predictions &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/tutorials/prediction-explainability.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -146,15 +147,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -258,7 +259,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="explaining-machine-learning-predictions-lime-and-counterfactuals">
+  <section id="explaining-machine-learning-predictions-lime-and-counterfactuals">
 <span id="tutorials-prediction-explainability"></span><h1>Explaining Machine Learning Predictions: LIME and Counterfactuals<a class="headerlink" href="#explaining-machine-learning-predictions-lime-and-counterfactuals" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
 <p class="topic-title">Tutorial Contents</p>
@@ -364,7 +365,7 @@ each class, we will use data points with indices 24, 74 and 124:</p>
 <span class="go">&#39;virginica&#39;</span>
 </pre></div>
 </div>
-<div class="section" id="counterfactual-explanations">
+<section id="counterfactual-explanations">
 <h2>Counterfactual Explanations<a class="headerlink" href="#counterfactual-explanations" title="Permalink to this headline">¶</a></h2>
 <p>A counterfactual explanation attempts to identify the smallest (according to an
 arbitrary distance metric) possible change in the feature vector that causes a
@@ -430,7 +431,7 @@ of setosa) is more similar to versicolor than virginica.</p>
 <p>The small differences in some of the features and duplicated counterfactual
 data points are due to numerical instabilty of floating point numbers and
 have nothing to do with the counterfactuals. This can be resolved with
-<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.around.html#numpy.around" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.around</span></code></a>:</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.around.html#numpy.around" title="(in NumPy v1.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.around</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">setosa_cfs_data</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span>
 <span class="go">array([[4.8, 3.4, 3.1, 0.2],</span>
@@ -478,7 +479,7 @@ most promising. We can print it in a more human-readable format:</p>
 <p>Therefore, by changing the feature with index 2 – petal length (cm) – from
 1.9 to 3.1, this instance of <em>setosa</em> (0) is being classified as <em>versicolor</em>
 (1).</p>
-<div class="section" id="explanation-reliability">
+<section id="explanation-reliability">
 <h3>Explanation Reliability<a class="headerlink" href="#explanation-reliability" title="Permalink to this headline">¶</a></h3>
 <p>This explanation may be appealing, however the counterfactual data points may
 not always be reliable or outright impossible to achieve in real life. Imagine
@@ -687,8 +688,8 @@ particular density estimation is sensitive, and somehow fragile, to the
 definition of the neighbourhood and the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameters should be set
 by the user based on his experience and knowledge of the data set rather than
 left with the default value.</p>
-</div>
-<div class="section" id="counterfactual-fairness">
+</section>
+<section id="counterfactual-fairness">
 <h3>Counterfactual Fairness<a class="headerlink" href="#counterfactual-fairness" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have seen how counterfactual explanations work, it is worth
 pointing out that the same mechanism can be used to investigate individual
@@ -700,9 +701,9 @@ class we can control which features will be modified in the counterfactual
 example. Therefore, we can include and exclude features to be used for
 conditioning the counterfactual explanation, hence use it to evaluate
 individual fairness.</p>
-</div>
-</div>
-<div class="section" id="lime">
+</section>
+</section>
+<section id="lime">
 <h2>LIME<a class="headerlink" href="#lime" title="Permalink to this headline">¶</a></h2>
 <p>In addition to counterfactual explanations we also have an implementation of
 the Local Interpretable Model-agnostic Explanations (LIME). Let us see what
@@ -789,8 +790,8 @@ learn more about <em>data set transparency</em> please refer to the
 <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial. <em>Predictive model transparency</em>
 introduction is provided by the
 <a class="reference internal" href="model-explainability.html#tutorials-model-explainability"><span class="std std-ref">previous tutorial</span></a>.</p>
-</div>
-<div class="section" id="relevant-fat-forensics-examples">
+</section>
+<section id="relevant-fat-forensics-examples">
 <h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
 <p>The following examples provide more structured and code-focused use-cases of
 the counterfactuals, LIME and data density functionality:</p>
@@ -799,8 +800,8 @@ the counterfactuals, LIME and data density functionality:</p>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a>,</p></li>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">Measuring Robustness of a Prediction – Data Density</span></a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -815,7 +816,7 @@ the counterfactuals, LIME and data density functionality:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

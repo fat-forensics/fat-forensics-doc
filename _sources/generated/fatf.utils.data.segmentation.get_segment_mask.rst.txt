@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.segmentation`.get_segment_mask
+===========================================================
+
+.. currentmodule:: fatf.utils.data.segmentation
+
+.. autofunction:: get_segment_mask
+
+.. include:: fatf.utils.data.segmentation.get_segment_mask.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

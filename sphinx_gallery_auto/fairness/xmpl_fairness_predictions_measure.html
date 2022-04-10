@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Measuring Fairness of a Prediction – Counterfactual Fairness &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Measuring Fairness of a Prediction – Counterfactual Fairness &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -239,7 +240,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
 </div>
-<div class="sphx-glr-example-title section" id="measuring-fairness-of-a-prediction-counterfactual-fairness">
+<section class="sphx-glr-example-title" id="measuring-fairness-of-a-prediction-counterfactual-fairness">
 <span id="sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py"></span><h1>Measuring Fairness of a Prediction – Counterfactual Fairness<a class="headerlink" href="#measuring-fairness-of-a-prediction-counterfactual-fairness" title="Permalink to this headline">¶</a></h1>
 <p>This example illustrates how scrutinise a data point under the counterfactual
 fairness assumption.</p>
@@ -294,7 +295,7 @@ Distance: 20
 <span class="n">hr_class_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
 
 <span class="c1"># Map target indices to target names</span>
-<span class="n">hr_y</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">hr_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_y</span><span class="p">])</span>
+<span class="n">hr_y</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">hr_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_y</span><span class="p">])</span>
 
 <span class="c1"># Drop the unique identifiers (features)</span>
 <span class="n">unique_identifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;zipcode&#39;</span><span class="p">,</span> <span class="s1">&#39;dob&#39;</span><span class="p">]</span>
@@ -348,20 +349,20 @@ Distance: 20
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cfs_text</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.197 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.269 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/272d591ff137ce737c385742f7a14be0/xmpl_fairness_predictions_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_predictions_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/e55d52f2245f067b417db641d8290677/xmpl_fairness_predictions_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_predictions_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/4ac0928d51a50e142fcc8ba4a2a2bf32/xmpl_fairness_predictions_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_predictions_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/88afa49f9bf58195d6d1abe4bf6c67f4/xmpl_fairness_predictions_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_predictions_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
           </div>
@@ -376,7 +377,7 @@ Distance: 20
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

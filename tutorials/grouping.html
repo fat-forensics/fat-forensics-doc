@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Defining Sub-Groups in Your Data &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Defining Sub-Groups in Your Data &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/tutorials/grouping.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -146,15 +147,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -258,7 +259,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="exploring-the-grouping-concept-defining-sub-populations">
+  <section id="exploring-the-grouping-concept-defining-sub-populations">
 <span id="tutorials-grouping"></span><h1>Exploring the Grouping Concept – Defining Sub-Populations<a class="headerlink" href="#exploring-the-grouping-concept-defining-sub-populations" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
 <p class="topic-title">Tutorial Contents</p>
@@ -288,9 +289,9 @@ feature space, or</p></li>
 <li><p>numerical – integer- or floating point-based with the groups defined by
 ranges on the feature space.</p></li>
 </ul>
-<div class="section" id="data-grouping">
+<section id="data-grouping">
 <h2>Data Grouping<a class="headerlink" href="#data-grouping" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="grouping-based-on-a-numerical-feature">
+<section id="grouping-based-on-a-numerical-feature">
 <h3>Grouping Based on a Numerical Feature<a class="headerlink" href="#grouping-based-on-a-numerical-feature" title="Permalink to this headline">¶</a></h3>
 <p>The very basic grouping that one may desire is based on the unique values of
 the <em>target vector</em> for a classification task. Such grouping can be useful when
@@ -367,8 +368,8 @@ variable):</p>
 <span class="go">[100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="grouping-based-on-a-numerical-feature-treat-as-a-categorical">
+</section>
+<section id="grouping-based-on-a-numerical-feature-treat-as-a-categorical">
 <h3>Grouping Based on a Numerical Feature – Treat as a Categorical<a class="headerlink" href="#grouping-based-on-a-numerical-feature-treat-as-a-categorical" title="Permalink to this headline">¶</a></h3>
 <p>Instead of this elaborate workaround we can simply setting the
 <code class="docutils literal notranslate"><span class="pre">treat_as_categorical</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the numerical vector will
@@ -418,9 +419,9 @@ that is recognised by a categorical grouping:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="using-grouping-to-inspect-a-data-set-data-transparency">
+</section>
+</section>
+<section id="using-grouping-to-inspect-a-data-set-data-transparency">
 <span id="tutorials-grouping-data-transparency"></span><h2>Using Grouping to Inspect a Data Set – Data Transparency<a class="headerlink" href="#using-grouping-to-inspect-a-data-set-data-transparency" title="Permalink to this headline">¶</a></h2>
 <p>Now that we know how to create groupings of data sets we can use this knowledge
 to inspect transparency of the Iris data set. First, let us choose one of the
@@ -528,8 +529,8 @@ predictive models – group-based disparity metrics and data sampling issues/rob
 transparency you can have a look at the <a class="reference internal" href="model-explainability.html#tutorials-model-explainability"><span class="std std-ref">Explaining a Machine Learning Model: ICE and PD</span></a>
 or the <a class="reference internal" href="prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">Explaining Machine Learning Predictions: LIME and Counterfactuals</span></a> tutorial or code examples
 referenced therein.</p>
-</div>
-<div class="section" id="relevant-fat-forensics-examples">
+</section>
+<section id="relevant-fat-forensics-examples">
 <h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
 <p>The following examples provide more structured and code-focused use-cases of
 the data grouping function and the data description functionality:</p>
@@ -537,8 +538,8 @@ the data grouping function and the data description functionality:</p>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py"><span class="std std-ref">Using Data Description Explainer</span></a>,</p></li>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_models_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-models-measure-py"><span class="std std-ref">Measuring Fairness of a Predictive Model – Disparate Impact</span></a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -553,7 +554,7 @@ the data grouping function and the data description functionality:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

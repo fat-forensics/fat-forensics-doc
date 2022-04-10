@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Measuring Robustness of a Prediction – Data Density &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Measuring Robustness of a Prediction – Data Density &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -239,7 +240,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
 </div>
-<div class="sphx-glr-example-title section" id="measuring-robustness-of-a-prediction-data-density">
+<section class="sphx-glr-example-title" id="measuring-robustness-of-a-prediction-data-density">
 <span id="sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"></span><h1>Measuring Robustness of a Prediction – Data Density<a class="headerlink" href="#measuring-robustness-of-a-prediction-data-density" title="Permalink to this headline">¶</a></h1>
 <p>This example illustrates how to use a data density estimation to “measure” to
 what extent a prediction should be trusted.</p>
@@ -257,7 +258,7 @@ what extent a prediction should be trusted.</p>
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Prepare a colourmap</span>
-<span class="n">cmap</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span>
+<span class="n">cmap</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Pastel1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Pastel1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Pastel1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -282,12 +283,12 @@ a dense region.</p>
 <span class="n">iris_X_chosen_features</span> <span class="o">=</span> <span class="n">iris_X</span><span class="p">[:,</span> <span class="n">chosen_features_index</span><span class="p">]</span>
 
 <span class="c1"># Plot the dataset using the 2 selected features</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">iris_y</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Iris data set scatter plot&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Iris data set scatter plot&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_xmpl_accountability_predictions_density_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_xmpl_accountability_predictions_density_001.png" />
@@ -299,31 +300,31 @@ predictions it provides.</p>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_chosen_features</span><span class="p">,</span> <span class="n">iris_y</span><span class="p">)</span>
 
 <span class="c1"># Create two data points: one in a dense region and one in a sparse region</span>
-<span class="n">point_dense</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]])</span>
-<span class="n">point_sparse</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.25</span><span class="p">]])</span>
+<span class="n">point_dense</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]])</span>
+<span class="n">point_sparse</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.25</span><span class="p">]])</span>
 
 <span class="c1"># Plot the dense and sparse data points</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">iris_y</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">point_dense</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">point_dense</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
     <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dense point&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">point_sparse</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">point_sparse</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
     <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sparse point&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Dense and sparse data points visualisation&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Dense and sparse data points visualisation&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_xmpl_accountability_predictions_density_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_xmpl_accountability_predictions_density_002.png" />
@@ -339,16 +340,16 @@ predictions it provides.</p>
     <span class="n">iris_class_names</span><span class="p">[</span><span class="n">point_sparse_prediction</span><span class="p">],</span> <span class="n">point_sparse_prediction</span><span class="p">))</span>
 
 <span class="c1"># ...and plot them with the class assignment</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">iris_X_chosen_features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">iris_y</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">point_dense</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">point_dense</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
     <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">point_dense_prediction</span><span class="p">)]],</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dense point -- </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">point_dense_prediction</span><span class="p">]))</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="View documentation for matplotlib.pyplot.scatter"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span>
     <span class="n">point_sparse</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">point_sparse</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
     <span class="n">c</span><span class="o">=</span><span class="n">cmap</span><span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">point_sparse_prediction</span><span class="p">)]],</span>
@@ -356,11 +357,11 @@ predictions it provides.</p>
     <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sparse point -- </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">iris_class_names</span><span class="p">[</span><span class="n">point_sparse_prediction</span><span class="p">]))</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Dense and sparse data points visualisation&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="View documentation for matplotlib.pyplot.title"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s1">&#39;Dense and sparse data points visualisation&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="View documentation for matplotlib.pyplot.xlabel"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="View documentation for matplotlib.pyplot.ylabel"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="n">chosen_features_name</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="View documentation for matplotlib.pyplot.legend"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_xmpl_accountability_predictions_density_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_xmpl_accountability_predictions_density_003.png" />
@@ -419,20 +420,20 @@ classifier indicates to be of class <em>virginica</em> with 0.67 probability,
 should be trusted given a low density score of 0.1. This data point
 clearly lies in a dense region, therefore the classifier has seen plenty
 of other data points in that region during the trainig procedure.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.037 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.165 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/46163ef97c769dc50c7154263f7acfe3/xmpl_accountability_predictions_density.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_predictions_density.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/6f246091d30d66167a7f1dd29b3ed335/xmpl_accountability_predictions_density.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_predictions_density.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/be4d428cd84797783de965597b38e7dc/xmpl_accountability_predictions_density.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_predictions_density.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/3d8d8d6d48a28858551e11f727d8d264/xmpl_accountability_predictions_density.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_predictions_density.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
           </div>
@@ -447,7 +448,7 @@ of other data points in that region during the trainig procedure.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

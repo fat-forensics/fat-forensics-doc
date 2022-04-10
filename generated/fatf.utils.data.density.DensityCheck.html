@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.density.DensityCheck &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.density.DensityCheck &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.density.DensityCheck.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -140,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -160,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -246,11 +247,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-density-densitycheck">
+  <section id="fatf-utils-data-density-densitycheck">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.density" title="fatf.utils.data.density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code></a>.DensityCheck<a class="headerlink" href="#fatf-utils-data-density-densitycheck" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.density.DensityCheck">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.density.</code><code class="descname">DensityCheck</code><span class="sig-paren">(</span><em>data_set: numpy.ndarray, categorical_indices: Optional[List[Union[str, int]]] = None, neighbours: int = 7, distance_function: Optional[Callable[[Union[numpy.ndarray, numpy.void], Union[numpy.ndarray, numpy.void]], float]] = None, normalise_scores: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/density.py#L140"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.density.</code><code class="sig-name descname">DensityCheck</code><span class="sig-paren">(</span><em class="sig-param">data_set</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">neighbours=7</em>, <em class="sig-param">distance_function=None</em>, <em class="sig-param">normalise_scores=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/density.py#L140"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks and scores density in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> and for new data points.</p>
 <p>A density score for a particular data point is calculated by looking at the
 distance of the n-th neighbour defined by the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter.
@@ -331,28 +332,28 @@ array.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>AttributeError</strong></dt><dd><p>The distance function does not require exactly 2 non-optional
+<dt>AttributeError</dt><dd><p>The distance function does not require exactly 2 non-optional
 parameters.</p>
 </dd>
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not 2-dimensional.</p>
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not 2-dimensional.</p>
 </dd>
-<dt><strong>IndexError</strong></dt><dd><p>Some of the provided categorical column indices are invalid for the
+<dt>IndexError</dt><dd><p>Some of the provided categorical column indices are invalid for the
 <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not of a base type (strings and/or numbers).
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array is not of a base type (strings and/or numbers).
 The <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter is not an integer. The
 <code class="docutils literal notranslate"><span class="pre">distance_function</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor Python callable (a
 function). The <code class="docutils literal notranslate"><span class="pre">normalise_scores</span></code> parameter is not a boolean. The
 <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is not a Python list.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter is smaller than 1 or larger than the
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter is smaller than 1 or larger than the
 number of instances (rows) in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> array.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+<dt>UserWarning</dt><dd><p>If some of the string-based columns in the input data array were not
 indicated to be categorical features by the user (via the
 <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
 added to the list of categorical features.</p>
@@ -361,23 +362,23 @@ added to the list of categorical features.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="fatf.utils.data.density.DensityCheck.filter_data_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data_set</span></code></a>(alpha)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="fatf.utils.data.density.DensityCheck.filter_data_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_data_set</span></code></a>([alpha])</p></td>
 <td><p>Returns the data points that are in alpha-dense areas.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="fatf.utils.data.density.DensityCheck.score_data_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_data_point</span></code></a>(data_point, numpy.void], clip)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="fatf.utils.data.density.DensityCheck.score_data_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_data_point</span></code></a>(data_point[, clip])</p></td>
 <td><p>Calculates a density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.density.DensityCheck.filter_data_set">
-<code class="descname">filter_data_set</code><span class="sig-paren">(</span><em>alpha: float = 0.8</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/density.py#L431"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_data_set</code><span class="sig-paren">(</span><em class="sig-param">alpha=0.8</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/density.py#L431"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the data points that are in alpha-dense areas.</p>
 <p>A data points in an alpha-dense region have a density score larger or
 equal to <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. For normalised scores <code class="docutils literal notranslate"><span class="pre">alpha</span></code> should be between 0
@@ -399,16 +400,16 @@ from the <code class="docutils literal notranslate"><span class="pre">data_set</
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is not a number.</p>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is not a number.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The alpha parameter is not between 0 and 1 for the normalised
+<dt>ValueError</dt><dd><p>The alpha parameter is not between 0 and 1 for the normalised
 scores or is not larger or equal to 0 for unnormalised scores.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>Chosen <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is too large and none of the data points
+<dt>UserWarning</dt><dd><p>Chosen <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter is too large and none of the data points
 were selected.</p>
 </dd>
 </dl>
@@ -418,7 +419,7 @@ were selected.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.density.DensityCheck.score_data_point">
-<code class="descname">score_data_point</code><span class="sig-paren">(</span><em>data_point: Union[numpy.ndarray, numpy.void], clip: bool = True</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/density.py#L545"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score_data_point</code><span class="sig-paren">(</span><em class="sig-param">data_point</em>, <em class="sig-param">clip=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/density.py#L545"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -442,12 +443,12 @@ are not normalised this parameter is ignored.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The data point is not 1-dimensional numpy array (either numpy
+<dt>IncorrectShapeError</dt><dd><p>The data point is not 1-dimensional numpy array (either numpy
 ndarray for classic numpy arrays or numpy void for structured numpy
 arrays). The data point does not have the same number of columns
 (features) as the data set used to initialise this class.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The data point is not of a base type (strings and/or numbers). The
+<dt>TypeError</dt><dd><p>The data point is not of a base type (strings and/or numbers). The
 dtype of the data point is too different from the dtype of the
 data set used to initialise this class. The <code class="docutils literal notranslate"><span class="pre">clip</span></code> parameter is
 not a boolean.</p>
@@ -456,7 +457,7 @@ not a boolean.</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>The minimum and maximum score values for this class are the same,
+<dt>UserWarning</dt><dd><p>The minimum and maximum score values for this class are the same,
 therefore the score normalisation cannot be performed. In this case
 the score will be 0 if it is below the min/max, 1 if it is above
 the min/max and otherwise it stays the same.</p>
@@ -468,14 +469,16 @@ the min/max and otherwise it stays the same.</p>
 
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-utils-data-density-densitycheck">
+<section id="examples-using-fatf-utils-data-density-densitycheck">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.density.DensityCheck</span></code><a class="headerlink" href="#examples-using-fatf-utils-data-density-densitycheck" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a data density estimation to &quot;measure&quot; to what extent a pre..."><div class="figure align-center" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a data density estimation to &quot;measure&quot; to what extent a pre..."><figure class="align-default" id="id1">
 <img alt="../_images/sphx_glr_xmpl_accountability_predictions_density_thumb.png" src="../_images/sphx_glr_xmpl_accountability_predictions_density_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">Measuring Robustness of a Prediction – Data Density</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_predictions_density.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-predictions-density-py"><span class="std std-ref">Measuring Robustness of a Prediction – Data Density</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="clear:both"></div></section>
+</section>
 
 
           </div>
@@ -490,7 +493,7 @@ the min/max and otherwise it stays the same.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

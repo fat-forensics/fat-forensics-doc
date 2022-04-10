@@ -1,6 +1,0 @@
-fatf.utils.testing.arrays.NOT\_NUMERICAL\_NP\_ARRAY
-===================================================
-
-.. currentmodule:: fatf.utils.testing.arrays
-
-.. autodata:: NOT_NUMERICAL_NP_ARRAY

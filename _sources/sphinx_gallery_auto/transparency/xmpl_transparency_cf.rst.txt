@@ -15,7 +15,6 @@ This example illustrates how to use the Counterfactual Prediction explainer
 (:class:`fatf.transparency.predictions.counterfactuals.CounterfactualExplainer`) and how to interpret the 3-tuple that it returns by
 "textualising" it (:func:`fatf.transparency.predictions.counterfactuals.textualise_counterfactuals`).
 
-
 .. code-block:: default
 
     # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
@@ -289,7 +288,7 @@ Explain another data point.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  49.579 seconds)
+   **Total running time of the script:** ( 0 minutes  59.273 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_cf.py:

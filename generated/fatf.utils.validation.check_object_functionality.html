@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.validation.check_object_functionality &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.validation.check_object_functionality &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,16 +19,16 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.validation.check_object_functionality.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY" href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html" />
+    <link rel="next" title="fatf.utils.testing.transparency.InvalidModel" href="fatf.utils.testing.transparency.InvalidModel.html" />
     <link rel="prev" title="fatf.utils.validation.get_required_parameters_number" href="fatf.utils.validation.get_required_parameters_number.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -122,8 +123,8 @@
   <p class="topless"><a href="fatf.utils.validation.get_required_parameters_number.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code>.get_required_parameters_number</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html"
-                        title="next chapter">fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY</a></p>
+  <p class="topless"><a href="fatf.utils.testing.transparency.InvalidModel.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.transparency</span></code>.InvalidModel</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -189,7 +190,7 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY.html"
+               href="fatf.utils.testing.transparency.InvalidModel.html"
                accesskey="N"
                role="button">
               Next
@@ -201,7 +202,7 @@
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.testing.arrays.NUMERICAL_NP_ARRAY
+                  fatf.utils.testing.transparency.InvalidModel
                   </span>
             </a>
           </div>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-validation-check-object-functionality">
+  <section id="fatf-utils-validation-check-object-functionality">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.validation" title="fatf.utils.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.validation</span></code></a>.check_object_functionality<a class="headerlink" href="#fatf-utils-validation-check-object-functionality" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.validation.check_object_functionality">
-<code class="descclassname">fatf.utils.validation.</code><code class="descname">check_object_functionality</code><span class="sig-paren">(</span><em>an_object: object, methods: Dict[str, int], object_reference_name: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[bool, str]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/validation.py#L58"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.validation.check_object_functionality" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.validation.</code><code class="sig-name descname">check_object_functionality</code><span class="sig-paren">(</span><em class="sig-param">an_object</em>, <em class="sig-param">methods</em>, <em class="sig-param">object_reference_name=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/validation.py#L58"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.validation.check_object_functionality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if an object has specified methods with given number of parameters.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -272,11 +273,11 @@ the desired functionality.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">methods</span></code> parameter is not a dictionary, one of its keys is not a
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">methods</span></code> parameter is not a dictionary, one of its keys is not a
 string or one of its values is not an integer. The
 <code class="docutils literal notranslate"><span class="pre">object_reference_name</span></code> parameter is neither a string nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">methods</span></code> dictionary is empty or one of its values is a negative
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">methods</span></code> dictionary is empty or one of its values is a negative
 integer.</p>
 </dd>
 </dl>
@@ -284,7 +285,7 @@ integer.</p>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -299,7 +300,7 @@ integer.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

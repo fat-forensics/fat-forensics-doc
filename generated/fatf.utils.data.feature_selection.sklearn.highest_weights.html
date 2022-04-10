@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.feature_selection.sklearn.highest_weights &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.feature_selection.sklearn.highest_weights &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,16 +19,16 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.feature_selection.sklearn.highest_weights.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.models.models.KNN" href="fatf.utils.models.models.KNN.html" />
+    <link rel="next" title="fatf.utils.data.occlusion.Occlusion" href="fatf.utils.data.occlusion.Occlusion.html" />
     <link rel="prev" title="fatf.utils.data.feature_selection.sklearn.forward_selection" href="fatf.utils.data.feature_selection.sklearn.forward_selection.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -122,8 +123,8 @@
   <p class="topless"><a href="fatf.utils.data.feature_selection.sklearn.forward_selection.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code>.forward_selection</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.models.models.KNN.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code>.KNN</a></p>
+  <p class="topless"><a href="fatf.utils.data.occlusion.Occlusion.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code>.Occlusion</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -189,19 +190,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.models.models.KNN.html"
+               href="fatf.utils.data.occlusion.Occlusion.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                fatf.utils.mo...
+                fatf.utils.da...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.models.models.KNN
+                  fatf.utils.data.occlusion.Occlusion
                   </span>
             </a>
           </div>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-feature-selection-sklearn-highest-weights">
+  <section id="fatf-utils-data-feature-selection-sklearn-highest-weights">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.feature_selection.sklearn" title="fatf.utils.data.feature_selection.sklearn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.feature_selection.sklearn</span></code></a>.highest_weights<a class="headerlink" href="#fatf-utils-data-feature-selection-sklearn-highest-weights" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.feature_selection.sklearn.highest_weights">
-<code class="descclassname">fatf.utils.data.feature_selection.sklearn.</code><code class="descname">highest_weights</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>target: numpy.ndarray</em>, <em>weights: Optional[numpy.ndarray] = None</em>, <em>features_number: Optional[int] = None</em>, <em>features_percentage: int = 100</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/feature_selection/sklearn.py#L422"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.feature_selection.sklearn.highest_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.data.feature_selection.sklearn.</code><code class="sig-name descname">highest_weights</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">target</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">features_number=None</em>, <em class="sig-param">features_percentage=100</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/feature_selection/sklearn.py#L422"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.feature_selection.sklearn.highest_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the specified number of features based on their absolute weight.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.0.</span></p>
@@ -283,18 +284,18 @@ features are returned if <code class="docutils literal notranslate"><span class=
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array is not 2-dimensional. The <code class="docutils literal notranslate"><span class="pre">target</span></code> array is not
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array is not 2-dimensional. The <code class="docutils literal notranslate"><span class="pre">target</span></code> array is not
 1-dimensional. The number of elements in the <code class="docutils literal notranslate"><span class="pre">target</span></code> array is
 different than the number of samples in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array. The
 <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not 1-dimensional. The number of weights in the
 <code class="docutils literal notranslate"><span class="pre">weights</span></code> array does not agree with the number of samples in the
 <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>One of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not
+<dt>TypeError</dt><dd><p>One of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">weights</span></code> array is not
 purely numerical. The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not an integer.
 The <code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter is not an integer.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not a positive integer. The
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is not a positive integer. The
 <code class="docutils literal notranslate"><span class="pre">features_percentage</span></code> parameter is outside of the allowed range
 0–100 (inclusive).</p>
 </dd>
@@ -302,7 +303,7 @@ The <code class="docutils literal notranslate"><span class="pre">features_percen
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>The specified <code class="docutils literal notranslate"><span class="pre">features_number</span></code> is larger than the number of features
+<dt>UserWarning</dt><dd><p>The specified <code class="docutils literal notranslate"><span class="pre">features_number</span></code> is larger than the number of features
 in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> array; all of the features are selected.</p>
 </dd>
 </dl>
@@ -310,7 +311,7 @@ in the <code class="docutils literal notranslate"><span class="pre">dataset</spa
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -325,7 +326,7 @@ in the <code class="docutils literal notranslate"><span class="pre">dataset</spa
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

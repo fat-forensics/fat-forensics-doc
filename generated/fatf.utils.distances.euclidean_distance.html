@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.distances.euclidean_distance &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.distances.euclidean_distance &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.distances.euclidean_distance.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-distances-euclidean-distance">
+  <section id="fatf-utils-distances-euclidean-distance">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.distances" title="fatf.utils.distances"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.distances</span></code></a>.euclidean_distance<a class="headerlink" href="#fatf-utils-distances-euclidean-distance" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.distances.euclidean_distance">
-<code class="descclassname">fatf.utils.distances.</code><code class="descname">euclidean_distance</code><span class="sig-paren">(</span><em>x: Union[numpy.ndarray, numpy.void], y: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/distances.py#L232"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.distances.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.distances.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/distances.py#L232"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.distances.euclidean_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the Euclidean distance between two 1-dimensional numpy “arrays”.</p>
 <p>Each of the input arrays can be either a 1D numpy array or a row of a
 structured numpy array, i.e. numpy’s void.</p>
@@ -260,17 +261,17 @@ structured numpy array, i.e. numpy’s void.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>Either of the input arrays is not 1-dimensional or they are not of the
+<dt>IncorrectShapeError</dt><dd><p>Either of the input arrays is not 1-dimensional or they are not of the
 same length.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>Either of the input arrays is not purely numerical.</p>
+<dt>ValueError</dt><dd><p>Either of the input arrays is not purely numerical.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -285,7 +286,7 @@ same length.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

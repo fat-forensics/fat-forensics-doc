@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.augmentation.Augmentation &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.augmentation.Augmentation &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.augmentation.Augmentation.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-augmentation-augmentation">
+  <section id="fatf-utils-data-augmentation-augmentation">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.Augmentation<a class="headerlink" href="#fatf-utils-data-augmentation-augmentation" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.augmentation.Augmentation">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">Augmentation</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>ground_truth: Optional[numpy.ndarray] = None</em>, <em>categorical_indices: Optional[numpy.ndarray] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/augmentation.py#L99"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.augmentation.</code><code class="sig-name descname">Augmentation</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">ground_truth=None</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">int_to_float=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L99"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class for implementing data augmentation methods.</p>
 <p>An abstract class that all augmentation classes should inherit from. It
 contains abstract <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and <code class="docutils literal notranslate"><span class="pre">sample</span></code> methods and an input
@@ -298,15 +299,15 @@ to <code class="docutils literal notranslate"><span class="pre">float</span></co
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array. The
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array. The
 <code class="docutils literal notranslate"><span class="pre">ground_truth</span></code> array is not a 1-dimensional numpy array. The number
 of ground truth annotation is different than the number of rows in the
 data array.</p>
 </dd>
-<dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
+<dt>IndexError</dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
 parameter are not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> or the <code class="docutils literal notranslate"><span class="pre">ground_truth</span></code> array (if not <code class="docutils literal notranslate"><span class="pre">None</span></code>) are not
 of base (numerical and/or string) type. The <code class="docutils literal notranslate"><span class="pre">int_to_float</span></code> parameter
 is not a boolean.</p>
@@ -315,7 +316,7 @@ is not a boolean.</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+<dt>UserWarning</dt><dd><p>If some of the string-based columns in the input data array were not
 indicated to be categorical features by the user (via the
 <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
 added to the list of categorical features.</p>
@@ -324,20 +325,20 @@ added to the list of categorical features.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.Augmentation.sample" title="fatf.utils.data.augmentation.Augmentation.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.Augmentation.sample" title="fatf.utils.data.augmentation.Augmentation.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([data_row, samples_number])</p></td>
 <td><p>Samples a given number of data points based on the initialisation data.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.augmentation.Augmentation.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/augmentation.py#L249"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation.sample" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">data_row=None</em>, <em class="sig-param">samples_number=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L249"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.Augmentation.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples a given number of data points based on the initialisation data.</p>
 <p>This is an abstract method that must be implemented for each child
 object. This method should provide two modes of operation:</p>
@@ -366,7 +367,7 @@ point.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>NotImplementedError</strong></dt><dd><p>This is an abstract method and has not been implemented.</p>
+<dt>NotImplementedError</dt><dd><p>This is an abstract method and has not been implemented.</p>
 </dd>
 </dl>
 </dd>
@@ -375,7 +376,7 @@ point.</p>
 
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -390,7 +391,7 @@ point.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

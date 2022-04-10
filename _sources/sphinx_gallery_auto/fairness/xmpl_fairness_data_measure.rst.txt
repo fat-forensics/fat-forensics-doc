@@ -22,7 +22,6 @@ i.e. measuring the Sample Size Disparity (with :func:`fatf.utils.data.tools.grou
    the features (columns) being index by the feature name rather than by
    consecutive integers.
 
-
 .. code-block:: default
 
     # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
@@ -204,7 +203,7 @@ is similar.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.045 seconds)
+   **Total running time of the script:** ( 0 minutes  0.057 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_fairness_xmpl_fairness_data_measure.py:

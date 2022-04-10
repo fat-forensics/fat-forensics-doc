@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.discretisation.Discretiser &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.discretisation.Discretiser &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.discretisation.Discretiser.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-discretisation-discretiser">
+  <section id="fatf-utils-data-discretisation-discretiser">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.discretisation" title="fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code></a>.Discretiser<a class="headerlink" href="#fatf-utils-data-discretisation-discretiser" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.discretisation.Discretiser">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.discretisation.</code><code class="descname">Discretiser</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/discretisation.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.discretisation.</code><code class="sig-name descname">Discretiser</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">feature_names=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/discretisation.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that all discretiser implementations should inherit from.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -320,24 +321,24 @@ each feature.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
 </dd>
-<dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> list
+<dt>IndexError</dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> list
 are invalid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string) type.
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string) type.
 The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> is neither a Python list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> is neither a Python list nor <code class="docutils literal notranslate"><span class="pre">None</span></code> or one of
 its elements (if it is a list) is not a string.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The length of the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> list is different than the number
+<dt>ValueError</dt><dd><p>The length of the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code> list is different than the number
 of columns (features) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+<dt>UserWarning</dt><dd><p>If some of the string-based columns in the input data array were not
 indicated to be categorical features by the user (via the
 <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter) the user is warned that they will be
 added to the list of categorical features.</p>
@@ -346,20 +347,20 @@ added to the list of categorical features.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="fatf.utils.data.discretisation.Discretiser.discretise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretise</span></code></a>(dataset, numpy.void])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="fatf.utils.data.discretisation.Discretiser.discretise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discretise</span></code></a>(dataset)</p></td>
 <td><p>Discretises non-categorical (numerical) features in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.discretisation.Discretiser.discretise">
-<code class="descname">discretise</code><span class="sig-paren">(</span><em>dataset: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/discretisation.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">discretise</code><span class="sig-paren">(</span><em class="sig-param">dataset</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/discretisation.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discretises non-categorical (numerical) features in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 <p>This is an abstract method that must be implemented for each
 discretiser object that inherits form <code class="docutils literal notranslate"><span class="pre">Discretiser</span></code>. This method
@@ -387,14 +388,14 @@ discretised.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>NotImplementedError</strong></dt><dd><p>This is an abstract method and has not been implemented.</p>
+<dt>NotImplementedError</dt><dd><p>This is an abstract method and has not been implemented.</p>
 </dd>
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is neither 1- nor 2-dimensional numpy array.
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is neither 1- nor 2-dimensional numpy array.
 The number of features (columns) in the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is
 different than the number of features in the dataset used to
 initialise this object.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The dtype of the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is too different from the dtype
+<dt>TypeError</dt><dd><p>The dtype of the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is too different from the dtype
 of the dataset used to initialise this object.</p>
 </dd>
 </dl>
@@ -404,7 +405,7 @@ of the dataset used to initialise this object.</p>
 
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -419,7 +420,7 @@ of the dataset used to initialise this object.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.augmentation.TruncatedNormalSampling &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.augmentation.TruncatedNormalSampling &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.augmentation.TruncatedNormalSampling.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-augmentation-truncatednormalsampling">
+  <section id="fatf-utils-data-augmentation-truncatednormalsampling">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.TruncatedNormalSampling<a class="headerlink" href="#fatf-utils-data-augmentation-truncatednormalsampling" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.augmentation.TruncatedNormalSampling">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">TruncatedNormalSampling</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>int_to_float: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/augmentation.py#L501"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.TruncatedNormalSampling" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.augmentation.</code><code class="sig-name descname">TruncatedNormalSampling</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">int_to_float=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L501"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.TruncatedNormalSampling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sampling data from a truncated normal distribution.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -274,20 +275,20 @@ for that column and the other one with their normalised (summing up to
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.TruncatedNormalSampling.sample" title="fatf.utils.data.augmentation.TruncatedNormalSampling.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.TruncatedNormalSampling.sample" title="fatf.utils.data.augmentation.TruncatedNormalSampling.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([data_row, samples_number])</p></td>
 <td><p>Samples new data from a truncated normal distribution.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.augmentation.TruncatedNormalSampling.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/augmentation.py#L593"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.TruncatedNormalSampling.sample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">data_row=None</em>, <em class="sig-param">samples_number=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L593"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.TruncatedNormalSampling.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples new data from a truncated normal distribution.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">data_row</span></code> parameter is given, the sample will be centered around
 that data point. Otherwise, when the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> parameter is
@@ -309,7 +310,7 @@ parent <a class="reference internal" href="fatf.utils.data.augmentation.Augmenta
 
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -324,7 +325,7 @@ parent <a class="reference internal" href="fatf.utils.data.augmentation.Augmenta
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -88,9 +88,12 @@ names the main techniques implemented by FAT Forensics for each intersection.
 | Models      | * Group-based fairness    | * Systematic performance | * Partial dependence     |
 |             |   (disparate impact)      |   bias                   | * Individual conditional |
 |             |                           |                          |   expectation            |
+|             |                           |                          | * Submodular pick        |
 +-------------+---------------------------+--------------------------+--------------------------+
 | Predictions | * Counterfactual fairness |                          | * Counterfactuals        |
 |             |   (disparate treatment)   |                          | * Tabular bLIMEy (LIME   |
+|             |                           |                          |   alternative)           |
+|             |                           |                          | * Image bLIMEy (LIME     |
 |             |                           |                          |   alternative)           |
 +-------------+---------------------------+--------------------------+--------------------------+
 
@@ -161,6 +164,6 @@ please consult the following parts of the documentation:
 * :ref:`transparency how to guides <how_to_transparency>` and
 * :mod:`fatf.transparency` module API documentation.
 
-.. _tested: https://travis-ci.com/fat-forensics/fat-forensics
+.. _tested: https://github.com/fat-forensics/fat-forensics/actions/workflows/tests.yml
 .. _Binder: https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks
 .. _`Plotly's Dash`: https://plotly.com/dash

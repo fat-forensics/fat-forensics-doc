@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.instance_augmentation.binary_sampler &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.instance_augmentation.binary_sampler &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,16 +19,16 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.instance_augmentation.binary_sampler.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fatf.utils.data.transformation.dataset_row_masking" href="fatf.utils.data.transformation.dataset_row_masking.html" />
+    <link rel="next" title="fatf.utils.data.instance_augmentation.random_binary_sampler" href="fatf.utils.data.instance_augmentation.random_binary_sampler.html" />
     <link rel="prev" title="fatf.utils.data.augmentation.LocalSphere" href="fatf.utils.data.augmentation.LocalSphere.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -122,8 +123,8 @@
   <p class="topless"><a href="fatf.utils.data.augmentation.LocalSphere.html"
                         title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code>.LocalSphere</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="fatf.utils.data.transformation.dataset_row_masking.html"
-                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code>.dataset_row_masking</a></p>
+  <p class="topless"><a href="fatf.utils.data.instance_augmentation.random_binary_sampler.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code>.random_binary_sampler</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -189,7 +190,7 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.data.transformation.dataset_row_masking.html"
+               href="fatf.utils.data.instance_augmentation.random_binary_sampler.html"
                accesskey="N"
                role="button">
               Next
@@ -201,7 +202,7 @@
                                right-button
                                "
                         data-container="body">
-                  fatf.utils.data.transformation.dataset_row_masking
+                  fatf.utils.data.instance_augmentation.random_binary_sampler
                   </span>
             </a>
           </div>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-instance-augmentation-binary-sampler">
+  <section id="fatf-utils-data-instance-augmentation-binary-sampler">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.instance_augmentation" title="fatf.utils.data.instance_augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code></a>.binary_sampler<a class="headerlink" href="#fatf-utils-data-instance-augmentation-binary-sampler" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.instance_augmentation.binary_sampler">
-<code class="descclassname">fatf.utils.data.instance_augmentation.</code><code class="descname">binary_sampler</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/instance_augmentation.py#L56"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.instance_augmentation.binary_sampler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.data.instance_augmentation.</code><code class="sig-name descname">binary_sampler</code><span class="sig-paren">(</span><em class="sig-param">data_row</em>, <em class="sig-param">samples_number=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/instance_augmentation.py#L59"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.instance_augmentation.binary_sampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples non-zero elements of the binary <code class="docutils literal notranslate"><span class="pre">data_row</span></code> array uniformly.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -259,19 +260,19 @@ to be a subset of: <code class="docutils literal notranslate"><span class="pre">
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a 1-dimensional numpy array-like object.</p>
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a 1-dimensional numpy array-like object.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a binary array. The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is not
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a binary array. The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is not
 an integer.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is not a positive integer.</p>
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is not a positive integer.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -286,7 +287,7 @@ an integer.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

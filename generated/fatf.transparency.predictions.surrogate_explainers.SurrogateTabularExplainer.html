@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-transparency-predictions-surrogate-explainers-surrogatetabularexplainer">
+  <section id="fatf-transparency-predictions-surrogate-explainers-surrogatetabularexplainer">
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.SurrogateTabularExplainer<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-surrogatetabularexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">SurrogateTabularExplainer</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/transparency/predictions/surrogate_explainers.py#L250"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="sig-name descname">SurrogateTabularExplainer</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">predictive_model</em>, <em class="sig-param">as_probabilistic=True</em>, <em class="sig-param">as_regressor=False</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">class_names=None</em>, <em class="sig-param">classes_number=None</em>, <em class="sig-param">feature_names=None</em>, <em class="sig-param">unique_predictions=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_explainers.py#L250"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract parent class for implementing surrogate explainers.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>Added support for regression models.</p>
@@ -383,16 +384,16 @@ the <code class="docutils literal notranslate"><span class="pre">predictive_mode
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> does not have the required functionality:
+<dt>IncompatibleModelError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> does not have the required functionality:
 <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method for probabilistic models and <code class="docutils literal notranslate"><span class="pre">predict</span></code>
 method for regressors and non-probabilistic classifiers.</p>
 </dd>
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array.</p>
 </dd>
-<dt><strong>IndexError</strong></dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
+<dt>IndexError</dt><dd><p>Some of the column indices given in the <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code>
 parameter are not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt><strong>RuntimeError</strong></dt><dd><p>The number of columns in the probabilistic matrix output by the
+<dt>RuntimeError</dt><dd><p>The number of columns in the probabilistic matrix output by the
 <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> (when <code class="docutils literal notranslate"><span class="pre">as_probabilistic=True</span></code>) is different
 to the number of features specified by the user via the
 <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> has output
@@ -402,7 +403,7 @@ models, i.e., <code class="docutils literal notranslate"><span class="pre">as_pr
 or inferred number of unique predictions does not agree with the
 internal number of classes.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string)
+<dt>TypeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base (numerical and/or string)
 type. The <code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter is not a boolean.
 The <code class="docutils literal notranslate"><span class="pre">as_regressor</span></code> parameter is not a boolean.
 The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
@@ -414,7 +415,7 @@ of the elements in this list is not a string.
 The <code class="docutils literal notranslate"><span class="pre">unique_predictions</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code> or
 all the elements in this list are not of string or integer type.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> list contains duplicated entries.
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> list contains duplicated entries.
 The length of the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> list is not equal to the detected or
 given number of classes, some of the entires in this list are
 duplicated or this list is empty. The length of the <code class="docutils literal notranslate"><span class="pre">feature_names</span></code>
@@ -427,7 +428,7 @@ or some of the entries in that list are duplicated. The
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>If some of the string-based columns in the input data array were not
+<dt>UserWarning</dt><dd><p>If some of the string-based columns in the input data array were not
 indicated to be categorical features by the user (via the
 <code class="docutils literal notranslate"><span class="pre">categorical_indices</span></code> parameter), the user is warned that they will
 be added to the list of categorical features. When the
@@ -449,20 +450,20 @@ parameter to ensure proper functionality of the explainer.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(data_row, numpy.void])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(data_row)</p></td>
 <td><p>Explains a <code class="docutils literal notranslate"><span class="pre">data_row</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; Any<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/transparency/predictions/surrogate_explainers.py#L754"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">explain_instance</code><span class="sig-paren">(</span><em class="sig-param">data_row</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_explainers.py#L754"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.SurrogateTabularExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains a <code class="docutils literal notranslate"><span class="pre">data_row</span></code>.</p>
 <p>This is an abstract method that must be implemented for each child
 object of this abstract class.</p>
@@ -488,14 +489,14 @@ to this method are valid.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a 1-dimensional numpy array-like object.
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a 1-dimensional numpy array-like object.
 The number of features (columns) in the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is different
 to the number of features in the data array used to initialise this
 object.</p>
 </dd>
-<dt><strong>NotImplementedError</strong></dt><dd><p>This is an abstract method, hence has not been implemented.</p>
+<dt>NotImplementedError</dt><dd><p>This is an abstract method, hence has not been implemented.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The dtype of the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is different than the dtype of the
+<dt>TypeError</dt><dd><p>The dtype of the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is different than the dtype of the
 data array used to initialise this object.</p>
 </dd>
 </dl>
@@ -505,7 +506,7 @@ data array used to initialise this object.</p>
 
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -520,7 +521,7 @@ data array used to initialise this object.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

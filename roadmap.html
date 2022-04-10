@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Roadmap &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Roadmap &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/roadmap.html" />
     <link rel="shortcut icon" href="_static/fatf.ico"/>
     <link rel="search" title="Search" href="search.html" />
@@ -143,15 +144,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -235,7 +236,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="roadmap">
+  <section id="roadmap">
 <span id="id1"></span><h1>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this headline">¶</a></h1>
 <p>The following list of milestones is to guide the core developers on the future
 direction of the package development. The list is by no means exhaustive and
@@ -244,11 +245,11 @@ are proposed by the research community.</p>
 <p>The list is algorithm- and feature-oriented as the goal of the package is to
 give the community access to a tool that has all the necessary functionality
 for FAT research and deployment.</p>
-<div class="section" id="milestone-1">
+<section id="milestone-1">
 <h2>Milestone 1 ✔<a class="headerlink" href="#milestone-1" title="Permalink to this headline">¶</a></h2>
 <p>The first milestone is our first public release of the package – version
 <em>0.0.1</em>. The following functionality should be available.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 29%" />
@@ -314,13 +315,13 @@ expectation</p></li>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="milestone-2">
+</section>
+<section id="milestone-2">
 <h2>Milestone 2<a class="headerlink" href="#milestone-2" title="Permalink to this headline">¶</a></h2>
 <p>This will be the first major update of the package. The focus will be placed on
 the transparency module. Nevertheless, some additional fairness and
 accountability functionality will be implemented as well.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 29%" />
@@ -399,7 +400,7 @@ image data</p></li>
 equality.</p></li>
 <li><p>Implement Jupyter Notebook interactive plugins (widgets) to allow the
 community to play with the fairness concepts. (E.g., widgets similar to
-interactive figures in this <a class="reference external" href="http://research.google.com/bigpicture/attacking-discrimination-in-ml/">Google blog post</a>.</p></li>
+interactive figures in this <a class="reference external" href="https://research.google.com/bigpicture/attacking-discrimination-in-ml/">Google blog post</a>.</p></li>
 </ul>
 </li>
 <li><p>Merge the pull request with k-anonimity, l-diversity and t-closeness.</p></li>
@@ -459,8 +460,8 @@ total decrease in node impurity averaged over all trees of the ensemble
 <li><p>“We can use the difference between the mean value of data points in a
 parent node between that of a child node to approximate the contribution of
 this split…”</p></li>
-<li><p><a class="reference external" href="http://blog.datadive.net/interpreting-random-forests/">Interpreting random forests</a> and
-<a class="reference external" href="http://blog.datadive.net/random-forest-interpretation-with-scikit-learn/">Random forest interpretation with scikit-learn</a> blog posts hold some
+<li><p><a class="reference external" href="https://blog.datadive.net/interpreting-random-forests/">Interpreting random forests</a> and
+<a class="reference external" href="https://blog.datadive.net/random-forest-interpretation-with-scikit-learn/">Random forest interpretation with scikit-learn</a> blog posts hold some
 useful information extracted from the “Interpreting random forests” paper
 by Ando Saabas.</p></li>
 </ul>
@@ -559,12 +560,12 @@ model on probability output.”</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="milestone-3">
+</section>
+<section id="milestone-3">
 <h2>Milestone 3<a class="headerlink" href="#milestone-3" title="Permalink to this headline">¶</a></h2>
 <p>The third milestone will integrate the tool with important machine learning and
 fairness packages.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 29%" />
@@ -675,13 +676,13 @@ large data-sets.</p>
 <li><p>iPython/Jupyter Notebook interactive (JS) plots to improve research
 applicability aspect of the package.</p></li>
 </ul>
-</div>
-<div class="section" id="milestone-4">
+</section>
+<section id="milestone-4">
 <h2>Milestone 4<a class="headerlink" href="#milestone-4" title="Permalink to this headline">¶</a></h2>
 <p>This milestone is focused on implementing in the package a collection of tools
 that will enable researchers and practitioners to use it with (deep) neural
 networks (Deep Learning, autograd, optimisation).</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
 <col style="width: 29%" />
@@ -755,7 +756,7 @@ Fergus, R (Springer, 2014).</p></li>
 <ul>
 <li><p>“Axiomatic Attribution for Deep Networks”, Sundararajan, M, Taly, A, Yan, Q
 (ICML, 2017).</p></li>
-<li><p><a class="reference external" href="http://theory.stanford.edu/~ataly/Talks/sri_attribution_talk_jun_2017.pdf">Integrated Gradient slides</a>.</p></li>
+<li><p><a class="reference external" href="https://theory.stanford.edu/~ataly/Talks/sri_attribution_talk_jun_2017.pdf">Integrated Gradient slides</a>.</p></li>
 </ul>
 </li>
 <li><p>Implement the DeepLIFT algorithm.</p></li>
@@ -772,8 +773,8 @@ Deep Neural Networks”, Ancona M, Ceolini E, Oztireli C, Gross M
 <ul class="simple">
 <li><p>Finalise full integration of Skater and SHAP (deep neural netowrks).</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -788,7 +789,7 @@ Deep Neural Networks”, Ancona M, Ceolini E, Oztireli C, Gross M
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

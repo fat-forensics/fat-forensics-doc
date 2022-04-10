@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>How to build LIME yourself (bLIMEy) &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>How to build LIME yourself (bLIMEy) &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,16 +19,16 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/how_to/transparency/tabular-surrogates.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="News" href="../../news.html" />
+    <link rel="next" title="How to build LIME yourself (bLIMEy) – Surrogate Image Explainers" href="image-surrogates.html" />
     <link rel="prev" title="How-to Guides" href="../index.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -137,8 +138,8 @@
   <p class="topless"><a href="../index.html"
                         title="previous chapter">How-to Guides</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../../news.html"
-                        title="next chapter">News</a></p>
+  <p class="topless"><a href="image-surrogates.html"
+                        title="next chapter">How to build LIME yourself (bLIMEy) – Surrogate Image Explainers</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -147,15 +148,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -204,19 +205,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="../../news.html"
+               href="image-surrogates.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                News
+                How to build ...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  News
+                  How to build LIME yourself (bLIMEy) – Surrogate Image Explainers
                   </span>
             </a>
           </div>
@@ -260,7 +261,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="how-to-build-lime-yourself-blimey-surrogate-tabular-explainers">
+  <section id="how-to-build-lime-yourself-blimey-surrogate-tabular-explainers">
 <span id="how-to-tabular-surrogates"></span><h1>How to build LIME yourself (bLIMEy) – Surrogate Tabular Explainers<a class="headerlink" href="#how-to-build-lime-yourself-blimey-surrogate-tabular-explainers" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
 <p class="topic-title">How-to Guide Contents</p>
@@ -314,12 +315,12 @@ arXiv preprint arXiv:1910.13016. URL https://arxiv.org/abs/1910.13016.</p>
 </dd>
 <dt class="label" id="ribeiro2016why"><span class="brackets"><a class="fn-backref" href="#id2">RIBEIRO2016WHY</a></span></dt>
 <dd><p>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016,
-August. Why should i trust you?: Explaining the predictions of any
+August. Why should I trust you?: Explaining the predictions of any
 classifier. In Proceedings of the 22nd ACM SIGKDD international
 conference on knowledge discovery and data mining (pp. 1135-1144). ACM.</p>
 </dd>
 </dl>
-<div class="section" id="setup">
+<section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>First, let us set the random seed to ensure reproducibility of the results:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf</span>
@@ -408,10 +409,10 @@ last two dimensions of the data and highlighting the <code class="docutils liter
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/iris_plot_explanation.png"><img alt="../../_images/iris_plot_explanation.png" class="align-center" src="../../_images/iris_plot_explanation.png" style="width: 600.0px; height: 412.5px;" /></a>
-</div>
-<div class="section" id="surrogate-linear-model-lime">
+</section>
+<section id="surrogate-linear-model-lime">
 <h2>Surrogate Linear Model (LIME)<a class="headerlink" href="#surrogate-linear-model-lime" title="Permalink to this headline">¶</a></h2>
-<p>We will use the quartile discretiser for the
+<p>We will use the quartile discretisation for the
 <em>interpretable data representation</em>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.data.discretisation</span> <span class="k">as</span> <span class="nn">fatf_discretisation</span>
 
@@ -432,7 +433,7 @@ last two dimensions of the data and highlighting the <code class="docutils liter
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lime</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="data-augmentation">
+<section id="data-augmentation">
 <h3>Data Augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h3>
 <p>First, we will sample new data in the neighbourhood of the selected
 <code class="docutils literal notranslate"><span class="pre">data_point</span></code>, predict them with the black-box model and plot them:</p>
@@ -491,8 +492,8 @@ Using the probabilistic output of the black-box model also entails training the
 local model as one-vs-rest for a selected class to be explained. In this case
 we will explain the class to which the selected <code class="docutils literal notranslate"><span class="pre">data_point</span></code> belongs:
 <code class="docutils literal notranslate"><span class="pre">'setosa'</span></code>.</p>
-</div>
-<div class="section" id="interpretable-representation">
+</section>
+<section id="interpretable-representation">
 <h3>Interpretable Representation<a class="headerlink" href="#interpretable-representation" title="Permalink to this headline">¶</a></h3>
 <p>LIME introduces an explicit interpretable representation – discretisation of
 continuous features – to improve comprehensibility of explanations. This step
@@ -527,14 +528,14 @@ as the bin to which the <code class="docutils literal notranslate"><span class="
 <span class="go">array([0, 1, 1, 1], dtype=int8)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="explanation-generation">
+</section>
+<section id="explanation-generation">
 <h3>Explanation Generation<a class="headerlink" href="#explanation-generation" title="Permalink to this headline">¶</a></h3>
 <p>Finally, we train a local linear (ridge) regression to the locally sampled,
 discretised and binarised data and extract the explanation from its
 coefficient. To enforce the locality of the explanation even further, we first
 calculate the distances between the binarised <code class="docutils literal notranslate"><span class="pre">data_point</span></code> and the sampled
-data and kernelis these distances (with an exponential kernel) to get data
+data and kernelise these distances (with an exponential kernel) to get data
 point weights. We use the <span class="math notranslate nohighlight">\(0.75 * \sqrt{\text{features number}}\)</span> as the
 kernel width:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.distances</span> <span class="k">as</span> <span class="nn">fatf_distances</span>
@@ -563,7 +564,7 @@ kernel width:</p>
 </pre></div>
 </div>
 <p>Therefore, we extract the probabilities of the first column (with index <code class="docutils literal notranslate"><span class="pre">0</span></code>)
-form the black-box predictions:</p>
+from the black-box predictions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sampled_data_predictions_setosa</span> <span class="o">=</span> <span class="n">sampled_data_probabilities</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -614,9 +615,9 @@ blue cluster (setosa) and if petal width (y-axis) is larger than 0.3, we are
 also moving outside of the blue cluster.</p>
 <hr class="docutils" />
 <p>We leave explaining the other classes as an exercise for the reader.</p>
-</div>
-</div>
-<div class="section" id="surrogate-tree">
+</section>
+</section>
+<section id="surrogate-tree">
 <h2>Surrogate Tree<a class="headerlink" href="#surrogate-tree" title="Permalink to this headline">¶</a></h2>
 <p>A linear regression fitted as one-vs-rest to probabilities of a selected class
 is not the only surrogate that can give us some insights into the black-box
@@ -641,7 +642,7 @@ probabilities of one of the classes (as with LIME) or use a classification
 tree. We will go with the latter option. Now, we have a choice between training
 the tree as a multi-class classifier for all of the classes or as one-vs-rest
 for a selected class. The advantage of the former is that the same tree can be
-used to explain all of the classes at one, therefore we will go with a
+used to explain all of the classes at once, therefore we will go with a
 multi-class classification tree:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.tree</span>
 
@@ -651,7 +652,7 @@ multi-class classification tree:</p>
 <span class="go">DecisionTreeClassifier(max_depth=3)</span>
 </pre></div>
 </div>
-<p>Once possible explanation that we can extract from the tree is feature
+<p>One possible explanation that we can extract from the tree is feature
 importance:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">iris_feature_names</span><span class="p">,</span> <span class="n">blimey_tree</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">name</span><span class="p">,</span> <span class="n">importance</span> <span class="o">=</span> <span class="n">n_i</span>
@@ -713,8 +714,8 @@ can do to separate the orange and green clouds. Had we sampled more data,
 the local surrogate would have better approximated the local decision boundary
 of the black-box model. We leave further experiments in this direction to the
 reader.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -729,7 +730,7 @@ reader.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>fatf.transparency.models.submodular_pick.submodular_pick &#8212; FAT Forensics 0.1.1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.models.submodular_pick.submodular_pick.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer" href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html" />
+    <link rel="prev" title="fatf.transparency.models.feature_influence.partial_dependence" href="fatf.transparency.models.feature_influence.partial_dependence.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.transparency.models.feature_influence.partial_dependence.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code>.partial_dependence</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.counterfactuals</span></code>.CounterfactualExplainer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.transparency.models.submodular_pick.submodular_pick.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference (0.1.1)
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.1.1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.transparency.models.feature_influence.partial_dependence.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.transpar...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.transparency.models.feature_influence.partial_dependence
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.transparency.predictions.counterfactuals.CounterfactualExplainer.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.transpar...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.transparency.predictions.counterfactuals.CounterfactualExplainer
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.submodular_pick</span></code>.submodular_pick</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fatf-transparency-models-submodular-pick-submodular-pick">
+<h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.submodular_pick" title="fatf.transparency.models.submodular_pick"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.submodular_pick</span></code></a>.submodular_pick<a class="headerlink" href="#fatf-transparency-models-submodular-pick-submodular-pick" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="fatf.transparency.models.submodular_pick.submodular_pick">
+<code class="sig-prename descclassname">fatf.transparency.models.submodular_pick.</code><code class="sig-name descname">submodular_pick</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">explain_instance</em>, <em class="sig-param">sample_size=0</em>, <em class="sig-param">explanations_number=5</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/models/submodular_pick.py#L87"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.submodular_pick.submodular_pick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies submodular pick to explanations of a given subset of data.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.1.</span></p>
+</div>
+<p>Chooses the most informative data point explanations using the submodular
+pick algorithm introduced by <a class="reference internal" href="#rb3d459eb9857-ribeiro2016why" id="id1">[RIBEIRO2016WHY]</a>.
+Submodular pick applies a greedy optimisation to maximise the coverage
+function for explanations of a subset of points taken from the input
+data set.
+The explanation function (<code class="docutils literal notranslate"><span class="pre">explain_instance</span></code>) must have exactly one
+required parameter and return a dictionary mapping feature names or indices
+to their respective importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dataset</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A data set from which to select individual instances to be explained.</p>
+</dd>
+<dt><strong>explain_instance</strong><span class="classifier">callable</span></dt><dd><p>A reference to a function or method that can generate an explanation
+from an array representing an individual instance.
+This callable must accept exactly one required parameter and return
+an explanation around the selected data point – a dictionary mapping
+feature names or indices to their importance.</p>
+</dd>
+<dt><strong>sample_size</strong><span class="classifier">integer, optional (default=0)</span></dt><dd><p>The number of (randomly selected) data points for which to generate
+explanations. If <code class="docutils literal notranslate"><span class="pre">0</span></code>, explanations for all the data points in the
+<code class="docutils literal notranslate"><span class="pre">dataset</span></code> will be generated.</p>
+</dd>
+<dt><strong>explanations_number</strong><span class="classifier">integer, optional (default=5)</span></dt><dd><p>The number of explanations to return. If <code class="docutils literal notranslate"><span class="pre">0</span></code>, an ordered list of
+all explanations generated for the selected data subset are returned.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>sp_explanations</strong><span class="classifier">List[Dictionary[Union[integer, string], Number]]</span></dt><dd><p>List of explanations chosen by the submodular pick algorithm.</p>
+</dd>
+<dt><strong>sp_indices</strong><span class="classifier">List[integer]</span></dt><dd><p>List of indices for rows in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> chosen (and explained)
+by the submodular pick algorithm.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The input data set is not a 2-dimensional numpy array.</p>
+</dd>
+<dt>TypeError</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> or <code class="docutils literal notranslate"><span class="pre">explanations_number</span></code> is not an integer.
+<code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> is not Python callable (function or method).</p>
+</dd>
+<dt>ValueError</dt><dd><p>The input data set must only contain base types (strings and numbers).
+<code class="docutils literal notranslate"><span class="pre">sample_size</span></code> or <code class="docutils literal notranslate"><span class="pre">explanations_number</span></code> is a negative integer.
+The number of requested explanations is larger than the number of
+samples in the data set.</p>
+</dd>
+<dt>RuntimeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> callable does not require exactly one
+parameter.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>UserWarning</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> is larger than the number of instances (rows) available
+in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, in which case the entire data set is used.
+The number of the requested explanations is larger than the number of
+instances selected to generate explanations – explanations for all
+the data points in the sample will be generated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="rb3d459eb9857-ribeiro2016why"><span class="brackets"><a class="fn-backref" href="#id1">RIBEIRO2016WHY</a></span></dt>
+<dd><p>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016,
+August. Why should I trust you?: Explaining the predictions of any
+classifier. In Proceedings of the 22nd ACM SIGKDD international
+conference on knowledge discovery and data mining (pp. 1135-1144). ACM.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="clear:both"></div></section>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2022, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.transparency.models.submodular_pick.submodular_pick.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

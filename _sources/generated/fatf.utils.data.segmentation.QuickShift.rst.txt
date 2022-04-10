@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.segmentation`.QuickShift
+=====================================================
+
+.. currentmodule:: fatf.utils.data.segmentation
+
+.. autoclass:: QuickShift
+
+.. include:: fatf.utils.data.segmentation.QuickShift.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

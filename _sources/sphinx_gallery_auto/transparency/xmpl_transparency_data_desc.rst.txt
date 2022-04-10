@@ -15,7 +15,6 @@ This example illustrates how to use the Data Description to interpret a data
 set. (See the :mod:`fatf.transparency.data.describe_functions` module for more
 details.)
 
-
 .. code-block:: default
 
     # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
@@ -225,7 +224,7 @@ Finally, describe the class distribution.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.052 seconds)
+   **Total running time of the script:** ( 0 minutes  0.085 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_data_desc.py:

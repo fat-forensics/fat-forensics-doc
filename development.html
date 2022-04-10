@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Developers Guide &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Developers Guide &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/development.html" />
     <link rel="shortcut icon" href="_static/fatf.ico"/>
     <link rel="search" title="Search" href="search.html" />
@@ -169,15 +170,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -287,11 +288,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="developers-guide">
+  <section id="developers-guide">
 <span id="id1"></span><h1>Developers Guide<a class="headerlink" href="#developers-guide" title="Permalink to this headline">¶</a></h1>
 <p>In this guide you will find all the information you need to contribute high
 quality code and documentation to the package.</p>
-<div class="section" id="communication">
+<section id="communication">
 <h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
 <p>We use a range of platforms for communication in the project:</p>
 <ul class="simple">
@@ -302,12 +303,12 @@ our <cite>GitHub issue tracker</cite>;</p></li>
 <li><p>the discussion about the project’s future and the direction of the
 development happens on our <a class="reference external" href="https://fat-forensics.slack.com">slack channel</a> and <a class="reference external" href="https://groups.google.com/forum/#!forum/fat-forensics">mailing list</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="contributing-code">
+</section>
+<section id="contributing-code">
 <h2>Contributing Code<a class="headerlink" href="#contributing-code" title="Permalink to this headline">¶</a></h2>
 <p>There is a number of steps that any new code or documentation patch has to go
 through before being merged into the package. All of these are described below.</p>
-<div class="section" id="installing-development-requirements">
+<section id="installing-development-requirements">
 <span id="developers-guide-dev-requirements"></span><h3>Installing Development Requirements<a class="headerlink" href="#installing-development-requirements" title="Permalink to this headline">¶</a></h3>
 <p>The python tools and packages used for the development and testing of the code
 need to be installed before proceeding. In order to run all of the tests all:
@@ -331,8 +332,8 @@ repository under the following names:</p>
 </div>
 <p>given that your current directory is the root directory of the package. (See
 the section below for more information.)</p>
-</div>
-<div class="section" id="installing-the-package">
+</section>
+<section id="installing-the-package">
 <h3>Installing the Package<a class="headerlink" href="#installing-the-package" title="Permalink to this headline">¶</a></h3>
 <p>When developing code for the package we advise to install it as an
 <strong>editable copy</strong> directly from sources placed in the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch. To
@@ -352,8 +353,8 @@ versions and virtual environments. It makes the development so much easier.</p>
 </div>
 <p>If you want to install the latest <em>stable</em> version from sources instead, please
 use the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch instead.</p>
-</div>
-<div class="section" id="testing-environment">
+</section>
+<section id="testing-environment">
 <h3>Testing Environment<a class="headerlink" href="#testing-environment" title="Permalink to this headline">¶</a></h3>
 <p>We develop the package so that it is compatible with Python versions 3.5 and
 up. The specific versions of the package dependencies are listed in the three
@@ -362,14 +363,14 @@ section.</p>
 <p>All of the test and build commands are held in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>, which is placed
 in the root directory of the package. Please consult this file for the specific
 commands that are executed when building and testing the package.</p>
-<p>Our Continuous Integration (CI) is run on <a class="reference external" href="https://travis-ci.com/fat-forensics/fat-forensics">Travis</a> with the configuration file
-– <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.travis.yml">.travis.yml</a> – held in the root directory of the package.</p>
+<p>Our Continuous Integration (CI) is based on <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/actions">GitHub Actions</a>, with the
+configuration files held in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/.github/workflows">.github/workflows</a> directory.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Random number generator</strong></p>
 <p>Since some of the package’s tests sample random numbers or are influenced by
 “randomness” of its dependencies, the package allows to fix the random seed
-of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/random/index.html#module-numpy.random" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
+of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html#module-numpy.random" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
 generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
 variable to a selected number. (For tests this is set to 42 in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
@@ -378,10 +379,10 @@ aforementioned random seeds to the desired value.</p>
 <p>If anywhere in the tests you wish to restore it to the desired value,
 calling the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function should suffice.</p>
 </div>
-</div>
-<div class="section" id="code-formatting">
+</section>
+<section id="code-formatting">
 <span id="developers-guide-code-formatting"></span><h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h3>
-<p>When writing the code we try to follow the <a class="reference external" href="http://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.
+<p>When writing the code we try to follow the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.
 Code formatting adherence to this guideline can be checked with
 <em>Yet Another Python Formater</em> (<a class="reference external" href="https://github.com/google/yapf">YAPF</a>) by executing:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-yapf
@@ -405,8 +406,8 @@ documentation and configuration files we use <a class="reference external" href=
 author will automatically adhere to some of our coding style. You can find the
 configuration file of the EditorConfig – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.editorconfig">.editorconfig</a> – in the root
 directory of the package.</p>
-</div>
-<div class="section" id="type-hints">
+</section>
+<section id="type-hints">
 <h3>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">¶</a></h3>
 <p>We try to annotate the code in the package with type hints whenever possible.
 The typing of the code is checked statically with <a class="reference external" href="http://mypy-lang.org/">mypy</a>. Our mypy configuration
@@ -415,8 +416,8 @@ type checking is performed by executing the following line of code:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make check-types
 </pre></div>
 </div>
-</div>
-<div class="section" id="testing">
+</section>
+<section id="testing">
 <h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
 <p>We run tests on the package itself as well as on the code snippets spread
 throughout the documentation. To this end, we use <a class="reference external" href="https://pytest.org/en/latest/">pytest</a> configured with the
@@ -424,7 +425,7 @@ throughout the documentation. To this end, we use <a class="reference external" 
 <p>To gather code coverage statistics we use <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a> plugin with its partial
 configuration placed in the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.coveragerc">.coveragerc</a> file kept in the root directory of
 the package.</p>
-<div class="section" id="code">
+<section id="code">
 <h4>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h4>
 <p>The unit tests for the package are held in directories named <code class="docutils literal notranslate"><span class="pre">tests</span></code> created
 separately for each module. To test the code you can execute:</p>
@@ -447,8 +448,8 @@ useful for the unit tests. If you find yourself reusing a piece of code
 in multiple places in the unit tests, please consider making it a part of
 this module.</p>
 </div>
-</div>
-<div class="section" id="documentation">
+</section>
+<section id="documentation">
 <h4>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h4>
 <p>There are three different tests run on the documentation. The first one checks
 validity of links in the documentation and is run with:</p>
@@ -471,13 +472,13 @@ tests can be run with:</p>
 <p>Because of incompatibility of vanila (pytest) doctest and sphinx doctest
 we are using pure doctest syntax, i.e. no group annotations are possible.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="step-by-step-guide">
+</section>
+</section>
+</section>
+<section id="step-by-step-guide">
 <h2>Step by Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
 <p>To summarise, the following commands should be executed to fully test the
-package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.travis.yml">.travis.yml</a> for more details):</p>
+package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/.github/workflows/tests.yml">.github/workflows/tests.yml</a> for more details):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
 $ make linting-yapf
@@ -491,13 +492,13 @@ $ make doc-coverage
 $ make test-doc
 </pre></div>
 </div>
-</div>
-<div class="section" id="contributing-documentation">
+</section>
+<section id="contributing-documentation">
 <h2>Contributing Documentation<a class="headerlink" href="#contributing-documentation" title="Permalink to this headline">¶</a></h2>
 <p>To understand the documentation structure and the intention of each section in
 the documentation please familiarise yourself with the <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">Getting Started</span></a>
 part of the documentation.</p>
-<div class="section" id="code-documentation">
+<section id="code-documentation">
 <h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h3>
 <p>For building the documentation we use <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> with a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a>. The API
 is documented using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/">numpydoc</a> docstring syntax and structure. The code example
@@ -529,8 +530,8 @@ via the following command:</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="user-guide">
+</section>
+<section id="user-guide">
 <h3>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the FAT Forensics
 <a class="reference internal" href="getting_started/index.html#getting-started"><span class="std std-ref">package-oriented documentation</span></a> we also maintain a
@@ -559,9 +560,9 @@ and related) field.</p></li>
 <li><p>Is it <em>Model Dependent</em> (what are the applicable models) or <em>Model Agnostic</em>.</p></li>
 <li><p>Is it <em>Post-Hoc</em> or <em>Ante-Hoc</em>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="pull-requests-and-issues">
+</section>
+</section>
+<section id="pull-requests-and-issues">
 <h2>Pull Requests and Issues<a class="headerlink" href="#pull-requests-and-issues" title="Permalink to this headline">¶</a></h2>
 <p>When making a pull request on GitHub please use the provided
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.github/PULL_REQUEST_TEMPLATE.md">pull request template</a> and make sure that you comply with all the
@@ -572,15 +573,15 @@ the <code class="docutils literal notranslate"><span class="pre">master</span></
 yours.</p>
 <p>Similarly, we have <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/.github/ISSUE_TEMPLATE">issue templates</a>. Please use them (whenever possible)
 while opening a new issue.</p>
-</div>
-<div class="section" id="package-structure">
+</section>
+<section id="package-structure">
 <h2>Package Structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h2>
 <p>All the details of the package structure can be learnt from the
 <a class="reference internal" href="api.html#api-ref"><span class="std std-ref">API documentation</span></a>. However, we include a short summary below
 for completeness.</p>
-<div class="section" id="fairness">
+<section id="fairness">
 <h3>Fairness<a class="headerlink" href="#fairness" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -600,10 +601,10 @@ for completeness.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="accountability">
+</section>
+<section id="accountability">
 <h3>Accountability<a class="headerlink" href="#accountability" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -620,10 +621,10 @@ for completeness.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="transparency">
+</section>
+<section id="transparency">
 <h3>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -643,10 +644,10 @@ for completeness.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="visualisations">
+</section>
+<section id="visualisations">
 <h3>Visualisations<a class="headerlink" href="#visualisations" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -657,10 +658,10 @@ for completeness.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="utilities">
+</section>
+<section id="utilities">
 <h3>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -710,9 +711,9 @@ for completeness.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="package-resources">
+</section>
+</section>
+<section id="package-resources">
 <h2>Package Resources<a class="headerlink" href="#package-resources" title="Permalink to this headline">¶</a></h2>
 <p>The documentation is build on top of the <a class="reference external" href="https://getbootstrap.com/">Bootstrap</a> (v4.3.1) and <a class="reference external" href="https://jquery.com/">jQuery</a>
 (3.4.1) libraries. The <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/doc/themes/fat-forensics">custom theme</a> is based on Sphinx’s <a class="reference external" href="https://github.com/sphinx-doc/sphinx/blob/master/sphinx/themes/nature/static/nature.css_t">nature theme</a>
@@ -772,8 +773,8 @@ for completeness.</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -788,7 +789,7 @@ for completeness.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

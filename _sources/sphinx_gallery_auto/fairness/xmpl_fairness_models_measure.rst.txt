@@ -27,7 +27,6 @@ In this example we measure the three most common Disparate Impact measures:
     For scikit-learn models all of the categorical features in the data set
     would need to be pre-processed first.
 
-
 .. code-block:: default
 
     # Author: Kacper Sokol <k.sokol@bristol.ac.uk>
@@ -186,7 +185,7 @@ only fairness metric that is violated.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.068 seconds)
+   **Total running time of the script:** ( 0 minutes  0.113 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_fairness_xmpl_fairness_models_measure.py:

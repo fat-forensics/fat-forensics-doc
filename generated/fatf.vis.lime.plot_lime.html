@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.vis.lime.plot_lime &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.vis.lime.plot_lime &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.vis.lime.plot_lime.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -140,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -160,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -246,11 +247,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-vis-lime-plot-lime">
+  <section id="fatf-vis-lime-plot-lime">
 <h1><a class="reference internal" href="../api.html#module-fatf.vis.lime" title="fatf.vis.lime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.lime</span></code></a>.plot_lime<a class="headerlink" href="#fatf-vis-lime-plot-lime" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.vis.lime.plot_lime">
-<code class="descclassname">fatf.vis.lime.</code><code class="descname">plot_lime</code><span class="sig-paren">(</span><em>surrogate_explanation: Union[Dict[str, float], Dict[str, Dict[str, float]]]</em><span class="sig-paren">)</span> &#x2192; matplotlib.figure.Figure<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/vis/lime.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.lime.plot_lime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.vis.lime.</code><code class="sig-name descname">plot_lime</code><span class="sig-paren">(</span><em class="sig-param">surrogate_explanation</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/vis/lime.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.lime.plot_lime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots an importance-based surrogate explanation, e.g., LIME.</p>
 <p>This plotting function is intended for the <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code></a> and <a class="reference internal" href="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.html#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree</span></code></a> explainers.
 When multiple explanations are provided, they will share a common y-axis
@@ -287,29 +288,39 @@ explanation.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">surrogate_explanation</span></code> parameter is not a dictionary. One of the
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">surrogate_explanation</span></code> parameter is not a dictionary. One of the
 class names is not a string. One of the interpretable feature names is
 not a string. One of the importance values is not a number.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>One of the explanations is an empty dictionary.</p>
+<dt>ValueError</dt><dd><p>One of the explanations is an empty dictionary.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-vis-lime-plot-lime">
+<section id="examples-using-fatf-vis-lime-plot-lime">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.vis.lime.plot_lime</span></code><a class="headerlink" href="#examples-using-fatf-vis-lime-plot-lime" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a tabular surrogate tree-based explainer to explain a predi..."><div class="figure align-center" id="id1">
-<img alt="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" src="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><div class="figure align-center" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><figure class="align-default" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a tabular surrogate tree-based explainer to explain a predi..."><figure class="align-default" id="id2">
+<img alt="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" src="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME image explainer to explain a prediction."><figure class="align-default" id="id3">
+<img alt="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime_image.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-image-py"><span class="std std-ref">Using LIME Image Explainer</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="clear:both"></div></section>
+</section>
 
 
           </div>
@@ -324,7 +335,7 @@ not a string. One of the importance values is not a number.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

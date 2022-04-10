@@ -20,7 +20,6 @@ implementation --
 -- to explain a prediction of a black-box probabilistic model.
 
 
-
 .. image:: /sphinx_gallery_auto/transparency/images/sphx_glr_xmpl_transparency_tree_001.png
     :class: sphx-glr-single-img
 
@@ -105,7 +104,7 @@ implementation --
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.167 seconds)
+   **Total running time of the script:** ( 0 minutes  2.425 seconds)
 
 
 .. _sphx_glr_download_sphinx_gallery_auto_transparency_xmpl_transparency_tree.py:

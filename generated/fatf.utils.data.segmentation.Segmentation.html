@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>fatf.utils.data.segmentation.Segmentation &#8212; FAT Forensics 0.1.1 documentation</title>
+  <!-- html title is before nature.css - we use this hack to load bootstrap first -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../_static/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.segmentation.Segmentation.html" />
+    <link rel="shortcut icon" href="../_static/fatf.ico"/>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatf.utils.data.segmentation.Slic" href="fatf.utils.data.segmentation.Slic.html" />
+    <link rel="prev" title="fatf.utils.data.occlusion.Occlusion" href="fatf.utils.data.occlusion.Occlusion.html" />
+  <!-- jQuery first, then Bootstrap JS -->
+  <!-- jQuery is distributed with Sphinx already -->
+  <!-- <script src="../_static/jquery.min.js"></script> -->
+  <script src="../_static/js/bootstrap.min.js"></script>
+
+  </head><body>
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand align-text-middle" href="../index.html">
+      <img src="../_static/fatf.png"
+       alt="Logo"
+       width="35" height="35"
+       class="d-inline-block align-middle">
+      FAT Forensics
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapsedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarCollapsedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+            Documentation
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">FAT Forensics</div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../getting_started/index.html">Getting Started</a>
+            <a class="dropdown-item" href="../tutorials/index.html">Tutorials</a>
+            <a class="dropdown-item" href="../sphinx_gallery_auto/index.html">Examples</a>
+            <a class="dropdown-item" href="../api.html">API Reference</a>
+            <a class="dropdown-item" href="../how_to/index.html">How-To Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../news.html">News</a>
+            <a class="dropdown-item" href="../development.html">Developers Guide</a>
+            <a class="dropdown-item" href="../contributors.html">Contributors</a>
+            <a class="dropdown-item" href="../changelog.html">Changelog</a>
+            <a class="dropdown-item" href="../roadmap.html">Roadmap</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../user_guide/index.html">
+            FAT User Guide
+          </a>
+        </li>
+      </ul>
+
+      <div class="search_form form-inline">
+          <div class="gcse-search" id="cse" style="width: 100%;"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- GitHub "fork me" ribbon -->
+<!--
+<a href="https://github.com/fat-forensics/fat-forensics">
+  <img class="fork-me"
+       style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub" />
+</a>
+-->
+<span id="forkongithub">
+  <a href="https://github.com/fat-forensics/fat-forensics">
+    Fork me on GitHub
+  </a>
+</span>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="container sidebar">
+        <!--
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/fatf.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fatf.utils.data.occlusion.Occlusion.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code>.Occlusion</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fatf.utils.data.segmentation.Slic.html"
+                        title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code>.Slic</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generated/fatf.utils.data.segmentation.Segmentation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>-->
+        <!-- Add a link to the 'up' page -->
+        <div class="row rel">
+          <div class="col rellink pad-b-1">
+            <a class="btn btn-primary btn-sm"
+               href="../api.html"
+               role="button">
+              Up
+              <br/>
+              <span class="smallrellink">
+                API Reference (0.1.1)
+              </span>
+              <span class="hiddenrellink left-button">
+                API Reference (0.1.1)
+              </span>
+              
+            </a>
+          </div>
+        </div>
+
+        <!-- Add a links to the 'relative' pages -->
+
+        <div class="row rel">
+          <div class="col-6 rellink
+                      pad-r-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.occlusion.Occlusion.html"
+               accesskey="P"
+               role="button">
+              Previous
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               left-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.occlusion.Occlusion
+                  </span>
+            </a>
+          </div>
+          <div class="col-6 rellink
+                      pad-l-1
+                      ">
+            <a class="btn btn-primary btn-sm"
+               href="fatf.utils.data.segmentation.Slic.html"
+               accesskey="N"
+               role="button">
+              Next
+              <br/>
+              <span class="smallrellink">
+                fatf.utils.da...
+              </span>
+                  <span class="hiddenrellink
+                               right-button
+                               "
+                        data-container="body">
+                  fatf.utils.data.segmentation.Slic
+                  </span>
+            </a>
+          </div>
+        </div>
+
+        
+
+        <!-- Add a citation banner -->
+        <div class="alert alert-info" role="alert" style="font-size: 89%; margin-top: 16px;">
+          Please <a href="../getting_started/cite.html"><b>cite us</b></a> if you use the software.
+        </div>
+
+        <!-- Add a page map -->
+
+        <div class="row toc">
+          <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code>.Segmentation</a></li>
+</ul>
+
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div class="col col-sm-10">
+      <div class="container">
+        <div class="row">
+        
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fatf-utils-data-segmentation-segmentation">
+<h1><a class="reference internal" href="../api.html#module-fatf.utils.data.segmentation" title="fatf.utils.data.segmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code></a>.Segmentation<a class="headerlink" href="#fatf-utils-data-segmentation-segmentation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatf.utils.data.segmentation.Segmentation">
+<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.segmentation.</code><code class="sig-name descname">Segmentation</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">segmentation_mask=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L267"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class implementing image segmentation functionality.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.1.1.</span></p>
+</div>
+<p>An abstract class that all segmentation classes should inherit from.
+It contains an abstract <code class="docutils literal notranslate"><span class="pre">_segment</span></code> method to be implemented by
+individual segmenters.
+This methods should return a 2-dimensional numpy array assigning each
+pixel of an image to a segment by using unique integers from a sequence
+starting at 1.
+The <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> attribute can be used to collect optional parameters
+upon initialising this class that can be used within the <code class="docutils literal notranslate"><span class="pre">_segment</span></code>
+method.</p>
+<p>This class is designed for images represented as numpy arrays with their
+values in the 0–255 range:</p>
+<ul class="simple">
+<li><p>2-dimensional arrays for grayscale (0–255 range) and
+black-and-white (0 and 255 valued) images; and</p></li>
+<li><p>3-dimensional arrays for colour images.</p></li>
+</ul>
+<p>The segmentation stored by this class can be overwritten either with the
+<code class="docutils literal notranslate"><span class="pre">set_segments</span></code> method or by directly setting the <code class="docutils literal notranslate"><span class="pre">segments</span></code> attribute,
+both of which will perform the necessary validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array representing an image to be segmented.</p>
+</dd>
+<dt><strong>segmentation_mask</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>A numpy array representing an image to be used for generating the
+segmentation. If this parameter is not provided, the <code class="docutils literal notranslate"><span class="pre">image</span></code> will
+be used to generate the segmentation.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dictionary</span></dt><dd><p>A list of named parameters saved to the <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> attribute,
+which can be used to pass configuration options to the <code class="docutils literal notranslate"><span class="pre">_segment</span></code>
+method.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array representing an image to be segmented.</p>
+</dd>
+<dt><strong>segmentation_mask</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array representing an image used to perform segmentation.</p>
+</dd>
+<dt><strong>is_rgb</strong><span class="classifier">boolean</span></dt><dd><p>Indicates whether the <code class="docutils literal notranslate"><span class="pre">image</span></code> is RGB or black-and-white.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">dictionary</span></dt><dd><p>A list of named parameters stored as a dictionary;
+it is used  to pass configuration options to the <code class="docutils literal notranslate"><span class="pre">_segment</span></code> method.</p>
+</dd>
+<dt><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.segments" title="fatf.utils.data.segmentation.Segmentation.segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">segments</span></code></a><span class="classifier">numpy.ndarray</span></dt><dd><p>Retrieves the segments.</p>
+</dd>
+<dt><strong>segments_number</strong><span class="classifier">integer</span></dt><dd><p>The number of segments.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+The width and height of <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">segmentation_mask</span></code> do not
+agree.
+The segmentation array is not 2-dimensional.
+The the height or width the segmentation array does not agree with
+the dimensions of the segmented image.</p>
+</dd>
+<dt>RuntimeError</dt><dd><p>A black-and-white image does not use 0 as black and 1 or 255 as white.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is either a structured numpy array or it is not a
+numerical array.
+The segmentation array is either a structured numpy array or
+it is not an integer-valued array.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The elements of the input <code class="docutils literal notranslate"><span class="pre">image</span></code> are not integers in
+the 0–255 range.
+The unique elements of the segmentation array do not form a continuous
+sequence starting at 1.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Warns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>UserWarning</dt><dd><p>Inform the user that only a single segment was found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.grayout_segments" title="fatf.utils.data.segmentation.Segmentation.grayout_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grayout_segments</span></code></a>([segments_subset, mask, image])</p></td>
+<td><p>Grays out a selected subset of segments in the RGB image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.highlight_segments" title="fatf.utils.data.segmentation.Segmentation.highlight_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">highlight_segments</span></code></a>([segments_subset, mask, …])</p></td>
+<td><p>Highlights image segments by translucently colouring them.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.mark_boundaries" title="fatf.utils.data.segmentation.Segmentation.mark_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mark_boundaries</span></code></a>([mask, image, colour])</p></td>
+<td><p>Marks segment boundaries atop the image used to initialise this class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.merge_segments" title="fatf.utils.data.segmentation.Segmentation.merge_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_segments</span></code></a>(segments_grouping[, inplace, …])</p></td>
+<td><p>Merges segments based on the provided grouping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.number_segments" title="fatf.utils.data.segmentation.Segmentation.number_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_segments</span></code></a>([segments_subset, mask, …])</p></td>
+<td><p>Plots segment numbers on top of the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.segmentation.Segmentation.set_segments" title="fatf.utils.data.segmentation.Segmentation.set_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_segments</span></code></a>(segments)</p></td>
+<td><p>Manually overwrites the segmentation with custom <code class="docutils literal notranslate"><span class="pre">segments</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.grayout_segments">
+<code class="sig-name descname">grayout_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_subset=None</em>, <em class="sig-param">mask=False</em>, <em class="sig-param">image=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L1064"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.grayout_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grays out a selected subset of segments in the RGB image.</p>
+<p>The graying out can either be applied on top of the image or
+segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
+Alternatively, an external RGB <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same dimensions can be
+supplied.
+By default all the segments are grayed out; a selected subset of
+segments can be grayed out by providing the <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code>
+parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments_subset</strong><span class="classifier">intiger or list(integer), optional (default=None)</span></dt><dd><p>A number of a specific segment or a list of segments to be
+grayed out. By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) all the segments are grayed out.</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, gray out the segmentation mask;
+if <code class="docutils literal notranslate"><span class="pre">False</span></code>, gray out the image (default).</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, this <code class="docutils literal notranslate"><span class="pre">image</span></code> will be grayed out instead of the one
+used to initialise this segmenter.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image_grayscale</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image with the selected subset of
+segments grayed out.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The the height or width the <code class="docutils literal notranslate"><span class="pre">image</span></code> array does not agree with
+the dimensions of the class image or the <code class="docutils literal notranslate"><span class="pre">image</span></code> is not RGB.</p>
+</dd>
+<dt>RuntimeError</dt><dd><p>The class has been initialised with a black-and-white or
+grayscale image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter is not a boolean.
+The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, an integer,
+or a list of integers; one of the segment ids in this list is not
+an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+for the class segmentation, the list of segments is empty or some
+of its elements are duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.highlight_segments">
+<code class="sig-name descname">highlight_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_subset=None</em>, <em class="sig-param">mask=False</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L734"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.highlight_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Highlights image segments by translucently colouring them.</p>
+<p>The highlighting can either be applied on top of the image or
+segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
+Alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same dimensions can be
+supplied.
+By default all the segments are highlighted; a selected subset of
+segments can be highlighted by providing the <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code>
+parameter.
+The segments are highlighted with different colours by default
+(<code class="docutils literal notranslate"><span class="pre">colour=None</span></code>);
+alternatively, a single colour can be supplied with the <code class="docutils literal notranslate"><span class="pre">colour</span></code>
+parameter.
+It is also possible to specify a unique colour for each segment
+by setting <code class="docutils literal notranslate"><span class="pre">colour</span></code> to a list of RGB triplets;
+in this case the list must have the same length as the number of
+segments being highlighted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments_subset</strong><span class="classifier">intiger or list(integer), optional (default=None)</span></dt><dd><p>A number of a specific segment or a list of segments to be
+highlighted. By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) all the segments are
+highlighted.</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, highlight the segmentation mask;
+if <code class="docutils literal notranslate"><span class="pre">False</span></code>, highlight the image (default).</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, this <code class="docutils literal notranslate"><span class="pre">image</span></code> will be highlighted instead of the one
+used to initialise this segmenter.</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">tuple(integer, integer, integer) or list(tuple(integer, integer, integer)), optional (default=None)</span></dt><dd><p>If provided, the regions will be highlighted with a single RGB
+colour or each segment will be highlighted with its unique colour.
+By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) every segment receives a unique colour.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>image_highlighted</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image with the selected subset of
+segments highlighted.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The the height or width the <code class="docutils literal notranslate"><span class="pre">image</span></code> array does not agree with
+the dimensions of the class image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter is not a boolean.
+The <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter is neither of <code class="docutils literal notranslate"><span class="pre">None</span></code>, a tuple or a list
+of tuples; or one of its elements is not an integer.
+The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, an integer,
+or a list of integers; one of the segment ids in this list is not
+an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">colour</span></code> is provided as a list, the list is either empty or
+the number of colours provided is not the same as the number of
+segments chosen to be highlighted.
+A colour is not a 3-tuple or one of its elements is outside of the
+0–255 range.
+One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+for the class segmentation, the list of segments is empty or some
+of its elements are duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.mark_boundaries">
+<code class="sig-name descname">mark_boundaries</code><span class="sig-paren">(</span><em class="sig-param">mask=False</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.mark_boundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks segment boundaries atop the image used to initialise this class.</p>
+<p>The boundaries can either be overlaid on top of the image or
+segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
+Alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same dimensions can be
+supplied.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the image is grayscale, it will be converted to RGB to display
+the segment boundaries.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mask</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, plot the segment boundaries on top of
+the segmentation mask;
+if <code class="docutils literal notranslate"><span class="pre">False</span></code>, plot the segment boundaries atop the image.</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, the segment boundaries will be overlaid atop this
+<code class="docutils literal notranslate"><span class="pre">image</span></code> instead of the one used to initialise this segmenter.</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">tuple(integer, integer, integer), optional (default=None)</span></dt><dd><p>If provided, the segment boundaries will be plotted with this
+RGB colour.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>marked_image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image with overlaid segment boundaries.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The the height or width the <code class="docutils literal notranslate"><span class="pre">image</span></code> array does not agree with
+the dimensions of the class image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter is not a boolean.
+The <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter is neither a tuple nor a <code class="docutils literal notranslate"><span class="pre">None</span></code>;
+or one of its elements is not an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter is not a 3-tuple, one of its elements
+is outside of the 0–255 range.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.merge_segments">
+<code class="sig-name descname">merge_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_grouping</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">segments=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L1193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.merge_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges segments based on the provided grouping.</p>
+<p>The merging can either be applied to the segmentation stored in the
+class to a segmentation passed as a parameter (<code class="docutils literal notranslate"><span class="pre">segments</span></code>).
+By default (<code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>) the segmentation stored in the class
+will be updated to the merged segmentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments_grouping</strong><span class="classifier">list(integer) or list(list(integer))</span></dt><dd><p>A collection or a set of collections of segment ids to be merged.</p>
+</dd>
+<dt><strong>inplace</strong><span class="classifier">boolean, optional (default=True)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, overwrite the segmentation stored in the class.</p>
+</dd>
+<dt><strong>segments</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, the merging will be performed on this segmentation
+instead of the one stored in the class.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>merged_segments</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array holding the merged segmentation.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is not 2-dimensional.
+The the height or width the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array does not agree with
+the dimensions of the segmented image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is either a structured numpy array or
+it is not an integer-valued array.
+The inplace parameter is not a boolean.
+The segments grouping is not a list of integers or lists.
+One of the segment ids is not an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The unique elements of the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array do not form a
+continuous sequence starting at 1.
+The segments grouping is an empty lists or the list has duplicates.
+One of the segment ids is invalid or appears across different
+groupings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.number_segments">
+<code class="sig-name descname">number_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_subset=None</em>, <em class="sig-param">mask=False</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L584"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.number_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots segment numbers on top of the image.</p>
+<p>The numbering can either be overlaid on top of the image or
+segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
+Alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same dimensions can be
+supplied.
+By default all the segments are numbered; a selected subset of segments
+can be numbered by providing the <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter.
+The colour of the numbers can be specified via the <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter
+by passing an RGB triplet.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The numbers may not be printed within the bounds of their respective
+segments when these are not convex.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments_subset</strong><span class="classifier">intiger or list(integer), optional (default=None)</span></dt><dd><p>A number of a specific segment to be numbered or a list of segments
+to be numbered. By default (<code class="docutils literal notranslate"><span class="pre">None</span></code>) all the segments are
+numbered.</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">boolean, optional (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, number the segmentation mask;
+if <code class="docutils literal notranslate"><span class="pre">False</span></code>, number the image (default).</p>
+</dd>
+<dt><strong>image</strong><span class="classifier">numpy.ndarray, optional (default=None)</span></dt><dd><p>If provided, this <code class="docutils literal notranslate"><span class="pre">image</span></code> will be numbered instead of the one
+used to initialise this segmenter.</p>
+</dd>
+<dt><strong>colour</strong><span class="classifier">tuple(integer, integer, integer), optional (default=None)</span></dt><dd><p>If provided, the numbers will be plotted with this RGB colour.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>numbered_image</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A numpy array holding the image with the selected subset of
+segments numbered.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The the height or width the <code class="docutils literal notranslate"><span class="pre">image</span></code> array does not agree with
+the dimensions of the class image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter is not a boolean.
+The <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter is neither a tuple nor a <code class="docutils literal notranslate"><span class="pre">None</span></code>;
+or one of its elements is not an integer.
+The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, an integer,
+or a list of integers; one of the segment ids in this list is not
+an integer.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">colour</span></code> parameter is not a 3-tuple, one of its elements
+is outside of the 0–255 range.
+One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+for the class segmentation, the list of segments is empty or some
+of its elements are duplicated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.segments">
+<em class="property">property </em><code class="sig-name descname">segments</code><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the segments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatf.utils.data.segmentation.Segmentation.set_segments">
+<code class="sig-name descname">set_segments</code><span class="sig-paren">(</span><em class="sig-param">segments</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L466"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.Segmentation.set_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually overwrites the segmentation with custom <code class="docutils literal notranslate"><span class="pre">segments</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">segments</span></code> must be a non-structured, 2-dimensional, integer-valued
+numpy array with a continuous sequence of unique elements starting
+at 1, which indicate the segment assignment of each pixel.
+The dimension of <code class="docutils literal notranslate"><span class="pre">segments</span></code> must agree with the width and height of
+the segmented image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The same can be achieved by directly setting the <code class="docutils literal notranslate"><span class="pre">self.segments</span></code>
+with <code class="docutils literal notranslate"><span class="pre">my_segmenter.segments</span> <span class="pre">=</span> <span class="pre">segments</span></code>.
+(A dedicated <em>setter</em> method takes care of validating the
+correctness of <code class="docutils literal notranslate"><span class="pre">segments</span></code>.)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>segments</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>A 2-dimensional numpy array representing a segmentation.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><dl class="simple">
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is not 2-dimensional.
+The the height or width the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array does not agree with
+the dimensions of the segmented image.</p>
+</dd>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is either a structured numpy array or
+it is not an integer-valued array.</p>
+</dd>
+<dt>ValueError</dt><dd><p>The unique elements of the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array do not form a
+continuous sequence starting at 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clear:both"></div></section>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container cusotm-footer">
+    <div class="row">
+      <div class="col-3">
+        &copy; 2018--2022, Kacper Sokol et al.
+      </div>
+      <div class="col-6">
+        <a class="footer-img-link" href="contributors.html#funding">
+          <img src="../_static/img/bristol.svg" title="Univeristy of Bristol" style="max-height: 30px">
+          &nbsp;
+          <img src="../_static/img/thales.svg" title="Thales" style="max-height: 20px">
+        </a>
+        <br>
+        <a href="contributors.html#funding" style="top: 4px; position: relative;">
+          More information on our contributors
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="../_sources/generated/fatf.utils.data.segmentation.Segmentation.rst.txt" rel="nofollow">
+          Show this page source
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-142154492-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+  <script>
+    (function() {
+      var cx = '014039732624725851926:mpducezglrq';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  
+  </body>
+</html>

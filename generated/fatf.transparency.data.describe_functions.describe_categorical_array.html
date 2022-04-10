@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.transparency.data.describe_functions.describe_categorical_array &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.transparency.data.describe_functions.describe_categorical_array &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.data.describe_functions.describe_categorical_array.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -140,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -160,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -246,11 +247,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-transparency-data-describe-functions-describe-categorical-array">
+  <section id="fatf-transparency-data-describe-functions-describe-categorical-array">
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.data.describe_functions" title="fatf.transparency.data.describe_functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.data.describe_functions</span></code></a>.describe_categorical_array<a class="headerlink" href="#fatf-transparency-data-describe-functions-describe-categorical-array" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.data.describe_functions.describe_categorical_array">
-<code class="descclassname">fatf.transparency.data.describe_functions.</code><code class="descname">describe_categorical_array</code><span class="sig-paren">(</span><em>array: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; Dict[str, Union[str, int, numpy.ndarray]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/transparency/data/describe_functions.py#L276"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.data.describe_functions.describe_categorical_array" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.transparency.data.describe_functions.</code><code class="sig-name descname">describe_categorical_array</code><span class="sig-paren">(</span><em class="sig-param">array</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/data/describe_functions.py#L276"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.data.describe_functions.describe_categorical_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes a categorical numpy array with basic statistics.</p>
 <p>The description output by this function is a dictionary with the
 following keys:</p>
@@ -284,15 +285,15 @@ the only one with that count.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input array is not 1-dimensinoal.</p>
+<dt>IncorrectShapeError</dt><dd><p>The input array is not 1-dimensinoal.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The input array is empty.</p>
+<dt>ValueError</dt><dd><p>The input array is empty.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>UserWarning</strong></dt><dd><p>When the input array is not purely textual it needs to be converted to
+<dt>UserWarning</dt><dd><p>When the input array is not purely textual it needs to be converted to
 a string type before it can be described.</p>
 </dd>
 </dl>
@@ -300,14 +301,16 @@ a string type before it can be described.</p>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-transparency-data-describe-functions-describe-categorical-array">
+<section id="examples-using-fatf-transparency-data-describe-functions-describe-categorical-array">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.data.describe_functions.describe_categorical_array</span></code><a class="headerlink" href="#examples-using-fatf-transparency-data-describe-functions-describe-categorical-array" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Data Description to interpret a data set. (See the :mod..."><div class="figure align-center" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Data Description to interpret a data set. (See the :mod..."><figure class="align-default" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_data_desc_thumb.png" src="../_images/sphx_glr_xmpl_transparency_data_desc_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py"><span class="std std-ref">Using Data Description Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py"><span class="std std-ref">Using Data Description Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="clear:both"></div></section>
+</section>
 
 
           </div>
@@ -322,7 +325,7 @@ a string type before it can be described.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

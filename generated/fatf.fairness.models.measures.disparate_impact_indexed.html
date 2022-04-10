@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.fairness.models.measures.disparate_impact_indexed &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.fairness.models.measures.disparate_impact_indexed &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.fairness.models.measures.disparate_impact_indexed.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-fairness-models-measures-disparate-impact-indexed">
+  <section id="fatf-fairness-models-measures-disparate-impact-indexed">
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.models.measures" title="fatf.fairness.models.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.models.measures</span></code></a>.disparate_impact_indexed<a class="headerlink" href="#fatf-fairness-models-measures-disparate-impact-indexed" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.models.measures.disparate_impact_indexed">
-<code class="descclassname">fatf.fairness.models.measures.</code><code class="descname">disparate_impact_indexed</code><span class="sig-paren">(</span><em>indices_per_bin: List[numpy.ndarray], ground_truth: numpy.ndarray, predictions: numpy.ndarray, label_index: int = 0, labels: Optional[List[Union[float, str]]] = None, tolerance: float = 0.2, criterion: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/fairness/models/measures.py#L98"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.models.measures.disparate_impact_indexed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.fairness.models.measures.</code><code class="sig-name descname">disparate_impact_indexed</code><span class="sig-paren">(</span><em class="sig-param">indices_per_bin</em>, <em class="sig-param">ground_truth</em>, <em class="sig-param">predictions</em>, <em class="sig-param">label_index=0</em>, <em class="sig-param">labels=None</em>, <em class="sig-param">tolerance=0.2</em>, <em class="sig-param">criterion=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/fairness/models/measures.py#L98"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.models.measures.disparate_impact_indexed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates selected disparate impact grid for indexed data.</p>
 <p>This function combines
 <a class="reference internal" href="fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed.html#fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed" title="fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed</span></code></a>
@@ -276,9 +277,9 @@ of sub-populations a disparity happens.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor a string.</p>
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor a string.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameter is none of the allowed values (see the
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameter is none of the allowed values (see the
 description of the parameter).</p>
 </dd>
 </dl>
@@ -286,7 +287,7 @@ description of the parameter).</p>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -301,7 +302,7 @@ description of the parameter).</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

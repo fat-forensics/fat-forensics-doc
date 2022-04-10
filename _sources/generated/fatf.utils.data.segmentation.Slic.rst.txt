@@ -1,0 +1,11 @@
+:mod:`fatf.utils.data.segmentation`.Slic
+===============================================
+
+.. currentmodule:: fatf.utils.data.segmentation
+
+.. autoclass:: Slic
+
+.. include:: fatf.utils.data.segmentation.Slic.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

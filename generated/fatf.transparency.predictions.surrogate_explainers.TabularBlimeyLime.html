@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -140,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -160,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -246,11 +247,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-transparency-predictions-surrogate-explainers-tabularblimeylime">
+  <section id="fatf-transparency-predictions-surrogate-explainers-tabularblimeylime">
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.TabularBlimeyLime<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-tabularblimeylime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/transparency/predictions/surrogate_explainers.py#L800"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="sig-name descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">predictive_model</em>, <em class="sig-param">as_regressor=False</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">class_names=None</em>, <em class="sig-param">feature_names=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_explainers.py#L800"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tabular LIME explainer – a surrogate explainer based on a linear model.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>(1) Added support for regression models.
@@ -354,7 +355,7 @@ documentation of the parent class <a class="reference internal" href="fatf.trans
 <dl class="citation">
 <dt class="label" id="r3b5bab701858-ribeiro2016why"><span class="brackets"><a class="fn-backref" href="#id1">RIBEIRO2016WHY</a></span></dt>
 <dd><p>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016,
-August. Why should i trust you?: Explaining the predictions of any
+August. Why should I trust you?: Explaining the predictions of any
 classifier. In Proceedings of the 22nd ACM SIGKDD international
 conference on knowledge discovery and data mining (pp. 1135-1144). ACM.</p>
 </dd>
@@ -431,26 +432,26 @@ this bin will be sampled.)</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>ImportError</strong></dt><dd><p>The scikit-learn package is missing.</p>
+<dt>ImportError</dt><dd><p>The scikit-learn package is missing.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(data_row, numpy.void], …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(data_row[, …])</p></td>
 <td><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with linear regression feature importance.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, samples_number: int = 50, features_number: Optional[int] = None, kernel_width: Optional[float] = None, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/transparency/predictions/surrogate_explainers.py#L1235"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">explain_instance</code><span class="sig-paren">(</span><em class="sig-param">data_row</em>, <em class="sig-param">explained_class=None</em>, <em class="sig-param">samples_number=50</em>, <em class="sig-param">features_number=None</em>, <em class="sig-param">kernel_width=None</em>, <em class="sig-param">return_models=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_explainers.py#L1235"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with linear regression feature importance.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>Changed the feature selection mechanism from k-LASSO to
@@ -529,13 +530,13 @@ parameter is set to <code class="docutils literal notranslate"><span class="pre"
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, an integer
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, an integer
 or a string. The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> parameter is not an integer.
 The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor an
 integer. The <code class="docutils literal notranslate"><span class="pre">kernel_width</span></code> parameter is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor
 a number. The <code class="docutils literal notranslate"><span class="pre">return_models</span></code> parameter is not a boolean.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> parameter is a non-positive integer (smaller
+<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> parameter is a non-positive integer (smaller
 than 1). The <code class="docutils literal notranslate"><span class="pre">features_number</span></code> parameter is a non-positive
 integer (smaller than 1). The <code class="docutils literal notranslate"><span class="pre">kernel_width</span></code> parameter is a
 non-positive number (smaller or equal to 0).
@@ -550,14 +551,16 @@ nor an index of a class name.</p>
 
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-transparency-predictions-surrogate-explainers-tabularblimeylime">
+<section id="examples-using-fatf-transparency-predictions-surrogate-explainers-tabularblimeylime">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime</span></code><a class="headerlink" href="#examples-using-fatf-transparency-predictions-surrogate-explainers-tabularblimeylime" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><div class="figure align-center" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><figure class="align-default" id="id2">
 <img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="clear:both"></div></section>
+</section>
 
 
           </div>
@@ -572,7 +575,7 @@ nor an index of a class name.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

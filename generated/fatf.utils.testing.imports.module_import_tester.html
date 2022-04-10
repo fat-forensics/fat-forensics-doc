@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.testing.imports.module_import_tester &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.testing.imports.module_import_tester &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.testing.imports.module_import_tester.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -235,17 +236,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-testing-imports-module-import-tester">
+  <section id="fatf-utils-testing-imports-module-import-tester">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.testing.imports" title="fatf.utils.testing.imports"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.imports</span></code></a>.module_import_tester<a class="headerlink" href="#fatf-utils-testing-imports-module-import-tester" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.testing.imports.module_import_tester">
-<code class="descclassname">fatf.utils.testing.imports.</code><code class="descname">module_import_tester</code><span class="sig-paren">(</span><em>module_name: str</em>, <em>when_missing: bool = True</em><span class="sig-paren">)</span> &#x2192; Iterator[None]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/../../../../../../opt/python/3.6.7/lib/python3.6/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.testing.imports.</code><code class="sig-name descname">module_import_tester</code><span class="sig-paren">(</span><em class="sig-param">module_name</em>, <em class="sig-param">when_missing=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/../../../.pyenv/versions/3.7.2/lib/python3.7/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a context for testing imports of installed and missing modules.</p>
 <p>This context can be used to get an environment where a particular module
 (<code class="docutils literal notranslate"><span class="pre">module_name</span></code>) is either not installed – <code class="docutils literal notranslate"><span class="pre">when_missing=True</span></code> – or
 installed – <code class="docutils literal notranslate"><span class="pre">when_missing=False</span></code>. The example below demonstrates a
 possible use case:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.testing.imports</span> <span class="k">as</span> <span class="nn">futi</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.testing.imports</span> <span class="k">as</span> <span class="nn">futi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">futi</span><span class="o">.</span><span class="n">module_import_tester</span><span class="p">(</span><span class="s1">&#39;a_module&#39;</span><span class="p">,</span> <span class="n">when_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">try</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="kn">import</span> <span class="nn">a_module</span>
@@ -262,8 +263,8 @@ that the import succeeds.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python 3.6 and later will result in
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -277,13 +278,13 @@ available for import or not. Defaults to <code class="docutils literal notransla
 </dd>
 <dt class="field-even">Yields</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>A context with the selected module either missing or present.</strong></dt><dd></dd>
+<dt>A context with the selected module either missing or present.</dt><dd></dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -298,7 +299,7 @@ available for import or not. Defaults to <code class="docutils literal notransla
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.utils.data.transformation.dataset_row_masking &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.utils.data.transformation.dataset_row_masking &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,17 +19,17 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.transformation.dataset_row_masking.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="fatf.utils.data.density.DensityCheck" href="fatf.utils.data.density.DensityCheck.html" />
-    <link rel="prev" title="fatf.utils.data.instance_augmentation.binary_sampler" href="fatf.utils.data.instance_augmentation.binary_sampler.html" />
+    <link rel="prev" title="fatf.utils.data.instance_augmentation.random_binary_sampler" href="fatf.utils.data.instance_augmentation.random_binary_sampler.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../_static/jquery.min.js"></script> -->
@@ -119,8 +120,8 @@
               <img class="logo" src="../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="fatf.utils.data.instance_augmentation.binary_sampler.html"
-                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code>.binary_sampler</a></p>
+  <p class="topless"><a href="fatf.utils.data.instance_augmentation.random_binary_sampler.html"
+                        title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.instance_augmentation</span></code>.random_binary_sampler</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="fatf.utils.data.density.DensityCheck.html"
                         title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code>.DensityCheck</a></p>
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -152,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -169,7 +170,7 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="fatf.utils.data.instance_augmentation.binary_sampler.html"
+               href="fatf.utils.data.instance_augmentation.random_binary_sampler.html"
                accesskey="P"
                role="button">
               Previous
@@ -181,7 +182,7 @@
                                left-button
                                "
                         data-container="body">
-                  fatf.utils.data.instance_augmentation.binary_sampler
+                  fatf.utils.data.instance_augmentation.random_binary_sampler
                   </span>
             </a>
           </div>
@@ -235,11 +236,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-utils-data-transformation-dataset-row-masking">
+  <section id="fatf-utils-data-transformation-dataset-row-masking">
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.transformation" title="fatf.utils.data.transformation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.transformation</span></code></a>.dataset_row_masking<a class="headerlink" href="#fatf-utils-data-transformation-dataset-row-masking" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.transformation.dataset_row_masking">
-<code class="descclassname">fatf.utils.data.transformation.</code><code class="descname">dataset_row_masking</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, data_row: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/utils/data/transformation.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.transformation.dataset_row_masking" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.utils.data.transformation.</code><code class="sig-name descname">dataset_row_masking</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">data_row</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/transformation.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.transformation.dataset_row_masking" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a binary representation of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> by masking its rows.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -272,11 +273,11 @@ achieved by “masking” it with the <code class="docutils literal notranslate"
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional array or <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a
+<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional array or <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not a
 1-dimensional array. The length of the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is different to the
 number of columns in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type or the <code class="docutils literal notranslate"><span class="pre">data_row</span></code>’s dtype is
+<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type or the <code class="docutils literal notranslate"><span class="pre">data_row</span></code>’s dtype is
 too different from the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>’s dtype.</p>
 </dd>
 </dl>
@@ -284,7 +285,7 @@ too different from the <code class="docutils literal notranslate"><span class="p
 </dl>
 </dd></dl>
 
-<div class="clear:both"></div></div>
+<div class="clear:both"></div></section>
 
 
           </div>
@@ -299,7 +300,7 @@ too different from the <code class="docutils literal notranslate"><span class="p
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

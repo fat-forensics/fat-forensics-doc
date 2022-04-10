@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Using Grouping to Evaluate Robustness of Data and Models &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Using Grouping to Evaluate Robustness of Data and Models &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/tutorials/grouping-robustness.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -143,15 +144,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -252,7 +253,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="using-grouping-to-evaluate-robustness-of-data-and-models">
+  <section id="using-grouping-to-evaluate-robustness-of-data-and-models">
 <span id="tutorials-grouping-robustness"></span><h1>Using Grouping to Evaluate Robustness of Data and Models<a class="headerlink" href="#using-grouping-to-evaluate-robustness-of-data-and-models" title="Permalink to this headline">¶</a></h1>
 <div class="topic">
 <p class="topic-title">Tutorial Contents</p>
@@ -287,7 +288,7 @@ discussion in the <a class="reference internal" href="grouping-fairness.html#tut
 the the <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial or the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/iris">data set description</a>
 on the <a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UCI repository</a> website.</p>
 </div>
-<div class="section" id="grouping-the-data-set">
+<section id="grouping-the-data-set">
 <h2>Grouping the Data Set<a class="headerlink" href="#grouping-the-data-set" title="Permalink to this headline">¶</a></h2>
 <p>For the purpose of this tutorial we will group the data set based on the third
 feature of the data set:</p>
@@ -311,8 +312,8 @@ split values on this feature: <code class="docutils literal notranslate"><span c
 <span class="go">[&#39;x &lt;= 2.5&#39;, &#39;2.5 &lt; x &lt;= 4.75&#39;, &#39;4.75 &lt; x&#39;]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sampling-bias">
+</section>
+<section id="sampling-bias">
 <h2>Sampling Bias<a class="headerlink" href="#sampling-bias" title="Permalink to this headline">¶</a></h2>
 <p>Given these two important splits we can now inspect these groupings and see
 whether we have a comparable number of data points in each of them:</p>
@@ -352,8 +353,8 @@ internaly groups the data based on the specified feature index. The
 <a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"><span class="std std-ref">Measuring Robustness of a Data Set – Sampling Bias</span></a>
 code example shows how to use it.</p>
 </div>
-</div>
-<div class="section" id="systematic-performance-bias">
+</section>
+<section id="systematic-performance-bias">
 <h2>Systematic Performance Bias<a class="headerlink" href="#systematic-performance-bias" title="Permalink to this headline">¶</a></h2>
 <p>Before we can evaluate robustness of a model, we first need one trained on the
 Iris data set:</p>
@@ -459,8 +460,8 @@ we move on to predictive models (<a class="reference internal" href="model-expla
 predictions (<a class="reference internal" href="prediction-explainability.html#tutorials-prediction-explainability"><span class="std std-ref">Explaining Machine Learning Predictions: LIME and Counterfactuals</span></a>) transparency. For data
 sets transparency please refer to the <strong>last section</strong> of the
 <a class="reference internal" href="grouping.html#tutorials-grouping"><span class="std std-ref">Exploring the Grouping Concept – Defining Sub-Populations</span></a> tutorial.</p>
-</div>
-<div class="section" id="relevant-fat-forensics-examples">
+</section>
+<section id="relevant-fat-forensics-examples">
 <h2>Relevant FAT Forensics Examples<a class="headerlink" href="#relevant-fat-forensics-examples" title="Permalink to this headline">¶</a></h2>
 <p>The following examples provide more structured and code-focused use-cases of
 a group-based data and models inspection to evaluate their accountability:</p>
@@ -468,8 +469,8 @@ a group-based data and models inspection to evaluate their accountability:</p>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py"><span class="std std-ref">Measuring Robustness of a Data Set – Sampling Bias</span></a>,</p></li>
 <li><p><a class="reference internal" href="../sphinx_gallery_auto/accountability/xmpl_accountability_models_measure.html#sphx-glr-sphinx-gallery-auto-accountability-xmpl-accountability-models-measure-py"><span class="std std-ref">Measuring Robustness of a Predictive Model – Systematic Performance Bias</span></a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -484,7 +485,7 @@ a group-based data and models inspection to evaluate their accountability:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

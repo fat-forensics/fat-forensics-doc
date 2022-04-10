@@ -1,6 +1,0 @@
-fatf.utils.testing.arrays.WIDE\_STRUCTURED\_ARRAY
-=================================================
-
-.. currentmodule:: fatf.utils.testing.arrays
-
-.. autodata:: WIDE_STRUCTURED_ARRAY

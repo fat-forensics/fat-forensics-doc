@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>Using Data Description Explainer &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>Using Data Description Explainer &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,17 +19,17 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using Counterfactual Prediction Explainer" href="xmpl_transparency_cf.html" />
-    <link rel="prev" title="Using Partial Dependence Explainer" href="xmpl_transparency_pd.html" />
+    <link rel="prev" title="Using LIME Image Explainer" href="xmpl_transparency_lime_image.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
   <!-- <script src="../../_static/jquery.min.js"></script> -->
@@ -119,8 +120,8 @@
               <img class="logo" src="../../_static/fatf.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="xmpl_transparency_pd.html"
-                        title="previous chapter">Using Partial Dependence Explainer</a></p>
+  <p class="topless"><a href="xmpl_transparency_lime_image.html"
+                        title="previous chapter">Using LIME Image Explainer</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="xmpl_transparency_cf.html"
                         title="next chapter">Using Counterfactual Prediction Explainer</a></p>
@@ -132,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -169,19 +170,19 @@
                       pad-r-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="xmpl_transparency_pd.html"
+               href="xmpl_transparency_lime_image.html"
                accesskey="P"
                role="button">
               Previous
               <br/>
               <span class="smallrellink">
-                Using Partial...
+                Using LIME Im...
               </span>
                   <span class="hiddenrellink
                                left-button
                                "
                         data-container="body">
-                  Using Partial Dependence Explainer
+                  Using LIME Image Explainer
                   </span>
             </a>
           </div>
@@ -239,7 +240,7 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py"><span class="std std-ref">here</span></a> to download the full example code or run this example in your browser via Binder</p>
 </div>
-<div class="sphx-glr-example-title section" id="using-data-description-explainer">
+<section class="sphx-glr-example-title" id="using-data-description-explainer">
 <span id="sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py"></span><h1>Using Data Description Explainer<a class="headerlink" href="#using-data-description-explainer" title="Permalink to this headline">¶</a></h1>
 <p>This example illustrates how to use the Data Description to interpret a data
 set. (See the <a class="reference internal" href="../../api.html#module-fatf.transparency.data.describe_functions" title="fatf.transparency.data.describe_functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.data.describe_functions</span></code></a> module for more
@@ -381,7 +382,7 @@ details.)</p>
 <span class="n">pprint</span><span class="p">(</span><span class="n">target_explanation</span><span class="p">)</span>
 
 <span class="c1"># Since the targer array is numerical, we can convert it to class names first</span>
-<span class="n">iris_y_named</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_y</span><span class="p">])</span>
+<span class="n">iris_y_named</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_y</span><span class="p">])</span>
 <span class="n">target_explanation_named</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_categorical_array</span></a><span class="p">(</span><span class="n">iris_y_named</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data Description of the target array mapped to class names:&#39;</span><span class="p">)</span>
@@ -405,20 +406,20 @@ Data Description of the target array mapped to class names:
  &#39;unique_counts&#39;: array([50, 50, 50])}
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.052 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.085 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/c005e6d34ce9fe7a59ed092da994c602/xmpl_transparency_data_desc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_data_desc.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/f3d844394ea71a9dbbda75db72738ca6/xmpl_transparency_data_desc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_data_desc.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/e0831f11e987e18319adfb3aa9127705/xmpl_transparency_data_desc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_data_desc.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ee73088968e355d1f6544bedf788f7b0/xmpl_transparency_data_desc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_data_desc.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
+</section>
 
 
           </div>
@@ -433,7 +434,7 @@ Data Description of the target array mapped to class names:
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

@@ -1,6 +1,0 @@
-fatf.utils.testing.transparency.CATEGORICAL\_STRUCT\_ARRAY
-==========================================================
-
-.. currentmodule:: fatf.utils.testing.transparency
-
-.. autodata:: CATEGORICAL_STRUCT_ARRAY

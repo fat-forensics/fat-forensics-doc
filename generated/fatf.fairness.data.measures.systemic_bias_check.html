@@ -4,9 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   
-    <title>fatf.fairness.data.measures.systemic_bias_check &#8212; FAT Forensics 0.1.0 documentation</title>
+    <title>fatf.fairness.data.measures.systemic_bias_check &#8212; FAT Forensics 0.1.1 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.fairness.data.measures.systemic_bias_check.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -140,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -160,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.0)
+                API Reference (0.1.1)
               </span>
               
             </a>
@@ -246,11 +247,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="fatf-fairness-data-measures-systemic-bias-check">
+  <section id="fatf-fairness-data-measures-systemic-bias-check">
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.data.measures" title="fatf.fairness.data.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.data.measures</span></code></a>.systemic_bias_check<a class="headerlink" href="#fatf-fairness-data-measures-systemic-bias-check" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.data.measures.systemic_bias_check">
-<code class="descclassname">fatf.fairness.data.measures.</code><code class="descname">systemic_bias_check</code><span class="sig-paren">(</span><em>systemic_bias_matrix: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/6fa252a/fatf/fairness/data/measures.py#L131"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.data.measures.systemic_bias_check" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">fatf.fairness.data.measures.</code><code class="sig-name descname">systemic_bias_check</code><span class="sig-paren">(</span><em class="sig-param">systemic_bias_matrix</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/fairness/data/measures.py#L131"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.data.measures.systemic_bias_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether a dataset has a systemic bias.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -271,11 +272,11 @@ the original data set.)</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>IncorrectShapeError</strong></dt><dd><p>The systemic bias matrix is not 2-dimensional or square.</p>
+<dt>IncorrectShapeError</dt><dd><p>The systemic bias matrix is not 2-dimensional or square.</p>
 </dd>
-<dt><strong>TypeError</strong></dt><dd><p>The systemic bias matrix is not of boolean type.</p>
+<dt>TypeError</dt><dd><p>The systemic bias matrix is not of boolean type.</p>
 </dd>
-<dt><strong>ValueError</strong></dt><dd><p>The systemic bias matrix is a structured numpy array or is not
+<dt>ValueError</dt><dd><p>The systemic bias matrix is a structured numpy array or is not
 diagonally symmetric.</p>
 </dd>
 </dl>
@@ -283,14 +284,16 @@ diagonally symmetric.</p>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-fatf-fairness-data-measures-systemic-bias-check">
+<section id="examples-using-fatf-fairness-data-measures-systemic-bias-check">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.fairness.data.measures.systemic_bias_check</span></code><a class="headerlink" href="#examples-using-fatf-fairness-data-measures-systemic-bias-check" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d..."><div class="figure align-center" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d..."><figure class="align-default" id="id1">
 <img alt="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" src="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="clear:both"></div></div>
-</div>
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="clear:both"></div></section>
+</section>
 
 
           </div>
@@ -305,7 +308,7 @@ diagonally symmetric.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2020, Kacper Sokol et al.
+        &copy; 2018--2022, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">

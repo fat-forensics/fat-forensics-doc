@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:00.310** total execution time for **sphinx_gallery_auto_fairness** files:
+**00:00.439** total execution time for **sphinx_gallery_auto_fairness** files:
 
-- **00:00.197**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py` (``xmpl_fairness_predictions_measure.py``)
-- **00:00.068**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_models_measure.py` (``xmpl_fairness_models_measure.py``)
-- **00:00.045**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_data_measure.py` (``xmpl_fairness_data_measure.py``)
+- **00:00.269**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_predictions_measure.py` (``xmpl_fairness_predictions_measure.py``)
+- **00:00.113**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_models_measure.py` (``xmpl_fairness_models_measure.py``)
+- **00:00.057**: :ref:`sphx_glr_sphinx_gallery_auto_fairness_xmpl_fairness_data_measure.py` (``xmpl_fairness_data_measure.py``)

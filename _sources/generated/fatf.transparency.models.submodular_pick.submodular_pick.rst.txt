@@ -1,0 +1,11 @@
+:mod:`fatf.transparency.models.submodular_pick`.submodular_pick
+======================================================================
+
+.. currentmodule:: fatf.transparency.models.submodular_pick
+
+.. autofunction:: submodular_pick
+
+.. include:: fatf.transparency.models.submodular_pick.submodular_pick.examples
+.. raw:: html
+
+    <div class="clear:both"></div>

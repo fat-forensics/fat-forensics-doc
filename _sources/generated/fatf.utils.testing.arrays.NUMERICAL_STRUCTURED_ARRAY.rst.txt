@@ -1,6 +1,0 @@
-fatf.utils.testing.arrays.NUMERICAL\_STRUCTURED\_ARRAY
-======================================================
-
-.. currentmodule:: fatf.utils.testing.arrays
-
-.. autodata:: NUMERICAL_STRUCTURED_ARRAY

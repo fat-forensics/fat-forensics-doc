@@ -1,0 +1,11 @@
+:mod:`fatf.utils.models.processing`.batch_data
+=====================================================
+
+.. currentmodule:: fatf.utils.models.processing
+
+.. autofunction:: batch_data
+
+.. include:: fatf.utils.models.processing.batch_data.examples
+.. raw:: html
+
+    <div class="clear:both"></div>
