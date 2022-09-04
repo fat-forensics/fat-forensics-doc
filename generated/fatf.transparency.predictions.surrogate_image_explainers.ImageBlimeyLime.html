@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -141,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -161,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_image_explainers" title="fatf.transparency.predictions.surrogate_image_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_image_explainers</span></code></a>.ImageBlimeyLime<a class="headerlink" href="#fatf-transparency-predictions-surrogate-image-explainers-imageblimeylime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.transparency.predictions.surrogate_image_explainers.</code><code class="sig-name descname">ImageBlimeyLime</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">predictive_model</em>, <em class="sig-param">as_probabilistic=True</em>, <em class="sig-param">class_names=None</em>, <em class="sig-param">segmentation_mask=None</em>, <em class="sig-param">segments_merge_list=None</em>, <em class="sig-param">ratio=0.2</em>, <em class="sig-param">kernel_size=4</em>, <em class="sig-param">max_dist=200</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_image_explainers.py#L54"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_image_explainers.</code><code class="descname">ImageBlimeyLime</code><span class="sig-paren">(</span><em>image: numpy.ndarray, predictive_model: object, as_probabilistic: bool = True, class_names: Union[List[str], List[int], None] = None, segmentation_mask: Optional[numpy.ndarray] = None, segments_merge_list: Union[None, List[int], List[List[int]]] = None, ratio: float = 0.2, kernel_size: float = 4, max_dist: float = 200, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/predictions/surrogate_image_explainers.py#L54"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements a surrogate image explainer equivalent to LIME.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -367,32 +367,32 @@ the <code class="docutils literal notranslate"><span class="pre">explain_instanc
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncompatibleModelError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> does not have the required functionality:
+<dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_model</span></code> does not have the required functionality:
 <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method for probabilistic models and <code class="docutils literal notranslate"><span class="pre">predict</span></code>
 method crisp classifiers.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>The number of class names provided via the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> parameter
+<dt><strong>RuntimeError</strong></dt><dd><p>The number of class names provided via the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> parameter
 does not agree with the number of classes output by the probabilistic
 model.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter is not a boolean.
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">as_probabilistic</span></code> parameter is not a boolean.
 The <code class="docutils literal notranslate"><span class="pre">class_names</span></code> parameter is neither a list nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.
 Some of the elements in the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> list are neither a string
 nor an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">class_names</span></code> list is empty or it contains duplicates.</p>
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">class_names</span></code> list is empty or it contains duplicates.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance" title="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>([explained_class, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance" title="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain_instance</span></code></a>(explained_class, str, …)</p></td>
 <td><p>Explains the image used to initialise this class.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.set_occlusion_colour" title="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.set_occlusion_colour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_occlusion_colour</span></code></a>(colour)</p></td>
@@ -402,7 +402,7 @@ nor an integer.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance">
-<code class="sig-name descname">explain_instance</code><span class="sig-paren">(</span><em class="sig-param">explained_class=None</em>, <em class="sig-param">samples_number=50</em>, <em class="sig-param">batch_size=50</em>, <em class="sig-param">kernel_width=0.25</em>, <em class="sig-param">colour=None</em>, <em class="sig-param">reuse_sample=False</em>, <em class="sig-param">return_model=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_image_explainers.py#L315"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>explained_class: Union[int, str, None] = None, samples_number: int = 50, batch_size: int = 50, kernel_width: float = 0.25, colour: Union[str, int, Tuple[int, int, int], None] = None, reuse_sample: bool = False, return_model: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, numbers.Number], Tuple[Dict[str, numbers.Number], fatf.utils.models.models.Model]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/predictions/surrogate_image_explainers.py#L315"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the image used to initialise this class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -458,19 +458,19 @@ This model is only returned when <code class="docutils literal notranslate"><spa
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IndexError</dt><dd><p>The name of the class chosen to be explained could not be located
+<dt><strong>IndexError</strong></dt><dd><p>The name of the class chosen to be explained could not be located
 among the class names provided upon initialising this object.
 The index of the explained class – when explaining a probabilistic
 model – is invalid.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>Some of the cosine distances could not be computed due to a
+<dt><strong>RuntimeError</strong></dt><dd><p>Some of the cosine distances could not be computed due to a
 numerical error.
 The data sample cannot be reused without calling this method at
 least once beforehand.
 A class name cannot be used when explaining a probabilistic model
 without initialising this object with class names.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">return_model</span></code> or <code class="docutils literal notranslate"><span class="pre">reuse_sample</span></code> parameter is not a
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">return_model</span></code> or <code class="docutils literal notranslate"><span class="pre">reuse_sample</span></code> parameter is not a
 boolean.
 The <code class="docutils literal notranslate"><span class="pre">explained_class</span></code> parameter is neither of <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string
 or an integer.</p>
@@ -479,7 +479,7 @@ or an integer.</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>UserWarning</dt><dd><p>Informs the user if none of the sampled data were predicted with
+<dt><strong>UserWarning</strong></dt><dd><p>Informs the user if none of the sampled data were predicted with
 the explained class when explaining a crisp model – such a
 situation will most probably result in unreliable explanations.</p>
 </dd>
@@ -490,7 +490,7 @@ situation will most probably result in unreliable explanations.</p>
 
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.set_occlusion_colour">
-<code class="sig-name descname">set_occlusion_colour</code><span class="sig-paren">(</span><em class="sig-param">colour</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/predictions/surrogate_image_explainers.py#L305"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.set_occlusion_colour" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_occlusion_colour</code><span class="sig-paren">(</span><em>colour</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/predictions/surrogate_image_explainers.py#L305"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime.set_occlusion_colour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the occlusion colour.</p>
 <p>See the documentation of the
 <a class="reference internal" href="fatf.utils.data.occlusion.Occlusion.html#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion.Occlusion.set_colouring_strategy</span></code></a>
@@ -501,7 +501,7 @@ method for more details.</p>
 
 <section id="examples-using-fatf-transparency-predictions-surrogate-image-explainers-imageblimeylime">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_image_explainers.ImageBlimeyLime</span></code><a class="headerlink" href="#examples-using-fatf-transparency-predictions-surrogate-image-explainers-imageblimeylime" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME image explainer to explain a prediction."><figure class="align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME image explainer to explain a prediction."><figure class="align-center" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime_image.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-image-py"><span class="std std-ref">Using LIME Image Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>

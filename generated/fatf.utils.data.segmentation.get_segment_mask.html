@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.data.segmentation.get_segment_mask &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.data.segmentation.get_segment_mask &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.segmentation.get_segment_mask.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.segmentation" title="fatf.utils.data.segmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code></a>.get_segment_mask<a class="headerlink" href="#fatf-utils-data-segmentation-get-segment-mask" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.segmentation.get_segment_mask">
-<code class="sig-prename descclassname">fatf.utils.data.segmentation.</code><code class="sig-name descname">get_segment_mask</code><span class="sig-paren">(</span><em class="sig-param">segments_subset</em>, <em class="sig-param">segmentation</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/segmentation.py#L1475"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.get_segment_mask" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.data.segmentation.</code><code class="descname">get_segment_mask</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int]], segmentation: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L1511"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.get_segment_mask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a boolean mask for pixels belonging to the specified segments.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -268,14 +268,14 @@ the pixels (<code class="docutils literal notranslate"><span class="pre">True</s
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segmentation</span></code> array is not 2-dimensional.</p>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segmentation</span></code> array is not 2-dimensional.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither an integer nor a list of
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither an integer nor a list of
 integers; one of the segment ids in this list is not an integer.
 The <code class="docutils literal notranslate"><span class="pre">segmentation</span></code> array is either a structured numpy array or
 it is not an integer-valued array.</p>
 </dd>
-<dt>ValueError</dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+<dt><strong>ValueError</strong></dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
 for the <code class="docutils literal notranslate"><span class="pre">segmentation</span></code> or some of its elements are duplicated.
 The unique elements of the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array do not form a continuous
 sequence starting at 1.</p>

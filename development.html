@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>Developers Guide &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>Developers Guide &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/development.html" />
     <link rel="shortcut icon" href="_static/fatf.ico"/>
     <link rel="search" title="Search" href="search.html" />
@@ -170,15 +170,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -370,7 +370,7 @@ configuration files held in the <a class="reference external" href="https://gith
 <p><strong>Random number generator</strong></p>
 <p>Since some of the package’s tests sample random numbers or are influenced by
 “randomness” of its dependencies, the package allows to fix the random seed
-of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html#module-numpy.random" title="(in NumPy v1.22)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
+of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html#module-numpy.random" title="(in NumPy v1.23)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
 generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
 variable to a selected number. (For tests this is set to 42 in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
@@ -391,7 +391,7 @@ Code formatting adherence to this guideline can be checked with
 <p>which will highlight what needs to be changed rather than reformat the code
 automatically. The configuration of <a class="reference external" href="https://github.com/google/yapf">YAPF</a> for the package can be found in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.style.yapf">.style.yapf</a> file in the root directory of the package.</p>
-<p>Code formatting is also checked with <a class="reference external" href="https://www.pylint.org/">Pylint</a> and <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
+<p>Code formatting is also checked with <a class="reference external" href="https://pylint.pycqa.org">Pylint</a> and <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
 with the following two commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
@@ -478,7 +478,7 @@ we are using pure doctest syntax, i.e. no group annotations are possible.</p>
 <section id="step-by-step-guide">
 <h2>Step by Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
 <p>To summarise, the following commands should be executed to fully test the
-package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/tree/master/.github/workflows/tests.yml">.github/workflows/tests.yml</a> for more details):</p>
+package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.github/workflows/tests.yml">.github/workflows/tests.yml</a> for more details):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
 $ make linting-flake8
 $ make linting-yapf
@@ -581,7 +581,7 @@ while opening a new issue.</p>
 for completeness.</p>
 <section id="fairness">
 <h3>Fairness<a class="headerlink" href="#fairness" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -604,7 +604,7 @@ for completeness.</p>
 </section>
 <section id="accountability">
 <h3>Accountability<a class="headerlink" href="#accountability" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -624,7 +624,7 @@ for completeness.</p>
 </section>
 <section id="transparency">
 <h3>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -647,7 +647,7 @@ for completeness.</p>
 </section>
 <section id="visualisations">
 <h3>Visualisations<a class="headerlink" href="#visualisations" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -661,7 +661,7 @@ for completeness.</p>
 </section>
 <section id="utilities">
 <h3>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />

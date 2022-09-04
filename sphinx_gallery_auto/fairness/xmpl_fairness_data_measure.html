@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>Measuring Fairness of a Data Set &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>Measuring Fairness of a Data Set &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,16 +19,16 @@
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html" />
     <link rel="shortcut icon" href="../../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Using LIME Explainer" href="../transparency/xmpl_transparency_lime.html" />
+    <link rel="next" title="Using a Surrogate Tree Explainer" href="../transparency/xmpl_transparency_tree.html" />
     <link rel="prev" title="Measuring Fairness of a Prediction – Counterfactual Fairness" href="xmpl_fairness_predictions_measure.html" />
   <!-- jQuery first, then Bootstrap JS -->
   <!-- jQuery is distributed with Sphinx already -->
@@ -132,8 +132,8 @@
   <p class="topless"><a href="xmpl_fairness_predictions_measure.html"
                         title="previous chapter">Measuring Fairness of a Prediction – Counterfactual Fairness</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../transparency/xmpl_transparency_lime.html"
-                        title="next chapter">Using LIME Explainer</a></p>
+  <p class="topless"><a href="../transparency/xmpl_transparency_tree.html"
+                        title="next chapter">Using a Surrogate Tree Explainer</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -142,15 +142,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -199,19 +199,19 @@
                       pad-l-1
                       ">
             <a class="btn btn-primary btn-sm"
-               href="../transparency/xmpl_transparency_lime.html"
+               href="../transparency/xmpl_transparency_tree.html"
                accesskey="N"
                role="button">
               Next
               <br/>
               <span class="smallrellink">
-                Using LIME Explainer
+                Using a Surro...
               </span>
                   <span class="hiddenrellink
                                right-button
                                "
                         data-container="body">
-                  Using LIME Explainer
+                  Using a Surrogate Tree Explainer
                   </span>
             </a>
           </div>
@@ -407,16 +407,16 @@ The class distribution per sub-population:
         - The class *success* has 4 data points.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.057 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.108 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/a8f5bbd2774237b24530a18638b0d75a/xmpl_fairness_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_data_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/63d0a6e815000dc728d394c621e38bd5/xmpl_fairness_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_data_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/2b7237650cdce47bf5f62d7c2d54c814/xmpl_fairness_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_data_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/0f1ed8dbb8a133a114d339de2f16e903/xmpl_fairness_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_data_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>

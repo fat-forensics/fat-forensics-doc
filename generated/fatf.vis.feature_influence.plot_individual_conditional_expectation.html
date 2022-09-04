@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.vis.feature_influence.plot_individual_conditional_expectation &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.vis.feature_influence.plot_individual_conditional_expectation &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -141,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -161,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.vis.feature_influence" title="fatf.vis.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.feature_influence</span></code></a>.plot_individual_conditional_expectation<a class="headerlink" href="#fatf-vis-feature-influence-plot-individual-conditional-expectation" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.vis.feature_influence.plot_individual_conditional_expectation">
-<code class="sig-prename descclassname">fatf.vis.feature_influence.</code><code class="sig-name descname">plot_individual_conditional_expectation</code><span class="sig-paren">(</span><em class="sig-param">ice_array</em>, <em class="sig-param">feature_linespace</em>, <em class="sig-param">class_index</em>, <em class="sig-param">feature_name=None</em>, <em class="sig-param">class_name=None</em>, <em class="sig-param">plot_axis=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/vis/feature_influence.py#L267"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.vis.feature_influence.</code><code class="descname">plot_individual_conditional_expectation</code><span class="sig-paren">(</span><em>ice_array: numpy.ndarray</em>, <em>feature_linespace: numpy.ndarray</em>, <em>class_index: int</em>, <em>feature_name: Optional[str] = None</em>, <em>class_name: Optional[str] = None</em>, <em>plot_axis: Optional[matplotlib.axes._axes.Axes] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[Optional[matplotlib.figure.Figure], matplotlib.axes._axes.Axes]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/vis/feature_influence.py#L267"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots Individual Conditional Expectation for a selected class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -293,17 +293,17 @@ axis (<code class="docutils literal notranslate"><span class="pre">plot_axis</sp
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The ICE or the PD array has a wrong number of dimensions (3 and 2
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The ICE or the PD array has a wrong number of dimensions (3 and 2
 respectively). The feature linespace array has a wrong number of
 dimensions – 1 is expected.</p>
 </dd>
-<dt>IndexError</dt><dd><p>The class index is invalid for the input array.</p>
+<dt><strong>IndexError</strong></dt><dd><p>The class index is invalid for the input array.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The class index is not an integer; the feature name is not a string or
+<dt><strong>TypeError</strong></dt><dd><p>The class index is not an integer; the feature name is not a string or
 a <code class="docutils literal notranslate"><span class="pre">None</span></code>; the class name is not a string or a <code class="docutils literal notranslate"><span class="pre">None</span></code>; the plot axis
 is not a matplotlib.pyplot.Axes type object or a <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The input array is structured or is not numerical. The linespace array
+<dt><strong>ValueError</strong></dt><dd><p>The input array is structured or is not numerical. The linespace array
 is structured, not numerical or its length does not agree with the
 number of steps in the input array. If the <code class="docutils literal notranslate"><span class="pre">plot_axis</span></code> attribute is
 provided, and is not <code class="docutils literal notranslate"><span class="pre">None</span></code> this exception will be raised if the
@@ -317,7 +317,7 @@ of the <code class="docutils literal notranslate"><span class="pre">plot_axis</s
 
 <section id="examples-using-fatf-vis-feature-influence-plot-individual-conditional-expectation">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.vis.feature_influence.plot_individual_conditional_expectation</span></code><a class="headerlink" href="#examples-using-fatf-vis-feature-influence-plot-individual-conditional-expectation" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Individual Conditional Expectation explainer and its pl..."><figure class="align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Individual Conditional Expectation explainer and its pl..."><figure class="align-center" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_ice_thumb.png" src="../_images/sphx_glr_xmpl_transparency_ice_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_ice.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-ice-py"><span class="std std-ref">Using Individual Conditional Expectation Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>

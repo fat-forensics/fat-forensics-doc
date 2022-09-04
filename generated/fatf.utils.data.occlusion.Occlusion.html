@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.data.occlusion.Occlusion &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.data.occlusion.Occlusion &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.occlusion.Occlusion.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.occlusion" title="fatf.utils.data.occlusion"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code></a>.Occlusion<a class="headerlink" href="#fatf-utils-data-occlusion-occlusion" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.occlusion.Occlusion">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.occlusion.</code><code class="sig-name descname">Occlusion</code><span class="sig-paren">(</span><em class="sig-param">image</em>, <em class="sig-param">segments</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L31"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.occlusion.</code><code class="descname">Occlusion</code><span class="sig-paren">(</span><em>image: numpy.ndarray, segments: numpy.ndarray, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/occlusion.py#L31"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements functionality for (partiall) occlusion a segmented image.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -303,22 +303,22 @@ and grayscale images, and black occlusion for black-and-white images.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
 The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is not 2-dimensional.
 The the height or width the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array does not agree with
 the dimensions of the segmented image.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>A black-and-white image does not use 0 as black and 1 or 255 as white.
+<dt><strong>RuntimeError</strong></dt><dd><p>A black-and-white image does not use 0 as black and 1 or 255 as white.
 The mean-colour occlusion was selected for a black-and-white image.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is either a structured numpy array or it is not a
+<dt><strong>TypeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is either a structured numpy array or it is not a
 numerical array.
 The <code class="docutils literal notranslate"><span class="pre">segments</span></code> array is either a structured numpy array or
 it is not an integer-valued array.
 The colour specifier is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string, an integer or
 a tuple; or one of the tuple elements is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The elements of the input <code class="docutils literal notranslate"><span class="pre">image</span></code> are not integers in
+<dt><strong>ValueError</strong></dt><dd><p>The elements of the input <code class="docutils literal notranslate"><span class="pre">image</span></code> are not integers in
 the 0–255 range.
 The unique elements of the <code class="docutils literal notranslate"><span class="pre">segments</span></code> array do not form a continuous
 sequence starting at 1.
@@ -334,32 +334,32 @@ An RGB colour specifier is not a 3-tuple.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="fatf.utils.data.occlusion.Occlusion.occlude_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments</span></code></a>(segments_subset[, image, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="fatf.utils.data.occlusion.Occlusion.occlude_segments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments</span></code></a>(segments_subset, …)</p></td>
 <td><p>Generates the image with a specified subset of segments occluded.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments_vectorised</span></code></a>(…[, image, colour])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised"><code class="xref py py-obj docutils literal notranslate"><span class="pre">occlude_segments_vectorised</span></code></a>(…)</p></td>
 <td><p>Generates multiple images with a selected subsets of segments occluded.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_colouring_strategy</span></code></a>(colour)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_colouring_strategy</span></code></a>(colour, int, …)</p></td>
 <td><p>Selects the colouring strategy.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="attribute">
 <dt id="fatf.utils.data.occlusion.Occlusion.colouring_strategy">
-<em class="property">property </em><code class="sig-name descname">colouring_strategy</code><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.colouring_strategy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">colouring_strategy</code><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.colouring_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the colouring strategy.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments">
-<code class="sig-name descname">occlude_segments</code><span class="sig-paren">(</span><em class="sig-param">segments_subset</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L424"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">occlude_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int]], image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/occlusion.py#L424"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the image with a specified subset of segments occluded.</p>
 <p>The occlusion is applied on top of the image used to initialise this
 class; alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same type and
@@ -393,14 +393,14 @@ segments occluded.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">image</span></code> is neither a 2- nor 3-dimensional numpy array.
 The the height, width or the number of channels in the <code class="docutils literal notranslate"><span class="pre">image</span></code>
 array does not agree with the same parameters of the class image.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither an integer nor a list
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> parameter is neither an integer nor a list
 of integers; one of the segment ids in this list is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
+<dt><strong>ValueError</strong></dt><dd><p>One of the segment ids provided via <code class="docutils literal notranslate"><span class="pre">segments_subset</span></code> is invalid
 for the class segmentation or some of its elements are duplicated.</p>
 </dd>
 </dl>
@@ -410,7 +410,7 @@ for the class segmentation or some of its elements are duplicated.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised">
-<code class="sig-name descname">occlude_segments_vectorised</code><span class="sig-paren">(</span><em class="sig-param">vectorised_segments_subset</em>, <em class="sig-param">image=None</em>, <em class="sig-param">colour=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L521"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="Permalink to this definition">¶</a></dt>
+<code class="descname">occlude_segments_vectorised</code><span class="sig-paren">(</span><em>vectorised_segments_subset: numpy.ndarray, image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/occlusion.py#L521"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates multiple images with a selected subsets of segments occluded.</p>
 <p>The segments to be occluded are provided as boolean vectors;
 either a 1-D numpy array of length equal to the number of segments
@@ -453,7 +453,7 @@ segments occluded.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is neither 1- nor
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is neither 1- nor
 2-dimensional.
 The number of elements in <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> (when it
 is 1-D) does not correspond to the number of segments.
@@ -463,7 +463,7 @@ The input <code class="docutils literal notranslate"><span class="pre">image</sp
 The the height, width or the number of channels in the <code class="docutils literal notranslate"><span class="pre">image</span></code>
 array does not agree with the same parameters of the class image.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is not boolean.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">vectorised_segments_subset</span></code> numpy array is not boolean.</p>
 </dd>
 </dl>
 </dd>
@@ -472,7 +472,7 @@ array does not agree with the same parameters of the class image.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy">
-<code class="sig-name descname">set_colouring_strategy</code><span class="sig-paren">(</span><em class="sig-param">colour</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/occlusion.py#L184"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_colouring_strategy</code><span class="sig-paren">(</span><em>colour: Union[str, int, Tuple[int, int, int]]</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/occlusion.py#L184"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the colouring strategy.</p>
 <p>For colour images this can be specified with one of the following
 strings:</p>
@@ -527,12 +527,12 @@ is selected.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><dl class="simple">
-<dt>RuntimeError</dt><dd><p>The mean-colour occlusion was selected for a black-and-white image.</p>
+<dt><strong>RuntimeError</strong></dt><dd><p>The mean-colour occlusion was selected for a black-and-white image.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The colour specifier is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string, an integer or
+<dt><strong>TypeError</strong></dt><dd><p>The colour specifier is neither <code class="docutils literal notranslate"><span class="pre">None</span></code>, a string, an integer or
 a tuple; or one of the tuple elements is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The colour string specifier refers to an unknown colouring
+<dt><strong>ValueError</strong></dt><dd><p>The colour string specifier refers to an unknown colouring
 strategy name.
 An colour integer specifier for a black-and-white image is neither
 0 for black nor 1 or 255 for white.

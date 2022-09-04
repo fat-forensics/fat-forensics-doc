@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn.linear_model" title="fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code></a>.SKLearnLinearModelExplainer<a class="headerlink" href="#fatf-transparency-sklearn-linear-model-sklearnlinearmodelexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.transparency.sklearn.linear_model.</code><code class="sig-name descname">SKLearnLinearModelExplainer</code><span class="sig-paren">(</span><em class="sig-param">clf</em>, <em class="sig-param">feature_names=None</em>, <em class="sig-param">class_names=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/sklearn/linear_model.py#L182"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.sklearn.linear_model.</code><code class="descname">SKLearnLinearModelExplainer</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>class_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/linear_model.py#L182"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>A scikit-learn linear model explainer class.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -258,7 +258,7 @@ range before training the model.</p>
 implemented by this class please see its parent class:
 <a class="reference internal" href="fatf.transparency.sklearn.tools.SKLearnExplainer.html#fatf.transparency.sklearn.tools.SKLearnExplainer" title="fatf.transparency.sklearn.tools.SKLearnExplainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools.SKLearnExplainer</span></code></a>.</p>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -273,14 +273,14 @@ implemented by this class please see its parent class:
 <tr class="row-odd"><td><p><a class="reference internal" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance" title="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_importance</span></code></a>()</p></td>
 <td><p>Extracts features importance from the <code class="docutils literal notranslate"><span class="pre">clf</span></code> predictor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_class</span></code></a>(clf_class)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_class</span></code></a>(clf_class, str])</p></td>
 <td><p>Maps a class id output by the classifier to a class name.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance">
-<code class="sig-name descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an explanation of a single data point (instance).</p>
 <p>This can be an explanation of a data point from a data set or of a
 prediction provided by a predictive model.</p>
@@ -288,13 +288,13 @@ prediction provided by a predictive model.</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model">
-<code class="sig-name descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a model explanation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance">
-<code class="sig-name descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/sklearn/linear_model.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/linear_model.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts features importance from the <code class="docutils literal notranslate"><span class="pre">clf</span></code> predictor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -310,7 +310,7 @@ features in the training data array.)</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class">
-<code class="sig-name descname">map_class</code><span class="sig-paren">(</span><em class="sig-param">clf_class</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="Permalink to this definition">¶</a></dt>
+<code class="descname">map_class</code><span class="sig-paren">(</span><em>clf_class: Union[int, str]</em><span class="sig-paren">)</span> &#x2192; str<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maps a class id output by the classifier to a class name.</p>
 <p>A mapping will only be provided if the class was initialised with class
 names or an array of possible predictions was extracted form the
@@ -330,14 +330,14 @@ classifier.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>RuntimeError</dt><dd><p>The error is raised when trying to map a class for a regressor.
+<dt><strong>RuntimeError</strong></dt><dd><p>The error is raised when trying to map a class for a regressor.
 It is also raised if the class was not sufficiently initialised,
 i.e., either <code class="docutils literal notranslate"><span class="pre">classes_array</span></code> or <code class="docutils literal notranslate"><span class="pre">class_names</span></code> attributes are
 missing.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">clf_class</span></code> parameter is neither integer nor string.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">clf_class</span></code> parameter is neither integer nor string.</p>
 </dd>
-<dt>ValueError</dt><dd><p>Given <code class="docutils literal notranslate"><span class="pre">clf_class</span></code> is not one of the values that the classifier
+<dt><strong>ValueError</strong></dt><dd><p>Given <code class="docutils literal notranslate"><span class="pre">clf_class</span></code> is not one of the values that the classifier
 can output.</p>
 </dd>
 </dl>

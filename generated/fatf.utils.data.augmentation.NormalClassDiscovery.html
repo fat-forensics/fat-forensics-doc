@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.data.augmentation.NormalClassDiscovery &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.data.augmentation.NormalClassDiscovery &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.augmentation.NormalClassDiscovery.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.augmentation" title="fatf.utils.data.augmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.augmentation</span></code></a>.NormalClassDiscovery<a class="headerlink" href="#fatf-utils-data-augmentation-normalclassdiscovery" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.augmentation.NormalClassDiscovery">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.data.augmentation.</code><code class="sig-name descname">NormalClassDiscovery</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">predictive_function</em>, <em class="sig-param">categorical_indices=None</em>, <em class="sig-param">int_to_float=True</em>, <em class="sig-param">classes_number=None</em>, <em class="sig-param">class_proportion_threshold=0.05</em>, <em class="sig-param">standard_deviation_init=1.0</em>, <em class="sig-param">standard_deviation_increment=0.1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L1262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.augmentation.</code><code class="descname">NormalClassDiscovery</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, predictive_function: Callable[[numpy.ndarray], numpy.ndarray], categorical_indices: Optional[numpy.ndarray] = None, int_to_float: bool = True, classes_number: Optional[int] = None, class_proportion_threshold: float = 0.05, standard_deviation_init: float = 1.0, standard_deviation_increment: float = 0.1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/augmentation.py#L1262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sampling data to discover instances spanning all the possible classes.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -363,23 +363,23 @@ for that column and the other one with their normalised (summing up to
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncompatibleModelError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> does not require exactly one input
+<dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> does not require exactly one input
 parameter.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>The class initialisation was unable to identify the number of classes
+<dt><strong>RuntimeError</strong></dt><dd><p>The class initialisation was unable to identify the number of classes
 using the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> and the provided <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code>.
 The value of the <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter is too large
 for the given number of classes (please see the warning in the
 <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter description for more
 information).</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is not a Python callable. The
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">predictive_function</span></code> is not a Python callable. The
 <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> is neither <code class="docutils literal notranslate"><span class="pre">None</span></code> nor an integer.
 The <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> is not a float. Either
 <code class="docutils literal notranslate"><span class="pre">standard_deviation_init</span></code> or <code class="docutils literal notranslate"><span class="pre">standard_deviation_increment</span></code> is not
 a number.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter is smaller than 2.
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">classes_number</span></code> parameter is smaller than 2.
 The <code class="docutils literal notranslate"><span class="pre">class_proportion_threshold</span></code> parameter is outside of the (0, 1)
 range (non-inclusive). The <code class="docutils literal notranslate"><span class="pre">standard_deviation_init</span></code> or
 <code class="docutils literal notranslate"><span class="pre">standard_deviation_increment</span></code> parameter is not a positive number.</p>
@@ -388,20 +388,20 @@ range (non-inclusive). The <code class="docutils literal notranslate"><span clas
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="fatf.utils.data.augmentation.NormalClassDiscovery.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([data_row, samples_number, max_iter])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="fatf.utils.data.augmentation.NormalClassDiscovery.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>(data_row, numpy.void, None] = None, …)</p></td>
 <td><p>Samples data using normal distribution class discovery process.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.augmentation.NormalClassDiscovery.sample">
-<code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">data_row=None</em>, <em class="sig-param">samples_number=50</em>, <em class="sig-param">max_iter=1000</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/augmentation.py#L1494"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sample</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray</em>, <em>numpy.void</em>, <em>None] = None</em>, <em>samples_number: int = 50</em>, <em>max_iter: int = 1000</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/augmentation.py#L1494"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.augmentation.NormalClassDiscovery.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples data using normal distribution class discovery process.</p>
 <p>For the additional documentation of parameters, warnings and errors
 please see the description of the
@@ -432,12 +432,12 @@ holding the sampled data.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>RuntimeError</dt><dd><p>The maximum number of iterations was reached without discovering
+<dt><strong>RuntimeError</strong></dt><dd><p>The maximum number of iterations was reached without discovering
 samples from every class (with the specified proportion).</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not an integer.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not a positive number
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> parameter is not a positive number
 (greater than 0).</p>
 </dd>
 </dl>

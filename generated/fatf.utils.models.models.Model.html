@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.models.models.Model &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.models.models.Model &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.models.models.Model.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.models.models" title="fatf.utils.models.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code></a>.Model<a class="headerlink" href="#fatf-utils-models-models-model" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.models.models.Model">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.models.models.</code><code class="sig-name descname">Model</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L26"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">Model</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L26"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class used to implement predictive models.</p>
 <p>This abstract class requires <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">predict</span></code> methods and defines
 an optional <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method.</p>
@@ -249,14 +249,14 @@ on through out this package.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>NotImplementedError</dt><dd><p>Any of the required methods – <code class="docutils literal notranslate"><span class="pre">fit</span></code> or <code class="docutils literal notranslate"><span class="pre">predict</span></code> – is not
+<dt><strong>NotImplementedError</strong></dt><dd><p>Any of the required methods – <code class="docutils literal notranslate"><span class="pre">fit</span></code> or <code class="docutils literal notranslate"><span class="pre">predict</span></code> – is not
 implemented.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -275,7 +275,7 @@ implemented.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.fit">
-<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L50"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.fit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L50"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits this predictive model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -291,7 +291,7 @@ implemented.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.predict">
-<em class="property">abstract </em><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L63"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L63"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts labels of new data points using this model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,7 +305,7 @@ implemented.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.Model.predict_proba">
-<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L74"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.Model.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts probabilities of labels for new data points using this model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -317,7 +317,7 @@ predicted.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><dl class="simple">
-<dt>NotImplementedError</dt><dd><p>By default this method is not required, hence it raises a
+<dt><strong>NotImplementedError</strong></dt><dd><p>By default this method is not required, hence it raises a
 <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p>
 </dd>
 </dl>

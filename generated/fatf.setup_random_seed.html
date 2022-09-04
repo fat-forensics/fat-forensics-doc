@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.setup_random_seed &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.setup_random_seed &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.setup_random_seed.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -141,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -161,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf" title="fatf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf</span></code></a>.setup_random_seed<a class="headerlink" href="#fatf-setup-random-seed" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.setup_random_seed">
-<code class="sig-prename descclassname">fatf.</code><code class="sig-name descname">setup_random_seed</code><span class="sig-paren">(</span><em class="sig-param">seed=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/__init__.py#L85"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_random_seed" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.</code><code class="descname">setup_random_seed</code><span class="sig-paren">(</span><em>seed: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/__init__.py#L85"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_random_seed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets up Python’s and numpy’s random seed.</p>
 <p>Fixture for the tests to assure globally controllable seeding of random
 number generators in both Python (<a class="reference external" href="https://docs.python.org/3/library/random.html#random.seed" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">random.seed</span></code></a>) and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>
@@ -277,9 +277,9 @@ random number generator.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><dl class="simple">
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">seed</span></code> input parameter is not an integer.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">seed</span></code> input parameter is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">seed</span></code> input parameter is outside of the allowed 0–2147483647
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">seed</span></code> input parameter is outside of the allowed 0–2147483647
 range. The random seed retrieved from the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system variable
 is either outside of the allowed range or cannot be parsed as an
 integer.</p>
@@ -291,19 +291,19 @@ integer.</p>
 
 <section id="examples-using-fatf-setup-random-seed">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code><a class="headerlink" href="#examples-using-fatf-setup-random-seed" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><figure class="align-default" id="id1">
-<img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a tabular surrogate tree-based explainer to explain a predi..."><figure class="align-default" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use a tabular surrogate tree-based explainer to explain a predi..."><figure class="align-center" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" src="../_images/sphx_glr_xmpl_transparency_tree_thumb.png" />
 <figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_tree.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-tree-py"><span class="std std-ref">Using a Surrogate Tree Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME image explainer to explain a prediction."><figure class="align-default" id="id3">
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME tabular explainer to explain a prediction."><figure class="align-center" id="id2">
+<img alt="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-py"><span class="std std-ref">Using LIME Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the LIME image explainer to explain a prediction."><figure class="align-center" id="id3">
 <img alt="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" src="../_images/sphx_glr_xmpl_transparency_lime_image_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_lime_image.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-lime-image-py"><span class="std std-ref">Using LIME Image Explainer</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>

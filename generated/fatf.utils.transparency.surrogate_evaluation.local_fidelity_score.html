@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.transparency.surrogate_evaluation.local_fidelity_score &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.transparency.surrogate_evaluation.local_fidelity_score &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.transparency.surrogate_evaluation.local_fidelity_score.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.transparency.surrogate_evaluation" title="fatf.utils.transparency.surrogate_evaluation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.surrogate_evaluation</span></code></a>.local_fidelity_score<a class="headerlink" href="#fatf-utils-transparency-surrogate-evaluation-local-fidelity-score" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.transparency.surrogate_evaluation.local_fidelity_score">
-<code class="sig-prename descclassname">fatf.utils.transparency.surrogate_evaluation.</code><code class="sig-name descname">local_fidelity_score</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">data_row</em>, <em class="sig-param">global_predictive_function</em>, <em class="sig-param">local_predictive_function</em>, <em class="sig-param">metric_function</em>, <em class="sig-param">explained_class_index=None</em>, <em class="sig-param">explained_feature_indices=None</em>, <em class="sig-param">fidelity_radius_percentage=5</em>, <em class="sig-param">samples_number=50</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/transparency/surrogate_evaluation.py#L167"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.surrogate_evaluation.local_fidelity_score" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.transparency.surrogate_evaluation.</code><code class="descname">local_fidelity_score</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, data_row: Union[numpy.ndarray, numpy.void], global_predictive_function: Callable[[numpy.ndarray], numpy.ndarray], local_predictive_function: Callable[[numpy.ndarray], numpy.ndarray], metric_function: Callable[[numpy.ndarray, numpy.ndarray], float], explained_class_index: Optional[int] = None, explained_feature_indices: Optional[List[Union[str, int]]] = None, fidelity_radius_percentage: int = 5, samples_number: int = 50</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/surrogate_evaluation.py#L167"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.surrogate_evaluation.local_fidelity_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes local fidelity between a global and a local (surrogate) model.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -265,7 +265,7 @@ issue, however we leave such consideration up to the user.</p>
 </div>
 <p>The global and local predictive functions can be either: a probabilistic
 predictor, a (multi-class) classifier or a regressor.</p>
-<table class="docutils align-default">
+<table class="docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 12%" />
@@ -462,19 +462,19 @@ sampled data.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncompatibleModelError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">global_predictive_function</span></code> or the <code class="docutils literal notranslate"><span class="pre">local_predictive_function</span></code>
+<dt><strong>IncompatibleModelError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">global_predictive_function</span></code> or the <code class="docutils literal notranslate"><span class="pre">local_predictive_function</span></code>
 does not required <strong>exactly one</strong> parameter.</p>
 </dd>
-<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array. The input
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not a 2-dimensional numpy array. The input
 <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is not 1-dimensional: either a 1-dimensional numpy array
 or a numpy void object for structured rows. The number of columns
 (features) in the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is different to the number of columns in
 the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt>IndexError</dt><dd><p>Some of the <code class="docutils literal notranslate"><span class="pre">explained_feature_indices</span></code> are invalid column indices
+<dt><strong>IndexError</strong></dt><dd><p>Some of the <code class="docutils literal notranslate"><span class="pre">explained_feature_indices</span></code> are invalid column indices
 for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type. The dtype of the
+<dt><strong>TypeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type. The dtype of the
 <code class="docutils literal notranslate"><span class="pre">data_row</span></code> is too different from the dtype of the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">global_predictive_function</span></code> or the <code class="docutils literal notranslate"><span class="pre">local_predictive_function</span></code>
 is not a Python callable. The <code class="docutils literal notranslate"><span class="pre">metric_function</span></code> is not a Python
@@ -484,7 +484,7 @@ The <code class="docutils literal notranslate"><span class="pre">explained_featu
 list. The <code class="docutils literal notranslate"><span class="pre">fidelity_radius_percentage</span></code> is not an integer. The
 <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is not an integer.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explained_class_index</span></code> is a negative integer or out of bounds
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explained_class_index</span></code> is a negative integer or out of bounds
 for the number of classes output by the global probabilistic model
 (<code class="docutils literal notranslate"><span class="pre">global_predictive_function</span></code>). The <code class="docutils literal notranslate"><span class="pre">fidelity_radius_percentage</span></code>
 is smaller than 1 or larger than 100. The <code class="docutils literal notranslate"><span class="pre">samples_number</span></code> is smaller
@@ -494,7 +494,7 @@ than 1.</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>UserWarning</dt><dd><p>If the user specifies the <code class="docutils literal notranslate"><span class="pre">explained_class_index</span></code> parameter for a
+<dt><strong>UserWarning</strong></dt><dd><p>If the user specifies the <code class="docutils literal notranslate"><span class="pre">explained_class_index</span></code> parameter for a
 global model that is not probabilistic, this parameter is ignored,
 about what the user is warned.</p>
 </dd>
@@ -504,7 +504,7 @@ about what the user is warned.</p>
 <p class="rubric">Examples</p>
 <p>The metric function should be adjusted to the type of the global and local
 predictors (and the use of the <code class="docutils literal notranslate"><span class="pre">explained_class_index</span></code> parameter).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 </pre></div>
@@ -513,31 +513,31 @@ predictors (and the use of the <code class="docutils literal notranslate"><span 
 a regressor and we are explaining class <code class="docutils literal notranslate"><span class="pre">'b'</span></code> with index <code class="docutils literal notranslate"><span class="pre">1</span></code>.
 (The index of the class is based on the lexicographical ordering of all the
 unique target values.)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">explained_class_index</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">explained_class_index</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.models.models</span> <span class="k">as</span> <span class="nn">fatf_models</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_model</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">probabilities</span> <span class="o">=</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">probabilities</span> <span class="o">=</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">selected_class_probabilities</span> <span class="o">=</span> <span class="n">probabilities</span><span class="p">[:,</span> <span class="n">explained_class_index</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">local_model</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;regressor&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">local_model</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;regressor&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">local_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">selected_class_probabilities</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>One way to evaluate the performance of our local (surrogate) model in this
 scenario is the <em>Mean Squared Error</em>:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">global_predictions</span><span class="p">,</span> <span class="n">local_predictions</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">global_predictions</span><span class="p">,</span> <span class="n">local_predictions</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">global_predictions</span> <span class="o">-</span> <span class="n">local_predictions</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">mse</span> <span class="o">=</span> <span class="n">mse</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">mse</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.transparency.surrogate_evaluation</span> <span class="k">as</span> <span class="nn">surrogate_eval</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.transparency.surrogate_evaluation</span> <span class="k">as</span> <span class="nn">surrogate_eval</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mse_fidelity_score</span> <span class="o">=</span> <span class="n">surrogate_eval</span><span class="o">.</span><span class="n">local_fidelity_score</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">,</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">mse</span><span class="p">,</span> <span class="n">explained_class_index</span><span class="o">=</span><span class="n">explained_class_index</span><span class="p">)</span>
@@ -548,7 +548,7 @@ scenario is the <em>Mean Squared Error</em>:</p>
 <p>Alternatively, if <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> is available, an ROC can be computed,
 in which case the probabilities of the selected class need to be
 thresholded:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.metrics</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn.metrics</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">roc</span><span class="p">(</span><span class="n">global_predictions</span><span class="p">,</span> <span class="n">local_predictions</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">global_predictions</span><span class="p">[</span><span class="n">global_predictions</span> <span class="o">&gt;=</span> <span class="mf">.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">... </span>    <span class="n">global_predictions</span><span class="p">[</span><span class="n">global_predictions</span> <span class="o">&lt;</span> <span class="mf">.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -559,7 +559,7 @@ thresholded:</p>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">roc</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">roc_fidelity_score</span> <span class="o">=</span> <span class="n">surrogate_eval</span><span class="o">.</span><span class="n">local_fidelity_score</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">roc_fidelity_score</span> <span class="o">=</span> <span class="n">surrogate_eval</span><span class="o">.</span><span class="n">local_fidelity_score</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">,</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">roc</span><span class="p">,</span> <span class="n">explained_class_index</span><span class="o">=</span><span class="n">explained_class_index</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">roc_fidelity_score</span>
@@ -567,12 +567,12 @@ thresholded:</p>
 </pre></div>
 </div>
 <p>If both models are classifiers trained with the same set of target classes,</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">local_classifier</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">local_classifier</span> <span class="o">=</span> <span class="n">fatf_models</span><span class="o">.</span><span class="n">KNN</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">local_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>a simple <em>accuracy</em> (implemented in FAT Forensics) can be used:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.metrics</span> <span class="k">as</span> <span class="nn">fatf_metrics</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.metrics</span> <span class="k">as</span> <span class="nn">fatf_metrics</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fatf.utils.metrics.tools</span> <span class="k">as</span> <span class="nn">fatf_metrics_tools</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">global_predictions</span><span class="p">,</span> <span class="n">local_predictions</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">fatf_metrics_tools</span><span class="o">.</span><span class="n">get_confusion_matrix</span><span class="p">(</span>
@@ -581,7 +581,7 @@ thresholded:</p>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">accuracy</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy_fidelity_score</span> <span class="o">=</span> <span class="n">surrogate_eval</span><span class="o">.</span><span class="n">local_fidelity_score</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy_fidelity_score</span> <span class="o">=</span> <span class="n">surrogate_eval</span><span class="o">.</span><span class="n">local_fidelity_score</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span> <span class="n">local_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">accuracy</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">accuracy_fidelity_score</span>

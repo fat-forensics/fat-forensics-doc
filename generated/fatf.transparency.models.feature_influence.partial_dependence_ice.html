@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.transparency.models.feature_influence.partial_dependence_ice &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.transparency.models.feature_influence.partial_dependence_ice &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -141,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -161,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.feature_influence" title="fatf.transparency.models.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence</span></code></a>.partial_dependence_ice<a class="headerlink" href="#fatf-transparency-models-feature-influence-partial-dependence-ice" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.models.feature_influence.partial_dependence_ice">
-<code class="sig-prename descclassname">fatf.transparency.models.feature_influence.</code><code class="sig-name descname">partial_dependence_ice</code><span class="sig-paren">(</span><em class="sig-param">ice_array</em>, <em class="sig-param">include_rows=None</em>, <em class="sig-param">exclude_rows=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/models/feature_influence.py#L506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence_ice" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.transparency.models.feature_influence.</code><code class="descname">partial_dependence_ice</code><span class="sig-paren">(</span><em>ice_array: numpy.ndarray, include_rows: Union[int, List[int], None] = None, exclude_rows: Union[int, List[int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/models/feature_influence.py#L506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.feature_influence.partial_dependence_ice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates Partial Dependence based on Individual Conditional Expectations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -291,12 +291,12 @@ points).</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The input array is not a 3-dimensional numpy array.</p>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input array is not a 3-dimensional numpy array.</p>
 </dd>
-<dt>TypeError</dt><dd><p>Either <code class="docutils literal notranslate"><span class="pre">include_rows</span></code> or <code class="docutils literal notranslate"><span class="pre">exclude_rows</span></code> parameter is not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+<dt><strong>TypeError</strong></dt><dd><p>Either <code class="docutils literal notranslate"><span class="pre">include_rows</span></code> or <code class="docutils literal notranslate"><span class="pre">exclude_rows</span></code> parameter is not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
 an integer or a list of integers.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">ice_array</span></code> is not an unstructured numpy array or it is not a
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">ice_array</span></code> is not an unstructured numpy array or it is not a
 numerical array. One of the <code class="docutils literal notranslate"><span class="pre">include_rows</span></code> or <code class="docutils literal notranslate"><span class="pre">exclude_rows</span></code>
 indices is not valid for the input array.</p>
 </dd>
@@ -307,13 +307,13 @@ indices is not valid for the input array.</p>
 
 <section id="examples-using-fatf-transparency-models-feature-influence-partial-dependence-ice">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence_ice</span></code><a class="headerlink" href="#examples-using-fatf-transparency-models-feature-influence-partial-dependence-ice" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Partial Dependence (PD) explainer and its plotting func..."><figure class="align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Partial Dependence (PD) explainer and its plotting func..."><figure class="align-center" id="id1">
 <img alt="../_images/sphx_glr_xmpl_transparency_pd_thumb.png" src="../_images/sphx_glr_xmpl_transparency_pd_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_pd.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py"><span class="std std-ref">Using Partial Dependence Explainer</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Individual Conditional Expectation explainer and its pl..."><figure class="align-default" id="id2">
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to use the Individual Conditional Expectation explainer and its pl..."><figure class="align-center" id="id2">
 <img alt="../_images/sphx_glr_xmpl_transparency_ice_thumb.png" src="../_images/sphx_glr_xmpl_transparency_ice_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/transparency/xmpl_transparency_ice.html#sphx-glr-sphinx-gallery-auto-transparency-xmpl-transparency-ice-py"><span class="std std-ref">Using Individual Conditional Expectation Explainer</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>

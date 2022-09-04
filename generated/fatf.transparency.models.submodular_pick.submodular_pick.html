@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.transparency.models.submodular_pick.submodular_pick &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.transparency.models.submodular_pick.submodular_pick &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.transparency.models.submodular_pick.submodular_pick.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.models.submodular_pick" title="fatf.transparency.models.submodular_pick"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.models.submodular_pick</span></code></a>.submodular_pick<a class="headerlink" href="#fatf-transparency-models-submodular-pick-submodular-pick" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.models.submodular_pick.submodular_pick">
-<code class="sig-prename descclassname">fatf.transparency.models.submodular_pick.</code><code class="sig-name descname">submodular_pick</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">explain_instance</em>, <em class="sig-param">sample_size=0</em>, <em class="sig-param">explanations_number=5</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/transparency/models/submodular_pick.py#L87"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.submodular_pick.submodular_pick" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.transparency.models.submodular_pick.</code><code class="descname">submodular_pick</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>explain_instance: Callable</em>, <em>sample_size: int = 0</em>, <em>explanations_number: int = 5</em><span class="sig-paren">)</span> &#x2192; Tuple[List[Dict[Union[int, str], numbers.Number]], List[int]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/models/submodular_pick.py#L87"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.models.submodular_pick.submodular_pick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies submodular pick to explanations of a given subset of data.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -284,24 +284,24 @@ by the submodular pick algorithm.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The input data set is not a 2-dimensional numpy array.</p>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input data set is not a 2-dimensional numpy array.</p>
 </dd>
-<dt>TypeError</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> or <code class="docutils literal notranslate"><span class="pre">explanations_number</span></code> is not an integer.
+<dt><strong>TypeError</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> or <code class="docutils literal notranslate"><span class="pre">explanations_number</span></code> is not an integer.
 <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> is not Python callable (function or method).</p>
 </dd>
-<dt>ValueError</dt><dd><p>The input data set must only contain base types (strings and numbers).
+<dt><strong>ValueError</strong></dt><dd><p>The input data set must only contain base types (strings and numbers).
 <code class="docutils literal notranslate"><span class="pre">sample_size</span></code> or <code class="docutils literal notranslate"><span class="pre">explanations_number</span></code> is a negative integer.
 The number of requested explanations is larger than the number of
 samples in the data set.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> callable does not require exactly one
+<dt><strong>RuntimeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">explain_instance</span></code> callable does not require exactly one
 parameter.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>UserWarning</dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> is larger than the number of instances (rows) available
+<dt><strong>UserWarning</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">sample_size</span></code> is larger than the number of instances (rows) available
 in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>, in which case the entire data set is used.
 The number of the requested explanations is larger than the number of
 instances selected to generate explanations – explanations for all
@@ -312,7 +312,7 @@ the data points in the sample will be generated.</p>
 </dl>
 <p class="rubric">References</p>
 <dl class="citation">
-<dt class="label" id="rb3d459eb9857-ribeiro2016why"><span class="brackets"><a class="fn-backref" href="#id1">RIBEIRO2016WHY</a></span></dt>
+<dt class="label" id="rb3d459eb9857-ribeiro2016why"><span class="brackets">RIBEIRO2016WHY</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016,
 August. Why should I trust you?: Explaining the predictions of any
 classifier. In Proceedings of the 22nd ACM SIGKDD international

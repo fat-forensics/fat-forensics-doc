@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.models.models.KNN &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.models.models.KNN &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.models.models.KNN.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -133,15 +133,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -153,10 +153,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.models.models" title="fatf.utils.models.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.models</span></code></a>.KNN<a class="headerlink" href="#fatf-utils-models-models-knn" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.models.models.KNN">
-<em class="property">class </em><code class="sig-prename descclassname">fatf.utils.models.models.</code><code class="sig-name descname">KNN</code><span class="sig-paren">(</span><em class="sig-param">k=3</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L93"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.models.models.</code><code class="descname">KNN</code><span class="sig-paren">(</span><em>k: int = 3</em>, <em>mode: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L93"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN" title="Permalink to this definition">¶</a></dt>
 <dd><p>A K-Nearest Neighbours model based on Euclidean distance.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is set to 0 the model works as a majority class
 classifier. In case the count of neighbours (within <code class="docutils literal notranslate"><span class="pre">k</span></code>) results in a
@@ -305,16 +305,16 @@ structured numpy array.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>PrefittedModelError</dt><dd><p>Raised when trying to fit a model that has already been fitted. Usually
+<dt><strong>PrefittedModelError</strong></dt><dd><p>Raised when trying to fit a model that has already been fitted. Usually
 raised when calling the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method for the second time. Try using
 the <code class="docutils literal notranslate"><span class="pre">clear</span></code> method to reset the model before fitting it again.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is not an integer.</p>
+<dt><strong>TypeError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is not an integer.</p>
 </dd>
-<dt>UnfittedModelError</dt><dd><p>Raised when trying to predict data with a model that has not been
+<dt><strong>UnfittedModelError</strong></dt><dd><p>Raised when trying to predict data with a model that has not been
 fitted yet. Try using the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method to fit the model first.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is a negative number or the <code class="docutils literal notranslate"><span class="pre">mode</span></code> parameter does
+<dt><strong>ValueError</strong></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">k</span></code> parameter is a negative number or the <code class="docutils literal notranslate"><span class="pre">mode</span></code> parameter does
 not have one of the allowed values: <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, <code class="docutils literal notranslate"><span class="pre">'classifier'</span></code>, <code class="docutils literal notranslate"><span class="pre">'r'</span></code>
 or <code class="docutils literal notranslate"><span class="pre">'regressor'</span></code>.</p>
 </dd>
@@ -322,7 +322,7 @@ or <code class="docutils literal notranslate"><span class="pre">'regressor'</spa
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-default">
+<table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -344,12 +344,12 @@ or <code class="docutils literal notranslate"><span class="pre">'regressor'</spa
 </table>
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L290"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L290"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears (unfits) the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>UnfittedModelError</dt><dd><p>Raised when trying to clear a model that has not been fitted yet.
+<dt><strong>UnfittedModelError</strong></dt><dd><p>Raised when trying to clear a model that has not been fitted yet.
 Try using the fit method to <code class="docutils literal notranslate"><span class="pre">fit</span></code> the model first.</p>
 </dd>
 </dl>
@@ -359,7 +359,7 @@ Try using the fit method to <code class="docutils literal notranslate"><span cla
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L209"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.fit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fit</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em>, <em>y: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L209"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -372,16 +372,16 @@ Try using the fit method to <code class="docutils literal notranslate"><span cla
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>Either the <code class="docutils literal notranslate"><span class="pre">X</span></code> array is not 2-dimensional, the <code class="docutils literal notranslate"><span class="pre">y</span></code> array is not
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>Either the <code class="docutils literal notranslate"><span class="pre">X</span></code> array is not 2-dimensional, the <code class="docutils literal notranslate"><span class="pre">y</span></code> array is not
 1-dimensional, the number of rows in <code class="docutils literal notranslate"><span class="pre">X</span></code> is not the same as the
 number of elements in <code class="docutils literal notranslate"><span class="pre">y</span></code> or the <code class="docutils literal notranslate"><span class="pre">X</span></code> array has 0 rows or 0
 columns.</p>
 </dd>
-<dt>PrefittedModelError</dt><dd><p>Trying to fit the model when it has already been fitted. Usually
+<dt><strong>PrefittedModelError</strong></dt><dd><p>Trying to fit the model when it has already been fitted. Usually
 raised when calling the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method for the second time without
 clearing the model first.</p>
 </dd>
-<dt>TypeError</dt><dd><p>Trying to fit a KNN predictor in a regressor mode with
+<dt><strong>TypeError</strong></dt><dd><p>Trying to fit a KNN predictor in a regressor mode with
 non-numerical target variable.</p>
 </dd>
 </dl>
@@ -391,7 +391,7 @@ non-numerical target variable.</p>
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L377"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L377"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predicts labels of new instances with the fitted model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -408,13 +408,13 @@ non-numerical target variable.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>X is not a 2-dimensional array, it has 0 rows or it has a different
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>X is not a 2-dimensional array, it has 0 rows or it has a different
 number of columns than the training data.</p>
 </dd>
-<dt>UnfittedModelError</dt><dd><p>Raised when trying to predict data when the model has not been
+<dt><strong>UnfittedModelError</strong></dt><dd><p>Raised when trying to predict data when the model has not been
 fitted yet. Try using the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method to fit the model first.</p>
 </dd>
-<dt>ValueError</dt><dd><p>X has a different dtype than the data used to fit the model.</p>
+<dt><strong>ValueError</strong></dt><dd><p>X has a different dtype than the data used to fit the model.</p>
 </dd>
 </dl>
 </dd>
@@ -423,7 +423,7 @@ fitted yet. Try using the <code class="docutils literal notranslate"><span class
 
 <dl class="method">
 <dt id="fatf.utils.models.models.KNN.predict_proba">
-<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/models/models.py#L478"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X: numpy.ndarray</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/models/models.py#L478"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.models.KNN.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates label probabilities for new instances with the fitted model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -441,16 +441,16 @@ in the return array are ordered by lexicographic order.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>X is not a 2-dimensional array, it has 0 rows or it has a different
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>X is not a 2-dimensional array, it has 0 rows or it has a different
 number of columns than the training data.</p>
 </dd>
-<dt>UnfittedModelError</dt><dd><p>Raised when trying to predict data when the model has not been
+<dt><strong>UnfittedModelError</strong></dt><dd><p>Raised when trying to predict data when the model has not been
 fitted yet. Try using the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method to fit the model first.</p>
 </dd>
-<dt>RuntimeError</dt><dd><p>Raised when trying to use this method when the predictor is
+<dt><strong>RuntimeError</strong></dt><dd><p>Raised when trying to use this method when the predictor is
 initialised as a regressor.</p>
 </dd>
-<dt>ValueError</dt><dd><p>X has a different dtype than the data used to fit the model.</p>
+<dt><strong>ValueError</strong></dt><dd><p>X has a different dtype than the data used to fit the model.</p>
 </dd>
 </dl>
 </dd>

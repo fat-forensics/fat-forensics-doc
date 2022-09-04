@@ -7,7 +7,7 @@
     <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   
-    <title>fatf.utils.data.tools.group_by_column &#8212; FAT Forensics 0.1.1 documentation</title>
+    <title>fatf.utils.data.tools.group_by_column &#8212; FAT Forensics 0.1.2 documentation</title>
   <!-- html title is before nature.css - we use this hack to load bootstrap first -->
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_SVG"></script>
     <link rel="canonical" href="https://fat-forensics.org/generated/fatf.utils.data.tools.group_by_column.html" />
     <link rel="shortcut icon" href="../_static/fatf.ico"/>
     <link rel="search" title="Search" href="../search.html" />
@@ -141,15 +141,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>-->
         <!-- Add a link to the 'up' page -->
@@ -161,10 +161,10 @@
               Up
               <br/>
               <span class="smallrellink">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               <span class="hiddenrellink left-button">
-                API Reference (0.1.1)
+                API Reference (0.1.2)
               </span>
               
             </a>
@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.tools" title="fatf.utils.data.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.tools</span></code></a>.group_by_column<a class="headerlink" href="#fatf-utils-data-tools-group-by-column" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.data.tools.group_by_column">
-<code class="sig-prename descclassname">fatf.utils.data.tools.</code><code class="sig-name descname">group_by_column</code><span class="sig-paren">(</span><em class="sig-param">dataset</em>, <em class="sig-param">column_index</em>, <em class="sig-param">groupings=None</em>, <em class="sig-param">numerical_bins_number=5</em>, <em class="sig-param">treat_as_categorical=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/3f68ecb/fatf/utils/data/tools.py#L27"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.tools.group_by_column" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.data.tools.</code><code class="descname">group_by_column</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray, column_index: Union[int, str], groupings: Optional[List[Union[float, Tuple[str]]]] = None, numerical_bins_number: int = 5, treat_as_categorical: Optional[bool] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[List[List[int]], List[str]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/tools.py#L27"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.tools.group_by_column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Groups row indices of an array based on value grouping of a chosen column.</p>
 <p>If selected column is numerical, by default the values are grouped into 5
 bins equally distributed between the minimum and the maximum value of the
@@ -309,18 +309,18 @@ group.</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>IncorrectShapeError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not 2-dimensional.</p>
+<dt><strong>IncorrectShapeError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not 2-dimensional.</p>
 </dd>
-<dt>IndexError</dt><dd><p>The supplied <code class="docutils literal notranslate"><span class="pre">column_index</span></code> is not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
+<dt><strong>IndexError</strong></dt><dd><p>The supplied <code class="docutils literal notranslate"><span class="pre">column_index</span></code> is not valid for the input <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 </dd>
-<dt>TypeError</dt><dd><p>The column index is neither a string nor an integer. The numerical bins
+<dt><strong>TypeError</strong></dt><dd><p>The column index is neither a string nor an integer. The numerical bins
 number is not an integer. The <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter is neither a list
 not <code class="docutils literal notranslate"><span class="pre">None</span></code>. One of the grouping bin boundaries (for a numerical
 feature column) is not a number. One of the groupings (for a
 categorical feature column) is not a tuple. The
 <code class="docutils literal notranslate"><span class="pre">treat_as_categorical</span></code> parameter is neither a boolean nor <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
-<dt>ValueError</dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type. The numerical bins number
+<dt><strong>ValueError</strong></dt><dd><p>The input <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is not of a base type. The numerical bins number
 is less than 2. The <code class="docutils literal notranslate"><span class="pre">groupings</span></code> list is empty. The numbers in the
 <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter are not monotonically increasing (for a
 numerical column). There are duplicate values shared among tuples in
@@ -331,7 +331,7 @@ selected column (for a categorical column).</p>
 </dd>
 <dt class="field-even">Warns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>UserWarning</dt><dd><p>When grouping is done on a categorical column a warning is emitted when
+<dt><strong>UserWarning</strong></dt><dd><p>When grouping is done on a categorical column a warning is emitted when
 some of the values in that column are not accounted for, i.e. they are
 not included in the <code class="docutils literal notranslate"><span class="pre">groupings</span></code> parameter. Also, if some of the rows
 are not included in any of the groupings, a warning is shown. Missing
@@ -348,7 +348,7 @@ categorical column. <code class="docutils literal notranslate"><span class="pre"
 
 <section id="examples-using-fatf-utils-data-tools-group-by-column">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">fatf.utils.data.tools.group_by_column</span></code><a class="headerlink" href="#examples-using-fatf-utils-data-tools-group-by-column" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d..."><figure class="align-default" id="id1">
+<div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how to find unfair rows in a data set using the :func:`fatf.fairness.d..."><figure class="align-center" id="id1">
 <img alt="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" src="../_images/sphx_glr_xmpl_fairness_data_measure_thumb.png" />
 <figcaption>
 <p><span class="caption-text"><a class="reference internal" href="../sphinx_gallery_auto/fairness/xmpl_fairness_data_measure.html#sphx-glr-sphinx-gallery-auto-fairness-xmpl-fairness-data-measure-py"><span class="std std-ref">Measuring Fairness of a Data Set</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
