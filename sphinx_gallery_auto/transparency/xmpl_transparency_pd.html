@@ -277,7 +277,7 @@ Explaining class (index: 2): virginica.
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
@@ -303,11 +303,11 @@ Explaining class (index: 2): virginica.
 <span class="n">linspace_samples</span> <span class="o">=</span> <span class="mi">25</span>
 
 <span class="c1"># Calculate Partial Dependence</span>
-<span class="n">pd_array</span><span class="p">,</span> <span class="n">pd_linspace</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence</span></a><span class="p">(</span>
+<span class="n">pd_array</span><span class="p">,</span> <span class="n">pd_linspace</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence"><a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence.html#fatf.transparency.models.feature_influence.partial_dependence" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence</span></a></a><span class="p">(</span>
     <span class="n">iris_X</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">steps_number</span><span class="o">=</span><span class="n">linspace_samples</span><span class="p">)</span>
 
 <span class="c1"># Plot Partial Dependence on its own</span>
-<span class="n">pd_plot_clean</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a><span class="p">(</span>
+<span class="n">pd_plot_clean</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a></a><span class="p">(</span>
     <span class="n">pd_array</span><span class="p">,</span>
     <span class="n">pd_linspace</span><span class="p">,</span>
     <span class="n">explanation_class</span><span class="p">,</span>
@@ -315,16 +315,16 @@ Explaining class (index: 2): virginica.
     <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.776 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.931 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-pd-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_pd.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/61dfe7f501503efd74488d579d536421/xmpl_transparency_pd.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_pd.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/90e12f36e7d86d38c83496f4b3b2eb3b/xmpl_transparency_pd.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_pd.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/f2d7d686e6d3cf559d545ab973c252db/xmpl_transparency_pd.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_pd.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/7b2568942e57f4c839dcf9b629a655d0/xmpl_transparency_pd.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_pd.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>

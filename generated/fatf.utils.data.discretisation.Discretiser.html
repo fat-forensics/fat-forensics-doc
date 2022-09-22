@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.discretisation" title="fatf.utils.data.discretisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.discretisation</span></code></a>.Discretiser<a class="headerlink" href="#fatf-utils-data-discretisation-discretiser" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.discretisation.Discretiser">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.discretisation.</code><code class="descname">Discretiser</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/discretisation.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.discretisation.</code><code class="descname">Discretiser</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/discretisation.py#L111"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract class that all discretiser implementations should inherit from.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -360,7 +360,7 @@ added to the list of categorical features.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.discretisation.Discretiser.discretise">
-<code class="descname">discretise</code><span class="sig-paren">(</span><em>dataset: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/discretisation.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="Permalink to this definition">¶</a></dt>
+<code class="descname">discretise</code><span class="sig-paren">(</span><em>dataset: Union[numpy.ndarray, numpy.void]</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/discretisation.py#L340"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.discretisation.Discretiser.discretise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discretises non-categorical (numerical) features in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code>.</p>
 <p>This is an abstract method that must be implemented for each
 discretiser object that inherits form <code class="docutils literal notranslate"><span class="pre">Discretiser</span></code>. This method

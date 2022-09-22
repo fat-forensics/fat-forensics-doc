@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.density" title="fatf.utils.data.density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.density</span></code></a>.DensityCheck<a class="headerlink" href="#fatf-utils-data-density-densitycheck" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.density.DensityCheck">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.density.</code><code class="descname">DensityCheck</code><span class="sig-paren">(</span><em>data_set: numpy.ndarray, categorical_indices: Optional[List[Union[str, int]]] = None, neighbours: int = 7, distance_function: Optional[Callable[[Union[numpy.ndarray, numpy.void], Union[numpy.ndarray, numpy.void]], float]] = None, normalise_scores: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/density.py#L140"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.density.</code><code class="descname">DensityCheck</code><span class="sig-paren">(</span><em>data_set: numpy.ndarray, categorical_indices: Optional[List[Union[str, int]]] = None, neighbours: int = 7, distance_function: Optional[Callable[[Union[numpy.ndarray, numpy.void], Union[numpy.ndarray, numpy.void]], float]] = None, normalise_scores: bool = True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/density.py#L140"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks and scores density in the <code class="docutils literal notranslate"><span class="pre">data_set</span></code> and for new data points.</p>
 <p>A density score for a particular data point is calculated by looking at the
 distance of the n-th neighbour defined by the <code class="docutils literal notranslate"><span class="pre">neighbours</span></code> parameter.
@@ -378,7 +378,7 @@ added to the list of categorical features.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.density.DensityCheck.filter_data_set">
-<code class="descname">filter_data_set</code><span class="sig-paren">(</span><em>alpha: float = 0.8</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/density.py#L431"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="Permalink to this definition">¶</a></dt>
+<code class="descname">filter_data_set</code><span class="sig-paren">(</span><em>alpha: float = 0.8</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/density.py#L431"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.filter_data_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the data points that are in alpha-dense areas.</p>
 <p>A data points in an alpha-dense region have a density score larger or
 equal to <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. For normalised scores <code class="docutils literal notranslate"><span class="pre">alpha</span></code> should be between 0
@@ -419,7 +419,7 @@ were selected.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.density.DensityCheck.score_data_point">
-<code class="descname">score_data_point</code><span class="sig-paren">(</span><em>data_point: Union[numpy.ndarray, numpy.void], clip: bool = True</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/density.py#L545"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="Permalink to this definition">¶</a></dt>
+<code class="descname">score_data_point</code><span class="sig-paren">(</span><em>data_point: Union[numpy.ndarray, numpy.void], clip: bool = True</em><span class="sig-paren">)</span> &#x2192; float<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/density.py#L545"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.density.DensityCheck.score_data_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a density score for the <code class="docutils literal notranslate"><span class="pre">data_point</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

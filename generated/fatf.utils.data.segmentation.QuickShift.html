@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.segmentation" title="fatf.utils.data.segmentation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.segmentation</span></code></a>.QuickShift<a class="headerlink" href="#fatf-utils-data-segmentation-quickshift" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.segmentation.QuickShift">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.segmentation.</code><code class="descname">QuickShift</code><span class="sig-paren">(</span><em>image: numpy.ndarray</em>, <em>segmentation_mask: Optional[numpy.ndarray] = None</em>, <em>ratio: float = 0.2</em>, <em>kernel_size: float = 4</em>, <em>max_dist: float = 200</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L1422"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.segmentation.</code><code class="descname">QuickShift</code><span class="sig-paren">(</span><em>image: numpy.ndarray</em>, <em>segmentation_mask: Optional[numpy.ndarray] = None</em>, <em>ratio: float = 0.2</em>, <em>kernel_size: float = 4</em>, <em>max_dist: float = 200</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L1422"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps the quickshift segmentation algorithm implemented in scikit-image.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -311,7 +311,7 @@ Higher means fewer clusters.</p>
 </table>
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.grayout_segments">
-<code class="descname">grayout_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L1078"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.grayout_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">grayout_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L1078"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.grayout_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Grays out a selected subset of segments in the RGB image.</p>
 <p>The graying out can either be applied on top of the image or
 segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
@@ -365,7 +365,7 @@ of its elements are duplicated.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.highlight_segments">
-<code class="descname">highlight_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None, colour: Union[Tuple[int, int, int], List[Tuple[int, int, int]], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L748"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.highlight_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">highlight_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None, colour: Union[Tuple[int, int, int], List[Tuple[int, int, int]], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L748"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.highlight_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Highlights image segments by translucently colouring them.</p>
 <p>The highlighting can either be applied on top of the image or
 segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
@@ -436,7 +436,7 @@ of its elements are duplicated.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.mark_boundaries">
-<code class="descname">mark_boundaries</code><span class="sig-paren">(</span><em>mask: bool = False</em>, <em>image: Optional[numpy.ndarray] = None</em>, <em>colour: Optional[Tuple[int</em>, <em>int</em>, <em>int]] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L520"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.mark_boundaries" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mark_boundaries</code><span class="sig-paren">(</span><em>mask: bool = False</em>, <em>image: Optional[numpy.ndarray] = None</em>, <em>colour: Optional[Tuple[int</em>, <em>int</em>, <em>int]] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L520"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.mark_boundaries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Marks segment boundaries atop the image used to initialise this class.</p>
 <p>The boundaries can either be overlaid on top of the image or
 segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
@@ -487,7 +487,7 @@ is outside of the 0–255 range.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.merge_segments">
-<code class="descname">merge_segments</code><span class="sig-paren">(</span><em>segments_grouping: Union[List[int], List[List[int]]], inplace: bool = True, segments: Optional[numpy.ndarray] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L1207"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.merge_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">merge_segments</code><span class="sig-paren">(</span><em>segments_grouping: Union[List[int], List[List[int]]], inplace: bool = True, segments: Optional[numpy.ndarray] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L1207"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.merge_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges segments based on the provided grouping.</p>
 <p>The merging can either be applied to the segmentation stored in the
 class to a segmentation passed as a parameter (<code class="docutils literal notranslate"><span class="pre">segments</span></code>).
@@ -542,7 +542,7 @@ groupings.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.number_segments">
-<code class="descname">number_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None, colour: Optional[Tuple[int, int, int]] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L598"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.number_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">number_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int], None] = None, mask: bool = False, image: Optional[numpy.ndarray] = None, colour: Optional[Tuple[int, int, int]] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L598"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.number_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots segment numbers on top of the image.</p>
 <p>The numbering can either be overlaid on top of the image or
 segmentation mask (<code class="docutils literal notranslate"><span class="pre">mask=True</span></code>) used to initialise this class.
@@ -612,7 +612,7 @@ of its elements are duplicated.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.segmentation.QuickShift.set_segments">
-<code class="descname">set_segments</code><span class="sig-paren">(</span><em>segments: numpy.ndarray</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/data/segmentation.py#L474"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.set_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_segments</code><span class="sig-paren">(</span><em>segments: numpy.ndarray</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/segmentation.py#L474"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.segmentation.QuickShift.set_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Manually overwrites the segmentation with custom <code class="docutils literal notranslate"><span class="pre">segments</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">segments</span></code> must be a non-structured, 2-dimensional, integer-valued
 numpy array with a continuous sequence of unique elements starting

@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn.tools" title="fatf.transparency.sklearn.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.tools</span></code></a>.SKLearnExplainer<a class="headerlink" href="#fatf-transparency-sklearn-tools-sklearnexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer">
-<em class="property">class </em><code class="descclassname">fatf.transparency.sklearn.tools.</code><code class="descname">SKLearnExplainer</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>class_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L152"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.sklearn.tools.</code><code class="descname">SKLearnExplainer</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>class_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L152"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements a base scikit-learn model explainer class.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -360,7 +360,7 @@ length of class names array cannot be validated.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer._get_classes_array">
-<code class="descname">_get_classes_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L471"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._get_classes_array" title="Permalink to this definition">¶</a></dt>
+<code class="descname">_get_classes_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[numpy.ndarray]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L471"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._get_classes_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieves the array with classes that the predictive model can output.</p>
 <p>For regressors this method must return <code class="docutils literal notranslate"><span class="pre">None</span></code>. For classifier it
 should return a 1-dimensional numpy array that holds all the possible
@@ -385,7 +385,7 @@ predictions (only for classifiers) or <code class="docutils literal notranslate"
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer._get_features_number">
-<code class="descname">_get_features_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[int]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L447"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._get_features_number" title="Permalink to this definition">¶</a></dt>
+<code class="descname">_get_features_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[int]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L447"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._get_features_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of features that the model accepts or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <p>If it is possible to extract the number of features (columns) expected
 by the <code class="docutils literal notranslate"><span class="pre">self.clf</span></code> predictor, this method should return this number.
@@ -408,7 +408,7 @@ Otherwise, it must return <code class="docutils literal notranslate"><span class
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer._is_classifier">
-<code class="descname">_is_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L423"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._is_classifier" title="Permalink to this definition">¶</a></dt>
+<code class="descname">_is_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L423"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._is_classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether the <code class="docutils literal notranslate"><span class="pre">clf</span></code> model is a <em>classifier</em> or a <em>regressor</em>.</p>
 <p>This method should return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the model that this class
 explains is a classifier and <code class="docutils literal notranslate"><span class="pre">False</span></code> if it is a regressor.</p>
@@ -431,7 +431,7 @@ when it is a regressor.</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer._validate_kind_fitted">
-<code class="descname">_validate_kind_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L391"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._validate_kind_fitted" title="Permalink to this definition">¶</a></dt>
+<code class="descname">_validate_kind_fitted</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L391"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer._validate_kind_fitted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements a kind check and a fit check of a predictive model.</p>
 <p>This method is called upon initialising the class and checks whether
 the <code class="docutils literal notranslate"><span class="pre">self.clf</span></code> predictor is of the right kind. For example, when
@@ -462,7 +462,7 @@ model is fitted, <code class="docutils literal notranslate"><span class="pre">Fa
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an explanation of a single data point (instance).</p>
 <p>This can be an explanation of a data point from a data set or of a
 prediction provided by a predictive model.</p>
@@ -470,19 +470,19 @@ prediction provided by a predictive model.</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer.explain_model">
-<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a model explanation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer.feature_importance">
-<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/utils/transparency/explainers.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes feature importance.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.tools.SKLearnExplainer.map_class">
-<code class="descname">map_class</code><span class="sig-paren">(</span><em>clf_class: Union[int, str]</em><span class="sig-paren">)</span> &#x2192; str<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/5defeca/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.map_class" title="Permalink to this definition">¶</a></dt>
+<code class="descname">map_class</code><span class="sig-paren">(</span><em>clf_class: Union[int, str]</em><span class="sig-paren">)</span> &#x2192; str<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.tools.SKLearnExplainer.map_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maps a class id output by the classifier to a class name.</p>
 <p>A mapping will only be provided if the class was initialised with class
 names or an array of possible predictions was extracted form the
