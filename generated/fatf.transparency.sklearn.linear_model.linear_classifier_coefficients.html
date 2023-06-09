@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn.linear_model" title="fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code></a>.linear_classifier_coefficients<a class="headerlink" href="#fatf-transparency-sklearn-linear-model-linear-classifier-coefficients" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.transparency.sklearn.linear_model.linear_classifier_coefficients">
-<code class="descclassname">fatf.transparency.sklearn.linear_model.</code><code class="descname">linear_classifier_coefficients</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/linear_model.py#L134"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.linear_classifier_coefficients" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.transparency.sklearn.linear_model.</code><code class="descname">linear_classifier_coefficients</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/sklearn/linear_model.py#L134"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.linear_classifier_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts coefficients (feature importances) of a linear scikit-learn model.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -293,7 +293,7 @@ function) will raise this exception if the model is not fitted.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -315,13 +315,15 @@ function) will raise this exception if the model is not fitted.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

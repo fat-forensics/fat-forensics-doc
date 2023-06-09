@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.metrics.tools" title="fatf.utils.metrics.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools</span></code></a>.validate_confusion_matrix<a class="headerlink" href="#fatf-utils-metrics-tools-validate-confusion-matrix" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.metrics.tools.validate_confusion_matrix">
-<code class="descclassname">fatf.utils.metrics.tools.</code><code class="descname">validate_confusion_matrix</code><span class="sig-paren">(</span><em>confusion_matrix: numpy.ndarray</em>, <em>label_index: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/metrics/tools.py#L32"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.tools.validate_confusion_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.metrics.tools.</code><code class="descname">validate_confusion_matrix</code><span class="sig-paren">(</span><em>confusion_matrix: numpy.ndarray</em>, <em>label_index: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/metrics/tools.py#L32"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.metrics.tools.validate_confusion_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates a confusion matrix.</p>
 <p>This function checks whether the <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> is 2-dimensional,
 square, unstructured and of integer kind.</p>
@@ -295,7 +295,7 @@ integer.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -317,13 +317,15 @@ integer.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

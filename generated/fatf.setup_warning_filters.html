@@ -240,13 +240,13 @@
 <h1><a class="reference internal" href="../api.html#module-fatf" title="fatf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf</span></code></a>.setup_warning_filters<a class="headerlink" href="#fatf-setup-warning-filters" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.setup_warning_filters">
-<code class="descclassname">fatf.</code><code class="descname">setup_warning_filters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/__init__.py#L51"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_warning_filters" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.</code><code class="descname">setup_warning_filters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/__init__.py#L51"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_warning_filters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets up desired warning filters.</p>
 <p>If the warning filters are not specified on the command line or via
-the system variable make sure that <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> and
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportWarning" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportWarning</span></code></a> raised by this this package always get printed.</p>
+the system variable make sure that <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportWarning" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportWarning</span></code></a> raised by this this package always get printed.</p>
 <p>The warning settings used by pytest can be found in pytest.ini, where in
-addition to these two warnings <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#PendingDeprecationWarning" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a> is
+addition to these two warnings <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#PendingDeprecationWarning" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code></a> is
 enabled as well.</p>
 <p>This functionality is tested by test_warnings_emission1() and
 test_warnings_emission2() functions in fatf.tests.test_warning_filters
@@ -268,7 +268,7 @@ module.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -290,13 +290,15 @@ module.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

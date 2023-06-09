@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.array.validation" title="fatf.utils.array.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.array.validation</span></code></a>.are_similar_dtypes<a class="headerlink" href="#fatf-utils-array-validation-are-similar-dtypes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.array.validation.are_similar_dtypes">
-<code class="descclassname">fatf.utils.array.validation.</code><code class="descname">are_similar_dtypes</code><span class="sig-paren">(</span><em>dtype_a: numpy.dtype</em>, <em>dtype_b: numpy.dtype</em>, <em>strict_comparison: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/array/validation.py#L208"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.array.validation.are_similar_dtypes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.array.validation.</code><code class="descname">are_similar_dtypes</code><span class="sig-paren">(</span><em>dtype_a: numpy.dtype</em>, <em>dtype_b: numpy.dtype</em>, <em>strict_comparison: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/array/validation.py#L208"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.array.validation.are_similar_dtypes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether two numpy dtypes are similar.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">strict_comparison</span></code> is set to True the both dtypes have to be exactly
 the same. Otherwise, if both are either numerical or textual dtypes, they
@@ -290,7 +290,7 @@ plane dtypes.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -312,13 +312,15 @@ plane dtypes.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

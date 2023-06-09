@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.models.measures" title="fatf.fairness.models.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.models.measures</span></code></a>.disparate_impact_indexed<a class="headerlink" href="#fatf-fairness-models-measures-disparate-impact-indexed" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.models.measures.disparate_impact_indexed">
-<code class="descclassname">fatf.fairness.models.measures.</code><code class="descname">disparate_impact_indexed</code><span class="sig-paren">(</span><em>indices_per_bin: List[numpy.ndarray], ground_truth: numpy.ndarray, predictions: numpy.ndarray, label_index: int = 0, labels: Optional[List[Union[float, str]]] = None, tolerance: float = 0.2, criterion: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/fairness/models/measures.py#L98"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.models.measures.disparate_impact_indexed" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.fairness.models.measures.</code><code class="descname">disparate_impact_indexed</code><span class="sig-paren">(</span><em>indices_per_bin: List[numpy.ndarray], ground_truth: numpy.ndarray, predictions: numpy.ndarray, label_index: int = 0, labels: Optional[List[Union[float, str]]] = None, tolerance: float = 0.2, criterion: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/fairness/models/measures.py#L98"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.models.measures.disparate_impact_indexed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates selected disparate impact grid for indexed data.</p>
 <p>This function combines
 <a class="reference internal" href="fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed.html#fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed" title="fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.utils.metrics.tools.confusion_matrix_per_subgroup_indexed</span></code></a>
@@ -302,7 +302,7 @@ description of the parameter).</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -324,13 +324,15 @@ description of the parameter).</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

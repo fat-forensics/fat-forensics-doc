@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.TabularBlimeyTree<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-tabularblimeytree" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyTree</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/predictions/surrogate_explainers.py#L1506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyTree</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_probabilistic: bool = True</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>classes_number: Optional[int] = None</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>unique_predictions: Optional[List[Union[str</em>, <em>int]]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/predictions/surrogate_explainers.py#L1506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>A surrogate explainer based on a decision tree.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>Added support for regression models.</p>
@@ -313,7 +313,7 @@ contains non-numerical features.</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, one_vs_rest: bool = True, samples_number: int = 50, maximum_depth: int = 3, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/predictions/surrogate_explainers.py#L1782"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, one_vs_rest: bool = True, samples_number: int = 50, maximum_depth: int = 3, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/predictions/surrogate_explainers.py#L1782"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyTree.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with decision tree feature importance.</p>
 <p>If the black-box model is a classifier, the explanations will be
 produced for all of the classes by default. This behaviour can be
@@ -455,7 +455,7 @@ surrogate.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -477,13 +477,15 @@ surrogate.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

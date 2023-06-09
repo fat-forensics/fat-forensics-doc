@@ -345,13 +345,13 @@ interpret data sets, machine learning models and their predictions.
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: sphinx_gallery_auto_python.zip <//home/ks1591/fat-forensics-deploy/doc/sphinx_gallery_auto/sphinx_gallery_auto_python.zip>`
+    :download:`Download all examples in Python source code: sphinx_gallery_auto_python.zip <//home/ks1591/fatdoc/fat-forensics/doc/sphinx_gallery_auto/sphinx_gallery_auto_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: sphinx_gallery_auto_jupyter.zip <//home/ks1591/fat-forensics-deploy/doc/sphinx_gallery_auto/sphinx_gallery_auto_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: sphinx_gallery_auto_jupyter.zip <//home/ks1591/fatdoc/fat-forensics/doc/sphinx_gallery_auto/sphinx_gallery_auto_jupyter.zip>`
 
 
 .. only:: html

@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.transparency.explainers" title="fatf.utils.transparency.explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.transparency.explainers</span></code></a>.check_instance_explainer_functionality<a class="headerlink" href="#fatf-utils-transparency-explainers-check-instance-explainer-functionality" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.transparency.explainers.check_instance_explainer_functionality">
-<code class="descclassname">fatf.utils.transparency.explainers.</code><code class="descname">check_instance_explainer_functionality</code><span class="sig-paren">(</span><em>explainer_object: Union[object, type], suppress_warning: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L53"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.check_instance_explainer_functionality" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.transparency.explainers.</code><code class="descname">check_instance_explainer_functionality</code><span class="sig-paren">(</span><em>explainer_object: Union[object, type], suppress_warning: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/transparency/explainers.py#L53"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.transparency.explainers.check_instance_explainer_functionality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether an explainer object can explain a data point (instance).</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -301,7 +301,7 @@ Warns if the explainer object does not inherit from the
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -323,13 +323,15 @@ Warns if the explainer object does not inherit from the
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

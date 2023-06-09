@@ -326,7 +326,7 @@ data points with indices <code class="docutils literal notranslate"><span class=
 <span id="tutorials-grouping-fairness-labelling-disparity"></span><h2>Labelling Disparity<a class="headerlink" href="#labelling-disparity" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have <code class="docutils literal notranslate"><span class="pre">'gender'</span></code>-based grouping we can investigate how target
 labels are distributed for different genders. To this end, we will use numpy’s
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unique</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">return_counts</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.unique</span></code></a> with the <code class="docutils literal notranslate"><span class="pre">return_counts</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">target_female</span> <span class="o">=</span> <span class="n">hr_target</span><span class="p">[</span><span class="n">gender_grouping</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_female</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">target_female_counts</span>
@@ -504,7 +504,7 @@ the group-based fairness metrics and the data set fairness approaches:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -526,13 +526,15 @@ the group-based fairness metrics and the data set fairness approaches:</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

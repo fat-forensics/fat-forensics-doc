@@ -288,14 +288,14 @@ Distance: 20
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">hr_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_health_records.html#fatf.utils.data.datasets.load_health_records" title="View documentation for fatf.utils.data.datasets.load_health_records"><a href="../../generated/fatf.utils.data.datasets.load_health_records.html#fatf.utils.data.datasets.load_health_records" title="View documentation for fatf.utils.data.datasets.load_health_records"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_health_records</span></a></a><span class="p">()</span>
+<span class="n">hr_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_health_records.html#fatf.utils.data.datasets.load_health_records" title="View documentation for fatf.utils.data.datasets.load_health_records"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_health_records</span></a><span class="p">()</span>
 <span class="n">hr_X</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">hr_y</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
 <span class="n">hr_feature_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
 <span class="n">hr_class_names</span> <span class="o">=</span> <span class="n">hr_data_dict</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
 
 <span class="c1"># Map target indices to target names</span>
-<span class="n">hr_y</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a></a><span class="p">([</span><span class="n">hr_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_y</span><span class="p">])</span>
+<span class="n">hr_y</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">hr_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hr_y</span><span class="p">])</span>
 
 <span class="c1"># Drop the unique identifiers (features)</span>
 <span class="n">unique_identifiers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;zipcode&#39;</span><span class="p">,</span> <span class="s1">&#39;dob&#39;</span><span class="p">]</span>
@@ -332,7 +332,7 @@ Distance: 20
         <span class="n">feature_name</span><span class="p">,</span> <span class="n">data_point</span><span class="p">[</span><span class="n">feature_name</span><span class="p">]))</span>
 
 <span class="c1"># Compute counterfactually unfair examples</span>
-<span class="n">cfs</span><span class="p">,</span> <span class="n">cfs_distances</span><span class="p">,</span> <span class="n">cfs_classes</span> <span class="o">=</span> <a href="../../generated/fatf.fairness.predictions.measures.counterfactual_fairness.html#fatf.fairness.predictions.measures.counterfactual_fairness" title="View documentation for fatf.fairness.predictions.measures.counterfactual_fairness"><a href="../../generated/fatf.fairness.predictions.measures.counterfactual_fairness.html#fatf.fairness.predictions.measures.counterfactual_fairness" title="View documentation for fatf.fairness.predictions.measures.counterfactual_fairness"><span class="n">fatf_pfm</span><span class="o">.</span><span class="n">counterfactual_fairness</span></a></a><span class="p">(</span>
+<span class="n">cfs</span><span class="p">,</span> <span class="n">cfs_distances</span><span class="p">,</span> <span class="n">cfs_classes</span> <span class="o">=</span> <a href="../../generated/fatf.fairness.predictions.measures.counterfactual_fairness.html#fatf.fairness.predictions.measures.counterfactual_fairness" title="View documentation for fatf.fairness.predictions.measures.counterfactual_fairness"><span class="n">fatf_pfm</span><span class="o">.</span><span class="n">counterfactual_fairness</span></a><span class="p">(</span>
     <span class="n">instance</span><span class="o">=</span><span class="n">data_point</span><span class="p">,</span>
     <span class="n">protected_feature_indices</span><span class="o">=</span><span class="n">protected_features</span><span class="p">,</span>
     <span class="n">model</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
@@ -340,7 +340,7 @@ Distance: 20
     <span class="n">dataset</span><span class="o">=</span><span class="n">hr_X</span><span class="p">)</span>
 
 <span class="c1"># Textualise possible counterfactually unfair data points</span>
-<span class="n">cfs_text</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span></a></a><span class="p">(</span>
+<span class="n">cfs_text</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.predictions.counterfactuals.textualise_counterfactuals.html#fatf.transparency.predictions.counterfactuals.textualise_counterfactuals" title="View documentation for fatf.transparency.predictions.counterfactuals.textualise_counterfactuals"><span class="n">fatf_cf</span><span class="o">.</span><span class="n">textualise_counterfactuals</span></a><span class="p">(</span>
     <span class="n">data_point</span><span class="p">,</span>
     <span class="n">cfs</span><span class="p">,</span>
     <span class="n">instance_class</span><span class="o">=</span><span class="n">data_point_y</span><span class="p">,</span>
@@ -349,16 +349,16 @@ Distance: 20
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cfs_text</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.217 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.193 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-fairness-xmpl-fairness-predictions-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/fairness/xmpl_fairness_predictions_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/911960192187b68db7be47c0a91e8b1e/xmpl_fairness_predictions_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_predictions_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ed6c7343e8069ea7baca8691af921bed/xmpl_fairness_predictions_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_fairness_predictions_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/a0b55714671beac9ef6968ee4c26de1c/xmpl_fairness_predictions_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_predictions_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c43677e3834f12cc91cfd4b09586b894/xmpl_fairness_predictions_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_fairness_predictions_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -377,7 +377,7 @@ Distance: 20
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -399,13 +399,15 @@ Distance: 20
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

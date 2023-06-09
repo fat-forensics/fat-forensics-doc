@@ -269,7 +269,7 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a></a><span class="p">()</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
@@ -294,7 +294,7 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
 <span class="n">selected_feature_grouping</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="c1"># Compute accuracy per group in the feature</span>
-<span class="n">population_metrics</span><span class="p">,</span> <span class="n">population_names</span> <span class="o">=</span> <a href="../../generated/fatf.utils.metrics.subgroup_metrics.performance_per_subgroup.html#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="View documentation for fatf.utils.metrics.subgroup_metrics.performance_per_subgroup"><a href="../../generated/fatf.utils.metrics.subgroup_metrics.performance_per_subgroup.html#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="View documentation for fatf.utils.metrics.subgroup_metrics.performance_per_subgroup"><span class="n">fatf_smt</span><span class="o">.</span><span class="n">performance_per_subgroup</span></a></a><span class="p">(</span>
+<span class="n">population_metrics</span><span class="p">,</span> <span class="n">population_names</span> <span class="o">=</span> <a href="../../generated/fatf.utils.metrics.subgroup_metrics.performance_per_subgroup.html#fatf.utils.metrics.subgroup_metrics.performance_per_subgroup" title="View documentation for fatf.utils.metrics.subgroup_metrics.performance_per_subgroup"><span class="n">fatf_smt</span><span class="o">.</span><span class="n">performance_per_subgroup</span></a><span class="p">(</span>
     <span class="n">iris_X</span><span class="p">,</span>
     <span class="n">iris_y</span><span class="p">,</span>
     <span class="n">iris_pred</span><span class="p">,</span>
@@ -311,7 +311,7 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
           <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_name</span><span class="p">,</span> <span class="n">predictive_performance_metric</span><span class="p">,</span> <span class="n">p_metric</span><span class="p">))</span>
 
 <span class="c1"># Evaluate Systematic Performance Bias</span>
-<span class="n">bias_grid</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.models.measures.systematic_performance_bias_grid.html#fatf.accountability.models.measures.systematic_performance_bias_grid" title="View documentation for fatf.accountability.models.measures.systematic_performance_bias_grid"><a href="../../generated/fatf.accountability.models.measures.systematic_performance_bias_grid.html#fatf.accountability.models.measures.systematic_performance_bias_grid" title="View documentation for fatf.accountability.models.measures.systematic_performance_bias_grid"><span class="n">fatf_mam</span><span class="o">.</span><span class="n">systematic_performance_bias_grid</span></a></a><span class="p">(</span><span class="n">population_metrics</span><span class="p">)</span>
+<span class="n">bias_grid</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.models.measures.systematic_performance_bias_grid.html#fatf.accountability.models.measures.systematic_performance_bias_grid" title="View documentation for fatf.accountability.models.measures.systematic_performance_bias_grid"><span class="n">fatf_mam</span><span class="o">.</span><span class="n">systematic_performance_bias_grid</span></a><span class="p">(</span><span class="n">population_metrics</span><span class="p">)</span>
 
 <span class="c1"># Print out Systematic Performance Bias for each grouping pair</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The *</span><span class="si">{}</span><span class="s1">-based* Systematic Performance Bias for *</span><span class="si">{}</span><span class="s1">* feature (index &#39;</span>
@@ -328,16 +328,16 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
                                          <span class="n">is_not</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.634 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.496 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-models-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/accountability/xmpl_accountability_models_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/d94f1f86c368cc945b4e907bc635fa4d/xmpl_accountability_models_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_models_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/5a9e70eb1923af0a74f06bff44f965b1/xmpl_accountability_models_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_models_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/fda3d800070987afd04d462e3c4121f1/xmpl_accountability_models_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_models_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c15cbe856a8eb95ed3002b7ea7d225e7/xmpl_accountability_models_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_models_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -356,7 +356,7 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -378,13 +378,15 @@ The *accuracy-based* Systematic Performance Bias for *sepal width (cm)* feature 
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.predictions.surrogate_explainers" title="fatf.transparency.predictions.surrogate_explainers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.predictions.surrogate_explainers</span></code></a>.TabularBlimeyLime<a class="headerlink" href="#fatf-transparency-predictions-surrogate-explainers-tabularblimeylime" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime">
-<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/predictions/surrogate_explainers.py#L800"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.predictions.surrogate_explainers.</code><code class="descname">TabularBlimeyLime</code><span class="sig-paren">(</span><em>dataset: numpy.ndarray</em>, <em>predictive_model: object</em>, <em>as_regressor: bool = False</em>, <em>categorical_indices: Optional[List[Union[str</em>, <em>int]]] = None</em>, <em>class_names: Optional[List[str]] = None</em>, <em>feature_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/predictions/surrogate_explainers.py#L800"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tabular LIME explainer – a surrogate explainer based on a linear model.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>(1) Added support for regression models.
@@ -451,7 +451,7 @@ this bin will be sampled.)</p>
 </table>
 <dl class="method">
 <dt id="fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, samples_number: int = 50, features_number: Optional[int] = None, kernel_width: Optional[float] = None, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/predictions/surrogate_explainers.py#L1235"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><em>data_row: Union[numpy.ndarray, numpy.void], explained_class: Union[int, str, None] = None, samples_number: int = 50, features_number: Optional[int] = None, kernel_width: Optional[float] = None, return_models: bool = False</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, Dict[str, float]], Tuple[Dict[str, Dict[str, float]], Union[Dict[str, fatf.utils.models.models.Model], fatf.utils.models.models.Model]]]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/predictions/surrogate_explainers.py#L1235"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.predictions.surrogate_explainers.TabularBlimeyLime.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explains the <code class="docutils literal notranslate"><span class="pre">data_row</span></code> with linear regression feature importance.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 0.1.0: </span>Changed the feature selection mechanism from k-LASSO to
@@ -575,7 +575,7 @@ nor an index of a class name.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -597,13 +597,15 @@ nor an index of a class name.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

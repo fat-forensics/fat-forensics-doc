@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.exceptions" title="fatf.exceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.exceptions</span></code></a>.UnfittedModelError<a class="headerlink" href="#fatf-exceptions-unfittedmodelerror" title="Permalink to this headline">¶</a></h1>
 <dl class="exception">
 <dt id="fatf.exceptions.UnfittedModelError">
-<em class="property">exception </em><code class="descclassname">fatf.exceptions.</code><code class="descname">UnfittedModelError</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/exceptions.py#L49"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.exceptions.UnfittedModelError" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">fatf.exceptions.</code><code class="descname">UnfittedModelError</code><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/exceptions.py#L49"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.exceptions.UnfittedModelError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when a model is unfitted and a fitted one is expected.</p>
 <p>This is usually raised when the model is not fitted and a <code class="docutils literal notranslate"><span class="pre">predict</span></code> or
 a <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method is called.</p>
@@ -261,7 +261,7 @@ a <code class="docutils literal notranslate"><span class="pre">predict_proba</sp
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -283,13 +283,15 @@ a <code class="docutils literal notranslate"><span class="pre">predict_proba</sp
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

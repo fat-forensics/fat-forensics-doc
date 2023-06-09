@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.testing.vis" title="fatf.utils.testing.vis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.vis</span></code></a>.get_line_data<a class="headerlink" href="#fatf-utils-testing-vis-get-line-data" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.testing.vis.get_line_data">
-<code class="descclassname">fatf.utils.testing.vis.</code><code class="descname">get_line_data</code><span class="sig-paren">(</span><em>line_plot: Union[matplotlib.lines.Line2D, matplotlib.collections.LineCollection], is_collection: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[Union[numpy.ndarray, List[numpy.ndarray]], str, float, str, float]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/testing/vis.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.vis.get_line_data" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.testing.vis.</code><code class="descname">get_line_data</code><span class="sig-paren">(</span><em>line_plot: Union[matplotlib.lines.Line2D, matplotlib.collections.LineCollection], is_collection: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[Union[numpy.ndarray, List[numpy.ndarray]], str, float, str, float]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/testing/vis.py#L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.vis.get_line_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts line’s data array, colour, alpha channel, label and width.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,7 +287,7 @@ representing a single line in the collection.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -309,13 +309,15 @@ representing a single line in the collection.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

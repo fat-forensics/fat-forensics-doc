@@ -260,7 +260,7 @@ example.</p>
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a></a><span class="p">()</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
@@ -280,7 +280,7 @@ example.</p>
 <span class="n">linspace_samples</span> <span class="o">=</span> <span class="mi">25</span>
 
 <span class="c1"># Create an ICE explanation</span>
-<span class="n">ice_array</span><span class="p">,</span> <span class="n">ice_linspace</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="View documentation for fatf.transparency.models.feature_influence.individual_conditional_expectation"><a href="../../generated/fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="View documentation for fatf.transparency.models.feature_influence.individual_conditional_expectation"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">individual_conditional_expectation</span></a></a><span class="p">(</span>
+<span class="n">ice_array</span><span class="p">,</span> <span class="n">ice_linspace</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.individual_conditional_expectation.html#fatf.transparency.models.feature_influence.individual_conditional_expectation" title="View documentation for fatf.transparency.models.feature_influence.individual_conditional_expectation"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">individual_conditional_expectation</span></a><span class="p">(</span>
     <span class="n">iris_X</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">steps_number</span><span class="o">=</span><span class="n">linspace_samples</span><span class="p">)</span>
 
 <span class="c1"># Select class for which the explanation will be produced</span>
@@ -290,7 +290,7 @@ example.</p>
                                                  <span class="n">explanation_class_name</span><span class="p">))</span>
 
 <span class="c1"># Plot the explanation for the whole dataset for class 0</span>
-<span class="n">ice_plot</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a></a><span class="p">(</span>
+<span class="n">ice_plot</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a><span class="p">(</span>
     <span class="n">ice_array</span><span class="p">,</span>
     <span class="n">ice_linspace</span><span class="p">,</span>
     <span class="n">explanation_class</span><span class="p">,</span>
@@ -328,7 +328,7 @@ from the ICE array and plotted with the same function.</p>
 <span class="n">ice_array_dp</span> <span class="o">=</span> <span class="n">ice_array</span><span class="p">[[</span><span class="n">index_to_explain</span><span class="p">],</span> <span class="p">:,</span> <span class="p">:]</span>
 
 <span class="c1"># Visualise the explanation of a single data point</span>
-<span class="n">ice_dp_plot</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a></a><span class="p">(</span>
+<span class="n">ice_dp_plot</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a><span class="p">(</span>
     <span class="n">ice_array_dp</span><span class="p">,</span>
     <span class="n">ice_linspace</span><span class="p">,</span>
     <span class="n">dp_to_explain_class_index</span><span class="p">,</span>
@@ -348,10 +348,10 @@ from the ICE array and plotted with the same function.</p>
 <p>ICE calculation is a base of Partial Dependence (<a class="reference internal" href="../../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="fatf.transparency.models.feature_influence.partial_dependence_ice"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.transparency.models.feature_influence.partial_dependence_ice</span></code></a>). Then, Partial Dependence
 can be plotted either as an overlay on top of the ICE plot or on its own.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate Partial Dependence</span>
-<span class="n">pd_array</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence_ice"><a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence_ice"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence_ice</span></a></a><span class="p">(</span><span class="n">ice_array</span><span class="p">)</span>
+<span class="n">pd_array</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.models.feature_influence.partial_dependence_ice.html#fatf.transparency.models.feature_influence.partial_dependence_ice" title="View documentation for fatf.transparency.models.feature_influence.partial_dependence_ice"><span class="n">fatf_fi</span><span class="o">.</span><span class="n">partial_dependence_ice</span></a><span class="p">(</span><span class="n">ice_array</span><span class="p">)</span>
 
 <span class="c1"># Plot Partial Dependence on its own</span>
-<span class="n">pd_plot_clean</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a></a><span class="p">(</span>
+<span class="n">pd_plot_clean</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a><span class="p">(</span>
     <span class="n">pd_array</span><span class="p">,</span>
     <span class="n">ice_linspace</span><span class="p">,</span>
     <span class="n">explanation_class</span><span class="p">,</span>
@@ -359,14 +359,14 @@ can be plotted either as an overlay on top of the ICE plot or on its own.</p>
     <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
 
 <span class="c1"># Create a fresh ICE plot and add the Partial Dependence plot on top of it</span>
-<span class="n">ice_plot_2</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a></a><span class="p">(</span>
+<span class="n">ice_plot_2</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="View documentation for fatf.vis.feature_influence.plot_individual_conditional_expectation"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_individual_conditional_expectation</span></a><span class="p">(</span>
     <span class="n">ice_array</span><span class="p">,</span>
     <span class="n">ice_linspace</span><span class="p">,</span>
     <span class="n">explanation_class</span><span class="p">,</span>
     <span class="n">class_name</span><span class="o">=</span><span class="n">explanation_class_name</span><span class="p">,</span>
     <span class="n">feature_name</span><span class="o">=</span><span class="n">selected_feature_name</span><span class="p">)</span>
 <span class="n">ice_plot_2_figure</span><span class="p">,</span> <span class="n">ice_plot_2_axis</span> <span class="o">=</span> <span class="n">ice_plot_2</span>
-<span class="n">pd_plot_overlay</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a></a><span class="p">(</span>
+<span class="n">pd_plot_overlay</span> <span class="o">=</span> <a href="../../generated/fatf.vis.feature_influence.plot_partial_dependence.html#fatf.vis.feature_influence.plot_partial_dependence" title="View documentation for fatf.vis.feature_influence.plot_partial_dependence"><span class="n">fatf_vis_fi</span><span class="o">.</span><span class="n">plot_partial_dependence</span></a><span class="p">(</span>
     <span class="n">pd_array</span><span class="p">,</span>
     <span class="n">ice_linspace</span><span class="p">,</span>
     <span class="n">explanation_class</span><span class="p">,</span>
@@ -381,16 +381,16 @@ can be plotted either as an overlay on top of the ICE plot or on its own.</p>
 <li><img alt="../../_images/sphx_glr_xmpl_transparency_ice_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_xmpl_transparency_ice_004.png" />
 </li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.751 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.186 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-ice-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_ice.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/298b06baea58af689d9832153f16593f/xmpl_transparency_ice.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_ice.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/d99c257be45b2bf423a8250710ef330c/xmpl_transparency_ice.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_ice.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/4183864920b6f3364d06879722822e6a/xmpl_transparency_ice.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_ice.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/905b3e80a72bb69417cd62411083eaf3/xmpl_transparency_ice.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_ice.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -409,7 +409,7 @@ can be plotted either as an overlay on top of the ICE plot or on its own.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -431,13 +431,15 @@ can be plotted either as an overlay on top of the ICE plot or on its own.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

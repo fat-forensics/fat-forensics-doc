@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.fairness.predictions.measures" title="fatf.fairness.predictions.measures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.fairness.predictions.measures</span></code></a>.counterfactual_fairness_check<a class="headerlink" href="#fatf-fairness-predictions-measures-counterfactual-fairness-check" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.fairness.predictions.measures.counterfactual_fairness_check">
-<code class="descclassname">fatf.fairness.predictions.measures.</code><code class="descname">counterfactual_fairness_check</code><span class="sig-paren">(</span><em>unfair_counterfactuals: Optional[numpy.ndarray] = None</em>, <em>distances: Optional[numpy.ndarray] = None</em>, <em>threshold: Optional[float] = None</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/fairness/predictions/measures.py#L104"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.predictions.measures.counterfactual_fairness_check" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.fairness.predictions.measures.</code><code class="descname">counterfactual_fairness_check</code><span class="sig-paren">(</span><em>unfair_counterfactuals: Optional[numpy.ndarray] = None</em>, <em>distances: Optional[numpy.ndarray] = None</em>, <em>threshold: Optional[float] = None</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/fairness/predictions/measures.py#L104"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.fairness.predictions.measures.counterfactual_fairness_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks for counterfactual fairness using a counterfactual fairness arrays.</p>
 <p>There are two different approaches to evaluate counterfactual fairness. The
 first one is to take the <code class="docutils literal notranslate"><span class="pre">distances</span></code> to the counterfactual examples and
@@ -301,7 +301,7 @@ The <code class="docutils literal notranslate"><span class="pre">distances</span
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -323,13 +323,15 @@ The <code class="docutils literal notranslate"><span class="pre">distances</span
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

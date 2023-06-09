@@ -269,7 +269,7 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a></a><span class="p">()</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
@@ -283,7 +283,7 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
 <span class="n">selected_feature_grouping</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">]</span>
 
 <span class="c1"># Get counts, weights and names of the specified grouping</span>
-<span class="n">grp_counts</span><span class="p">,</span> <span class="n">grp_weights</span><span class="p">,</span> <span class="n">grp_names</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias.html#fatf.accountability.data.measures.sampling_bias" title="View documentation for fatf.accountability.data.measures.sampling_bias"><a href="../../generated/fatf.accountability.data.measures.sampling_bias.html#fatf.accountability.data.measures.sampling_bias" title="View documentation for fatf.accountability.data.measures.sampling_bias"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias</span></a></a><span class="p">(</span>
+<span class="n">grp_counts</span><span class="p">,</span> <span class="n">grp_weights</span><span class="p">,</span> <span class="n">grp_names</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias.html#fatf.accountability.data.measures.sampling_bias" title="View documentation for fatf.accountability.data.measures.sampling_bias"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias</span></a><span class="p">(</span>
     <span class="n">iris_X</span><span class="p">,</span> <span class="n">selected_feature_index</span><span class="p">,</span> <span class="n">selected_feature_grouping</span><span class="p">)</span>
 
 <span class="c1"># Print out counts per group</span>
@@ -295,7 +295,7 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
           <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> data points.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">g_name</span><span class="p">,</span> <span class="n">is_are</span><span class="p">,</span> <span class="n">g_count</span><span class="p">))</span>
 
 <span class="c1"># Get the disparity grid</span>
-<span class="n">bias_grid</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias_grid_check.html#fatf.accountability.data.measures.sampling_bias_grid_check" title="View documentation for fatf.accountability.data.measures.sampling_bias_grid_check"><a href="../../generated/fatf.accountability.data.measures.sampling_bias_grid_check.html#fatf.accountability.data.measures.sampling_bias_grid_check" title="View documentation for fatf.accountability.data.measures.sampling_bias_grid_check"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias_grid_check</span></a></a><span class="p">(</span><span class="n">grp_counts</span><span class="p">)</span>
+<span class="n">bias_grid</span> <span class="o">=</span> <a href="../../generated/fatf.accountability.data.measures.sampling_bias_grid_check.html#fatf.accountability.data.measures.sampling_bias_grid_check" title="View documentation for fatf.accountability.data.measures.sampling_bias_grid_check"><span class="n">fatf_dam</span><span class="o">.</span><span class="n">sampling_bias_grid_check</span></a><span class="p">(</span><span class="n">grp_counts</span><span class="p">)</span>
 
 <span class="c1"># Print out disparity per every grouping pair</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The Sampling Bias for *</span><span class="si">{}</span><span class="s1">* feature (index </span><span class="si">{}</span><span class="s1">) grouping is:&#39;</span>
@@ -310,16 +310,16 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
               <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grouping_name_i</span><span class="p">,</span> <span class="n">grouping_name_j</span><span class="p">,</span> <span class="n">is_not</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.089 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.112 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-accountability-xmpl-accountability-data-measure-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/accountability/xmpl_accountability_data_measure.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/ff21b10a04266c7a62dc37bd6b35a36d/xmpl_accountability_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_data_measure.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/dc4bbc2929b5de91a63f1629a7672fb8/xmpl_accountability_data_measure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_accountability_data_measure.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/735e445a8d5f27e0a02c3610ff32de88/xmpl_accountability_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_data_measure.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c0ae17a62703f5d2febc16599e1e84be/xmpl_accountability_data_measure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_accountability_data_measure.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -338,7 +338,7 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -360,13 +360,15 @@ The Sampling Bias for *petal length (cm)* feature (index 2) grouping is:
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

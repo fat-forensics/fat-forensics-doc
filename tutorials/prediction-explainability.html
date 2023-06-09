@@ -291,7 +291,7 @@ set, which we will use for this tutorial:</p>
 human-readable format. To make that easier let us define a function that will
 do that for us:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">describe_data_point</span><span class="p">(</span><span class="n">data_point_index</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;Prints out a data point with the specified given index.&quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints out a data point with the specified given index.&quot;&quot;&quot;</span>
 <span class="gp">... </span>    <span class="n">dp_to_explain</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">,</span> <span class="p">:]</span>
 <span class="gp">... </span>    <span class="n">dp_to_explain_class_index</span> <span class="o">=</span> <span class="n">iris_target</span><span class="p">[</span><span class="n">data_point_index</span><span class="p">]</span>
 <span class="gp">... </span>    <span class="n">dp_to_explain_class</span> <span class="o">=</span> <span class="n">iris_target_names</span><span class="p">[</span><span class="n">dp_to_explain_class_index</span><span class="p">]</span>
@@ -431,7 +431,7 @@ of setosa) is more similar to versicolor than virginica.</p>
 <p>The small differences in some of the features and duplicated counterfactual
 data points are due to numerical instabilty of floating point numbers and
 have nothing to do with the counterfactuals. This can be resolved with
-<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.around.html#numpy.around" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.around</span></code></a>:</p>
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.around.html#numpy.around" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.around</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">setosa_cfs_data</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">setosa_cfs_data_around</span>
 <span class="go">array([[4.8, 3.4, 3.1, 0.2],</span>
@@ -816,7 +816,7 @@ the counterfactuals, LIME and data density functionality:</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -838,13 +838,15 @@ the counterfactuals, LIME and data density functionality:</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.transparency.sklearn.linear_model" title="fatf.transparency.sklearn.linear_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.transparency.sklearn.linear_model</span></code></a>.SKLearnLinearModelExplainer<a class="headerlink" href="#fatf-transparency-sklearn-linear-model-sklearnlinearmodelexplainer" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer">
-<em class="property">class </em><code class="descclassname">fatf.transparency.sklearn.linear_model.</code><code class="descname">SKLearnLinearModelExplainer</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>class_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/linear_model.py#L182"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.transparency.sklearn.linear_model.</code><code class="descname">SKLearnLinearModelExplainer</code><span class="sig-paren">(</span><em>clf: sklearn.base.BaseEstimator</em>, <em>feature_names: Optional[List[str]] = None</em>, <em>class_names: Optional[List[str]] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/sklearn/linear_model.py#L182"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>A scikit-learn linear model explainer class.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.0.2.</span></p>
@@ -280,7 +280,7 @@ implemented by this class please see its parent class:
 </table>
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance">
-<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/transparency/explainers.py#L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an explanation of a single data point (instance).</p>
 <p>This can be an explanation of a data point from a data set or of a
 prediction provided by a predictive model.</p>
@@ -288,13 +288,13 @@ prediction provided by a predictive model.</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model">
-<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">explain_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/transparency/explainers.py#L35"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.explain_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a model explanation.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance">
-<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/linear_model.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">feature_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/sklearn/linear_model.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.feature_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extracts features importance from the <code class="docutils literal notranslate"><span class="pre">clf</span></code> predictor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -310,7 +310,7 @@ features in the training data array.)</p>
 
 <dl class="method">
 <dt id="fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class">
-<code class="descname">map_class</code><span class="sig-paren">(</span><em>clf_class: Union[int, str]</em><span class="sig-paren">)</span> &#x2192; str<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="Permalink to this definition">¶</a></dt>
+<code class="descname">map_class</code><span class="sig-paren">(</span><em>clf_class: Union[int, str]</em><span class="sig-paren">)</span> &#x2192; str<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/transparency/sklearn/tools.py#L336"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.transparency.sklearn.linear_model.SKLearnLinearModelExplainer.map_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maps a class id output by the classifier to a class name.</p>
 <p>A mapping will only be provided if the class was initialised with class
 names or an array of possible predictions was extracted form the
@@ -362,7 +362,7 @@ can output.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -384,13 +384,15 @@ can output.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

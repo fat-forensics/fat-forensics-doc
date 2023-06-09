@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.models.validation" title="fatf.utils.models.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.models.validation</span></code></a>.check_model_functionality<a class="headerlink" href="#fatf-utils-models-validation-check-model-functionality" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.models.validation.check_model_functionality">
-<code class="descclassname">fatf.utils.models.validation.</code><code class="descname">check_model_functionality</code><span class="sig-paren">(</span><em>model_object: Union[object, type], require_probabilities: bool = False, suppress_warning: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/models/validation.py#L20"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.validation.check_model_functionality" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.models.validation.</code><code class="descname">check_model_functionality</code><span class="sig-paren">(</span><em>model_object: Union[object, type], require_probabilities: bool = False, suppress_warning: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/models/validation.py#L20"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.models.validation.check_model_functionality" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks whether a model object has all the required functionality.</p>
 <p>Examines a <code class="docutils literal notranslate"><span class="pre">model_object</span></code> and ensures that it has all the required
 methods with the correct number of parameters (excluding <code class="docutils literal notranslate"><span class="pre">self</span></code>):
@@ -304,7 +304,7 @@ a boolean.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -326,13 +326,15 @@ a boolean.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

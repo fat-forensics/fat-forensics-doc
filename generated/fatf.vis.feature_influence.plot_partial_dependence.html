@@ -251,7 +251,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.vis.feature_influence" title="fatf.vis.feature_influence"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.vis.feature_influence</span></code></a>.plot_partial_dependence<a class="headerlink" href="#fatf-vis-feature-influence-plot-partial-dependence" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.vis.feature_influence.plot_partial_dependence">
-<code class="descclassname">fatf.vis.feature_influence.</code><code class="descname">plot_partial_dependence</code><span class="sig-paren">(</span><em>pd_array: numpy.ndarray</em>, <em>feature_linespace: numpy.ndarray</em>, <em>class_index: int</em>, <em>feature_name: Optional[str] = None</em>, <em>class_name: Optional[str] = None</em>, <em>plot_axis: Optional[matplotlib.axes._axes.Axes] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[Optional[matplotlib.figure.Figure], matplotlib.axes._axes.Axes]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/vis/feature_influence.py#L358"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_partial_dependence" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.vis.feature_influence.</code><code class="descname">plot_partial_dependence</code><span class="sig-paren">(</span><em>pd_array: numpy.ndarray</em>, <em>feature_linespace: numpy.ndarray</em>, <em>class_index: int</em>, <em>feature_name: Optional[str] = None</em>, <em>class_name: Optional[str] = None</em>, <em>plot_axis: Optional[matplotlib.axes._axes.Axes] = None</em><span class="sig-paren">)</span> &#x2192; Tuple[Optional[matplotlib.figure.Figure], matplotlib.axes._axes.Axes]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/vis/feature_influence.py#L358"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.vis.feature_influence.plot_partial_dependence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots Partial Dependence for a selected class.</p>
 <p>This function raises the same exceptions and errors as the
 <a class="reference internal" href="fatf.vis.feature_influence.plot_individual_conditional_expectation.html#fatf.vis.feature_influence.plot_individual_conditional_expectation" title="fatf.vis.feature_influence.plot_individual_conditional_expectation"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.vis.feature_influence.plot_individual_conditional_expectation</span></code></a>
@@ -329,7 +329,7 @@ axis (<code class="docutils literal notranslate"><span class="pre">plot_axis</sp
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -351,13 +351,15 @@ axis (<code class="docutils literal notranslate"><span class="pre">plot_axis</sp
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

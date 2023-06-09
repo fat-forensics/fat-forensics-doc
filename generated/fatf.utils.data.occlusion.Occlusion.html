@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.data.occlusion" title="fatf.utils.data.occlusion"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.data.occlusion</span></code></a>.Occlusion<a class="headerlink" href="#fatf-utils-data-occlusion-occlusion" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="fatf.utils.data.occlusion.Occlusion">
-<em class="property">class </em><code class="descclassname">fatf.utils.data.occlusion.</code><code class="descname">Occlusion</code><span class="sig-paren">(</span><em>image: numpy.ndarray, segments: numpy.ndarray, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/occlusion.py#L31"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">fatf.utils.data.occlusion.</code><code class="descname">Occlusion</code><span class="sig-paren">(</span><em>image: numpy.ndarray, segments: numpy.ndarray, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/data/occlusion.py#L31"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements functionality for (partiall) occlusion a segmented image.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.1.1.</span></p>
@@ -359,7 +359,7 @@ An RGB colour specifier is not a 3-tuple.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments">
-<code class="descname">occlude_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int]], image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/occlusion.py#L424"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">occlude_segments</code><span class="sig-paren">(</span><em>segments_subset: Union[int, List[int]], image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/data/occlusion.py#L424"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the image with a specified subset of segments occluded.</p>
 <p>The occlusion is applied on top of the image used to initialise this
 class; alternatively, an external <code class="docutils literal notranslate"><span class="pre">image</span></code> of the same type and
@@ -410,7 +410,7 @@ for the class segmentation or some of its elements are duplicated.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised">
-<code class="descname">occlude_segments_vectorised</code><span class="sig-paren">(</span><em>vectorised_segments_subset: numpy.ndarray, image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/occlusion.py#L521"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="Permalink to this definition">¶</a></dt>
+<code class="descname">occlude_segments_vectorised</code><span class="sig-paren">(</span><em>vectorised_segments_subset: numpy.ndarray, image: Optional[numpy.ndarray] = None, colour: Union[str, int, Tuple[int, int, int], None] = None</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/data/occlusion.py#L521"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.occlude_segments_vectorised" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates multiple images with a selected subsets of segments occluded.</p>
 <p>The segments to be occluded are provided as boolean vectors;
 either a 1-D numpy array of length equal to the number of segments
@@ -472,7 +472,7 @@ array does not agree with the same parameters of the class image.</p>
 
 <dl class="method">
 <dt id="fatf.utils.data.occlusion.Occlusion.set_colouring_strategy">
-<code class="descname">set_colouring_strategy</code><span class="sig-paren">(</span><em>colour: Union[str, int, Tuple[int, int, int]]</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/data/occlusion.py#L184"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_colouring_strategy</code><span class="sig-paren">(</span><em>colour: Union[str, int, Tuple[int, int, int]]</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/data/occlusion.py#L184"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.data.occlusion.Occlusion.set_colouring_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects the colouring strategy.</p>
 <p>For colour images this can be specified with one of the following
 strings:</p>
@@ -562,7 +562,7 @@ An RGB colour specifier is not a 3-tuple.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -584,13 +584,15 @@ An RGB colour specifier is not a 3-tuple.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

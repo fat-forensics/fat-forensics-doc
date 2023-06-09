@@ -323,11 +323,11 @@ repository under the following names:</p>
 <li><p><a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/requirements-dev.txt">requirements-dev.txt</a> – the development dependencies of the package.</p></li>
 </ul>
 <p>All of these can be installed directly from these files with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r &lt;dependencies file name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>&lt;dependencies<span class="w"> </span>file<span class="w"> </span>name&gt;
 </pre></div>
 </div>
 <p>or alongside the package with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e fat-forensics<span class="o">[</span>all,dev<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>fat-forensics<span class="o">[</span>all,dev<span class="o">]</span>
 </pre></div>
 </div>
 <p>given that your current directory is the root directory of the package. (See
@@ -340,10 +340,10 @@ the section below for more information.)</p>
 achieve that you need to first clone our git repository and then install FAT
 Forensics as an editable package alongside all the required dependencies. To
 this end, please execute the four commands shown below.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/fat-forensics/fat-forensics.git
-$ <span class="nb">cd</span> fat-forensics
-$ git checkout dev
-$ pip install -e <span class="s1">&#39;.[all,dev]&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/fat-forensics/fat-forensics.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>fat-forensics
+$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>dev
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[all,dev]&#39;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -370,7 +370,7 @@ configuration files held in the <a class="reference external" href="https://gith
 <p><strong>Random number generator</strong></p>
 <p>Since some of the package’s tests sample random numbers or are influenced by
 “randomness” of its dependencies, the package allows to fix the random seed
-of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html#module-numpy.random" title="(in NumPy v1.23)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
+of both Python’s <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html#module-numpy.random" title="(in NumPy v1.24)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.random</span></code></a> random number
 generation modules. This can be achieved by setting the <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code> system
 variable to a selected number. (For tests this is set to 42 in the
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a>.) If set, the <a class="reference internal" href="generated/fatf.setup_random_seed.html#fatf.setup_random_seed" title="fatf.setup_random_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">fatf.setup_random_seed</span></code></a> function, which is
@@ -385,7 +385,7 @@ calling the <a class="reference internal" href="generated/fatf.setup_random_seed
 <p>When writing the code we try to follow the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.
 Code formatting adherence to this guideline can be checked with
 <em>Yet Another Python Formater</em> (<a class="reference external" href="https://github.com/google/yapf">YAPF</a>) by executing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-yapf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>linting-yapf
 </pre></div>
 </div>
 <p>which will highlight what needs to be changed rather than reformat the code
@@ -393,8 +393,8 @@ automatically. The configuration of <a class="reference external" href="https://
 <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.style.yapf">.style.yapf</a> file in the root directory of the package.</p>
 <p>Code formatting is also checked with <a class="reference external" href="https://pylint.pycqa.org">Pylint</a> and <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a>. These can be executed
 with the following two commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
-$ make linting-flake8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>linting-pylint
+$<span class="w"> </span>make<span class="w"> </span>linting-flake8
 </pre></div>
 </div>
 <p>The configuration of both these linters can be found in <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.pylintrc">.pylintrc</a> and
@@ -413,7 +413,7 @@ directory of the package.</p>
 The typing of the code is checked statically with <a class="reference external" href="http://mypy-lang.org/">mypy</a>. Our mypy configuration
 file – <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.mypy.ini">.mypy.ini</a> – is placed in the root directory of the package and the
 type checking is performed by executing the following line of code:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make check-types
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>check-types
 </pre></div>
 </div>
 </section>
@@ -429,16 +429,16 @@ the package.</p>
 <h4>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h4>
 <p>The unit tests for the package are held in directories named <code class="docutils literal notranslate"><span class="pre">tests</span></code> created
 separately for each module. To test the code you can execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make <span class="nb">test</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span><span class="nb">test</span>
 </pre></div>
 </div>
 <p>and to get the code coverage:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make code-coverage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>code-coverage
 </pre></div>
 </div>
 <p>However, we recommend to execute both these steps at once to save time by
 using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make test-with-code-coverage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>test-with-code-coverage
 </pre></div>
 </div>
 <div class="admonition note">
@@ -453,18 +453,18 @@ this module.</p>
 <h4>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h4>
 <p>There are three different tests run on the documentation. The first one checks
 validity of links in the documentation and is run with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-linkcheck
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>doc-linkcheck
 </pre></div>
 </div>
 <p>The second one checks which Python objects, methods and functions are not
 documented (documentation coverage) and can be run with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-coverage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>doc-coverage
 </pre></div>
 </div>
 <p>Finally, the code snippets spread throughout the documentation are run to test
 whether their output agrees with the one provided in the documentation. These
 tests can be run with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make test-doc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>test-doc
 </pre></div>
 </div>
 <div class="admonition note">
@@ -479,17 +479,17 @@ we are using pure doctest syntax, i.e. no group annotations are possible.</p>
 <h2>Step by Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
 <p>To summarise, the following commands should be executed to fully test the
 package (cf. <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/.github/workflows/tests.yml">.github/workflows/tests.yml</a> for more details):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make linting-pylint
-$ make linting-flake8
-$ make linting-yapf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>linting-pylint
+$<span class="w"> </span>make<span class="w"> </span>linting-flake8
+$<span class="w"> </span>make<span class="w"> </span>linting-yapf
 
-$ make check-types
+$<span class="w"> </span>make<span class="w"> </span>check-types
 
-$ make test-with-code-coverage
+$<span class="w"> </span>make<span class="w"> </span>test-with-code-coverage
 
-$ make doc-linkcheck
-$ make doc-coverage
-$ make test-doc
+$<span class="w"> </span>make<span class="w"> </span>doc-linkcheck
+$<span class="w"> </span>make<span class="w"> </span>doc-coverage
+$<span class="w"> </span>make<span class="w"> </span>test-doc
 </pre></div>
 </div>
 </section>
@@ -504,13 +504,13 @@ part of the documentation.</p>
 is documented using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/">numpydoc</a> docstring syntax and structure. The code example
 galleries are generated with the <a class="reference external" href="https://sphinx-gallery.github.io/">sphinx-gallery</a> extension.</p>
 <p>To build the documentation you can execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>doc-html
 </pre></div>
 </div>
 <p>In addition to this command being available in the main <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/Makefile">Makefile</a> of the
 project, there is a <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/doc/Makefile">documentation-specific Makefile</a> in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory
 that supports the following documentation build command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>html
 </pre></div>
 </div>
 <p>Since some of the code snippets (in particular the ones placed in the
@@ -526,7 +526,7 @@ template or documentation may not trigger the automatic rebuilding of the
 generated files. In such cases the <code class="docutils literal notranslate"><span class="pre">doc/generated</span></code> directory has to be
 cleaned. This can be achieved with the <a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/master/doc/Makefile">documentation-specific Makefile</a>
 via the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make doc-clean
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>doc-clean
 </pre></div>
 </div>
 </div>
@@ -789,7 +789,7 @@ for completeness.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -811,13 +811,15 @@ for completeness.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

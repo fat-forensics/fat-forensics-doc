@@ -251,10 +251,10 @@
 <h1><a class="reference internal" href="../api.html#module-fatf" title="fatf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf</span></code></a>.setup_random_seed<a class="headerlink" href="#fatf-setup-random-seed" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.setup_random_seed">
-<code class="descclassname">fatf.</code><code class="descname">setup_random_seed</code><span class="sig-paren">(</span><em>seed: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/__init__.py#L85"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_random_seed" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.</code><code class="descname">setup_random_seed</code><span class="sig-paren">(</span><em>seed: Optional[int] = None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/__init__.py#L85"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.setup_random_seed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets up Python’s and numpy’s random seed.</p>
 <p>Fixture for the tests to assure globally controllable seeding of random
-number generators in both Python (<a class="reference external" href="https://docs.python.org/3/library/random.html#random.seed" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">random.seed</span></code></a>) and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>
+number generators in both Python (<a class="reference external" href="https://docs.python.org/3/library/random.html#random.seed" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">random.seed</span></code></a>) and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>
 (<code class="docutils literal notranslate"><span class="pre">numpy.random.seed</span></code>). The seed is taken either from <code class="docutils literal notranslate"><span class="pre">FATF_SEED</span></code>
 system variable or from the <code class="docutils literal notranslate"><span class="pre">seed</span></code> input parameter; if neither of
 the two is given, it is sampled uniformly from 0–2147483647 range.</p>
@@ -325,7 +325,7 @@ integer.</p>
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -347,13 +347,15 @@ integer.</p>
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

@@ -258,7 +258,7 @@ details.)</p>
 <span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="c1"># Load data</span>
-<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a></a><span class="p">()</span>
+<span class="n">iris_data_dict</span> <span class="o">=</span> <a href="../../generated/fatf.utils.data.datasets.load_iris.html#fatf.utils.data.datasets.load_iris" title="View documentation for fatf.utils.data.datasets.load_iris"><span class="n">fatf_datasets</span><span class="o">.</span><span class="n">load_iris</span></a><span class="p">()</span>
 <span class="n">iris_X</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
 <span class="n">iris_y</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">iris_feature_names</span> <span class="o">=</span> <span class="n">iris_data_dict</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span>
@@ -267,7 +267,7 @@ details.)</p>
 </div>
 <p>Start by describing all of the features in the data set.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Explain all of the features</span>
-<span class="n">features_description</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_array</span></a></a><span class="p">(</span><span class="n">iris_X</span><span class="p">)</span>
+<span class="n">features_description</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_array</span></a><span class="p">(</span><span class="n">iris_X</span><span class="p">)</span>
 
 <span class="c1"># Conver feature ids into feature names</span>
 <span class="n">named_features_description</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
@@ -335,7 +335,7 @@ details.)</p>
 <span class="n">per_class_explanation</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_mask</span> <span class="ow">in</span> <span class="n">per_class_row_mask</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">class_array</span> <span class="o">=</span> <span class="n">iris_X</span><span class="p">[</span><span class="n">class_mask</span><span class="p">,</span> <span class="n">selected_feature_id</span><span class="p">]</span>
-    <span class="n">per_class_explanation</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_array</span></a></a><span class="p">(</span><span class="n">class_array</span><span class="p">)</span>
+    <span class="n">per_class_explanation</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_array.html#fatf.transparency.data.describe_functions.describe_array" title="View documentation for fatf.transparency.data.describe_functions.describe_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_array</span></a><span class="p">(</span><span class="n">class_array</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Per-class Data Description of each feature for class &#39;</span>
       <span class="s2">&quot;&#39;</span><span class="si">{}</span><span class="s2">&#39; (class index </span><span class="si">{}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selected_feature_name</span><span class="p">,</span>
@@ -376,14 +376,14 @@ details.)</p>
 </div>
 <p>Finally, describe the class distribution.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the Data Description for the target variable</span>
-<span class="n">target_explanation</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_categorical_array</span></a></a><span class="p">(</span><span class="n">iris_y</span><span class="p">)</span>
+<span class="n">target_explanation</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_categorical_array</span></a><span class="p">(</span><span class="n">iris_y</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data Description of the target array:&#39;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">target_explanation</span><span class="p">)</span>
 
 <span class="c1"># Since the targer array is numerical, we can convert it to class names first</span>
-<span class="n">iris_y_named</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a></a><span class="p">([</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_y</span><span class="p">])</span>
-<span class="n">target_explanation_named</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_categorical_array</span></a></a><span class="p">(</span><span class="n">iris_y_named</span><span class="p">)</span>
+<span class="n">iris_y_named</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="View documentation for numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="n">iris_class_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris_y</span><span class="p">])</span>
+<span class="n">target_explanation_named</span> <span class="o">=</span> <a href="../../generated/fatf.transparency.data.describe_functions.describe_categorical_array.html#fatf.transparency.data.describe_functions.describe_categorical_array" title="View documentation for fatf.transparency.data.describe_functions.describe_categorical_array"><span class="n">fatf_dd</span><span class="o">.</span><span class="n">describe_categorical_array</span></a><span class="p">(</span><span class="n">iris_y_named</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data Description of the target array mapped to class names:&#39;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">target_explanation_named</span><span class="p">)</span>
@@ -406,16 +406,16 @@ Data Description of the target array mapped to class names:
  &#39;unique_counts&#39;: array([50, 50, 50])}
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.074 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.053 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-sphinx-gallery-auto-transparency-xmpl-transparency-data-desc-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/fat-forensics/fat-forensics-doc/master?filepath=notebooks/sphinx_gallery_auto/transparency/xmpl_transparency_data_desc.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" width="150px" /></a>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/8b7777b43309fb3acf0cee759c1a343d/xmpl_transparency_data_desc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_data_desc.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/eabdb5434a608bfdfa8e464eca1b3fcc/xmpl_transparency_data_desc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">xmpl_transparency_data_desc.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/d69e888a2599ef8246345ca8400dc2e0/xmpl_transparency_data_desc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_data_desc.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/0fcb97e619035dbde9e1d72774a89ff4/xmpl_transparency_data_desc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">xmpl_transparency_data_desc.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -434,7 +434,7 @@ Data Description of the target array mapped to class names:
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -456,13 +456,15 @@ Data Description of the target array mapped to class names:
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.testing.warnings" title="fatf.utils.testing.warnings"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.warnings</span></code></a>.handle_warnings_filter_pattern<a class="headerlink" href="#fatf-utils-testing-warnings-handle-warnings-filter-pattern" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.testing.warnings.handle_warnings_filter_pattern">
-<code class="descclassname">fatf.utils.testing.warnings.</code><code class="descname">handle_warnings_filter_pattern</code><span class="sig-paren">(</span><em>warning_filter_pattern: Union[None, str, Pattern[AnyStr]], ignore_case: bool = False</em><span class="sig-paren">)</span> &#x2192; Pattern[AnyStr]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/utils/testing/warnings.py#L47"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.warnings.handle_warnings_filter_pattern" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.testing.warnings.</code><code class="descname">handle_warnings_filter_pattern</code><span class="sig-paren">(</span><em>warning_filter_pattern: Union[None, str, Pattern[AnyStr]], ignore_case: bool = False</em><span class="sig-paren">)</span> &#x2192; Pattern[AnyStr]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/utils/testing/warnings.py#L47"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.warnings.handle_warnings_filter_pattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a patter within a warning filter into a regex pattern.</p>
 <p>If the input pattern is <code class="docutils literal notranslate"><span class="pre">None</span></code> an empty (string) regex pattern is
 returned. A string pattern is complied directly into a regex pattern. If
@@ -293,7 +293,7 @@ specified by the <code class="docutils literal notranslate"><span class="pre">ig
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -315,13 +315,15 @@ specified by the <code class="docutils literal notranslate"><span class="pre">ig
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   

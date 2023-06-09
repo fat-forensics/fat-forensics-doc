@@ -240,7 +240,7 @@
 <h1><a class="reference internal" href="../api.html#module-fatf.utils.testing.imports" title="fatf.utils.testing.imports"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fatf.utils.testing.imports</span></code></a>.module_import_tester<a class="headerlink" href="#fatf-utils-testing-imports-module-import-tester" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="fatf.utils.testing.imports.module_import_tester">
-<code class="descclassname">fatf.utils.testing.imports.</code><code class="descname">module_import_tester</code><span class="sig-paren">(</span><em>module_name: str</em>, <em>when_missing: bool = True</em><span class="sig-paren">)</span> &#x2192; Iterator[None]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/0b63dc7/fatf/../../../../mnt/data/shared/ks1591/pyenv/versions/3.7.13/lib/python3.7/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">fatf.utils.testing.imports.</code><code class="descname">module_import_tester</code><span class="sig-paren">(</span><em>module_name: str</em>, <em>when_missing: bool = True</em><span class="sig-paren">)</span> &#x2192; Iterator[None]<a class="reference external" href="https://github.com/fat-forensics/fat-forensics/blob/f6ce085/fatf/../../../../../mnt/data/shared/ks1591/pyenv/versions/3.7.16/lib/python3.7/contextlib.py#L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatf.utils.testing.imports.module_import_tester" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a context for testing imports of installed and missing modules.</p>
 <p>This context can be used to get an environment where a particular module
 (<code class="docutils literal notranslate"><span class="pre">module_name</span></code>) is either not installed – <code class="docutils literal notranslate"><span class="pre">when_missing=True</span></code> – or
@@ -263,8 +263,8 @@ that the import succeeds.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python 3.6 and later will result in
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
-<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code></a>, however Python 3.5 will raise
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -299,7 +299,7 @@ available for import or not. Defaults to <code class="docutils literal notransla
   <div class="container cusotm-footer">
     <div class="row">
       <div class="col-3">
-        &copy; 2018--2022, Kacper Sokol et al.
+        &copy; 2018--2023, Kacper Sokol et al.
       </div>
       <div class="col-6">
         <a class="footer-img-link" href="contributors.html#funding">
@@ -321,13 +321,15 @@ available for import or not. Defaults to <code class="docutils literal notransla
   </div>
 
   
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEM8Y8CHX"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-142154492-1', 'auto');
-    ga('set', 'anonymizeIp', true);
-    ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FHEM8Y8CHX');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
 
   
